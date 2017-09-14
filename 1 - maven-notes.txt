@@ -1,0 +1,224 @@
+Maven Documentation
+---------------------
+ -Introduction
+   OS/PI
+   Apache
+   XML 
+ -Wht is a Build Tool
+   generate code
+   compile
+   package
+   deploy on server
+ - Ant Vs Maven
+	actions are defined in ant	-- in Maven you say wht to build not how to build
+	sequence is defined in ant	-- how to build is defined in maven build life cycle
+	No default directory layout	-- standard directory struture follows
+	Ant can follow you 			-- You need to follow maven
+	
+ - Installation and set M2_HOME
+ - POM.xml and its contents
+   contains source code location, test code, dependency libraries location, version, repos etc 
+   Explain the diagram and show sample pom.xml
+   Project Object model (POM)
+	
+	show a sample pom.xml
+	
+ - Build life cycle, phases, goals
+	LifeCycle 
+	----------------------------------  Life Cycle
+	   |-------------|  |-----------| |------------|  Build Phases   	
+		|--| |--||--| 								  Build Golas
+	When you run maven you may pass phase, goal or lifecyle as a command
+	- If a life cycle requested all build phases will be executed
+	- If a phase requested all prior phases will be executed automatically
+ - Dependencies and repositories
+   This is the first task which looks for dependecies and downloads them and keeps in local repo
+ - Build Plugins
+	these are extra goals inserted in standard build phases incase if the standard phases are not sufficient for you
+ - Build Profiles
+    building the project for different environments, you insert different profiles and request to which profile you want to build
+	
+ - POM exaplanation with all elements
+   
+   ModelVersion- talks about wht version of pom.xml you are using  - 4.0.0 used for maven2 and 3
+   groupid - any arbitary value or you can use your company name
+   artifactid - uniq id and name of the project within the group, used while creating jar/war/ear files
+   version - current version of the project
+   name - human readable name
+   url - URL of project website
+   packaging - style of packaging ( jar/war/ear etc)
+   
+   Dependencies - defines list of dependent libraries and it downloads them from defined repository
+   repositories - alternative location to look for depedencies apart from default repos
+   build - specifies configuration on how to build the project
+   reports - specifies configuration on what reports need to generate
+   
+ - Standard directory structure in maven
+   Makes your POM smaller and easier
+   easier to understand for any one
+   easier to integrate plugins
+    src/main/java -- Java source code
+	   /main/resources -- other resources application needs
+	   /main/filters -- resource filters in the form of property files, used run time
+	   /main/config  -- configuration file
+	   /main/webapp -- web application dir for a war project
+	   /main/test --unit tests
+	   /main/test/resources -- as usual it dependencies
+	   /main/test/filters -- for test cases
+	target/main/java/sdfsdf.class
+			Helloworld_1.0.0.jar
+	
+	pom.xml
+	
+ - Setting files are two
+   you can set all settings across all pom.xml files
+   location of local repo
+   active build profile etc
+   One global settings.xml is located under  $M2_HOME/conf/settings.xml
+   The user directory is another one ${user.home}.m2/settings.xml
+   The user settings.xml values will be overriden by default if it is present
+   
+-  Running Maven
+   build life cycles -- https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
+		- clean, default, site
+		default lifecycle -> generate-source  -- These are all phases in default life cycle
+							 *validate   -- dowloads dependencies
+							 *compile
+							 test-compile
+							 *test 
+							 *package 
+							 integration-test
+							 verify
+							 *install
+							 *deploy
+		To run default lifecycle just call this command  ( mvn deploy)
+		mvn clean install --> Runs clean first then all phases in install
+		
+    goals:- These are subset of finer tasks within a build phase
+	      you can call a goal independently like below
+		  mvn dependency:copy-dependencies  --> phase name:goal name
+-	External dependencies
+    If you want a library/jar to be consider in build which is not present in any repo in your maven cycle you can represent it as below in pom.xml
+	<dependency> 
+		<groupId>mydependency</groupId> 
+		<artifactId>mydependency</artifactId> 
+		<version>1.0</version> 
+		<systemPath>${basedir}\war\WEB-INF\lib\mydependency.jar</systemPath> 
+	</dependency>
+- 	Create a standalone application 
+	Archetypes: maven project templates
+	$mvn archetype:generate  It will ask you to provide coordinates to generate maven project
+	run all lifecycle phases
+
+	build plugins:
+	--------------
+	- Wanted to execute a jar file, which cannot be achieved with default life cycle we need to download a plugin and make use of its tasks.
+	mvn archetype:generate -DgroupId=com.mycompany -DartifactId=App -DpackageName=com.mycompany.App -Dversion=1.0
+	
+	mvn clean package exec:java
+
+		*************************
+		 <build>
+			<plugins>
+				<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>com.mycompany.App</mainClass>
+						</manifest>
+					</archive>
+					<descriptorRefs>
+					  <descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+				</plugin>
+				<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.3.2</version>
+				<configuration>
+					<mainClass>com.mycompany.App</mainClass>
+					<arguments>
+						<argument>-jar</argument>
+						<argument>target/App-1.0.jar</argument>
+					</arguments>
+				</configuration>
+				</plugin>
+			</plugins>
+		</build>
+******************************
+-   Dependency types
+	Snapshot -- Which are under development
+				When you mentioned snapshot dependency it will always downloads the snapshot libraries even they exist in local repo to make sure you have latest updated dev library
+				you can mention your artifact dev version as <version>1.0-SNAPSHOT</version> by appending like this
+	Release	--	Which are released
+-	Maven Repositories -- are directories of packaged jar files with metadata 
+	Local, remote and central
+	Maven first searched local then central then if it dint find anywhere in these two it finds in remote repo if it is specified in pom.xml
+	Local repository:-
+	- Maven downloads the dependents only once when multiple projects depends on same libraries
+	- You own projects can be installed in local repo and used for other modules by mvn install command
+	- You can change default maven local repo path with below config in settings.xml
+		<settings> 
+			<localRepository> d:\data\java\products\maven\repository </localRepository> 
+		</settings>
+	Central repository:-
+	- Maintained by maven community, no need of any configuraiton to be provided
+	Remote repository:-
+	- Within organisation to maitain all modules artifacts in private space instead of mvn community repo
+	- You need to mention the config in pom.xml to refer remote repo
+		<repositories> 
+			<repository> 
+				<id>jenkov.code</id> 
+				<url>http://maven.jenkov.com/maven2/lib</url> 
+			</repository> 
+		</repositories>
+	
+-   Trnasitive dependency
+	In maven 1.0 you would have defined each and every jar and its version to download. but in newer maven version you no need to worry about this as maven will take care of downloading the dependencies of your dependent library files
+https://support.sonatype.com/entries/21283268-Configure-Maven-to-Deploy-to-Nexus
+-   Site Generation and Reporting
+	Generates the website under src/site/index.html which includes all the web pages of that app
+	
+-   Build profiles: - we can build the project for a given profile by passing mvn -P test  with a profile name or   we can mention the profile name in settings.xml
+		<profiles>
+			<profile>
+				<id>test</id>
+				<build></build>
+				.
+				.
+			</profile>
+		</profiles>
+-  Maven Plugins
+	maven plugin is collection of one or more goals together
+	
+- Configure Nexus repository
+	Follow below link instructions
+	https://support.sonatype.com/entries/21283268-Configure-Maven-to-Deploy-to-Nexus
+	
+- Create project source code
+	Stand alone
+	mvn archetype:create -DgroupId=com.leadapp -DartifactId=demo-mvn -DpackageName=com.leadapp.mvndemo -Dversion=1.0
+	
+	Webapps
+	mvn archetype:generate -DgroupId=com.webapp -DartifactId=samplewebapp -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false -Dversion=1.0
+
+
+
+- Profile explanation
+  - http://www.tutorialspoint.com/maven/maven_build_profiles.htm
+  - Explain active profile and normail execution difference
+    mvn test -Ptest
+  - Default profile adding within profile section tag
+    <activation>
+      <activeByDefault>true</activeByDefault>
+	</activation>
+
+- Multi Module project example and executions : ch-multi (whether app project demo)
+  
+
+- ANT to Maven migrations:
+  https://code.google.com/p/mavenize-tool/
+  https://code.google.com/archive/p/mavenize-tool/downloads
+

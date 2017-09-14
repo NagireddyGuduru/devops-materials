@@ -1,0 +1,319 @@
+Git commands :-
+------------------------
+
+Git clone jay@192.168.111.128:projectrepo.git
+
+-- To stage/add the changes to Workspace
+
+1. Add /stage  to workspace 
+   git add Hello.txt
+
+2. Commit to local repo
+   git commit -m"some message"
+3. git push
+
+-- Delete  a file
+
+ git rm Hai.txt
+
+-- To see workpace changes
+git status
+
+git commit file -m"message"
+
+-- Check the log 
+git log
+
+git log --oneline
+git log filename
+git log --author=jay
+-- sumary log
+git shortlog 
+-- Push all local commits into remote repo
+
+git push 
+
+
+------------------
+git remote -v
+
+git remote show origin
+
+-- Default will be origin
+-- We can add multiple repositories as well
+git remote add github_http https://chiranjeevi.patel@github.com/vogella/otafligh.git 
+
+git push github_http
+
+-- Check the added repo's
+git remote -v
+
+------------------------------BRANCHING------------------------------
+Branches are called named pointers of commits.
+--Show list of branches
+git branch 
+
+--list all branches including remote branches
+git branch -a 
+
+-- Display remote branches
+git branch -r
+
+-- Default branch was master
+--List down all branches and tags from remote repository
+git ls-remote origin 
+
+-- Create a new branch
+git branch Release1
+BRanch will be created from master -> Release1
+-- Create a branch and switch to it immediately
+git checkout -b Release2
+
+-- By default it will switch to Release1 branch once you created , You need to switch it by checking it out
+git checkout Release1  
+
+-- Rename the created branch
+git branch -m Release2 Release3
+
+-- Delete a branch ( make sure you are not in that branch )
+git branch -d Release3
+-- How to delete a branch and push it to remote repo
+git push origin :Release3
+
+-- How to push changes into git branch
+-- Make some changes and commit
+git push origin Release1
+
+-- Diff between branches
+git diff master Release1
+
+----------------TAGS-----------------------------------
+-- In git tags are read only
+-- Snapshot of a perticular revision number having a name and meant for read only
+-- Create a light weight tag
+git tag 1.0.1
+
+-- Show git tag revision
+git show 1.0.1
+
+-- List of all tags
+git tag
+
+-- Create a annotated tag with some message
+git tag 1.1 -m"Release 1.1 completed"
+
+-- checkout a tag
+git checkout 1.0.1
+
+git tag 
+
+git push origin 1.0.1   --> Push a tag to remote repo
+-- Never commit into tags which will cause you the commits loosing from previous branch / master
+
+-- Delete a tag
+git tag -d 1.0.1   --> delete in local
+git push origin :refs/tags/1.0.1  --> Same thing delete in remote repo
+
+--  Naming convention
+Major.Minor.Patch
+
+----------------------------------------------------------
+-- To check the diff between staging area and git
+git diff  
+
+-- see a revision changes
+
+git show 5746aa0c14ddc1b6800ade2e566455ff7ed6434f
+
+-- See the files changed by a commit
+git diff-tree --name-only -r  5746aa0c14ddc1b6800ade2e566455ff7ed6434f
+
+-- See line by line changes modified by users
+git blame Hai.txt
+
+------------STASHING
+-- stash stores the  staged changes into a packgae and stores in memory, when ever u want to pull remote changes and want to apply the un staged changes you can do this
+git stash 
+
+-- Show list of stashes'
+git stash list
+
+-- Now run git status you wont be seeing the untaged changes
+-- apply your stash packet
+git stash pop or you can use the id as well as shown below  ( pop is always latest stash)
+git stash apply stash@{0}
+
+-- This may lead to conflicts , resolve conflicts manually
+-- Once the conflict is resolved commit the chhanges
+
+-- Delete the stash packet
+git stash drop stash@{0}
+
+--check whether stash packets are deleted or not
+git stash list
+
+---------- Other commands
+--Remove Untracked files from  	
+-- The below command shows wht are all files will be deleted
+git clean -n   
+
+-- delete them actually
+git clean -f
+
+-- Revert the unstaged changes
+git checkout -- Hai.txt
+
+-- Revert the added/ staged changes
+
+--create a file and add it then run below command
+
+-- You can move your HEAD to previos commits
+git reset HEAD~1
+
+*****-- To revert back to latest HEAD
+git reset HEAD^1
+
+--if you want your HEAD to original place  ( make sure u delete unstaged files)
+git pull
+
+git reset --hard   ( reset to HEAD but it will not delete the untracked files)
+
+git clean -f -d    (cleans up everything and deletes untracked files)
+
+-- Retrieve files from history
+git show Release1:Hai.txt
+
+--Restore a deleted  file in git repo
+git checkout CommitID
+
+
+--See the branch information of a remote repository ( origin - remote repo)
+git remote show origin 
+
+-- Track remote branching into local workign tree
+git fetch /Pull
+
+-- The git pull command performs a git fetch and git merge (or git rebase based on your Git settings). 
+-- The git fetch does not perform any operations on your local branches. 
+--You can always run the fetch command and review the incoming changes.
+
+------------------- MERGING
+-- Merge a branch changes into checkout branch
+-- assume am in master now
+
+git merge Release1
+
+-- It performs some automatic merge, still u may end up with some conflicts
+-- resolve them with 
+git mergetool
+
+-- Merge strategies
+1. Ours
+git merge -s ours Release2  
+-- It ignored all changes from Release2
+
+2. Ours with local changes but not Release2 changes
+git merge -s recursive -X ours Release2
+
+3. Theirs
+git merge -s recursive -X theirs Release2
+******************************
+Install Tortoise Git and make sure C:\Users\YourMAchineNaMe\.gitconfig   fiel contains below lines
+
+[merge]
+tool = tortoise
+
+[mergetool "tortoise"]
+cmd = "TortoiseMerge.exe" -base:"$BASE" -theirs:"$REMOTE" -mine:"$LOCAL" -merged:"$MERGED"
+
+********************************
+------ Rebase
+-- We can rebase a branch changes into another branch without having a commit
+-- Assume we have some changes in master which are not there in Release1 branch
+git checkout Release1
+git rebase master
+
+--The above commands will apply master changes into Release1
+--Performing a rebase from one branch to another branch does not create a merge commit.
+
+git checkout master
+gti merge Release1  --> You dont find much changes
+
+-- Rebase makes further merges easier.
+-- if you rewrite more than one commit by rebasing, you have to test all of the rewritten commits since they are "rewritten" by the rebase algorithm. 
+Since merge/rebase/cherry-pick are purely text-based and do not understand the semantics of these texts they can end up with logically incorrect results, 
+so such commits always should be reviewed and tested in order to detect potential problems.
+ Hence it might be more efficient to merge a long feature branch into upstream instead of rebasing it since with merge you only have to review and test a single commit: 
+ the merge commit itself.  Whereas with rebase you have to review and test all rebased commits again
+
+---Cherry-pick
+ 
+-- You can point your master to some other branch single commit ( its something like you can copy that commit to master)
+
+EX:
+git checkout -b pickfile
+touch pickfile
+git add pickfile
+git commit -m"some oick file"
+
+-- second commit on same file
+echo Hi >> pickfile
+git add 
+git commit
+
+-- Now you see the log and capture the first commit id
+git checkout master
+git log
+
+-- run below command to get pickfile branch first commit on master
+git cherry-pick ebb46b7
+
+
+---------- Patch sets
+You can create a patch set of certain set of commands and can apply anywhere
+ex:
+--create a new branch
+git branch mybranch
+--use this new branch
+git checkout mybranch
+--make some changes
+touch test05
+-- change some content in an existing file
+echo "new content for test01" >test01
+--commit this to the branch
+git add .
+git commit -a -m "first commit in the branch" 
+
+--- creates a patch set now
+git format-patch origin/master
+
+--this creates the file:
+--patch 0001-First-commit-in-the-branch.patch 
+
+--To apply this patch to your master branch in a different clone of the repository, switch to it and use the git apply command
+git checkout master
+git apply 0001-First-commit-in-the-branch.patch 
+
+--patch is applied to master
+--change can be committed
+git add .
+git commit -a -m "apply patch"
+
+
+29c665c4088ef95013029fdfcd37f50e4e4b967a
+--------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

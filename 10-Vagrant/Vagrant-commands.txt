@@ -1,0 +1,29 @@
+1) To create vagarant file
+    vagrant init
+
+2) To Up the all servers what are mentiond in vagarnt file.
+    vagrant up
+
+3) To up the perticular server
+     vagrant up server1
+
+4) To check the status of servers up or aborted
+     vagrant status
+
+5) To Remove perticular server
+   vagrant destroy server2 
+
+6) To Remove all servers
+     vagrant destroy 
+
+7) To Stop the server
+     vagrant halt server1
+
+8) To do ssh or connect remote m/c via ssh
+     vagrant ssh server1
+
+9) To logout from m/c
+     logout or ctrl+D
+
+10) To check install m/c location
+       .vagrant/machines/

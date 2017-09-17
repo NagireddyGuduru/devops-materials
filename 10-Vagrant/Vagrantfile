@@ -1,0 +1,46 @@
+Vagrant.configure("2") do |config|
+  config.vm.define "tomcat7-server" do |tomcatserver|
+    tomcatserver.vm.box = "bento/centos-6.7"
+    tomcatserver.vm.network "private_network", ip: "192.169.50.20"
+  end
+  config.vm.define "slave-1" do |slaveserver1|
+    slaveserver1.vm.box = "bento/centos-6.7"
+    slaveserver1.vm.network "private_network", ip: "192.169.50.21"
+  end
+  config.vm.define "slave-2" do |slaveserver2|
+    slaveserver2.vm.box = "bento/centos-6.7"
+    slaveserver2.vm.network "private_network", ip: "192.169.50.22"
+  end
+  config.vm.define "nagios" do |nagios|
+    nagios.vm.box = "bento/centos-6.7"
+    nagios.vm.network "private_network", ip: "192.169.50.23"
+  end
+  config.vm.define "ansible-server" do |ansibleserver|
+    ansibleserver.vm.box = "bento/centos-6.7"
+    ansibleserver.vm.network "private_network", ip: "192.169.50.24"
+  end
+  config.vm.define "docker-server" do |docker|
+    docker.vm.box = "bento/centos-7.2"
+    docker.vm.network "private_network", ip: "192.169.50.25"
+  end
+  config.vm.define "deploy-server-1" do |deployserver1|
+    deployserver1.vm.box = "bento/centos-7.2"
+    deployserver1.vm.network "private_network", ip: "192.169.50.26"
+  end
+  config.vm.define "deploy-server-2" do |deployserver1|
+    deployserver1.vm.box = "bento/centos-7.2"
+    deployserver1.vm.network "private_network", ip: "192.169.50.27"
+  end
+  config.vm.define "docker" do |docker|
+    docker.vm.box = "bento/centos-7.2"
+    docker.vm.network "private_network", ip: "192.168.50.28"
+    docker.vm.network "forwarded_port", guest: 80, host: 9080
+    docker.vm.host_name = "docker"    
+ end
+ config.vm.define "ubuntu" do |ubuntu|
+    ubuntu.vm.box = "ubuntu/trusty64"
+    ubuntu.vm.network "private_network", ip: "192.168.50.29"
+    ubuntu.vm.network "forwarded_port", guest: 80, host: 9080
+    ubuntu.vm.host_name = "ubuntu"    
+ end
+ end

@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  become: yes
+  gather_facts: no
+
+  tasks:
+    - name: add several users
+      debug: msg="{{item.key}} --> {{item.value}}"
+      with_dict:
+        - { '001': 'James' }
+        - { '002': 'John' }
+        - { '003': 'Jane' }
+
+

@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  become: yes
+  gather_facts: no  
+  vars:
+    packages: [vim,make,curl]
+
+  tasks:
+
+  - name: install package
+    apt: name={{item}} state=latest
+    with_items: packages
+
+

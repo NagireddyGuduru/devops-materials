@@ -1,0 +1,16 @@
+---
+- hosts: localhost
+  become: yes
+  gather_facts: no  
+  vars:
+    package: vim
+
+  tasks:
+
+  - name: install multiple packages
+    apt: pkg={{item}} state=latest
+    with_items:
+      - git
+      - curl
+
+

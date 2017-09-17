@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  become: yes
+  gather_facts: no
+
+  tasks:
+    - name: force ntp update
+      shell: ntpdate {{item}}
+      with_lines: ~/time/serverlist

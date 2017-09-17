@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  become: yes
+  gather_facts: no  
+  vars:
+    package: vim
+
+  tasks:
+
+  - name: install package
+    apt: name={{package}} state=latest
+
+

@@ -1,0 +1,20 @@
+---
+- hosts: localhost
+  become: yes
+  tasks:
+
+    # first ensure our target directory exists
+    - name: Ensure target directory exists
+      file:
+        dest: "~/fooapp"
+        state: directory
+
+    # copy each file over that matches the given pattern
+    - name: Copy each file over that matches the given pattern
+      copy:
+        src: "{{ item }}"
+        dest: "~/fooapp/"
+        owner: "root"
+        mode: 0600
+      with_fileglob:
+        - "~/playbooks/files/fooapp/*"

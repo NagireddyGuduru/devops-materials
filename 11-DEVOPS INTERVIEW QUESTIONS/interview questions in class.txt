@@ -1,0 +1,122 @@
+Maven Interview Questions
+=========================
+
+IQ: What happens when we build a project?
+Ans:
+1. Compiles the code i.e., takes the source code and converts it into a binary format or a machine understandable format.
+2. Execute JUnit test cases return by the developers as part of this JUnit is a framework for automating test cases.
+3. JUnit finds logic failures.
+4. It creates an artifact. Artifact is nothing but jar, war, ear
+
+JAR- Java Archive (collection of .class files)
+WAR- Web application Archive (collection of jar files, html, css, javascript, php)
+EAR- Enterprise Archive (related to EJB)
+
+
+Jenkins Interview Questions
+===========================
+
+IQ: How Jenkins find changes in SCM? 
+Ans: It maintain last revision number in log file.
+
+
+IQ: How to configure a job to run under slave?
+Ans: while configure a job select the option "restrict where this project can be run" and put label of the slave.
+
+
+IQ: Why we need web servers & what functionalities it provides for us?
+Ans: 1. Web servers provides implemention of http & https protocols.
+     2. Web servers provide in built multithreading support.
+     3. They do provide in-built security.
+
+
+Chef Interview Questions
+========================
+
+IQ: How workstation/knife knows where is the chef server?
+Ans: It uses knife.rb which has the details about chef server url & private key for authentication
+
+
+IQ: In chef, I want version of cookbook as 0.0.2 in one environment & 0.0.1 in other environment. Is this possible.
+Ans. Yes. Using Environment
+
+
+IQ: In a Dev Environment we want to install Apache server & Database server on single node. In Prod we want install them on different nodes.
+Ans: 
+
+
+IQ: I want to stop the upload of a cookbook with specific version to the chef server
+Ans: we can use --freeze flag while uploading a cookbook such that no one can upload cookbook with same version
+
+
+IQ: What is wrapper cookbook?
+AnIt is a cookbook developed by us which wraps community cookbooks.
+
+
+
+AWS Interview Questions
+========================
+
+
+IQ: Can we create a VPC which covers 2 regions?
+Ans: No. VPC is region specific.
+
+
+IQ: How to delete/ release Elastic IP?
+Ans: Select EIP-->Goto Actions--> Release address
+
+
+IQ: What is main Route?
+Ans: It is a default routing table created by amazon in our VPC.
+
+
+IQ: EC2 instance in a private subnet requires internet access for security updates. How to give internet access to the private subnet?
+Ans: We can use either NAT instance or NAT gateway.
+
+
+IQ: We are not able to ping EC2 instance, however it has a public IP & Internet gateway configure probably?
+Ans: We need to check Security Group & NACL
+
+
+IQ: What are the use cases for T family?
+Ans: 1. CI Tools / Build Tools: Where the server is Idle very often.
+     2. Dev test staging Environments
+
+
+IQ:  How many ways we can create EBS Volumes?
+Ans: 
+1.  At the time of launching EC2 instance
+2. Under EC2 Dashboard, we can directly created EBS volume
+3. We also can create EBS Volume from EBS snapshot
+
+
+IQ: We have a EBS volume in availability zone 1, can we use same for availability zone 2?
+Ans: Directly it is not possible. However we can create snapshot. Using this snapshot we can create a new EBS volume in a different availability zone.
+
+
+IQ: We have EBS volume with general purpose and we want to migrate to provision IPOs?
+Ans: If we create a volume from a snapshot we can choose different volume type[Provision IOPs]. 
+
+
+
+IQ: What is sticky session in ELB?
+Ans: When we enable Sticky Session all the requests coming from a particular client is handled by same server 
+
+
+IQ: What is Connection Draining in ELB?
+Ans: For example, Connection Draining is 300 secs, if ELB finds any EC2 is a unhelathy state, it give 300secs time for that EC2 to process that current request. after 300secs EC2 is taken out of rotation
+
+
+IQ: While configuring Auto scaling we want tp put maximum instance size is 10, Is it possible?
+Ans: Yes
+
+
+
+
+
+
+
+
+
+
+

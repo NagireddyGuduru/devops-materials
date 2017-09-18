@@ -1,0 +1,77 @@
+What is GIT?
+What is the difference between GIT and SVN?
+What is the function of ‘GIT PUSH’ in GIT?
+Why GIT better than Subversion?
+ What is “Staging Area” or “Index” in GIT?
+ What is GIT stash?
+What is GIT stash drop?
+How will you know in GIT if a branch has been already merged into master?
+What is the function of git clone?
+What is the function of ‘git config’?
+How can you create a repository in Git?
+What is ‘head’ in git and how many heads can be created in a repository?
+What is the purpose of branching in GIT?
+ How can conflict in git resolved?
+ To delete a branch what is the command that is used?
+ What is another option for merging in git?
+What is the difference between ‘git remote’ and ‘git clone’?
+Mention some of the best graphical GIT client for LINUX?
+What is Subgit? Why to use Subgit?
+What is the function of ‘git diff ’ in git?
+What is ‘git status’ is used for?
+What is the difference between the ‘git diff ’and ‘git status’?
+ What is the function of ‘git checkout’ in git?
+What is the function of ‘git rm’?
+ What is the function of ‘git stash apply’?
+What is the use of ‘git log’?
+What is ‘git add’ is used for?
+ What is the function of ‘git reset’?
+What is git Is-tree?
+How git instaweb is used?
+What does ‘hooks’ consist of in git?
+Explain what is commit message?
+How can you fix a broken commit?
+ Why is it advisable to create an additional commit rather than amending an existing commit?
+What is ‘bare repository’ in GIT?
+Name a few Git repository hosting services
+https://www.edureka.co/blog/interview-questions/git-interview-questions/
+https://www.toptal.com/git/interview-questions
+http://www.web-technology-experts-notes.in/2015/11/git-interview-questions-and-answers.html
+http://technoscrum.blogspot.in/2013/11/git-tips-interview-questions-answers.html
+
+How to delete a Git branch both locally and remotely?
+How do you undo the last commit?
+How to Edit an incorrect commit message in Git?
+What are the differences between 'git pull' and 'git fetch'?
+How do you rename the local branch?
+ How do I remove local files (Not in Repo) from my current Git branch?
+ How to Checkout remote Git branch?
+How do I remove a Git submodule?
+How do you create a remote Git branch?
+How to Change the URL for a remote Git repository?
+ How to Change the author of a commit in Git?
+How do you revert a commit that has already been pushed and made public?
+How do you squash last N commits into a single commit?
+How do you find a list of files that has changed in a particular commit?
+What is git bisect? How can you use it to determine the source of a (regression) bug?
+How do you setup a script to run every time a repository receives new commits through push?
+What are the different ways you can refer to a commit?
+What is git rebase and how can it be used to resolve conflicts in a feature branch before merge?
+How do you configure a Git repository to run code sanity checking tools right before making commits, and preventing them if the test fails?
+ Describe branching strategies you have used?
+How do you start Git and what is the process called?
+How do you determine the current state of the project?
+ How Can I Move all your changes since your last commit to the staging area.
+How to Store the saved changes in the repository and add a message "first commit".
+ Show a list of all the commits that have been made.
+How do you put your local repository (repo) on the GitHub server?
+How to take a git project from GitHub to your local machine to work on it.
+ What is the purpose of working off multiple branches.
+ Write the command to create a branch called working
+How to list all of the branches.
+How to switch to the working branch
+How to merge the changes that were made in the working branch with the master branch.
+How to delete the working branch
+ What is the command to Put everything up on the remote repository.
+
+

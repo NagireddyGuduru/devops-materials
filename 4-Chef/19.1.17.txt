@@ -1,0 +1,64 @@
+Custom Attribute:
+-----------------
+- We can create our own custom attributes which is specific to our need. 
+
+
+
+1. Create attributes folder under a cookbook
+
+2. Under attributes create default.rb
+
+
+Declaration of attributes
+-------------------------
+
+default['hello-world']['author'] = 'Hari'
+default['hello-world']['company'] = 'Java Home'
+
+
+Using attributes in the recipes
+-------------------------------
+
+ file '/tmp/att-demo.sh' do
+    content node['hello-world']['company']
+ end
+
+Note: Attribute is specific to the node 
+
+
+ file '/tmp/att-demo.sh' do
+    content "This is created by #{node['hello-world']['company']}"
+ end
+
+Using local variables
+---------------------
+
+#local variable 
+
+package_name = 'httpd'
+
+# Initialization local variable from platform
+
+ case node[:platform]
+  when 'redhat', 'centos'
+    package_name = 'httpd'
+  when 'ubuntu', 'debian'
+    package_name = 'httpd'
+  end
+
+  package package_name do
+    action :install
+  end
+
+
+
+Spliting Chef recipes into multiple files
+-----------------------------------------
+
+
+
+
+
+
+
+

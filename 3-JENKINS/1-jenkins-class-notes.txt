@@ -1,0 +1,267 @@
+Countinous Integration(CI)
+=====================
+
+It is a process where bunch of developers push their changes every day to the SCM(Source Code Manager) like gitHub, then take the latest code and run builds(maven) on this code & generate an artifact. This process called as Integration Process. If we repeat this process again and again it is called as Countinous Integration(CI).
+
+--> The objective of CI is find syntatical and functional errors as early as possible which lets developers to fix them immediately. That is the idea behind CI.
+
+--> To implement CI process, there are CI tools like Jenkins, Bamboo, Team City.
+
+--> Lets begin with Jenkins
+
+Jenkins
+======
+It is a popular open source CI tool which provides lots of inbuild functionalities.
+
+Steps to install Jenkins in CentOS or Linux
+-----------------------------------------------------------------
+
+For Java based applications, the prerequitites for using Jenkins server is 
+           1. JDK
+           2. Maven
+           3. Git
+
+Installation of Jenkins
+--------------------------
+To install Jenkins,
+$ sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+
+To verify the status of Jenkins,
+$ sudo service jenkins status
+
+To start the Jenkins
+$ sudo service jenkins start
+
+To restart jenkins automatically when VM restarts,
+$ sudo chkconfig jenkins on
+
+By default Jenkins use 8080 port number
+To access jenkins from web browser,    
+192.168.70.10:8080
+
+
+Creating a first Jenkins Job
+----------------------------
+
+- The objective is take the project source from github use maven to run a build on this project and generate artifact.
+- When we ran this job the build failed saying mvn clean package......
+- In our case mvn is in the path, Jenkins is not able to ...... we can configure maven installation location.
+
+Steps to configure maven installation location
+----------------------------------------------
+
+Jenkins Home -> Manage Jenkins -> Global Tool Configuration -> Add Maven
+
+In a Jenkins, using jenkins job not only build it can perform any kind of activity. for example, executing script, creating & deleting a folder.
+
+Example2: 
+---------
+
+Using previous job, instead of manual build, we can automated process.... every hour
+Open ims-dev project-> Click configure under Build Triggers -> Select Build periodically
+*/1****
+
+Example3:
+---------
+
+Trigerring a build only when there is a change in git repository.
+Under build trigerrs we must enabled "Build when a change is pushed to gitHub" and "Poll SCM"
+
+Jenkins Workspace
+-----------------
+It is a location in the Jenkins server where a project is clone and maven goal is executed.
+
+Configuring Email notifications
+----------------------------------------
+
+- For this congiguration initially we need to set up SMTP server
+
+Configuring Gmail SMTP server
+------------------------------------
+
+- SMTP is a server used for sending & receiving emails
+
+- In Jenkins Home, Manage Jenkins-->Congiguration-->Email Notification
+
+
+How Jenkins find changes in SCM? 
+
+- It maintain last revision number in log file.
+
+- Plugins are maintained by the Jenkins under Jenkins home/plugin
+   Jenkins--> Manage Jenkins--> manage plugins
+
+
+Master-Slave Cingigurations in Jenkins
+===========================================
+
+The idea of Master-slave to distubue jobs acrpss the mutiple servers which decreases/reduces load on single server.
+Jenkins Home--> Manage Jenkins --> Manage Nodes--> New Node
+
+How to configure a job to run under slave?
+while configure a job select the option "restrict where this project can be run" and put lable of the slave.
+
+User Management
+===============
+
+Jenkins Home--> Manage Jenkins--> Manage Users--> Create a user
+
+Jenkins Home--> Manage Jenkins--> Configure Global Security
+
+
+Web Servers
+===========
+Web servers are helpful for running web based applications.
+
+Web apps are two kinds
+1. Static web apps - which uses a plain html
+2. Dynamic web apps - 
+
+
+For Dynamic web apps we can use php, servlets & JSP, ASP .net, python etc...
+
+--
+
+*** Why we need web servers & what functionalities it provides for us?
+Ans: 1. Web servers provides implemention of http & https protocols.
+     2. Web servers provide in built multithreading support.
+     3. They do provide in-built security.
+
+  Different web servers available in the market.
+           1. Apache tomcat
+           2. Oracle weblogic
+           3. IBM Websphere
+           4. SUN Glassfish
+           5. JBoss 
+           6. Apache
+
+1. Apache tomcat:
+=================
+
+Installing tomcat: 
+Latest version as of today is tomcat 9, but most of the applications used tomcat 7&8
+
+Pre-requisite:
+--------------
+JDK is a prerequisite for tomcat.
+
+Step 1: Change Directort into /opt
+Step 2: use wget & downloading tomcat
+
+Starting a tomcat:
+
+1. cd into tomcat home/bin
+
+[root@localhost bin]# pwd
+/opt/apache-tomcat-8.5.9/bin
+[root@localhost bin]#
+
+Stop
+
+
+Tomcat users 8080 has adefault port number
+
+Deploying Web application in tomcat
+===================================
+
+There are different ways to deploy web application in tomcat
+
+OPtion 1: take the war file & put it in tomcat hom/webapps
+
+- Take the war file from server1 & place it in server2 tomcat/webapps folder
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+

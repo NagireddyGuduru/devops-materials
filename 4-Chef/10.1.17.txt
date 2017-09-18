@@ -1,0 +1,112 @@
+Chef
+====
+
+- Chef is Configuration Management Tool. Its main purpose is to automate software installation and configuration.
+
+
+- Some people use chef for deployments as well.
+
+Chef has mainly 3 components
+
+1. Servers/Nodes
+2. Chef Server
+3. Chef workstation
+
+
+Chef Workstation: 
+-----------------
+Chef Workstation is a PC or where DevOps engineers develop cookbooks & reciepes etc
+
+Chef Server:
+------------
+
+It is server where we maintain our cookbooks 
+
+Ex: JDK Cookbook(installs JDK), Jenkins Cookbook(installs Jenkins & Configure Jenkins)
+
+Node: 
+
+Node is machine (can VM or physical server or AWS EC2 instance) which is used for installing & configuring softwares using Cookbooks.
+
+In our Tutorial workstation is our laptop, Chef server is hosted chef server in cloud and a node is a VM created using vagrant.
+
+Setting up Chef server
+======================
+
+Step1: Signup for chef server
+
+Step2: Login to chef server
+
+Step3: Create Organisation in the chef server
+
+
+
+
+Setting up Chef Workstation using which we can communicate with chef server
+----------------------------------------------------------------------------
+ 
+
+Step1: Download Starter Kit under Organisation
+
+Step2: Copy Starter Kit under C Drive
+
+Step3: Extract Starter Kit
+
+Verifying chef server connectivity:
+
+As part of Starter Kit under chef-repo/.chef, we can find two files. 
+
+1) knife.rb - it has the details about chef server url
+2) username.pem - it has private key
+
+
+Q: How workstation/knife knows where is the chef server?
+
+Ans: It uses knife.rb which has the details about chef server url & private key for authentication
+
+
+
+Chef Directory Structure
+========================
+
+        chef-repo
+            |
+            |- .chef
+            |- cookbooks
+            |   - jenkins-cookbook
+            |        - attributes
+            |        - files
+            |        - recipes
+            |        - template
+            |        - metadata.rb
+            |        - chefignore
+            |   - tomcat-cookbook etc..
+            |
+            |- roles
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

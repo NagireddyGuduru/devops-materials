@@ -1,0 +1,364 @@
+Chef
+====
+
+- Chef is Configuration Management Tool. Its main purpose is to automate software installation and configuration.
+- Some people use chef for deployments as well.
+
+Chef has mainly 3 components
+
+1. Servers/Nodes
+2. Chef Server
+3. Chef workstation
+
+
+Chef Workstation: 
+-----------------
+Chef Workstation is a PC or where DevOps engineers develop cookbooks & reciepes etc
+
+Chef Server:
+------------
+It is server where we maintain our cookbooks 
+
+Ex: JDK Cookbook(installs JDK), Jenkins Cookbook(installs Jenkins & Configure Jenkins)
+
+Node: 
+-------
+Node is machine (can VM or physical server or AWS EC2 instance) which is used for installing & configuring softwares using Cookbooks.
+
+In our Tutorial workstation is our laptop, Chef server is hosted chef server in cloud and a node is a VM created using vagrant.
+
+Setting up Chef server
+======================
+
+Step1: Signup for chef server
+
+Step2: Login to chef server
+
+Step3: Create Organisation in the chef server
+
+Setting up Chef Workstation using which we can communicate with chef server
+----------------------------------------------------------------------------
+
+Step1: Download Starter Kit under Organisation
+
+Step2: Copy Starter Kit under C Drive
+
+Step3: Extract Starter Kit
+
+Verifying chef server connectivity:
+
+As part of Starter Kit under chef-repo/.chef, we can find two files. 
+
+1) knife.rb - it has the details about chef server url
+2) username.pem - it has private key
+
+
+Q: How workstation/knife knows where is the chef server?
+
+Ans: It uses knife.rb which has the details about chef server url & private key for authentication
+
+
+Chef Directory Structure
+========================
+
+        chef-repo
+            |
+            |- .chef
+            |- cookbooks
+            |   - jenkins-cookbook
+            |        - attributes
+            |        - files
+            |        - recipes
+            |        - template
+            |        - metadata.rb
+            |        - chefignore
+            |   - tomcat-cookbook etc..
+            |
+            |- roles
+
+Cookbook_file
+=============
+
+This provides 
+
+
+Steps: 
+
+1. Create files directory under a cookbook
+
+2. Under files, create index.html and put the code inside the file
+
+   cookbook_file '/var/www/html/index.html' do
+     source 'index.html'
+     action :create
+   end
+
+-> cookbook_file resource takes the file specified in source attribute(source 'index.html') from files directory and copies the content in specifies path('/var/www/html/index.html')
+
+-> it deals with static content only
+
+Template Resource
+================== 
+This is same as cookbook_file resource but it deals with dynamic content
+
+
+  template '/var/www/html/index.html' do
+     source 'index.html.erb'
+   end
+
+-----------------------------
+
+   <%=
+     node ['time']['timezone']
+    %>
+
+--------------------------------
+
+
+  packaage 'Install Apache' do
+    case node[:platform]
+   when 'redhat', 'centos'
+      package_name 'httpd'
+   when 'ubuntu', 'debian'
+      package_name 'apache2'
+    end
+  end
+
+Data Bags
+=========
+
+- Data bags holds global attributes
+
+- Data bags are created & stored 
+
+
+Databag structure
+=================
+
+E:\Desktop\Workspace\Databag structure.png
+
+Users is a Data Bag & tomcat.json, mysql.json are items
+
+
+- Creating data bag
+
+$ knife data bag create <databag name>
+$ knife data bag create users
+
+
+- listing out databags
+$ knife data bag list
+
+
+- creating data bag item
+$ export EDITOR=vi
+$ knife data bag create <databag name> <item name>
+$ knife data bag create users tomcat
+
+$vi tomcat
+  ----------------------------
+   {
+     "id": "tomcat",
+     "userid": "tomcatadmin",
+     "password": "admin123"
+   }
+  ---------------------------
+
+JSON- Java Script Object Notation
+
+Sample JSON structure
+**********************
+
+{
+"name":"Vamsee",
+"age":28,
+"isManager":true,
+"phone":["9999999999","8888888888"],
+"address":{
+           "city":"Bangalore",
+           "country":"India"
+           "pin":560037
+           "state":"Karnataka"
+          }
+
+}
+
+
+- Deleting a item in data bag
+
+$ knife data bag delete <databag name> <item name>
+$ knife data bag delete users tomcat
+
+
+- Editing a item in data bag
+
+$ knife data bag edit <databag name> <item name>
+$ knife data bag edit users tomcat
+
+
+
+- Accessing data bag attributes in our chef code
+----------------------------------------
+# Syntax to accessing data bag item in chef recipe
+#'users' is a data bag name & 'tomcat' is data bag item
+
+tomcat = data_bag_item('users', 'tomcat')
+
+ file '/tmp/databagdemo.txt' do
+   content tomcat['password']
+ end
+----------------------------------------
+
+
+- creating data bag item from file. This is recommended approach
+
+Step1: create data_bags under chef-repo
+Step2: Under this directory create a folder 'Users'
+Step3: Create mysql.json file under Users
+
+$ vi mysql.json
+--------------------------
+   {
+     "id": "mysql",
+     "userid": "root",
+     "dbpassword": "db1234"
+   }
+----------------------------
+
+$ knife data bag from file <databag name> <item name>
+
+Encrypted Data bags
+===================
+we can encrypt attribues in a data bag. it is called as Encrypted data bag. This is imp when we store sensitive data like passwords.
+
+Encrypted Data bags
+===================
+- we can encrypt attribues in a data bag. it is called as Encrypted data bag. This is imp when we store sensitive data like passwords.
+- Encryption & Decryption happens based on a key.
+
+
+- Creating a key file which is used for Encryption & Decryption.
+
+]$ openssl rand -base64 512 | tr -d '\r\n' > <key file>
+]$ openssl rand -base64 512 | tr -d '\r\n' > javahome-databags-key
+
+
+- Path of the key file
+]$ knife data bag create users passwords --secret-file javahome-databags-key
+
+
+
+- To see the content of key file
+]$ knife data bag show users passwords --secret-file javahome-databags-key
+
+
+- we need to copy a secret file to the node such that node uses this secret file for decrypting the data
+
+
+Chef - Roles
+=========
+
+- in our infrastructure we see web servers, database servers, load balancers etc.
+
+- The benifit of using role is we can group similar servers into one category. for example webservers role.
+
+- the benifit is easy to manage a runlist i.e., we can create web servers role in this role we can mention the run list and we can add all web servers under this role. Down the line we want to change the runlist of all webservers, instead of modifying all the webservers runlist, we can modify the runlist of role
+
+
+Creating a role
+===============
+
+]$ knife role create <role name>
+
+]$ knife role create webservers
+
+
+Chef - Environments
+=============
+
+In S/w development we have different environments. for example, Dev, QA, UAT & Prod
+
+For Ex all the environments are having cookbook with a version 0.0.1. & lets say we are developing cookbook for next release which is 0.0.2. First we need deploy the latest version in Dev. i.e., the cookbook version in Dev must be 0.0.2 & in other environments the version 0.0.1. this is achived using Environment
+
+
+
+IQ: In chef, I want version of cookbook as 0.0.2 in one environment & 0.0.1 in other environment. Is this possible.
+Ans. Yes. Using Environment
+
+
+IQ: In a Dev Environment we want to install Apache server & Database server on single node. In Prod we want install them on different nodes.
+Ans: 
+
+
+
+Test Kitchen
+============
+Using Test Kichen we can speed up the development of our chef cookbooks.
+
+Development approach without Test Kitchen
+=========================================
+
+Step1: Write cookbook
+Step2: Upload cookbooks to chef server
+Step3: Maintain a seperate VM for testing it
+
+
+Development approach with Test Kitchen
+=========================================
+
+]$ kitchen converge
+
+- How to login to the node
+
+]$ kitchen login
+
+
+Dependency Management in chef
+=============================
+
+Some times in our cookbook we use the other cookbooks which is written by community
+
+Ex: we want to install Java and tomcat. for this we can create a cookbook, in this cookbook we can mention the dependencies java & tomcat cookbooks
+
+If java & tomcat depends on other cookbooks, we can call them as transitive dependencies.
+
+
+we shoud manually download our dependencies & their transitive dependencies follwed by upload all those cookboos to chef dserver & use them for configuring our nodes. 
+
+
+]$ berks --version
+
+berks
+======
+
+It is dependency management tool which takes away all our complex.
+
+
+Specify dependency in our cookbook
+==================================
+
+Under metadata.rb
+
+depends 'java', '~> 1.46.0'
+
+
+berks install
+===============
+]$ berks install
+
+this command downlaods dependencies & transitive dependencies.
+
+
+Uploading dependencies & transitive dependencies to the chef server
+====================================================================
+
+]$ berks upload
+
+
+
+IQ: I want to stop the upload of a cookbook with specific version to the chef server
+Ans: we can use --freeze flag while uploading a cookbook such that no one can upload cookbook with same version
+
+
+What is wrpper cookbook?
+It is a cookbook developed by us which wraps community cookbooks.

@@ -303,6 +303,89 @@ git commit -a -m "apply patch"
 29c665c4088ef95013029fdfcd37f50e4e4b967a
 --------------------------
 
+--- git log commands ---
+
+git log
+git log --all
+git log -3
+git log filename
+git log | tail -1
+
+git reflog
+git shortlog 
+
+
+git log --committer
+git log --stat or -p
+
+git log --oneline
+git log --oneline --decorate
+git log --oneline --graph --decorate
+git log --oneline --before={3.weeks.ago} --after={2010-04-18} --no-merges
+git log --oneline --date-order --grep="Bug-100"
+
+git log -S"Hello, World!"
+git log <since>..<until>
+
+git log -p -2
+git log --author=NagireddyGuduru
+git log --author="John\|Mary"
+git log --author=Linus --oneline -5
+
+git log | grep "Hello"
+git log --grep="p4 depo" --format="%h %an %s" --author="Hausmann" --all-match
+git log --grep=P4EDITOR --no-merges
+
+git log --after="yesterday"
+git log --after="2014-7-1"
+git log --after="2014-7-1" --before="2014-7-4"
+
+git log --since=2.weeks
+
+git log --pretty=oneline
+git log --pretty=format:"%h - %an, %ar : %s"
+git log --pretty=format:"%h %s" --graph
+git log --pretty=format:"%cn committed %h on %cd"
+git log --pretty=format:"Commit Hash: %H, Author: %aN, Date: %aD"
+git log --pretty=format:"%h" --date-order --grep="Bug-100" //usefull
+
+
+
+-- git tag, diff , grep commands --
+
+git tag
+git tag --contains
+git tag --list
+git tag | tail -1
+git tag --contains
+
+git describe --tags
+git fetch --tags
+git rev-list --tags --max-count=1
+
+
+git diff
+git diff --base <filename>
+git diff <sourcebranch> <targetbranch>
+git diff-tree --no-commit-id --name-only -r f3f2236
+git diff --stat abc123 xyz123
+
+git grep "filecontent"
+git grep "12.0.1-SNAPSHOT"
+git grep -i -e Bug-100 --and -e Bug-101
+
+
+git show --pretty="" --name-only f3f2236
+git show --pretty="" --name-only 6a4e61c f31ffd6
+git show --pretty="" --name-only --grep="Bug-100"
+git show --name-only --oneline f3f2236
+git show --name-only --oneline f3f2236
+git show --pretty="" --name-only 6a4e61c f31ffd6
+
+
+
+
+
 
 
 

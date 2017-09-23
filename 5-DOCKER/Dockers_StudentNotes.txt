@@ -1,0 +1,396 @@
+Dockers Student Notes:
+
+Learning the Basics of Docker :
+
+Introduction to Docker:
+
+Docker is an open-source Project that automates the deployment of applications inside software containers, 
+by providing
+an additional layer of abstraction and automation of operating system-level virtualization on Linux.
+
+So basically, it is a tool (or a set of tools depending on how you look at it) that packages up an application 
+and all its
+dependencies in a "virtual container" so that it can be run on any linux system or distribution.
+
+When would we use Dockers:
+
+	There are lot of reasons to use docker. Although you will generally hear about docker used in conjunction 
+	with develpment
+and deployment of applications, there are a ton of examples for use:
+
+* Configuration simplification
+* Enhance Developer Productivity
+* Server Consolidation and management
+* Applicaiton isolation
+* Rapid Deployment
+* Build Management
+
+Keep in mind these are only a few use cases. We are going to explore many more during our course!!
+
+
+Containers vs. Virtual Machines::
+
+What is a virtual Machine:
+
+	In basic terms, a virtual machine is an emulation of a specific computer system type. They operate based 
+	on the architecture 
+	and functions of that real computer system  type. They operate based on the architecture and functions of 
+	that real computer and
+	its implementation can involve specialzied hardware,software or both.
+	
+
+	when you think of a virtual machine , you probably think of vmware, citrix and or virtual box. 
+	Virtualization software allows you to 
+	setup one operating system with another. Although they both share the same physical hardware, 
+	the virtual machine is isolated from 
+	that hardware and has to communicate with it through something called a Hypervisor. 
+	An aws instance is one type of virtual Machine !
+	
+What is a container:
+	A container is exactly what you might except it to be based on the general definition of the word. 
+	It is an entirely isolated set of
+	packages, libraries and/or applications that are completely independent from its surroundings.
+	
+	In the simplest example, you place your leftovers in a plastic container and then set it on the table. Although the table lends the platform
+	on which the leftover are resting upon, they are independent of the table itself. What you do to one does not necessarily affect the other
+	(although in certain instances it can)
+	
+What is the difference important ::
+
+	As in most things in life, the importance is in perspective. From the perspective of getting the 
+	most performance out of hardwar purchased,
+	virtualization was invented to allow us to share but segregate server instances from each other. 
+	This wasy, we could protect one operating system
+	from another with out letting space CPU cycles, memory or disk space go to waste.
+	
+	Now, virtualization is becoming more granular. We have virtual servers, but they are based on emulating 
+	virtual hardware through a hypervisor.
+	This means that they are heavy in terms of system requirements. Containers however, use shared operating
+	systems and more efficient in system 
+	resource terms.
+	
+	
+Docker Architecture:
+	
+	Docker is a client-server application where both the daemon and client can be run on the same system or you can connect a docker client with a remote docker daemon.
+	
+	Docker clients and daemos communicate via sockets or through a RESTFful API(representational state transfer- it is a stateless transfer over httpd of a web page c
+	containing an XML file that descirbles and includes the desired content).
+	
+	The main components of Docker are:
+		daemon
+		client
+		Docker.io registry
+		
+See the docker architecture picture you saved to the dockers directory.
+
+From the picture we can conclude that docker engine manages all the resource allocations for the applications, there is no necessasity to install a new OS and install application on 
+top of it. This will not save our resources like memory,disk & hardware as well as our precious time to install and configure the OS :)
+
+Hasn't this already been done ?
+
+Many companies already have this concept before but Docker hit the right spot in right time. PFB companies which are already using this concept.
+
+FreeBSD :-> Jails
+Sun(and now oracle) Solaris :-> Zones
+Google :-> IMctfy
+Openvz
+
+
+The Docker Hub:
+
+Registration and explanation.
+
+https://hub.docker.com/
+
+docker images & billing plan details
+
+Docker Installation::
+
+yum install docker -y
+
+
+Checking post installation:
+
+
+First Run:
+
+hello-world
+
+Going Through Dockers:
+
+docker info
+/var/lib/docker
+Explanation about containers & images ids
+
+pulling Ubuntu:xenial image:
+
+Explain about the tags in docker hub
+
+Starting Our first run:
+docker run -i -t ubuntu:xenial /bin/bash
+-i -> interactive
+-t -> terminal
+
+Explanation about the magic happened.
+
+
+Working with Multiple Images::
+Use "-d" option run mutliple instances and show the difference
+
+inspect:
+
+Attaching/ Login in to the Container:
+
+create a test.txt file and show the difference in two containers.
+
+Packaging a Customized Container ::
+
+There are two ways via which we can create containers.
+1. Direct container customization
+2. Via from dockerfile 
+
+1. Direct container customization
+Now our requirement is to just start one container of image "ubuntu:xenial" and install "openssh-server" & "Telent" along with one test user.
+Along with the above we need to create a new file called "test.txt" in /root directory along with data as "version 1.0 test"
+
+
+2. Via from dockerfile :: 
+
+Create a Docker File try with out "-y" and with "-y"
+
+# Customizing our docker image by installing opensshd,telnet & adding user test
+
+FROM ubuntu:xenial
+MAINTAINER shahan <shahan.aix@gmail.com>
+RUN apt-get update
+RUN apt-get install openssh-server telnet -y
+
+docker build -t="shan/ubucustm1:v2" .
+
+using "exec": Remote command execution
+
+Using "RUN" with dockers
+	echo "hello,team"
+	using script:
+		docker run -d ubuntu:xenial /bin/bash -c "while true;do echo Hello;sleep 1;done"
+
+Exposing our Container with Port Redirects ::
+
+install nginx packages
+check the ip & try elinks
+do the localport forwarding
+
+
+The Dockerfile, Builds and Network Configuration :::
+
+RUN & USER directives
+Create a docker file and add the user, take centos in this case.Once done try to login to the container and check the user details.
+Use exec to login as root user.
+
+Modify the docker file and try to add some file with some content. 
+
+Dockerfile Directives: ENV::
+
+FROM centos:latest
+MAINTAINER shahan
+RUN useradd -s /bin/bash user
+USER user
+RUN echo "export JAVA_HOME=/usr/bin/java">>~/.bashrc
+ENV JAVA_BIN /usr/bin/test
+
+Dockerfile Directives: CMD vs. RUN :::
+
+CMD gets executed during the image initilization
+RUN gets executed in the image of container.
+
+FROM centos:latest
+MAINTAINER shahan<shahan.aix@gmail.com"
+RUN useradd -s /bin/bash user
+CMD "echo" "This will be run during the intilization"
+USER user
+
+
+Dockerfile Directives: ENTRYPOINT :::
+In ENTRYPOINT you cannot change the echo message but in "CMD" you can change it. .
+
+Dockerfile Directives: EXPOSE :::
+
+Pull a centos 6 docker image for and try to build the image as per our customization as below.
+
+[root@master tmp]# cat Dockerfile
+FROM centos:6
+MAINTAINER shahan
+RUN yum install httpd -y
+RUN service httpd restart
+RUN chkconfig httpd on
+
+docker run --name test1 -itd -p 8081:80 apache:1 /bin/bash
+elinks http://localhost
+elinks http://localhost:8081
+docker exec test1 service httpd restart
+
+Now try to change the index.html file and try to reach the port .
+
+Container Volume Management :::
+1. Direct creation using -v
+2. Cusomization , mounting required mount point.
+
+Docker Network: List and Inspect :::
+Showing the inspect and bonding details
+ifconfig
+docker network ls
+
+
+Docker Network: Create and Remove :::
+Exploring Man page of dockers
+Creating an adapter
+
+Network: 10.1.0.0/24 , 10.1.0.1 -> Gateway
+
+Deleting an adapter
+
+Docker Network: Assign to Containers ::
+
+gateway 10.1.0.1
+ip-range=10.1.4.0/24
+subnet 10.1.0.0/16
+
+create a adapter 
+create a container with a specific ipaddress in the range of this adapter.
+
+Docker Commands and Structures :::
+
+Inspect Container Processes ::
+
+monitoring the docker container
+using ps, stats, & top for containers
+
+
+Previous Container Management :::
+
+use of "-q"
+removing the containers created
+
+using "-f"
+using "script for deleting the containers"
+
+Deleting containers from the Directory
+
+
+Controlling Port Exposure on Containers ::
+
+use of 
+-p
+-P
+
+and normal 
+
+Naming Our Containers ::
+
+naming 
+renaming our containers
+
+
+Managing and Removing Base Images ::
+
+removing base images
+use of "-f" option
+
+
+Saving and Loading Docker Images ::
+
+using save to save the docker image
+load to load the image
+Explain the importance of using this
+
+Image History :::
+
+use different options like
+--no-trunc
+-q
+
+Taking Control of Our Tags :::
+
+Make note that Repository name should be max of 128 charecters & it should not start with "."
+
+
+Pushing to Docker Hub::
+
+Make sure that the image you are pushing is having same name as the repository name.
+
+User docker login & logout to login to the dockerhub
+
+Final Practical Example  :::
+
+1. Creating base image:
+
+    Take centos6 & start installing the below.
+
+    1. wget
+    2. Installing basic repositories
+    wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm 
+    rpm -Uvh epel-release-6-8.noarch.rpm
+    3. Few more installations
+    yum update
+    yum install which sudo httpd php openssh-server
+    4. Installing and configuring httpd & ssh
+    Since every time these need to be started automtically we are updating in ~/.bashrc file as below.
+
+    vim ~/.bashrc
+    /sbin/service httpd start
+    /sbin/service sshd start
+
+    5. Now Finally create our base image 
+
+
+2. Downloading and Configuring webpage 
+    1. Download a website from google
+        wget http://static.oswd.org/designs/3682/bluefreedom3.zip
+        
+    2. Create a directory and place the content of bluefreedom3 
+        ex: dockerwww
+        
+    3. Test the downloaded site by creating container and doing the volume mounting. 
+    
+    4. Finally verify it with elinks 
+    
+    5. If you want you can do the port forwarding to the base machine and check it on port 8080
+    
+3. Now lets create two containers and mount the mount points along with port forwarding (8081,8082)
+
+    1. Create two containers with mountpoint & port forwarding
+    2. Install nginx on your base machine and configure the loadbalencer as below 
+    
+vim /etc/nginx/conf.d/defaul.conf
+        
+        upstream containerapp {
+        server 35.176.227.224:8081;
+        server 35.176.227.224:8082;
+}
+
+server {
+        listen *:80;
+
+        server_name 35.176.227.224;
+        index index.html index.htm index.php;
+
+        access_log /var/log/nginx/localweb.log;
+        error_log /var/log/nginx/localerr.log;
+
+        location / {
+                proxy_pass http://containerapp;
+        }
+}
+
+
+    3. Restart the services and check it out. Explain in detail about this configuration
+    
+    4. Try to bring down the containers and check the services.
+    
+    5. That's it you are done with configuration
+    
+
+    --------------------------------- THE END --------------------------------------------------
+    
+

@@ -1,0 +1,72 @@
+Linux Administration
+
+-- pure secured os
+-- multi taking
+-- open source
+
+linux
+--------
+centos
+ubuntu
+kalios
+
+unix
+-----
+solaris -oracle- hardware based system
+AIX - IBM
+HP-UX
+
+ssh-22
+telnet-23
+nfs-2049
+FTP - 2921
+http - 80
+https - 443
+tomcat - 8080
+
+id -a user
+id -a root
+reboot 
+sudo su - // taking root access
+sudo - user
+cat /etc/shells
+echo $0
+
+
+sh - to switch to another shell just mention which shell you want
+man useradd // to get help on any command
+useradd -h
+
+File System
+file structure
+usr   var  home etc bin dev tmp
+ configuration struff - usr/etc
+bin - binary related 
+dev - all device attached  stuff
+
+pwd
+ls -ld Batch/
+
+create a dir in perticualar path
+ls -ld /tmp/java/mydir/mdata
+mkdir -p /tmp/java/mydir/mdata
+-p - parent
+
+
+umask values -  777 -  666
+
+create 2 file and change the permissions
+
+see the permissions with noramal user and root user
+
+
+
+
+
+
+
+
+
+
+
+ 

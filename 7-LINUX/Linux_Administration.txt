@@ -16,48 +16,49 @@ solaris -oracle- hardware based system
 AIX - IBM
 HP-UX
 
-ssh-22
-telnet-23
-nfs-2049
-FTP - 2921
-http - 80
-https - 443
-tomcat - 8080
+Protocal - Port
+SSH       - 22
+telnet     - 23
+nfs         - 2049 // parllel syncing eg: irctc - we are booking ticket diff place that data should be sysc.
+FTP       - 2921
+http        - 80
+https      - 443
+tomcat   - 8080
 
-id -a user
-id -a root
-reboot 
+id -a user // to see user details
+id -a root // to see root user details
+reboot  // to reboot
 sudo su - // taking root access
 sudo - user
-cat /etc/shells
-echo $0
-
-
+cat /etc/shells // to list shells
+echo $0 // display which shell using
 sh - to switch to another shell just mention which shell you want
 man useradd // to get help on any command
-useradd -h
+useradd -h // to get help
 
 File System
+---------------
 file structure
-usr   var  home etc bin dev tmp
- configuration struff - usr/etc
-bin - binary related 
-dev - all device attached  stuff
 
-pwd
-ls -ld Batch/
+/usr   /var  /home /etc /bin /dev /tmp
 
-create a dir in perticualar path
-ls -ld /tmp/java/mydir/mdata
-mkdir -p /tmp/java/mydir/mdata
--p - parent
+usr/etc - Configuration struff
+bin      -  Binary related 
+dev     -  All device attached  stuff
 
+pwd  // to see current location
+ls -ld Batch/  
 
-umask values -  777 -  666
+1) Create a directory in perticualar path
+     ls -ld /tmp/java/mydir/mdata
+     mkdir -p /tmp/java/mydir/mdata
+    -p - parent
 
-create 2 file and change the permissions
+Umask values
+777 -  666
 
-see the permissions with noramal user and root user
+2) Create 2 files and change the permissions
+    see the permissions with noramal user and root user
 
 
 

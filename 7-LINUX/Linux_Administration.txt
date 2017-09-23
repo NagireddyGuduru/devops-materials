@@ -60,6 +60,181 @@ Umask values
 2) Create 2 files and change the permissions
     see the permissions with noramal user and root user
 
+Change Permissions
+chmod -R 666 Raja
+ls /lRt Raja/
+
+change Group
+
+/etc/passwdch
+/etc/group
+grep root /etc/group - grep- what exactly pattern want
+
+grep mygroup /etc/group
+
+3) change the group for perticular directory
+
+change owner permission
+chown root:mygroup Raja/ -R
+
+ls -lRth Raja/  // to see the dir recursively
+
+cat test -a   // line number
+
+4) Creae /Devops/QA create 2 files do copy and move
+
+
+Logs:
+-------
+/var/log 
+
+secure - this file have logs what are the commands enterd
+
+tail -10 messages // last 10 line
+head -10 messages // first 10 lines
+less messages
+more message // page wise
+
+Find commands:
+---------------------
+find / -iname test2   -i - ignore caps or small 
+find - whether existing or not
+grep - pattern search
+
+Advance Commands:
+---------------------------
+Editors:
+
+nano
+vi
+vim
+
+2 modes
+
+esc - when want do operation copy,paste,cut user esc
+insert - modify data
+
+:q!  !- overrite symbol
+
+curser:
+gg - first line
+shift + g - last line
+
+Hi Team  
+Shift $ // end of the line
+shift 0  // home of the line
+
+set nu // set the numbers
+
+:1 // to go perticular line
+
+delete line -- dd
+undo delete - u
+redo delete - ctrl+R
+
+copy line -- yy
+paste line -- p
+
+
+Ctl + A - to select all content
+copy content
+space
+open file and paste
+
+Replace the content
+
+Shift + A
+
+Hung State:Task Manager
+Monitoring jobs:
+---------------------
+top
+
+jomby process can kill bcoz does not have parent process
+solution: restart
+defunct - those process are jomby process
+
+PR - perority
+NI - nice value
+SHR - shared memory
+RES- Reserver
+%CPU - how much cpu consumeted
+Shift + P
+Shift + M
+
+Buffers - IO's
+vmstat 2 3 // stastics of system every 2 sec 3 iteration
+vmstat 2 5
+
+pwdx 1324
+ps -ef|grep -i 1324
+kill -9 1324
+-9 - forcefully killing
+
+service logstash restart
+
+Memory:
+swapspace:
+cache storage - infrequest data
+
+google it - what is bottle neck memory
+
+User Mgmt:
+user1 belongs to group1,group2,group3
+useradd -u 1095 -g 2085 -s /bin/bash -d " Test user comment"  javahome
+groupadd mygroup -g 2085
+id -a java_home
+grep java /etc/passwd
+cat /etc/shells
+su - java_home
+user attributes can changes
+
+set the password
+passwd java_home
+gpassword -a java_home testgroup
+
+reset password:
+chage -l java_home
+chage -w 10 java_home
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

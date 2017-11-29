@@ -197,6 +197,91 @@ reset password:
 chage -l java_home
 chage -w 10 java_home
 
+change the root password
+init 6
+
+ifconfig eth0
+
+runlevel
+hostname server
+
+partition - fragmentation
+
+
+standard partition
+primary - 4 partition can do
+extetend
+logical
+
+50 GB
+p p p e
+E -
+logical
+file system formates
+
+ext2
+ext3
+ext4
+XFS
+
+Partition:
+df -dh
+df -dT
+cat /etc/fstab
+
+fdsik -
+i
+lsblk
+mkfs.ext4 /dev/sdb
+pvcreate
+vgcreate
+vgs
+lvcreate -L +1G -m mylv
+
+mount -T ext4 /dev/sdb1 /mkdir
+mount -t ext4 /dev/myvg/
+fdisk -cu /dev/sdb
+
+add hardware 5GB 
+add filesystem 
+
+create physical volume
+create logical volume
+create increase filesystem size
+lvextend -L +2G /dev/mapper/myvg-mylv
+resizelfs /dev/mapper/myvg-mylv
+lvs
+
+- - -
+- // control
+- target
+- LUN
+
+mirraring - data replicate
+
+Package Mgmt:
+
+.rpm - redhot package update manager - rpm will not resolve dependencies
+yum - yellowlog update manager
+
+N/w file system:
+hostname
+uname -a
+
+create 2 m/c and import and export data each other
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

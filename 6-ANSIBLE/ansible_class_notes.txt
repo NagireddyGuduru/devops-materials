@@ -123,3 +123,65 @@ want to install git on my manged nodes adhoc preparing and typing
 ansible ip -m yum -a 'name=git state=present'
 
 ansible ip -m yum -a 'name=git state=present' --become
+
+password less authentication
+
+
+playbooks:
+---------
+- playbooks containes plays.
+- plays are specific to task eg: install git, start docker, stop docker
+- ansible has lots of built in modules
+  
+  Modules:
+  ********
+  yum module - use for linux m/c
+  apt moudle
+  ping module
+  user
+  file
+  docker
+  docker swarm
+  git 
+  
+ Using ansible we can build our own custom modules. 
+ 
+ First anisble play book:
+ ---
+ - hosts: webserver // here "-" means list and here going automate webservers
+   become: True
+   tasks:
+    - name: install apache // it is description for your task
+	  yum: 'name=httpd state=present'
+	  (or)
+	  yum:
+	   name: httpd
+	   state:present
+	- service:
+       	name: httpd
+		state: started
+		enabled: True // similar to chkconfig
+    - name: Get static websit from git and deploy on apache
+        git: 
+		  repo: https://github.com/javahometech/javahome-application
+		  dest: /var/www/html/
+         
+		 verify commands:
+		 
+		  ansible web04 -m command -a 'git --version'
+		  ansible web04 -m command -a 'ls /var/www/html/'
+		  cat /etc/*-release
+Task:
+
+I have website on git and take it and deploy.
+
+ 		
+		
+	  
+	  
+	  ok=2(count of tasks) changed=0(its already in desired state)
+	  
+  
+ 
+ 
+ 

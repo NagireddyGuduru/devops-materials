@@ -1,0 +1,125 @@
+
+Ansible
+we need 100 servers to run java web application 
+we need java, tomcat etc on the 100 servers, this can be easly done using ansible
+we can write simple ansible playbook, which uses yaml
+
+we can do using python and shell why ansible?defenitley we can do but we need to build framework
+1) we can do that but we need to build our owrn framework
+2)instead of that it is good to build our own existings tools like anisble, chef, puppet,saltstake etc
+
+
+*How ansible is used by the industry?
+1)as a configuration management tool --
+2)eg 200 nodes  , 50 as manager remaining as worker, we need to install docker we can use ansible 
+3)second use case it is also used for deploying
+4)Use as orchestration tool like Jenkins
+
+Ansible features:-
+1)it is simple to use and learn
+2)no additional scripting knowledge required
+3)for eg chef archetecture , ansible is 100 times easly to use and learn
+4)It is very powerful tool you can achieve any kind of automation
+5)This tool is from redhat
+6)it is open source
+7)Ansible is agentless, other tools like chef,puppet uses agentless
+
+Ansible architecture:-
+
+we will have control machine and managed nodes may be nodes in docker-swarm or anyother nodes
+
+Ansible control machine:-
+
+The machine in which we install ansible and run ansible commands and playbooks
+Ansible follows push model
+
+push model vs pull model
+
+Ansible connection types:-
+
+Ansible connects to manged nodes using ssh if manged node is linux or using winrm if manged node is windows
+
+setting up environmentfor practising annsible:-
+
+1) Initialy we are going with two servers	
+	a) wanna to use ubuntu for control machine
+	b)control machine can be any platform except windows
+	c)it also requires python 
+	d)on control machine we need to have python installed
+	b) 
+
+
+Managed Nodes:-
+It is any VM or servers which is managed by ansible
+
+setting up manged node:-
+
+ sudo apt-get update
+    3  sudo apt-get install ansible -y
+
+
+if you want to use our own scripts we need to build framework, when already exiting framework is there we can use it
+
+Setting up control machine:-
+
+step1:- install ubuntu 
+update and install 
+ubuntu@ip-172-31-91-42:~$ python --version
+Python 2.7.15rc1
+ubuntu@ip-172-31-91-42:~$ ansible --version
+ansible 2.5.1
+  config file = /etc/ansible/ansible.cfg
+  configured module search path = [u'/home/ubuntu/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python2.7/dist-packages/ansible
+  executable location = /usr/bin/ansible
+  python version = 2.7.15rc1 (default, Apr 15 2018, 21:51:34) [GCC 7.3.0]
+ubuntu@ip-172-31-91-42:~$
+
+for managed node i am using linux:-
+
+manged node can be of any plaftform it can be windows or linux 
+Ansible inventory file:-
+
+contains all the details of manged nodes
+1)ip address
+2) user name
+3) passwords
+4)connection type (ssh or winrm)
+
+ANSIBLE INVENTORY FILE 
+
+all managed nodes inventory files must be added to the inventory files it is mandatory
+inventory file is automatically createed when you install ansible and its default location is  /etc/ansible/hosts
+
+you can use this file anywhere but you nee to use -i
+we can have different inventory files for different environments  like dev test prod
+while running ansible commands we can specify it
+
+
+DEFAULT CONFIG FILE (anisble.cfg)
+
+vim /etc/ansible/ansible.cfg
+if fork = 3 it will do 3 things at a times
+we can see the logs, and other things ssh_timeout
+
+first ansible example:-
+
+1)add manged node details in the inventory
+2)open with sudo mode 
+3)change the vim /etc/ansible/hosts file to add the .pem 
+
+if we have 100 nodes we have to type yes 100 times , can we stop this
+in ansible config we can supress it
+
+tasks:- 
+
+anisble -m ping  -m is module name
+ansible ip -m command -a 'free'   -a is adhoc command
+
+ansible ip -m command -a 'uname -a'
+
+want to install git on my manged nodes adhoc preparing and typing 
+
+ansible ip -m yum -a 'name=git state=present'
+
+ansible ip -m yum -a 'name=git state=present' --become

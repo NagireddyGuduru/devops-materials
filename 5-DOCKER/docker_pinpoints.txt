@@ -1,0 +1,56 @@
+Better resource utilization with Docker.
+Docker is container management service.
+this gurantees that your code will run the same on any environement.
+Docker  talks to the kernel directly, so less overhead, better resource utilization.
+Docker is an open-source Project that automates the deployment of applications inside software containers.
+You can deploy Docker containers anywhere, on any physical and virtual machines and even on the cloud.
+
+So basically, it is a tool (or a set of tools depending on how you look at it) that packages up an application 
+and all its
+dependencies in a "virtual container" so that it can be run on any linux system or distribution.
+docker engine manages all the resource allocations for the applications
+Docker opensource platform that allows you to package a s/w such that it has everything needed to run the s/w
+    -- code - source code
+    -- runtime : jre
+    -- system libraries : kernel related
+    -- system tools : curl
+VM
+Host OS
+Guest OS - you have to bring the m/c - run app
+
+DOcker M.c
+No Guest OS-- directly comm to HOST OS.
+Docker containers has less security compared to VM m/c.
+
+
+Benfits:
+Inconsistencies b/w developer,test,production and customer evevironments are gone/eliminated
+Light weight and fast so improved performance, decreased cost of deployment.
+
+Components of Docker:
+
+Docker Engine- It is used for building Docker images and creating Docker containers.
+
+Dokcer Hub - This is the registry which is used to host various Docker images.
+
+Docker compose - This is used to define applications using multiple Docker containers.
+
+Docker image
+-- a read-only template with instructions for creating a Docker container.
+-- Its executable 
+-- template from which containers are created. it like class in java
+
+Docker container:
+-- Docker container is a running instance of an image
+
+Docker host
+- If you install docker on m/c i.e Docker host
+
+- Docker Machine:
+
+- Docker file - A Dockerfile is a text document that contains commands that are used to assemble an image. We can use any command that call on the command line. Docker builds images automatically by reading the instructions from the Dockerfile
+
+daemon : run in background. it will understand the cmd when docker clinet.
+
+
+

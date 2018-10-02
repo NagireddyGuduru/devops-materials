@@ -1,0 +1,39 @@
+freeStyleJob('alert-service-precommit') {
+  
+  logRotator(30, -1)
+  jdk('(System)')
+  
+    parameters {
+                choiceParam("SERVER_FQDN", ["server1.test.com.au", "server2.test.com.au", "server3.test.com.au", "server4.test.com.au"])
+                description 'Select a server from the list to test'
+               
+                stringParam("SERVER", 'String Parameter')
+                description 'Select a server from the list to test'
+      
+        }
+  trigger {
+    gerrit {
+         events {
+             ChangeMerged
+             DraftPublished
+         }
+         project('regex:myProject', ['plain:osvc-alert', 'path:**']) // full access
+         project('test-project', '**') // simplified
+         configure {
+             gerritBuildStartedVerifiedValue 0
+             gerritBuildStartedCodeReviewValue 0
+             gerritBuildSuccessfulVerifiedValue 1
+             gerritBuildSuccessfulCodeReviewValue 2
+             gerritBuildFailedVerifiedValue -2
+             gerritBuildFailedCodeReviewValue -2
+             gerritBuildUnstableVerifiedValue -1
+             gerritBuildUnstableCodeReviewValue -1
+             gerritBuildNotBuiltVerifiedValue 0
+             gerritBuildNotBuiltCodeReviewValue 0
+         }
+    }
+}
+    steps {
+          maven('-e clean test')
+    }
+}

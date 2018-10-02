@@ -1,0 +1,48 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Install Java 1.8
+      yum: name=java-1.8.0-openjdk state=present
+	
+	- name: Install git 1.8
+      yum: name=git state=present
+    
+	- name: git global configuration
+	  command: git config --global user.name "Your Name"
+	  command: git config –global user.email "you@example.com"
+	  command: git config –list 
+	- name: download maven 3.3
+	  command: wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
+	  command: sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
+	
+	- name: Install maven 
+      yum: name=apache-maven state=present	
+	  
+    - name: add group "tomcat"
+      group: name=tomcat
+
+    - name: add user "tomcat"
+      user: name=tomcat group=tomcat createhome=yes
+      become: true
+    - name: Download Tomcat
+      get_url: url=http://archive.apache.org/dist/tomcat/tomcat-8/v8.5.16/bin/apache-tomcat-8.5.16.tar.gz dest=/opt/apache-tomcat-8.5.16.tar.gz
+
+    - name: Extract Tomcat archive
+      command: tar zxvf /opt/apache-tomcat-8.5.16.tar.gz -C /opt/ creates=/opt/apache-tomcat-8.5.16
+
+    - name: Change ownership of Tomcat installation
+      file: path=/opt/apache-tomcat-8.5.16 owner=tomcat group=tomcat state=directory recurse=yes
+
+
+    - name: Configure Tomcat users
+      template: src=tomcat-users.xml dest=/opt/apache-tomcat-8.5.16/conf/
+
+    - name: Start Tomcat
+      command: nohup /opt/apache-tomcat-8.5.16/bin/startup.sh
+      become: true
+      become_user: tomcat
+	  
+	  
+
+    

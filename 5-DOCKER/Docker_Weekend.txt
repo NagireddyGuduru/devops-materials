@@ -1,0 +1,110 @@
+--  It is container of application and all dependencies.
+
+Benfits:
+
+-- It is highly portable. its work on any machine.
+-- It is easy to  setup
+-- It improves the performance.
+
+
+Dockers Vs VMs
+
+--vms are heavy weight
+-- dockers are light weight
+-- VMs are 100% isolated its not depending each other
+-- Not 100% isolated bcoz dockers are process.
+
+
+-- If our application is dockerized jenkins will build an image and uploads the images to docker hub.
+
+Docker Image: 
+-- Is a template which contains our application and all its dependencies.
+
+Dockerfile:
+
+Dockerfile  -----   Dokcer images ------------- 1..n Docker containers
+
+Dockerfile -- Give the instruction to how to build the docker image
+
+Docker container: From Docker image can create n no of containers.
+
+Docker installation:
+-------------------------
+sudo yum install -y
+sudo service docker start
+sudo usermod -a -G docker ec2-user // giving the permission to ec2-user
+reboot the machine
+
+existing images:
+-------------------
+run the existing images
+
+docker run -dit -p 80:80 --name my-running-app httpd
+
+run -- To create the container for image
+-d -- run in detach mode
+-it  -- interactive terminal
+-p -- port mapping   80:80 first one is host port second one is container port
+--name - Name of the container give some name to container if not 
+httpd -- docker image
+--docker checks for the image from local if not present get from docker repos
+
+docker ps // display the running containers
+
+
+Tasks
+Pull the images from docker repo like jenkins,sonar,nexus
+Create the multiple containers with one image
+delete the all images
+delete all containers
+Start all containers
+Stop all containers
+login into the container
+Terminate a container
+docker kill container-id
+
+
+Removing Images:
+docker images // list out the images
+docker rmi image id 
+docker images -q
+docker rmi $(docker images -q)
+
+To login into container
+docker exec -it containerid  /bin/bash
+
+
+Docker Task:
+-----------------
+Pull the tomcat image from docker repo
+Create 3 containers with tomcat image
+Start all containers at a time.
+Stop all containers at a time.
+Delete all containers at a time.
+
+pwd
+cd /var/lib
+cd /opt/
+
+
+
+
+
+
+comeout from container without stopping the ctrl+pq
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

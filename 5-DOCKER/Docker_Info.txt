@@ -1,0 +1,89 @@
+Add Proxy Details in  /etc/apt/apt.conf
+-----------------------------------------
+acquire::http::proxy "http://Guduru.Reddy:<password>@btpproxy.mphasis.com:8080";
+acquire::https::proxy "https://Guduru.Reddy:<password>@btpproxy.mphasis.com:8080";
+
+sudo apt-key adv --keyserver-options http-proxy=http://Guduru.Reddy:sras%402017@btpproxy.mphasis.com:8080. --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+
+then sudo apt-key adv --keyserver-options http-proxy=http://Guduru.Reddy:sras%402017@btpproxy.mphasis.com:8080. --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+then create - /etc/apt/sources.list.d/docker.list and add deb https://apt.dockerproject.org/repo ubuntu-trusty main
+sudo apt-get install docker-engine
+sudo service docker start
+Run below command to enable the proxy to pull images(Update passwords)-----
+
+cat <<EOF | sudo tee -a /etc/default/docker
+export http_proxy="http://jayashree.h:<pwd>@gtpproxy.mphasis.com:8080" - ! is replaced with %21
+export https_proxy="https://jayashree.h:<password>@gtpproxy.mphasis.com:8080"
+export no_proxy=<REGISTRY_IP>
+EOF
+
+sudo restart docker 
+
+
+Docker Installation:
+
+Select Additional Tasks
+
+selected Install VirtualBox with NDIS5 driver
+
+Windows Security:
+
+would you like to install this device software? publisher Oracle Corporation
+click 'Always trust software from [Publisher]- Install option selected.
+
+Verify your installation
+step 1:
+ to check your versions of docker and docker-compose, and verify the installation.
+
+  PS C:\Users\jdoe> docker --version
+  Docker version 1.13.1, build 8eab29e, experimental
+
+  PS C:\Users\jdoe> docker-compose --version
+  docker-compose version 1.11.1, build d988a55
+
+  PS C:\Users\jdoe> docker-machine --version
+  docker-machine version 0.9.0, build b85aac1
+
+Issue:
+Docker version
+
+In the default daemon configuration on Windows, the docker client must be run elevated to connect. This error may also indicate that the docker daemon is not running
+
+Failed to open/create the internal network 'HostInterfaceNetworking-virtualBox Host - only'
+
+
+docker images
+docker rmi ubuntu
+docker rmi 
+docker ps
+docker pull training/sinatra
+docker run -t -i training/sinartra /bin/bash
+docker build -t hendryrober/sinatra:v2
+docker push
+docker history
+docker tag
+docker pull busybox
+docker run
+docker ps -a
+docker export --output="my.tar" 
+docker rmi
+docker run
+docker run -itd  -V    data1 --name=data2 busybox
+--volumes-from
+
+docker run --rm -i -t -p 80:80 nginx
+
+docker-machine ls
+docker-machine network create   dtr-teams
+docker   dtr-teams
+docker network rm
+connect
+inspect
+docker-machine create --driver virtualbox dtr-teams
+
+
+
+
+
+
+

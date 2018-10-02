@@ -1,0 +1,165 @@
+Please find the steps to setup Nagios in Linux environment.
+
+1.Install required dependencies:
+
+ 
+
+#yum install httpd php
+
+#yum install gcc glibc glibc-common
+
+#yum install gd gd-devel
+
+#yum install make net-snmp
+
+2.    Create Nagios user and Group:
+
+ 
+
+# useradd nagios
+
+# passwd nagios
+
+# groupadd nagcmd
+
+# /usr/sbin/usermod -a -G nagcmd nagios
+
+# /usr/sbin/usermod -a -G nagcmd apache
+
+3.    Download Nagios Core 4.0.1 and Nagios Plugin 1.5
+
+ 
+
+# mkdir /root/downloads
+
+# cd /root/downloads
+
+# wget http://prdownloads.sourceforge.net/sourceforge/nagios/nagios-4.0.1.tar.gz
+
+# wget https://www.nagios-plugins.org/download/nagios-plugins-1.5.tar.gz
+
+ 
+
+4.    Extract Nagios Core and its Plugins:
+
+ 
+
+# tar -xzvf nagios-4.0.1.tar.gz
+
+# tar -xzvf nagios-plugins-1.5.tar.gz
+
+ 
+
+5.    Configure Nagios Core:
+
+ 
+
+# cd nagios-4.0.1
+
+# ./configure --with-command-group=nagcmd
+
+# make all
+
+# make install
+
+# make install-init
+
+# make install-commandmode
+
+# make install-config
+
+# vim /usr/local/nagios/etc/objects/contacts.cfg (mailing configuration)
+
+# make install-webconf (web-interface configuration)
+
+# htpasswd -s -c /usr/local/nagios/etc/htpasswd.users nagiosadmin (password for nagiosadmin user)
+
+# service httpd restart
+
+	
+
+8. Compile and Install Nagios Plugin:
+
+ 
+
+# cd /root/downloads/nagios-plugins-1.5
+
+#./configure --with-nagios-user=nagios --with-nagios-group=nagios
+
+# make
+
+# make install
+
+9.    Verify Nagios configuration file:
+
+ 
+
+# /usr/local/nagios/bin/nagios -v /usr/local/nagios/etc/nagios.cfg
+
+ 
+
+10.  Add Nagios Services to System Startup:
+
+ 
+
+# chkconfig --add nagios
+
+# chkconfig --level 35 nagios on
+
+#  chkconfig --add httpd
+
+# chkconfig --level 35 httpd on
+
+# service nagios start
+
+ 
+
+11.  Modify SELinux Settings:
+
+# getenforce
+
+# setenforce 0
+
+# /etc/selinux/config (config file for selinux)
+
+ 
+
+Instead of disabling SELinux or setting it to permissive mode, you can use the following command to run the CGIs under SELinux enforcing/targeted mode:
+
+ 
+
+[root@RHEL5 nagios-4.0.1]# chcon -R -t httpd_sys_content_t /usr/local/nagios/sbin/
+
+[root@RHEL5 nagios-4.0.1]# chcon -R -t httpd_sys_content_t /usr/local/nagios/share/
+
+ 
+
+12. Login to Nagios Web Interface:
+
+ 
+
+http://Your-server-IP-address/nagios” or “http://FQDN/nagios” and provide the username “nagiosadmin” and password.
+
+yum install openssl-devel
+
+forbidden error :-install php
+
+ 
+
+Nagios Host :-
+
+ 
+
+http://www.2daygeek.com/linux-host-nagios-server-monitor/#
+
+ 
+
+Create one host file for new guest host in “/usr/local/nagios/etc” and add the same path in “/usr/local/nagios/etc/nagios.cfg” . Then edit the host name and IP of guest host.
+
+                                               OR
+
+# cat /usr/local/nagios/etc/objects/localhost.cfg >> /usr/local/nagios/etc/hosts1.cfg
+
+ 
+
+# echo "cfg_file=/usr/local/nagios/etc/hosts1.cfg" >> /usr/local/nagios/etc/nagios.cfg

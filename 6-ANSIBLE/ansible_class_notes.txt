@@ -111,6 +111,19 @@ first ansible example:-
 if we have 100 nodes we have to type yes 100 times , can we stop this
 in ansible config we can supress it
 
+Password letss authentication:
+******************************
+ansible controll node:
+   ssh-keygen
+   - it will generate private key and public key
+
+ansible manage node:
+        - goto .ssh/autorized_key
+		- copy public key from controll node note: dont existing keys just append to file.
+
+Inventory file:
+web01 ansible_host=172.34.3.2 ansible_user=ec2_user
+
 tasks:- 
 
 anisble -m ping  -m is module name
@@ -161,27 +174,115 @@ playbooks:
        	name: httpd
 		state: started
 		enabled: True // similar to chkconfig
+	- name : install git
+      yum:
+        name: git
+        state: present		
+    - name: Makesure /var/www/html is present
+      file:
+         path: /var/www/html
+         state: directory
+		 
     - name: Get static websit from git and deploy on apache
         git: 
 		  repo: https://github.com/javahometech/javahome-application
 		  dest: /var/www/html/
+		  
+		  
+with items:
+*********	 yum:
+			   name:"{{item}}"
+			   state: present
+			 with_item:
+			        - httpd
+					- git
+              
+    - here yum and with_item 	object of name		 
          
 		 verify commands:
 		 
 		  ansible web04 -m command -a 'git --version'
 		  ansible web04 -m command -a 'ls /var/www/html/'
 		  cat /etc/*-release
+		  
+		  
 Task:
 
-I have website on git and take it and deploy.
-
- 		
-		
-	  
-	  
-	  ok=2(count of tasks) changed=0(its already in desired state)
-	  
+1) I have website on git and take it and deploy.
   
- 
- 
- 
+  ok=2(count of tasks) changed=0(its already in desired state)
+	  
+
+
+2) Configure apache on to run on port 8088	
+		
+		- goto /etc/httpd/conf/httpd.conf  // some configuration related to your server
+		  Listen 8088
+
+1 option:
+  - maintain httpd.config file in source and copy it will override with your changes
+2 options:
+  - directly override file.
+- name: update port number of apache to 8080 and 9090
+    lineinfile:
+	  path: /etc/httpd/conf/httpd.conf
+	  regex:'^Listen 80'  // "^" cops - line begining with Listen 80
+	  line: 'Listen 8080'
+- name:restart the service
+  service:
+     name: httpd
+     state: restart	 
+
+verify:
+  - goto the manage node and check config file.
+  /Listen 80  
+  
+problems: every time restarting server. we need to restart when there is change.  
+ - 1) the problem is port number is hard coded if want to change the port we need to update playbook. instead of that you can pass as argument.
+      solution: use variables and we can supply port number in command line.
+      vars:
+	   - http_port:8080
+	  line: 'Listen {{http_port}}'
+	  
+	  vars:
+	   - new_http_port:8080
+	   - old_http_port:9090
+	   
+	   regex:'^Listen {{old_http_port}}$'  // "^" cops - line begining with Listen 80, "$"- end with 80
+	  line: 'Listen {{new_http_port}}'
+	  ansible-playbook hello-word.yml -e old_http_port=8080 \ -e new_http_port=80
+   
+   2) restarting server always 
+   
+   linux arbiry commands like grep
+   
+google search:
+
+ansible lineinfile module  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		  

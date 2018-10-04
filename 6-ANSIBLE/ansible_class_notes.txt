@@ -227,6 +227,7 @@ Task:
     lineinfile:
 	  path: /etc/httpd/conf/httpd.conf
 	  regex:'^Listen 80'  // "^" cops - line begining with Listen 80
+	  bakcrefs: yes
 	  line: 'Listen 8080'
 - name:restart the service
   service:
@@ -256,6 +257,86 @@ problems: every time restarting server. we need to restart when there is change.
    
    linux arbiry commands like grep
    
+Handler:   
+ 
+Forks: for pallel execution
+
+ 
+
+IQ: out of 1000 webservers i want to run my playbook specific m/c   
+   using limit we can do that.
+   ansible-playbook aa.yml --limit webservers[0],webservers[0]  - we can give alias also 
+      webservers[1:2]
+   ansible-playbook aa.yml --limit web01,web02 - here alias numbers
+   ansible-playbook aa.yml --limit ipaddress
+   
+   To run on first 10 servers
+   ansible-playbook aa.yml --limit webservers[0..9]
+IQ: if i run on every server is it imapact
+IQ:  If have 5 task in playbook in this i want run one task
+Ans: define tags
+
+ansible tags:
+--------------------------------------------
+---
+-host: all
+ tasks:
+  - name: Install all packages
+    debug:  
+	  msg=Installing all packages
+	tags:
+	 - install
+  - name: configure servers
+    debug: 'msg=Configure servers'
+	tags:
+	 - configure
+  - name: restart servers
+    debug:
+      msg: Restarting servers	
+    tags:
+	  - restart
+-----------------------------------------------
+cmd: ansible-playbook tag-demo.yml --tags=restart // if morethan one tag --tags=restart,install
+     if you want run all tags except one tag option is --skip-tags=install i.e negotion of one
+     to list the tags  --list-tags
+	 To list all hosts 
+	   ansible all --list-hosts or ansible-playbook all --list-hosts // these are all troubleshoot commands
+       ansible all[0:1] --list-hosts
+	   
+Rolling Deployments/Update in Ansible:
+--------------------------------------	   
+- Ansible has concept called serial we can do rolling deployment/update. we can run playbook batch wise.
+
+- hosts: all
+  serial-
+    - 10 or "10%"
+	- 20 or 20%
+	- 30 or 30%
+	(or)
+	Eg: I have 100 servers if i mention serial 10 it will update 1st 10 servers remaining 90 will do one shot.
+	                       if i mention serial 10,20,30  will update 1st 10 servers , after it will update 20 servers, after it will update 30 servers.             
+
+------------------------------------------------------------
+IQ:How to check playbook without executing.
+ansible check syntax:
+   ansible-playbook aa.yml --syntax-check
+
+-----------------------------------------------------------
+Ansible Facts:   
+   - first task is gatheing facts about nodes.
+   - ansible gather few details about manage nodes.those details are called as facts.
+   - ansible does this when run the playbook
+   - as part of gather facts get few details like os family, pkg mgmr, ip address, memory details, storage details, no. of details.
+   
+   eg: ansible all -m setup
+----------------------------------------------------------
+
+
+Task:
+  - take 2 server and do load balancing ..   
+  setup: Nginx - 2 webservers - mysql
+  
+  
 google search:
 
 ansible lineinfile module  

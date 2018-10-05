@@ -15,7 +15,7 @@
   - name: Run the container
     docker:
       name: Mywebapp
-      image: nagaramesh/ywebapp
+      image: nagaramesh/mywebapp
       state: reloaded
      pull: always
       ports:

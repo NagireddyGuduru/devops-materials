@@ -119,7 +119,7 @@ ansible controll node:
 
 ansible manage node:
         - goto .ssh/autorized_key
-		- copy public key from controll node note: dont existing keys just append to file.
+		- copy public key from controll node note: dont delete existing keys just append to file.
 
 Inventory file:
 web01 ansible_host=172.34.3.2 ansible_user=ec2_user
@@ -227,7 +227,6 @@ Task:
     lineinfile:
 	  path: /etc/httpd/conf/httpd.conf
 	  regex:'^Listen 80'  // "^" cops - line begining with Listen 80
-	  bakcrefs: yes
 	  line: 'Listen 8080'
 - name:restart the service
   service:
@@ -257,86 +256,106 @@ problems: every time restarting server. we need to restart when there is change.
    
    linux arbiry commands like grep
    
-Handler:   
- 
-Forks: for pallel execution
+-------------------------------------------
+eg: configure loadbalancer with 2 webservers
+    loadbalancer - 2 tomcat server - mysql
 
- 
+- create 2 instances and name it webserver-1 and webserver-2
+- Update invertory file in control m/c
+- mkdir ansible-3tier folder
+- git init
+- create a repository in github with ansible-3tier
+- git add .gitignore
+- git remote add origin http://ansible-3tier.git
+- git push -u origin maser
+- write a playbook name the playbook with tomcat.yml
+  ---
+  -hosts:
+   become: yes
+   tasks:
+    - name: Install java7
+	  yum:
+	   name: java-1.7.0-openjdk
+	   state: present
+    - name: Create Linux Group for tomcat
+      group:
+        name: tomcat
+    - name: Create Linux user for tomcat
+      user:
+       name: tomcat
+       group: tomcat
+       become: true
+       home: /usr/share/tomcat
+    - name: Download tomcat
+      get_url:
+       url: http://mirrors.wuchna.com/apachemirror/tomcat/tomcat-8/v8.5.34/bin/apache-tomcat-8.5.34.tar.gz
+       dest: /opt/apache-tomcat-8.5.34.tar.gz	 //gunzip   
+    - name: Extract archive
+	  command: chdir=/usr/share /bin/tar xvf /opt/apache-tomcat-7.0.61.tar.gz -C /opt/ creates=/opt/apache-tomcat-7.0.61
+    - name: Symlink install directory
+      file: src=/opt/apache-tomcat-7.0.61 path=/usr/share/tomcat state=link
+	  // tomcat is installed in /opt/apache-tomcat-7.0.61 for to create short cut /usr/share/tomcat
+    - name: Change ownership of Tomcat installation
+      file: path=/usr/share/tomcat/ owner=tomcat group=tomcat state=directory recurse=yes
+    - name: Configure Tomcat server
+	  template: src=server.xml dest=/usr/share/tomcat/conf/
+	  notify: restart tomcat
 
-IQ: out of 1000 webservers i want to run my playbook specific m/c   
-   using limit we can do that.
-   ansible-playbook aa.yml --limit webservers[0],webservers[0]  - we can give alias also 
-      webservers[1:2]
-   ansible-playbook aa.yml --limit web01,web02 - here alias numbers
-   ansible-playbook aa.yml --limit ipaddress
-   
-   To run on first 10 servers
-   ansible-playbook aa.yml --limit webservers[0..9]
-IQ: if i run on every server is it imapact
-IQ:  If have 5 task in playbook in this i want run one task
-Ans: define tags
+	- name: Configure Tomcat users
+	  template: src=tomcat-users.xml dest=/usr/share/tomcat/conf/
+	  notify: restart tomcat
 
-ansible tags:
---------------------------------------------
----
--host: all
- tasks:
-  - name: Install all packages
-    debug:  
-	  msg=Installing all packages
-	tags:
-	 - install
-  - name: configure servers
-    debug: 'msg=Configure servers'
-	tags:
-	 - configure
-  - name: restart servers
-    debug:
-      msg: Restarting servers	
-    tags:
-	  - restart
------------------------------------------------
-cmd: ansible-playbook tag-demo.yml --tags=restart // if morethan one tag --tags=restart,install
-     if you want run all tags except one tag option is --skip-tags=install i.e negotion of one
-     to list the tags  --list-tags
-	 To list all hosts 
-	   ansible all --list-hosts or ansible-playbook all --list-hosts // these are all troubleshoot commands
-       ansible all[0:1] --list-hosts
+	- name: Install Tomcat init script i.e configure as a service
+	  copy: src=tomcat-initscript.sh dest=/etc/init.d/tomcat mode=0755
+
+	- name: Start Tomcat
+	  service: name=tomcat state=started enabled=yes
+
+	- name: deploy iptables rules
+	  template: src=iptables-save dest=/etc/sysconfig/iptables
+	  when: "ansible_os_family == 'RedHat' and ansible_distribution_major_version == '6'"
+	  notify: restart iptables
+
+	- name: insert firewalld rule for tomcat http port
+	  firewalld: port={{ http_port }}/tcp permanent=true state=enabled immediate=yes
+	  when: "ansible_os_family == 'RedHat' and ansible_distribution_major_version == '7'"
+
+	- name: insert firewalld rule for tomcat https port
+	  firewalld: port={{ https_port }}/tcp permanent=true state=enabled immediate=yes
+	  when: "ansible_os_family == 'RedHat' and ansible_distribution_major_version == '7'"
+
+	- name: wait for tomcat to start
+	  wait_for: port={{http_port}}	  
+			
+	1)
+	 cp /etc/ansible/hosts/  dev_invetory // giving own inventory name
+	 
+	Invetory File:
+	 
+	[tomcat]
+
+	2) copy public key
+	cat ~/.ssh/rsa.pub
+	3) to ssh from control m/c
+	    ssh ec2_user@private_ip_address
+	4) ansible-playbook -i dev_inventory tomcat.yml
+	
+	sudo su tomcat
 	   
-Rolling Deployments/Update in Ansible:
---------------------------------------	   
-- Ansible has concept called serial we can do rolling deployment/update. we can run playbook batch wise.
-
-- hosts: all
-  serial-
-    - 10 or "10%"
-	- 20 or 20%
-	- 30 or 30%
-	(or)
-	Eg: I have 100 servers if i mention serial 10 it will update 1st 10 servers remaining 90 will do one shot.
-	                       if i mention serial 10,20,30  will update 1st 10 servers , after it will update 20 servers, after it will update 30 servers.             
-
-------------------------------------------------------------
-IQ:How to check playbook without executing.
-ansible check syntax:
-   ansible-playbook aa.yml --syntax-check
-
------------------------------------------------------------
-Ansible Facts:   
-   - first task is gatheing facts about nodes.
-   - ansible gather few details about manage nodes.those details are called as facts.
-   - ansible does this when run the playbook
-   - as part of gather facts get few details like os family, pkg mgmr, ip address, memory details, storage details, no. of details.
+   rm tomcat.swap file - to delete swap file
    
-   eg: ansible all -m setup
-----------------------------------------------------------
-
+   To d/w any line
+   wget https://github.com/javahometech/tomcat-ansible/blob/master/roles/tomcat/files/tomcat-initscript.sh
+   
+   ln -s 
+   
+   
+Repo: in javahome - tomcat-ansible
 
 Task:
-  - take 2 server and do load balancing ..   
-  setup: Nginx - 2 webservers - mysql
-  
-  
+
+1) Configure loadbalancer with 2 webservers   
+   
 google search:
 
 ansible lineinfile module  

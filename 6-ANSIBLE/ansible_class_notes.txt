@@ -328,7 +328,7 @@ Ansible Facts:
    - ansible does this when run the playbook
    - as part of gather facts get few details like os family, pkg mgmr, ip address, memory details, storage details, no. of details.
    
-   eg: ansible all -m setup
+   eg: ansible all -m setup --filter=ansible_os_family
 ----------------------------------------------------------
 
 

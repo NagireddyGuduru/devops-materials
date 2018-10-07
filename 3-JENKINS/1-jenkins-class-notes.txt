@@ -89,12 +89,25 @@ Creating a first Jenkins Job
 - When we ran this job the build failed saying mvn clean package......
 - In our case mvn is in the path, Jenkins is not able to ...... we can configure maven installation location.
 
+- In freestyle - tools will pick automatically - not required to mention in global tool configuration.
+
 Steps to configure maven installation location
 ----------------------------------------------
 
 Jenkins Home -> Manage Jenkins -> Global Tool Configuration -> Add Maven
 
 In a Jenkins, using jenkins job not only build it can perform any kind of activity. for example, executing script, creating & deleting a folder.
+
+Install plugins:
+----------------
+- manage jenkins - manage plugins - select available - choose plugin
+
+
+SSH remote hosts:
+  hostname: private ipaddress
+  port: 22 if not mention take defult 22 port
+  
+ 
 
 Example2: 
 ---------

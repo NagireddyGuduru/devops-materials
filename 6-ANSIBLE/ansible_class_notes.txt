@@ -344,6 +344,11 @@ eg: configure loadbalancer with 2 webservers
 	   
    rm tomcat.swap file - to delete swap file
    
+<<<<<<< HEAD
+   eg: ansible all -m setup --filter=ansible_os_family
+----------------------------------------------------------
+
+=======
    To d/w any line
    wget https://github.com/javahometech/tomcat-ansible/blob/master/roles/tomcat/files/tomcat-initscript.sh
    
@@ -351,6 +356,7 @@ eg: configure loadbalancer with 2 webservers
    
    
 Repo: in javahome - tomcat-ansible
+>>>>>>> 16a2e64cd38a517eec0872060a348bdb263755cb
 
 Task:
 

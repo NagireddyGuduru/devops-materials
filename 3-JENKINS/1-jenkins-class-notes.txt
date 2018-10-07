@@ -5,13 +5,41 @@ It is a process where bunch of developers push their changes every day to the SC
 
 --> The objective of CI is find syntatical and functional errors as early as possible which lets developers to fix them immediately. That is the idea behind CI.
 
---> To implement CI process, there are CI tools like Jenkins, Bamboo, Team City.
+--> To implement CI process, there are CI tools like Jenkins, Bamboo, Team City,Circle CI,solano,Hudson. 90% use jenkins as a CI server
 
---> Lets begin with Jenkins
+--> Jenkins also have enterprise version called cloudbees.
+
+--> Lets begin with Jenkins.
+
+open source vs enterprise version
+----------------------------------
+enterprise version - get support immediately
+open source version - free and support wont be there
+
 
 Jenkins
 ======
 It is a popular open source CI tool which provides lots of inbuild functionalities.
+- Jenkins is depending on JAVA. bcoz jenkins developed on JAVA.
+   
+   jenkins version below 2.x jdk 7 required
+   jenkins version above jdk 8 required
+   
+   search 1.8 package
+   sudo yum list | grep java-1.8 // it will listout all openjdks - choose devel.
+   yum install java-1.8.0-openjdk-devel.x86_64
+   devel - compiler +jvm   - openjdk -devel is required becoz jenkins compile and run java applications
+   
+   java -version
+   javac -version // both should have same version if not update alternatives
+   
+   // when you have multiple version 
+   update-alternatives --config java
+   1****
+   2  // run on to programmes
+   
+   if jenkins on docker its bundled with all dependencies.
+   
 
 Steps to install Jenkins in CentOS or Linux
 -----------------------------------------------------------------
@@ -23,8 +51,15 @@ For Java based applications, the prerequitites for using Jenkins server is
 
 Installation of Jenkins
 --------------------------
+Install Jdk in Ec2 linux instance:
+---------------------------------
+   sudo yum list | grep java-1.8 // it will listout all openjdks - choose devel.
+   yum install java-1.8.0-openjdk-devel.x86_64
+   
 To install Jenkins,
 $ sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+  sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+  yum install jenkins
 
 To verify the status of Jenkins,
 $ sudo service jenkins status
@@ -39,6 +74,13 @@ By default Jenkins use 8080 port number
 To access jenkins from web browser,    
 192.168.70.10:8080
 
+Jenkins Configuration:
+----------------------
+- open a browser and access with ipaddress:8080
+- provide the initialpassword
+- Customize Jenkins
+  - Jenkins comes with 100 of plugins select install all plugin 
+- Create First Admin User - dont forget to mention
 
 Creating a first Jenkins Job
 ----------------------------
@@ -169,6 +211,17 @@ There are different ways to deploy web application in tomcat
 OPtion 1: take the war file & put it in tomcat hom/webapps
 
 - Take the war file from server1 & place it in server2 tomcat/webapps folder
+
+How many ways to run the jenkins
+--------------------------------
+- using Docker
+
+- using package mgmr yum install
+
+- d/w jenkins war file and deploy it on tomcat.
+
+
+
 
 
 

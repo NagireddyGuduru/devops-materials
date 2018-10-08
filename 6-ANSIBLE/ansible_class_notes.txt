@@ -469,9 +469,7 @@ Nexus download location:
 https://www.sonatype.com/download-oss-sonatype
 
 To access a direct download link, visit help.sonatype.com.
-
-	  
-   
+  
 
 
 
@@ -490,32 +488,4 @@ Write a playbook, to install nexus and configure
 google search:
 --------------
 ansible lineinfile module   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		  
+  

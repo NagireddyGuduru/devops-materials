@@ -106,6 +106,8 @@ Install plugins:
 SSH remote hosts:
   hostname: private ipaddress
   port: 22 if not mention take defult 22 port
+
+Hostkey verification failed:
   
  
 

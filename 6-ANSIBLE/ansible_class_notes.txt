@@ -344,11 +344,11 @@ eg: configure loadbalancer with 2 webservers
 	   
    rm tomcat.swap file - to delete swap file
    
-<<<<<<< HEAD
+
    eg: ansible all -m setup --filter=ansible_os_family
 ----------------------------------------------------------
 
-=======
+
    To d/w any line
    wget https://github.com/javahometech/tomcat-ansible/blob/master/roles/tomcat/files/tomcat-initscript.sh
    
@@ -356,15 +356,142 @@ eg: configure loadbalancer with 2 webservers
    
    
 Repo: in javahome - tomcat-ansible
->>>>>>> 16a2e64cd38a517eec0872060a348bdb263755cb
+                  - ansible-july
+				  - ansible-
+
 
 Task:
 
-1) Configure loadbalancer with 2 webservers   
+1) Configure loadbalancer with 2 webservers  
+
+Task: Write a playbook to configure loadbalancer using nginx 
+
+- can use as rever proxy
+- loadbalancing
+- web server
+- load balaning - common endpoint(single ip) - for all webservers
+- Before installing nginx using playbook do first install nginx manually and show
+
+Invetroy file:
+[loadbalancer]
+172.31.xx.XXX ansible_user=ec2-user
+
+Establish passwordless authentication
+vi dev-invetory
+copy pub key
+
+goto nginx node
+vi .ssh/autorized_key, goto end paste the key
+
+
+connect manage node from control m/c
+-------------------------------------
+loadbalancer.yml
+---
+ - hosts: loadbalancer
+   become: true
+   tasks:
+     - name: configure nginx rpm
+       yum: name=http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
+     - name: Install ngixn server
+       yum:
+         name: nginx
+         state: present
+         enablerepo: nginx
+     - name: start and enable nginx server
+       service:
+          name: nginx
+          state: started
+          enabled: yes
+     - name: copy nginx.conf to the nginx server
+       template: src=nginx.conf.j2 dest=/etc/nginx/nginx.conf
+       notify: restart the server
+
+   handlers:     
+     - name: restart the server
+       service: name=nginx state=restarted
+
+	   
+Nginx config file:
+------------------
+
+http {
+ upstream backend {
+    server 172.31.18.50:8080;
+	server 172.31
+ }
+ server {
+   listen 80;
+   location / {
+      proxy_pass  http://backend;
+   }
+ }
+}	   
+
+Jenkins must create a war file and it must upload war file to sonatype nexus
+then the next jenkins must call deploy palybook which download from nexus and deploy into tomcat.
+
+step 1: upload war file to nexus and deploy into tomcat
+
+-----------------------
+Install Sonatype Nexus
+-----------------------
+
+step: install sonatype nexus
+      - minimum 4GB - storage - 8GB fine
+Nexus system requirements:
+      - t2.medium - check t2.medium pricing - usd
+-------------------------------------------------------------	  
+wget https://download.sonatype.com/nexus/3/latest-unix.tar.gz
+tar -xvf latest-unix.tar.gz
+mv nexus-3.23/ nexus3
+change permissions
+chown -R ec2-user:ec2-user nexus3/
+chown -R ec2-user:ec2-user sonatype-work/
+goto bin
+./nexus start
+-------------------------------------------------------------
+
+Nexus required Jdk 1.8:
+----------------------
+update java version:
+yum list | grep java-1.8 
+- here devel not required bcoz not compiling code here
+chown -R ec2-user:ec2-user sonatype-work/
+
+logs:
+ls sonatype-work/nexus3/logs
+
+
+
+Nexus download location:
+------------------------
+https://www.sonatype.com/download-oss-sonatype
+
+To access a direct download link, visit help.sonatype.com.
+
+	  
+   
+
+
+
+Tasks:
+-------
+1) download zip file
+   extract it
+
+2) download tar file
+   extract it 
+   
+Task:	  
+Write a playbook, to install nexus and configure   
+   
    
 google search:
+--------------
+ansible lineinfile module   
 
-ansible lineinfile module  
+
 
 
 

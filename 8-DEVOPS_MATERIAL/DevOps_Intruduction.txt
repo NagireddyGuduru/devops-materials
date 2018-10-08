@@ -1,0 +1,110 @@
+Devops:
+
+Why you are learning devops
+- working old technology doent have growth
+- update in market and learn new skills
+- adopting devops in every project
+
+Cloud:
+- Every has has to learn cloud.
+- cloud is combination everything.
+
+what is devops
+- dificult to say in one or two lines
+- we can say what we can achieve
+   
+   
+   Dev         Ops
+- Dev team responsible for coding and testing
+- Ops team responsible for to deploy application
+- before no collabaration in b/w dev and ops they dont each other
+- if something problem with deploy application they dont now to whom to reach in dev team
+- Devops saying dev and ops team work together befit job is easy . faster delivery
+- devops doenot care the technology how delivery the project
+
+Before Devops:
+ 1) problem is releasing the code.
+ - there was no short releases atleast taking 6 months to go production
+ reason: requirement phase- analays phase - design phase - implementation phase 2 months - integration test phase(1 week) - qa testing (test all scenarios and usecase there might be defects goes backto developers)- 
+         production.
+		 - there was lots of production issues.
+2) when there is defects it takes a weeks. and lot of process involved.
+------------------------------------------------------------------------
+
+1. Collaboration between all the team
+2. Follow Incremental development,minimize the deffects and increases productivity
+3. Automate the process.(explain in feature classes. using jenckins we automate)
+   ellobarate the statement
+        - automate the process pick code - build - test - deploy 
+
+   In dev server - developers - do integration testing.
+adv:
+  - there is no automcation. probabilly i need a send a mail.not seen the mail uptp 3 hrs. after 3 hr done the deployment.
+     in this case, vasting the time, lossing the productivity.
+  - time saving, productivity imporved, faster delivery.
+  - devops guys prepare the process to build and deploy, rollback.
+  
+4. Follow Continuous Integration, gives faster feedback about the code and developers can react to the issues faster and they can 
+   fix it with minimal efforts.
+   10 developer work on the code - merge the code - compile(make sure no compilation issues) - code review(validation).
+   if something go wrong immedietly provide feedback.
+   CI saying - do it again and again - minimum once in day.
+   - can give the quality code.
+   Note: Here deployment not involved in CI. just merge code + review code
+
+5. Implement CD
+     - COntinuous Developemnt
+     - Continuous Delivery
+         i. Before code is 
+		 git - Dev - QA - Performance - approve - Prod.
+		Note: Production guys little bit careful.they need approval for the things.
+
+6. Monitoring,Nagios for this/Grafana
+7. Dockerizing Apps,Kubernetes
+8. Configuration Management (ansible,chef,puppet,salttack etc..)
+
+
+Main object of Devops:
+   as many time as possible
+   as quick as possible
+
+Tools going to cover in course:
+
+1. Git & Bitbucket
+2. Maven for build
+3. Tomcat, a web server
+4. Jenkins, automation server
+5. Docker with Kubernetes
+6. Ansible for Configuration management
+7. SonarQube(Static Code Analysis)
+8. Nexus for Artifacts and docker images
+9. Nagios for monitoring
+10. Linux, essentials and troubleshooting commands
+11. JIRA(Project mgmt tool) & Agile
+12. Project - Based on your availability
+     - supporting tasks
+
+NOTE: Attend any number of times
+	 
+
+
+
+
+
+
+
+
+
+     
+		 
+	 
+
+   
+  
+
+	 
+   
+
+		
+		
+

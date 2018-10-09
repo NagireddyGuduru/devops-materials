@@ -1,0 +1,9 @@
+---
+ - hosts: all
+   become: True
+   tasks:
+      - name: Install packages
+        yum : name={{ item }} state=installed
+        loop:
+                - git
+                - wget  

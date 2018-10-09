@@ -1,0 +1,10 @@
+- hosts: all
+  vars:
+    python:
+      Designer: 'Guido van Rosum'
+      Developer: 'Python Software Foundation'
+      OS: 'Cross-platform'
+  tasks:
+  - name: Ansible Dictionary Example
+    debug:
+      msg: "{{ python }}"

@@ -1,0 +1,10 @@
+---
+ - hosts: all
+   become: True
+   vars:
+     packages: [git]
+   tasks:
+       - name: Install packages
+         yum: name={{item}} state=installed
+         with_items: 
+           - "{{ packages }}"

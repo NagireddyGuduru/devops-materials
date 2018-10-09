@@ -81,6 +81,12 @@ Creating Cloud account for Git:
 - Gitlab
 - CodeCommit in AWS
 
+Creating Account in Bitbucket:
+ - Upto 5 users its free
+ - You can create unlimited priavate/public repositories.
+ - goto bitbucket org
+ 
+
 
 
 

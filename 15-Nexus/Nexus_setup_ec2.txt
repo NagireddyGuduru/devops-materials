@@ -1,0 +1,24 @@
+Nexus download location:
+------------------------
+https://www.sonatype.com/download-oss-sonatype
+
+To access a direct download link, visit help.sonatype.com.
+
+
+wget https://download.sonatype.com/nexus/3/latest-unix.tar.gz
+
+tar -xvf latest-unix.tar.gz
+
+mv nexus-3.13.0-01/ nexus3
+
+chown -R ec2-user:ec2-user nexus3/
+
+chown -R ec2-user:ec2-user sonatype-work/
+
+cd nexus3/bin
+
+./nexus start
+
+./nexus stop
+
+

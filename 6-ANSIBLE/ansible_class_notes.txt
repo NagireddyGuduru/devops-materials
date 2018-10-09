@@ -480,7 +480,8 @@ Configuring nexus as service
  
 Task: 
 - Write tomcat-deplot playbook to deploy war file from nexus and copy this war file to tomcat
- 
+
+Condition Example
    
    
 google search:

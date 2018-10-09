@@ -469,20 +469,18 @@ Nexus download location:
 https://www.sonatype.com/download-oss-sonatype
 
 To access a direct download link, visit help.sonatype.com.
-  
+ 
 
-
-
-Tasks:
--------
-1) download zip file
-   extract it
-
-2) download tar file
-   extract it 
    
 Task:	  
-Write a playbook, to install nexus and configure   
+Write a playbook, to install nexus and configure  
+
+Configuring nexus as service
+---------------------------
+ 
+ 
+- Write tomcat-deplot playbook to deploy war file from nexus and copy this war file to tomcat
+ 
    
    
 google search:

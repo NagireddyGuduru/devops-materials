@@ -21,4 +21,56 @@ cd nexus3/bin
 
 ./nexus stop
 
+As a service:
+goto bin
+cd bin
+sudo cp nexus /etc/init.d/
+sudo service nexus status
+
+sudo ln -s /opt/nexus3  /etc/init.d/nexus
+cd /etc/init.d/
+chkconfig --add nexus
+
+bashrc
+NEXUS_HOME= "/opt/nexus3"
+
+bin/nexus.rc
+run_as_user="ec2-user" or "nexus"
+
+ls -ln /etc/init.d/
+
+- we need to add nexus repository details in maven
+- we need to update 2 configuration files
+   pom.xml of a project
+   maven settings.xml
+now maven should able to communiticate with nexus.
+   
+ 
+github: javahometech/myweb 
+
+
+
+Task: Upload war files into nexus
+
+     - use pipeline script
+	 - 
+	 def mvnhome = tool name: 'maven3',type:'maven'
+	 def mvnCmd = "${mvnhome}/bin/mvn"
+	 stage('Git checkout')
+	  my-app
+     stage('Create package')
+      sh '${mvn}mvn clean package'	 
+	 stage('upload war to nexus') 
+	  sh 'mvn deploy'
+	  
+	  
+	 pipeline syntax: tool 
+	 
+	 it will store artifacts in domain structure
+
+
+
+
+
+
 

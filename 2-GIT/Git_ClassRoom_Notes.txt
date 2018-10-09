@@ -1,0 +1,87 @@
+Git and Bitbuket
+----------------
+-  Git is Source code manager-SCM, it is also called as Version Control System.
+
+Why we need SCM?
+- It helps multiple developers to contribute to same code base.
+- SCM tools version your source code, if anything wrong with latest code, you can quickly rollback to previous working code.
+- SCM tools also record all changes along with 
+    - Who changed the files
+	- Why it is changed
+	- Timestamp, when it was changed.
+- Tracking defects is easy
+- we can secure the code using SCM tools, you can manage users and grant access to only authorised engineers
+- every developes will give access.
+
+Who need this tool?
+- Not only developer every must know SCM everybody use it.
+
+Why we should learn SCM as a Devops?
+
+- We manage configuration files while working with
+   1.Ansible
+   2.Docker
+   3.Jenkins
+   4.Kubenatees
+SO we also must know to use SCM tools.
+ ansible palybook
+ dockerfile palybooks
+ kubenetees configuration all we commit.
+
+Other SCM tools:
+  - IBM clearcase - licensed product
+  - Tortoise SVN
+  - CVS
+  - Microsoft TFS
+
+Why Git?  
+  1. Open Source And Free
+  2. Git is fast and distributed Vesion Control System
+  3. Has more compreshensive features that any other tools
+        - have easy solutions
+
+Distributed Version Control:
+  - Along with Git remote server, every copy on developers local machine behaves like a server.
+  - It allows you to work locally.
+
+Central Version Control:  
+ - In this case only one server behaved like SCM server.  
+  
+  - Distributed in the sense hosted on every m/c.
+  - performance is better
+  - we can scale up
+  - Oracle  oracle   oracle
+    linux   linux    linux
+  - same db hosting in diff m/c- its live on diff m/c.
+  - its duplicating the code. we have a copy. if server is down still we have copy.most recent copy
+  - it wont reach every time to remote server. In case, svn goto remote server.
+  - for every thing not communicating with server.unnessecrly.
+  - not saying central server not required. it required to make centralize and merge the code.
+  - you will have only one master copy.
+  
+
+My version:
+- its going to version your code for every change give the version
+- you will get track of modifications
+- it record the all the things
+- some people called SCM, some people called VCS.
+
+if ask any question not clear - ellobarate and more specific
+
+
+Setting Up git Server:
+
+- Hosted Git. i.e downloaded git and configure and maintain it on your own server.
+- Cloud based Git, Some third party maintains servers and git, you are just using it over internet.
+
+Creating Cloud account for Git:
+------------------------------
+- Bitbucket - its add more value.
+- GitHub (Microsoft Bought Github)
+- Gitlab
+- CodeCommit in AWS
+
+
+
+
+

@@ -44,6 +44,32 @@ ls -ln /etc/init.d/
    pom.xml of a project
    maven settings.xml
 now maven should able to communiticate with nexus.
+
+-------------
+Nexus Setup
+-------------
+Sudo su
+1. yum update -y
+2. yum install java-1.8.0-openjdk.x86_64
+3. mkdir /app && cd /app
+4. wget https://sonatype-download.global.ssl.fastly.net/nexus/3/nexus-3.0.2-02-unix.tar.gz
+5. tar -xvf nexus-3.0.2-02-unix.tar.gz
+6. mv nexus-3.0.2-02 nexus
+7. adduser nexus
+8. chown -R nexus:nexus /app/nexus
+9. Open /app/nexus/bin/nexus.rc file, uncomment run_as_user parameter and set it as following.
+   
+   run_as_user="nexus"
+
+10. ln -s /app/nexus/bin/nexus /etc/init.d/nexus
+    ls -la |grep ^l
+11. chkconfig --add nexus
+12. chkconfig --levels 345 nexus on
+13. service nexus start
+14. http://ip-address:8081/nexus
+15. User Name: admin
+16. Password: admin123
+
    
  
 github: javahometech/myweb 
@@ -62,11 +88,20 @@ Task: Upload war files into nexus
       sh '${mvn}mvn clean package'	 
 	 stage('upload war to nexus') 
 	  sh 'mvn deploy'
+     stage('Run ansible Deploy to tomcat')	
+      sshagent(['ansible-cm'])
+	   sh 'ssh -O stricthostkeychecking=true ubuntu@172.30.28.161 ansible-playbook -i ~/ansible-3tier/dev-inventory ~/ansible-3tier/deploy-to-tomcat.yml
 	  
 	  
 	 pipeline syntax: tool 
 	 
 	 it will store artifacts in domain structure
+	 
+	 In Jenkins server,Using anisble playbook
+	    - git 
+		- maven
+		
+	      
 
 
 

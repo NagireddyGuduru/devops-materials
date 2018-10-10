@@ -482,6 +482,12 @@ Task:
 - Write tomcat-deplot playbook to deploy war file from nexus and copy this war file to tomcat
 
 Condition Example
+
+Write a playbook, to install load balancer
+Write a playbook, to install 2 webservers
+write a playbook, to deploy war into webservers
+write a playbook, to install mysql
+
    
    
 google search:

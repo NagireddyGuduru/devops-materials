@@ -1,0 +1,14 @@
+---
+- hosts: all
+  become: True
+  tasks:
+    - name: Install Apache server on Linux
+      yum:
+        name: httpd
+        state: present
+      when: ansible_os_family == 'RedHat'
+    - name: Install Apache server on Ubuntu
+      apt:
+        name: httpd
+        state: present
+      when: ansible_os_family == 'Ubuntu'

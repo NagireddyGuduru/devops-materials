@@ -1,0 +1,25 @@
+---
+
+- hosts: all
+  become: yes
+  tasks:
+    - name: Install Apache
+      yum:
+        name: httpd
+        state: present
+    - name: Enable Apache On reboot
+      service:
+        name: httpd
+        enabled: yes
+    - name: Put sample Html file on Apache
+      copy:
+        src: index.html
+        dest: /var/www/html/index.html
+    - name: Start Apache Server
+      service:
+        name: httpd
+        state: started
+    
+
+        
+        

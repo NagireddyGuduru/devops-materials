@@ -1,0 +1,30 @@
+---
+ - hosts: webservers
+   become: True
+   tasks:
+     - name: Install Apache Server
+       yum: name=httpd  state=present
+       when: ansible_os_family == "RedHat"
+
+     - name: Install Apache on Debian
+       apt:
+         name: apache2
+         state: present
+       when: ansible_os_family == "Debian"
+
+     - name: Start and enable Apache on reboot
+       service: name=httpd state=started enabled=True
+       when: ansible_os_family == "RedHat"
+
+     - name: Start and enable Apache on reboot
+       service: name=apache2 state=started enabled=True
+       when: ansible_os_family == "Debian"
+
+     - name: Deploy application on Apache server
+       copy: src=./index.html dest=/var/www/html
+
+   handlers:
+     - name: Restart Apache
+       service:
+         name: httpd
+         state: restarted

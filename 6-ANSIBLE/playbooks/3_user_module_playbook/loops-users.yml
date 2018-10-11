@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: True
+  tasks:
+    - name: add several users
+      user:
+        name: "{{item.name}}"
+        groups: "{{item.groups}}"
+        state: absent
+      with_items:
+        - {name: 'admin',groups: 'root'}
+        - {name: 'developer',groups: 'ec2-user'}

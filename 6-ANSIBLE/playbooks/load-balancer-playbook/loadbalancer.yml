@@ -1,0 +1,29 @@
+---
+- hosts: loadbalancer
+  become: yes
+  tasks:
+     - name: Configure Nginx RPM
+       yum:
+         name: http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
+     
+     - name: Install Nginx
+       yum:
+         name: nginx
+         state: present
+         enablerepo: nginx     
+     - name: Copy nginx.conf to Nginx server
+       copy:
+          src: nginx.conf
+          dest: /etc/nginx/nginx.conf
+       notify: Restart Nginx
+     - name: Enbable nginx on reboot
+       service:
+           name: nginx
+           state: started
+           enabled: yes
+
+  handlers:
+      - name: Restart Nginx
+        service:
+           name: nginx
+           state: restarted

@@ -1,0 +1,31 @@
+--- 
+ - hosts: dbserver
+   become: True
+   vars_files:
+      - db-vars.yml
+   tasks:
+
+      - name: Install MySql server on Ubuntu
+        apt:
+          name: "{{item}}"
+          state: present
+        with_items:
+          - mysql-server
+          - python-mysqldb
+      - name: Start and enable mysql server
+        service:
+          name: mysql
+          state: started
+          enabled: True
+      - name: Allow mysql to accect conncetions from any host
+        lineinfile: dest=/etc/mysql/my.cnf regexp='^bind-address' line='bind-address=0.0.0.0'
+      - name: Create db
+        mysql_db:
+          name: "{{db_name}}"
+          state: present
+      - name: Create db user
+        mysql_user:
+          name: "{{user_name}}"
+          password: "{{passowrd}}"
+          state: present
+          priv: 'app-db.*:ALL'

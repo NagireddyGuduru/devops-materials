@@ -1,0 +1,39 @@
+---
+- hosts: tomcat
+  remote_user: root
+  become_method: sudo
+  become: yes
+  tasks:
+    - name: Install java7
+      yum:
+        name: java-1.7.0-openjdk
+        state: present
+    - name: Create Linux Group for Tomcat
+      group:
+         name: tomcat
+    - name: Create Linux User for Tomcat
+      user:
+         name: tomcat
+         groups: 
+           - tomcat
+           - root  
+         home: /usr/share/tomcat
+    - name: Download tomcat archive
+      get_url:
+         url: http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.61/bin/apache-tomcat-7.0.61.tar.gz
+         dest: /opt/apache-tomcat-7.0.61.tar.gz
+    - name: Extract tar file
+      command: chdir=/usr/share /bin/tar xvf /opt/apache-tomcat-7.0.61.tar.gz -C /opt/ creates=/usr/share/tomcat
+      #- name: Symlink install directory
+      #file: src=/opt/apache-tomcat-7.0.61 path=/usr/share/tomcat state=link
+    
+    - name: Change ownership of Tomcat installation
+      file: path=/usr/share/tomcat/ owner=tomcat group=tomcat state=directory recurse=yes
+
+    - name: Configure Tomcat as a service
+      copy: src=tomcat-initscript.sh dest=/etc/init.d/tomcat mode=0755  
+    - name: Start the tomcat
+      service:
+         name: tomcat
+         state: started
+         enabled: yes

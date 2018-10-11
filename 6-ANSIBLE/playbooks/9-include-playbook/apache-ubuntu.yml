@@ -1,0 +1,6 @@
+---   
+ - name: Install Apache server on Ubuntu
+   apt:
+     name: httpd
+     state: present
+   when: ansible_os_family == 'Ubuntu'

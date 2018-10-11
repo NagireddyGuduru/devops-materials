@@ -1,0 +1,8 @@
+---
+- hosts: all
+  become: True
+  tasks:
+    - include: apache-linux.yml  
+      when: ansible_os_family == 'RedHat'
+    - include: apache-ubuntu.yml  
+      

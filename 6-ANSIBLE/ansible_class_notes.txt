@@ -481,7 +481,40 @@ Configuring nexus as service
 Task: 
 - Write tomcat-deplot playbook to deploy war file from nexus and copy this war file to tomcat
 
-Condition Example
+How to read maven version from jenkins and pass to ansible playbook
+------------------------------------------------------
+- jenkins pipeline utility steps plugins
+- Plugin Pipeline utility steps.
+- pipeline syntax: readMavenPom
+
+def pom=readMavenPom file: 'pom.xml'
+echo pom.version
+ansible playbook 
+
+ansbile valut:
+---------------
+ - vi dev-var.yml
+   
+ - In playbook, specify path of variables
+   vars_files:
+     - dev-vars.yml
+	   - nexus_url: http://172.31.17.173:8081/repository/maven-releases/
+     - nexus_user: admin
+     - nexus_pwd: admin123
+     - war_version: 0.0.1
+  
+ansible-valut encrypt dev-var.yml
+cat dev-var.yml
+
+while decrpt playbook need to pass password
+ansible-playbook  --help | grep valut
+
+
+
+  
+   
+   
+
 
 Write a playbook, to install load balancer
 Write a playbook, to install 2 webservers

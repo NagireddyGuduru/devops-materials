@@ -506,13 +506,44 @@ ansbile valut:
 ansible-valut encrypt dev-var.yml
 cat dev-var.yml
 
-while decrpt playbook need to pass password
+while decrpt playbook need to pass passw
+ ord
 ansible-playbook  --help | grep valut
 
-
-
+- create separte file for password
+    --valut-password-file valut_pwd.txt
+- create environment variable
+   ANSIBLE_VAULT_PASSWORD_FILE
   
+add /edit  
+   ansible-valut edit  dev-vars.yml
    
+ansible-valut view dev-vars.yml
+ansible-valut decrypt dev-vars.yml
+
+ansible_include:
+- this option gives ability to breack one playbook into small playbook
+- smaller can be reuse by including them in diff place.
+one.yml:
+---
+ - name:
+   debug:
+     msg: 'This is from one.yml'
+	 
+two.yml
+  ---
+ - name:
+   debug:
+     msg: 'This is from one.yml'	 
+
+include-demo.yml
+---
+-hosts: localhost
+tasks:
+- include: one.yml
+- include: two.yml
+	 
+	 
    
 
 

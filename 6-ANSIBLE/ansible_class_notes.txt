@@ -542,9 +542,6 @@ include-demo.yml
 tasks:
 - include: one.yml
 - include: two.yml
-	 
-	 
-   
 
 
 Write a playbook, to install load balancer
@@ -557,4 +554,31 @@ write a playbook, to install mysql
 google search:
 --------------
 ansible lineinfile module   
-  
+
+Role:
+
+- Allows to organize re-usable modules
+- Have folder structure
+- Ansible project directory structure
+mkdir ansible-roles
+- mkdir roles
+  - cd roles
+   ansible-galaxy init webserver // this commad create a role with webserver it create structure - this command create directory structure.
+directory structure:
+tasks: - have main.yml
+       - can have multiple file for os specific file and include main.yml 
+handlers:  
+       - main.yml
+files: - it holds all static configuration files - static mean plain text - no place folder - it doen include any other technologies
+- nginx.conf , servers.xml tomcat-user.xml
+templates:
+       - Dynamic files
+ 	   - To make dynamice template we need some tools jinja templates
+	   - jinja template - its template engine mostly used python web application development
+	   
+	   diff b/w : file and template
+	   template is dynamic
+	   file is static
+	   
+ansible-9am -
+mysql playbook  

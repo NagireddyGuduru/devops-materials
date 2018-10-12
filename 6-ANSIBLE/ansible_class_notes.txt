@@ -575,10 +575,63 @@ templates:
        - Dynamic files
  	   - To make dynamice template we need some tools jinja templates
 	   - jinja template - its template engine mostly used python web application development
+	    extension: .j2
+		extension can anything .config also
+		jinja - python code only 
+		better to follow extension with .j2
 	   
 	   diff b/w : file and template
 	   template is dynamic
 	   file is static
+vars:
+    - contains all variables.
+
+defaults:	
+   - variable with default values
+   - that can overriden. this is lease priority
+   
+   eg: 
+
+meta:
+  - tomcat role depending on java role will mention meta directory.
+  - what planform support
+  - meta also container the other details like minimum ansible version,supporting OS,author details,
+  
+tests: to write tests cases you can write.
+     - this is not in scope
+	 
+Using a Role:
+  ls
+  roles site.yml
+  - it not part of roles folder
+  ---
+     - host: all
+   roles:
+     - webservers
+	 
+Run rolles:
+
+ - roles:
+    - jenkins
+    - webserver
+    - sonarqube
+- you can pass parameter to role also
+
+Q: what is dynamic inventory
+A: loadbalacer - webserver have to inculde when you scalup and scaldown
+- while working with cloud may be using autoscalling and ofter ip address will change there might be new ips and old servers
+  are deleted and go off in such scenarios dynamic inventories.
+solution:
+  - python script get instance details.
+  - while configuring dynamic inventory we use python script.  
+
+  Inventory:
+  window s/w privisioning entry details- connection type = winrm
+  
+Q: Explain structure of the role	 
+	
+	   
+eg: loadbalancer example with jinja 	   
 	   
 ansible-9am -
 mysql playbook  

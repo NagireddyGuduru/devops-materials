@@ -101,7 +101,23 @@ Task: Upload war files into nexus
 	    - git 
 		- maven
 		
-	      
+	
+	Task:
+	- Upload Docker images to nexus
+	
+	- goto repository 
+	   - create repository
+	      name: docker-privat
+		  Repository connectos:
+		     8083
+Docker registry API suppoet
+
+ select allow
+ 
+ 
+ Storage:
+   
+      	
 
 
 

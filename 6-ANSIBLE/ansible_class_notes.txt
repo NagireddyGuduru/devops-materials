@@ -636,6 +636,12 @@ eg: loadbalancer example with jinja
 ansible-9am -
 mysql playbook  
 
-ec2 instance session timeout:
+Amazon EC2 ssh timeout due inactivity:
 
 echo 'ClientAliveInterval 60' | sudo tee --append /etc/ssh/sshd_config
+The command for that on Ubuntu Linux would be..
+
+sudo service ssh restart
+On any other Linux, though, the following is probably correct..
+
+sudo service sshd restart

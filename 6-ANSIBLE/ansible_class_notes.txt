@@ -635,3 +635,7 @@ eg: loadbalancer example with jinja
 	   
 ansible-9am -
 mysql playbook  
+
+ec2 instance session timeout:
+
+echo 'ClientAliveInterval 60' | sudo tee --append /etc/ssh/sshd_config

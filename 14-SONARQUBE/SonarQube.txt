@@ -1,0 +1,125 @@
+SonarQube:
+
+- It will take src as a input
+- It validate the code
+- For Continuous Inspection
+- SQL injection - then can hack the password by using SQL injection.
+
+Installing SonarQube:
+
+link: https://www.sonarqube.org/
+
+System Requirements:
+
+JDK 1.8
+
+HardWare Requirements:
+
+2GB RAM
+diskspace: Depending on code.
+
+Ec2-Instance:
+t2.small
+
+Add storage:
+use Provision Purppose for production purpose
+
+
+Installation;
+cd /opt/
+wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-7.3.zip
+
+searching with package java-1.8
+sudo yum list | grep java-1.8
+
+sudo unzip sonarqube-7.3.zip
+
+sudo rm -rf sonarqube-7.3.zip
+
+sudo chown -R ec2-user:ec2-user sonarqube-7.3/
+
+we also can configure sql db for sonarqube
+
+goto bin
+
+cd linux-x86-64
+./sonar.sh start
+
+Install as service:
+
+ln -s /opt/sonarqube/linxu/sonar.sh /usr/bin/sonar - Note: give obsoulte path
+ls -ltr /usr/bin/sonar // if it is red broken link if it is green link working fine.
+
+
+To remove link
+ls /etc/init.d/sonar 
+rm /etc/init.d/sonar
+
+ls -ls /usr/bin/sonar
+
+service sonar status
+chkconfig sonar on
+
+Accessing sonar:
+
+http://localhost:9000/
+
+
+H2 database for evaluation can use it.
+
+
+
+connection pool:
+
+- It will create the connection 
+
+
+Analyzing first project in sonar:
+---------------------------------
+
+check help box
+Analyze New Project
+
+Generate a token
+save token
+- continue
+
+Run analysis on your project
+Java
+
+take command :
+mvn sonar:sonar -Dsonar.host.url=  -Dsonar.login=place token
+
+SonarQuality Gates:
+- set of rules that you wanna apply on source code.
+
+
+Task: create a quality gate.
+
+- if junits are the we cant mesure quality  - quality should be 85%
+
+Maintainability Rating on new 
+Reliablity Rating on ew
+Security Rating new code
+
+
+Intraduce Bugs:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

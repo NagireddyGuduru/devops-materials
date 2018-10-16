@@ -1,0 +1,79 @@
+version: "3"
+
+services:
+
+  datastore:
+    build:
+      context: ./tools/mysql
+      dockerfile: Dockerfile
+    image: mysql-datastore
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    networks:
+      - microservicesnet
+              
+  oauth2-authorization-service:
+    build:
+      context: ./oauth2-authorization-service
+      dockerfile: Dockerfile
+    image: oauth2-authorization-service
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://datastore:3306/auth_db
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=password
+    entrypoint: ./wait-for datastore:3306 -t 300 -- java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -javaagent:/byte-buddy-agent-1.7.9.jar -jar /app.jar
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    networks:
+      - microservicesnet
+    depends_on:
+      - datastore      
+
+  resource-service-template:
+    build:
+      context: ./resource-service-template
+      dockerfile: Dockerfile
+    image: resource-service-template
+    environment:
+      - OAUTH2_TOKENINFOURI=http://192.168.99.100/auth-service/oauth/check_token
+      - OAUTH2_CLIENTID=demo-service
+      - OAUTH2_CLIENTSECRET=password
+      - DEPENDENTSERVICES_SECURITYSERVICEURI=http://192.168.99.100/auth-service  
+    entrypoint: ./wait-for oauth2-authorization-service:8000 -t 300 -- java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -javaagent:/byte-buddy-agent-1.7.9.jar -jar /app.jar
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    networks:
+      - microservicesnet
+    depends_on:
+      - oauth2-authorization-service
+
+  edge-service:
+    build:
+      context: ./edge-service
+      dockerfile: Dockerfile
+    image: edge-service
+    environment:
+      - HOMEPAGE=/demo-service
+    entrypoint: ./wait-for oauth2-authorization-service:8000 -t 300 -- java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -javaagent:/byte-buddy-agent-1.7.9.jar -jar /app.jar
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "80:80"
+    networks:
+      - microservicesnet
+    depends_on:
+      - oauth2-authorization-service
+
+networks:
+  microservicesnet:
+    driver: overlay

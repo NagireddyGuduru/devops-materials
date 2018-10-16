@@ -1,0 +1,67 @@
+A IBM® UrbanCode™ Deploy installation consists of the IBM UrbanCode Deploy server, a database, and at least one agent.
+http://www.ibm.com/support/knowledgecenter/en/SS4GSP_6.2.0/com.ibm.udeploy.install.doc/topics/server_install_interactive.html
+
+UrbanCode Deploy server configuration:
+https://www.ibm.com/support/knowledgecenter/SS4GSP_6.2.0/com.ibm.udeploy.install.doc/topics/server_install_interactive.html
+
+8443
+9090
+sweety@2016
+7918
+9090@LTPBAN042303109.corp.mphasis.com
+derby- database selected
+To start server manually
+D:\uDeploy\bin\run_server.cmd
+admin/sweety@2016
+
+
+step 1:
+Install Udeploy
+C:\Users\Guduru.Reddy\Desktop\Tools\URBANCODE_DEPLOY_6.2.1.1_EN_EVAL\ibm-ucd-install
+
+database name     ibm_ucd
+database password password
+
+step 2:
+
+install agent
+
+C:\Users\Guduru.Reddy\Desktop\Tools\URBANCODE_DEPLOY_6.2.1.1_EN_EVAL\ibm-ucd-install\overlay\opt\tomcat\webapps\ROOT\tools
+
+ibm-ucd-agent
+
+step 3:
+
+do the agent settings
+setting--> General settings
+
+step 4:
+download artifacts
+http://download.boulder.ibm.com/ibmdl/pub/software/rationalsdp/documentation/product_doc/UrbanCode/uDeploy/version_6-1/artifacts.zip
+
+step 5:
+
+Adding components
+https://www.ibm.com/support/knowledgecenter/SS4GSP_6.1.2/com.ibm.udeploy.tutorial.doc/topics/webapp_components.html
+
+step 6:
+
+Creating component processes
+
+https://www.ibm.com/support/knowledgecenter/SS4GSP_6.1.2/com.ibm.udeploy.tutorial.doc/topics/webapp_component_processes.html
+
+
+plugins:
+https://developer.ibm.com/urbancode/plugin/dbupgrader/
+
+step 7:
+Creating an application and an environment
+
+
+step 8:
+Creating an application process
+https://www.ibm.com/support/knowledgecenter/SS4GSP_6.1.2/com.ibm.udeploy.tutorial.doc/topics/webapp_application_process.html
+
+step 9:
+Deploying the application components
+

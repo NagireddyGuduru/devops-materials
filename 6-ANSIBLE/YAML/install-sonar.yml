@@ -1,0 +1,68 @@
+---
+# defaults file for bbaassssiiee.sonar
+
+sonar_db_host: localhost
+
+sonar_postgres_jdbc: "jdbc:postgresql://{{ sonar_db_host }}/sonar"
+
+sonar_username: 'sonaruser'
+sonar_password: 'Terrible_Password_1234'
+
+sonarrunner_zipfile: 'sonar-runner-dist-2.4.zip'
+sonarrunner_url: 'http://repo1.maven.org/maven2/org/codehaus/sonar/runner/sonar-runner-dist/2.4/sonar-runner-dist-2.4.zip'
+
+
+sonar_version: 6.2
+sonar_name: "sonarqube-{{ sonar_version }}"
+sonar_file: "{{ sonar_name }}.zip"
+sonar_url: 'https://sonarsource.bintray.com/Distribution/sonarqube/{{ sonar_file }}'
+sonar_home: /opt/sonar
+
+sonar_plugins:
+# Integration
+#  - 'http://dist.sonarsource.com/oss/org/codehaus/sonar-plugins/sonar-ldap-plugin/1.4/sonar-ldap-plugin-1.4.jar'
+#  - 'http://dist.sonarsource.com/oss/org/codehaus/sonar-plugins/sonar-jira-plugin/1.2/sonar-jira-plugin-1.2.jar'
+# Platforms
+
+# Java
+  - 'http://sonarsource.bintray.com/Distribution/sonar-java-plugin/sonar-java-plugin-4.3.0.7717.jar'
+# Javascript
+  - 'http://sonarsource.bintray.com/Distribution/sonar-javascript-plugin/sonar-javascript-plugin-2.18.0.3454.jar'
+# Python
+  - 'http://dist.sonarsource.com/oss/org/codehaus/sonar-plugins/python/sonar-python-plugin/1.5/sonar-python-plugin-1.5.jar'
+# XML
+  - 'http://dist.sonarsource.com/oss/org/codehaus/sonar-plugins/xml/sonar-xml-plugin/1.2/sonar-xml-plugin-1.2.jar'
+# PHP
+  - 'http://downloads.sonarsource.com/plugins/org/codehaus/sonar-plugins/php/sonar-php-plugin/2.6/sonar-php-plugin-2.6.jar'
+# CSS
+  - 'http://downloads.sonarsource.com/plugins/org/codehaus/sonar-plugins/css/sonar-css-plugin/1.2/sonar-css-plugin-1.2.jar'
+# C#
+  - 'http://sonarsource.bintray.com/Distribution/sonar-csharp-plugin/sonar-csharp-plugin-5.5.1.522.jar'
+
+# SCM
+# GIT
+  - 'http://sonarsource.bintray.com/Distribution/sonar-scm-git-plugin/sonar-scm-git-plugin-1.2.jar'
+# SVN
+  - 'http://sonarsource.bintray.com/Distribution/sonar-scm-svn-plugin/sonar-scm-svn-plugin-1.3.jar'
+#  - 'http://dist.sonarsource.com/oss/org/codehaus/sonar-plugins/android/sonar-android-plugin/1.0/sonar-android-plugin-1.0.jar'
+# Analysis
+  # picky on versions
+  #  - 'http://dist.sonarsource.com/oss/org/codehaus/sonar-plugins/java/sonar-checkstyle-plugin/2.3/sonar-checkstyle-plugin-2.3.jar'
+  #- 'http://dist.sonarsource.com/oss/org/codehaus/sonar-plugins/sonar-cobertura-plugin/1.6.3/sonar-cobertura-plugin-1.6.3.jar'
+  #- 'http://dist.sonarsource.com/oss/org/codehaus/sonar-plugins/java/sonar-findbugs-plugin/3.1/sonar-findbugs-plugin-3.1.jar'
+
+# C++ 7,000 Euro
+#  - 'http://dist.sonarsource.com/oss/org/codehaus/sonar-plugins/sonar-cpp-plugin/3.2/sonar-cpp-plugin-3.2.jar'
+# PL/SQL 3,200 Euro
+#  - 'http://dist.sonarsource.com/oss/org/codehaus/sonar-plugins/sonar-plsql-plugin/2.6/sonar-plsql-plugin-2.6.jar'
+# Fortify requires separate license for Fortify
+#  - 'http://dist.sonarsource.com/oss/org/codehaus/sonar-plugins/sonar-fortify-plugin/2.0/sonar-fortify-plugin-2.0.jar'
+
+# Reporting
+#  - 'http://dist.sonarsource.com/oss/org/codehaus/sonar-plugins/sonar-build-breaker-plugin/1.1/sonar-build-breaker-plugin-1.1.jar'
+#  - 'http://dist.sonarsource.com/oss/org/codehaus/sonar-plugins/jmeter/sonar-jmeter-plugin/0.2/sonar-jmeter-plugin-0.2.jar'
+#  - 'http://dist.sonarsource.com/oss/org/codehaus/sonar-plugins/sonar-motion-chart-plugin/1.7/sonar-motion-chart-plugin-1.7.jar'
+#  - 'http://dist.sonarsource.com/oss/org/codehaus/sonar-plugins/sonar-quality-index-plugin/1.1.3/sonar-quality-index-plugin-1.1.3.jar'
+#  - 'http://dist.sonarsource.com/oss/org/codehaus/sonar-plugins/sonar-technicaldebt-plugin/1.2.1/sonar-technicaldebt-plugin-1.2.1.jar'
+#  - 'http://dist.sonarsource.com/oss/org/codehaus/sonar-plugins/sonar-timeline-plugin/1.4/sonar-timeline-plugin-1.4.jar'
+#  - 'http://dist.sonarsource.com/oss/org/codehaus/sonar-plugins/sonar-useless-code-tracker-plugin/1.0/sonar-useless-code-tracker-plugin-1.0.jar'

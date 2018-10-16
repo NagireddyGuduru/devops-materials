@@ -1,0 +1,8 @@
+node_modules\
+
+service-composer\
+
+target\
+.settings\
+.project
+.classpath

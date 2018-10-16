@@ -1,0 +1,177 @@
+Jira API's
+-----------
+
+To create the issue in Jira
+----------------------------
+
+http://localhost:8090/rest/api/2/issue/createmeta?projectKeys=JRA&issuetypeNames=Bug&expand=projects.issuetypes.fields
+
+If any selenium test case failed has to create issue in jira.
+
+How to reflect Selenium test results in zephyr for Jira server via ZAPI?
+
+selenium frameworks to run:
+
+https://blog.smartbear.com/testcomplete/how-to-run-selenium-from-testcomplete-in-6-simple-steps/
+
+publish results in Zephyr for JIRA
+
+https://wiki.jenkins.io/display/JENKINS/Zephyr+For+Jira+Test+Management+Plugin
+
+Jira account details:
+http://172.16.153.138:8080/secure/Dashboard.jsp
+http://ltpban042283805:8080/secure/Dashboard.jsp 
+
+Jira REST API's:
+
+https://docs.atlassian.com/jira-software/REST/cloud/
+
+
+
+To install the plugins in jenkins
+----------------------------------
+java -jar jenkins-cli.jar -s http://localhost:7070/ install-plugin SOURCE ... [-deploy] [-name VAL] [-restart]
+
+java -jar jenkins-cli.jar -s http://localhost:7070 list-jobs --username admin --password admin
+
+
+
+Git API's
+
+To list out repositories from Git
+----------------------------------
+
+https://api.github.com/users/NagireddyGuduru/repos
+
+Listout branches of repo 
+--------------------------
+https://api.github.com/repos/NagireddyGuduru/client-demo-project/branches
+
+
+Jenkins Crumb Id:
+curl -s 'http://admin:92b3358695678b48aef04e6f24759c6e@localhost:9090/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)'
+
+CRUMB=$(curl -s 'http://admin:92b3358695678b48aef04e6f24759c6e@localhost:9090/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)')
+Jenkins-Crumb:db69e6f2b4df860acfcf3cd926e650c7
+
+curl -X POST -H "Jenkins-Crumb:2c5cf657152fee5f36625081d76de011" "http://admin:92b3358695678b48aef04e6f24759c6e@localhost:9090/createItem?name=tokenjob"
+
+// To check the token value
+curl 'http://admin:admin@localhost:7070/user/admin/configure' | grep apiToken
+curl 'http://admin:admin@localhost:9090/user/admin/configure' | grep apiToken
+
+http://nagi:nagi@localhost:9090/user/admin/configure'
+
+curl 'http://admin:admin@localhost:9090/user/admin/configure' | grep apiToken
+curl -s -N "http://admin:admin@localhost:9090/user/admin/configure" | grep apiToken
+curl --silent --basic http://admin:admin@localhost:9090/user/admin/configure | hxselect '#apiToken' | sed 's/.*value="\([^"]*\)".*/\1\n/g'
+New System Token:
+-----------------
+Token:92b3358695678b48aef04e6f24759c6e
+Jenkins-Crumb:2c5cf657152fee5f36625081d76de011
+Jenkins-Crumb:2c5cf657152fee5f36625081d76de011
+
+//To update the token value
+http://admin:admin@localhost:7070/user/admin/descriptorByName/jenkins.security.ApiTokenProperty/changeToken
+
+Token: aa8e517dd0026c38fe0809f8d9de582e
+
+
+curl -s -XPOST -H "Jenkins-Crumb:db69e6f2b4df860acfcf3cd926e650c7" "http://localhost:7070/createItem?name=dtcjob1" --data-binary @config.xml -H "Content-Type:text/xml" --user admin:aa8e517dd0026c38fe0809f8d9de582e
+curl -s -XPOST -H "Jenkins-Crumb:2c5cf657152fee5f36625081d76de011" "http://localhost:9090/createItem?name=dtcjob1" --data-binary @config.xml -H "Content-Type:text/xml" --user admin:92b3358695678b48aef04e6f24759c6e
+
+curl -s -XPOST -H "Jenkins-Crumb:92b3358695678b48aef04e6f24759c6e" "http://localhost:9090/createItem?name=testjob" --user admin:92b3358695678b48aef04e6f24759c6e
+curl -s -XPOST -H "Jenkins-Crumb:2c5cf657152fee5f36625081d76de011" "http://localhost:9090/createItem?name=testjob" --user admin:92b3358695678b48aef04e6f24759c6e
+
+curl -s -XPOST -H "Jenkins-Crumb:db69e6f2b4df860acfcf3cd926e650c7" "http://localhost:7070/reload" --user admin:aa8e517dd0026c38fe0809f8d9de582e
+curl -s -XPOST -H "Jenkins-Crumb:2c5cf657152fee5f36625081d76de011" "http://localhost:7070/reload" --user admin:92b3358695678b48aef04e6f24759c6e
+
+curl -s -XPOST http://localhost:7070/reload
+
+curl -s -XPOST -H "Jenkins-Crumb:db69e6f2b4df860acfcf3cd926e650c7" "http://localhost:7070/job/dtcjob9/build" --user admin:aa8e517dd0026c38fe0809f8d9de582e
+curl -X POST http://developer:developer@localhost:8080/job/test/build
+curl -X POST http://admin:admin@localhost:9090/job/test/build
+
+//build status
+http://localhost:7070/job/DSL-Tutorial-1-Test/lastBuild/api/json
+
+//console text
+http://localhost:7070/job/DSL-Tutorial-1-Test/lastBuild/consoleText
+
+//trigger build
+curl -s -XPOST -H "Jenkins-Crumb:db69e6f2b4df860acfcf3cd926e650c7" "http://localhost:7070/job/hpsim/GetLatedCodeFromBranch/build" --user admin:aa8e517dd0026c38fe0809f8d9de582e
+curl -s -XPOST -H "Jenkins-Crumb:2c5cf657152fee5f36625081d76de011" "http://localhost:9090/job/DEVOPS/checkoutandcompile/build" --user admin:92b3358695678b48aef04e6f24759c6e
+
+working bat copy:
+curl -s "http://localhost/devopstoolchain1/services/crud/config.xml" | curl -XPOST -H "Jenkins-Crumb:db69e6f2b4df860acfcf3cd926e650c7" "http://localhost:%1/createItem?name=%2" -d @- -H "Content-Type:text/xml" --user admin:aa8e517dd0026c38fe0809f8d9de582e
+curl -s -XPOST -H "Jenkins-Crumb:db69e6f2b4df860acfcf3cd926e650c7" "http://localhost:%1/reload" --user admin:aa8e517dd0026c38fe0809f8d9de582e
+curl -s -XPOST -H "Jenkins-Crumb:db69e6f2b4df860acfcf3cd926e650c7" "http://localhost:%1/job/%2/build" --user admin:aa8e517dd0026c38fe0809f8d9de582e
+
+http://localhost/devopstoolchain1dbchanges/services/crud/triggerpipeline.asp?Pipeline_ProjectName=hpsim
+
+// current running job:
+http://localhost:9090/computer/api/xml?tree=computer[executors[currentExecutable[url]],oneOffExecutors[currentExecutable[url]]]&xpath=//url&wrapper=builds
+http://localhost:7070/api/xml?tree=jobs[name,url,color]&xpath=/hudson/job[ends-with(color/text(),%22_anime%22)]&wrapper=jobs
+http://localhost:7070/computer/api/json
+
+To list all jobs
+http://localhost:9090/api/json?tree=jobs[name,url]
+http://localhost:9090/job/fedex/job/GetLatedCodeFromBranch/lastBuild/api/json?tree=result
+
+http://localhost:9090/job/AIG_PROJECT/job/GetLatedCodeFromBranch/lastBuild/api/xml?depth=1&xpath=*/executor/progress/text()
+
+status bar:
+http://localhost:9090/job/AIG_PROJECT/job/GetLatedCodeFromBranch/lastBuild/api/json?tree=executor[progress]
+Check to see if a build is running or not jenkins job
+http://localhost:9090/job/AIG_PROJECT/job/GetLatedCodeFromBranch/lastBuild/api/xml?depth=1&xpath=*/building/text()
+http://localhost:9090/job/fedex/job/GetLatedCodeFromBranch/lastBuild/api/json?tree=result
+
+Last Build Number:
+http://localhost:9090/job/aig-project/job/GetLatedCodeFromBranch/lastCompletedBuild/buildNumber
+
+Build Logs:
+http://localhost:9090/job/aig-project/job/GetLatedCodeFromBranch/101/consoleText
+
+
+SONAR QUBE DATABASE:
+https://github.com/SonarSource/sonarqube/blob/master/server/sonar-db-core/src/main/resources/org/sonar/db/version/schema-h2.ddl
+
+sonar publish:
+sonar:sonar -Dsonar.login=login -Dsonar.password=password -Dsonar.host.url=http://localhost:9000
+
+nexus upload:
+mvn deploy:deploy-file -DgroupId=com.somecompany -DartifactId=project -Dversion=1.0.0-SNAPSHOT -DgeneratePom=true -Dpackaging=jar -DrepositoryId=nexus -Durl=http://localhost:8081/repository/maven-snapshots -Dfile=target/project-1.0.0-SNAPSHOT.jar
+
+
+TFS:
+http://tfs.corp.mphasis.com:8080/tfs/MphasisCollection/_apis/projects?stateFilter=All&api-version=1.0
+
+http://tfs.corp.mphasis.com:8080/tfs/MphasisCollection/_apis/DET_2016_2017/workitems?ids=11011,11009&api-version=1.0
+
+http://tfs.corp.mphasis.com:8080/tfs/MphasisCollection/_apis/projects/DET_2016_2017/teams?api-version=1.0
+
+ http://tfs.corp.mphasis.com:8080/tfs/MphasisCollection/DET_2016_2017/_apis/work/backlogconfiguration?api-version=2.0-preview.1
+ 
+ http://tfs.corp.mphasis.com:8080/tfs/MphasisCollection/DET_2016_2017/TeamB/_apis/work/TeamSettings/Iterations?api-version=1.0
+ 
+ Get a team project:
+ http://tfs.corp.mphasis.com:8080/tfs/MphasisCollection/_apis/projects/DET_2016_2017?api-version={version}[&includeCapabilities={boolean}&includeHistory={boolean}]
+ 
+  Get a team's iterations
+ http://tfs.corp.mphasis.com:8080/tfs/MphasisCollection/DET_2016_2017/DET_2016_2017 Team/_apis/work/TeamSettings/Iterations?[$timeframe=current&]api-version={version}
+ 
+ 
+ java -jar jenkins-cli.jar -s http://localhost:9090/ list-jobs
+ java -jar jenkins-cli.jar -s http://localhost:9090/ create-job test3 < config.xml
+ java -jar jenkins-cli.jar -s http://localhost:9090/ reload-configuration
+ java -jar jenkins-cli.jar -s http://localhost:9090/ build wlp-seedjob --username admin --password admin
+ 
+ Upload Artifacts:
+ 
+ mvn clean install deploy:deploy-file -DgroupId=in.mphasis -DartifactId=myweb -Dversion=0.7.1-SNAPSHOT -DgeneratePom=true -Dpackaging=war -DrepositoryId=deployment -Durl=http://localhost:8085/nexus/content/repositories/snapshots -Dfile=c:/DATA/repos/myweb/target/myweb.war
+
+ mvn clean install deploy:deploy-file -DgroupId={{groupId}} -DartifactId={{artifactId}} -Dversion=0.7.1-SNAPSHOT -DgeneratePom=true -Dpackaging=war -DrepositoryId=deployment -Durl=http://localhost:8085/nexus/content/repositories/snapshots -Dfile=c:/DATA/repos/myweb/target/myweb.war
+ 
+ 
+ 
+clean deploy:deploy-file -DgroupId=in.mphasis -DartifactId=myweb -Dversion=0.7.0-SNAPSHOT -DgeneratePom=true -Dpackaging=war -DrepositoryId=Snapshots -Durl=http://localhost:8085/nexus/content/repositories/snapshots -Dfile=c:/DATA/repos/myweb/target/myweb.war

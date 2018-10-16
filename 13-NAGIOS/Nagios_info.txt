@@ -1,0 +1,153 @@
+Nagios:
+
+Process Oriented Tools
+
+AGM
+ALM
+Jira
+service now - ticketing tool
+
+app server - 40000 request capability
+web server - 
+
+process baseed monitoring - JIRA
+session based monitoring - MQ/JMS
+state base monitoring - infrastructure/ resource
+ processing instructions
+ 
+
+Nagios Frameworks
+
+opsview
+centreon
+Icinga
+Jibix
+
+Nagios Instalation
+
+Install from package
+
+Install from source level
+  clone the url
+
+- hardware requirement
+- service requirements
+- security policies
+- monitoring public ports - ftp/ssh/web/mail ports
+- Monitroring internel metrics
+    cpu information -
+    database information - remote disks
+	user information - how many requests
+	memory information - 
+	
+300 - redirection m/c
+303 - permission denied
+
+- client-servicer arch
+- request- response mach
+- url methods
+
+
+Nagio 
+
+
+	
+Nagios server - where you installed
+
+Nagios clients - hosts/servers/Nodes - have to install NRPE plugin has to install in client side to monitor.
+
+active check/ passive check
+active check - bidirectional
+passive check - one way - server to client or client - server
+
+
+Nagios templates - 
+
+host level security
+
+Nagios config
+
+Host config
+
+
+failsafe machanisam - llb -glb -immediate infrastructure
+ownership
+poc
+
+
+llbs
+glbs
+immediate Infrastructure
+
+dont go for package mode
+750 hrs
+
+50-80GB consume
+
+vagrant - antivirus disable
+foloder and file option enable
+
+
+setup:
+
+create varagentserver foloder
+vagrant init ubuntu/trusty64
+
+opent file command notepad Vagranfile
+uncomment public_network
+
+vagrant ssh
+sudo su -
+apt-get update -you
+apt-get install nagios3
+press arrows 
+password - nagiosadmin
+service nagios3 status
+service nagios3 restart
+access nagios
+ipaddress/nagios3/
+nagiosadmin/nagisoadmin
+
+
+
+nagios server:
+processschedular
+check-commands_live
+plugins
+
+to set hostname
+hostnamectl set-host nagiosserver
+
+
+githubu url:  LokeshBachu/ChefExamples/NagiosPractices
+
+
+
+study2night
+
+
+
+
+
+vagrant up
+bridge network:
+assigne to ip address or parllel to ip address
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

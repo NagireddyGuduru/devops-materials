@@ -1,0 +1,81 @@
+Step: 
+
+ create sql container upload to azure
+
+docker commit mysql-container mysql-image
+
+# Remove the changed container
+docker rm -vf mysql-container
+docker rm -vf  bf76210a3605 
+#Test the new image 
+docker run --rm mysql-image
+
+docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=root -d digitalsql
+
+
+#Login sql in container
+mysql -u root -proot
+
+#start sql service
+/etc/init.d/mysql start
+
+#run db dump
+mysql -u root -proot dratool_schema < /etc/mysql/dratool_Schema.sql
+
+#show databases
+show databases;
+
+#Verify tables
+select * from technical_assessment_schema.ClientConfig;
+
+http://172.20.15.124:9990/DigitalReadinessAssessmentTool-0.0.1-SNAPSHOT/api/v1/config/clients
+http://172.20.15.124:8033/DigitalReadinessAssessmentTool/api/v1/config/clients
+
+1) compose build
+2) compose up -d
+3) docker exec -it bash - not required
+   mysql -u root -proot dratool_schema < /etc/mysql/dratool_Schema.sql
+4) docker restart service container.
+
+
+/etc/init.d/mysql start
+
+mysql -u root -proot < /etc/mysql/dratool_Schema.sql
+
+
+mysql - container
+tomcat - container
+
+
+
+mysql+tomcat -  jdk problem + dump+restart containers
+
+create db+
+start tomcat
+db dump
+restart tomcat
+
+
+
+mysql+jdk1.8 - build latest code
+
+mysql -u root -proot
+CREATE DATABASE IF NOT EXISTS technical_assessment_schema;
+
+java -jar app.jar
+
+
+http://172.20.15.124:9993/api/v1/config/dashboard
+
+
+
+
+
+
+
+
+
+
+
+
+

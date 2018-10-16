@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: stp-logger-service
+    component: ui
+  name: stp-logger-service
+spec:
+  ports:
+  - port: 8888
+  selector:
+    app: stp-logger-service
+    component: ui
+    
+    

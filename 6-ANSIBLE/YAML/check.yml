@@ -1,0 +1,31 @@
+--- 
+- 
+  hosts: all
+  tasks: 
+
+    - 
+      name: install apache2
+      action: apt pkg=apache2 state=latest
+      notify: start apache2
+    - 
+      name: download via maven
+      local_action: maven_artifact group_id=javahome extension=war artifact_id=Realtime dest=/tmp/Realtime-0.0.2.war repository_url=http://172.20.64.99:8085/nexus/content/repositories/releases/0.0.2/
+
+    - 
+      unarchive:
+       src: /tmp/Realtime-0.0.2.war
+       dest: /var/www/Realtime
+
+    - 
+      name: Copy index.html file to destination
+      copy: "src=/tmp/Realtime-0.0.2.war dest=/var/www/Realtime"
+
+    - 
+      name: update index.html to be owned by www-data
+      action: file path=/var/www/ owner=www-data group=www-data
+    - 
+      name: start apache2
+      action: service name=apache2 state=started
+
+
+

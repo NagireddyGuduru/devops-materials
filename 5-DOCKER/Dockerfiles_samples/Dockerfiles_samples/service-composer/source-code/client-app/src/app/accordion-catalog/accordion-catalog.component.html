@@ -1,0 +1,53 @@
+<div class="container row justify-content-md-center accordion" >
+  <div class="col-md-2"></div>
+  <div class="col-md-10">
+    <div class="card" *ngFor="let category of catalog.categories; let i = index">
+      <div class="card-header col-md-12 title categoryHeader">
+        <div class="row">
+          <div class="col-md-9 cursor-pointer" (click)="togglePanel(i)">
+            <h5>{{i + 1}}. {{category.name}}</h5>
+          </div>
+          <p class="col-md-3 categoryImage text-right">
+            <img src="assets/images/checkout-light.png" class="cursor-pointer checkoutImage" (click)="viewCart()" title="Checkout" />
+            <img src="assets/images/expandall.png" class="cursor-pointer expandImage" (click)="expandAll()" title="Expand All" />
+            <!-- <img src="assets/images/collapseall.png" class="cursor-pointer collapseImage" (click)="viewCart()" title="Collapse All" /> -->
+          </p>
+        </div>
+      </div>
+      <div class="card-block container content-block" *ngIf="accordionState[i]">
+        <p class="card-text text-muted">
+          <br/>&nbsp;{{category.description}}</p>
+        <div class="container mainContent">
+          <div class="col-md-12" *ngFor="let service of category.services">
+            <div class="form-check" [ngClass]="service.enabled ? '' : 'disabled'">
+              <label class="form-check-label col-md-12">
+                <input class="form-check-input service-option" type="checkbox" [attr.disabled]="shouldDisableService(service.id) ? '' : null"
+                  [attr.id]="service.id" (change)="serviceSelectionChanged($event.target)" [checked]="shouldSelectService(service.id)"> {{service.name}}
+              </label>
+              <label class="text-muted col-md-12">({{service.description}})</label>
+            </div>
+          </div>
+          <div class="row" *ngFor="let subCategory of category.categories">
+            <div class="col-md-12">
+              <h5>{{subCategory.name}}</h5>
+            </div>
+            <div class="row col-md-12" *ngFor="let subService of subCategory.services">
+              <div class="form-check col-md-12 sub-service" [ngClass]="subService.enabled ? '' : 'disabled'">
+                <label class="form-check-label col-md-12">
+                  <input class="form-check-input service-option" type="checkbox" [attr.disabled]="shouldDisableService(subService.id)? '' : null"
+                    [attr.id]="subService.id" (change)="serviceSelectionChanged($event.target)" [checked]="shouldSelectService(subService.id)"> {{subService.name}}
+                </label>
+                <label class="text-muted col-md-12">({{subService.description}})</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-right naviLink">
+          <a class="btn cursor-pointer" (click)="navigateToPreviousPage()" *ngIf="currentPage > 0"><u>Previous</u></a>
+          <a class="btn cursor-pointer" (click)="navigateToNextPage()" *ngIf="currentPage < numberOfCategories-1"><u>Next</u></a>
+          <a class="btn cursor-pointer" (click)="viewCart()" *ngIf="currentPage >= numberOfCategories-1 && getAllSelectedServices().length > 0"><u>Review &amp; Build</u></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

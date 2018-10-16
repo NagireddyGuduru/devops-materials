@@ -1,0 +1,745 @@
+Plugin ID,CVE,CVSS,Risk,Host,Protocol,Port,Name,Synopsis,Description,Solution,See Also,Plugin Output
+"105730","CVE-2018-0786","7.8","High","172.21.2.5","tcp","445","Security Update for .NET Core (January 2018)","The remote Windows host is affected by a .NET Core runtime
+vulnerability.","The remote Windows host has an installation of .NET Core
+with a version less than 2.0.5. Therefore, the host is affected
+by multiple vulnerabilities :
+
+  - A security feature bypass in X509 Certificate Validation
+    allows an attacker to present a certificate that is
+    marked as invalid for a specific use, but a component
+    uses it for that purpose. (CVE-2018-0786)
+
+  - A denial of service vulnerability exists due to improper
+     processing of XML documents. An attacker who
+     successfully exploited this vulnerability could cause
+     a denial of service against a .NET application. A
+     remote unauthenticated attacker could exploit this
+     vulnerability by issuing specially crafted requests
+     to a .NET Core application. (CVE-2018-0764)","Update to .NET Core Runtime version 1.09 / 1.1.6 / 2.0.5 or later.","https://github.com/dotnet/announcements/issues/51
+https://github.com/dotnet/announcements/issues/52
+http://www.nessus.org/u?ebdb4bc7
+http://www.nessus.org/u?6ee5ffe3
+http://www.nessus.org/u?e1e826f0
+http://www.nessus.org/u?9a103486
+http://www.nessus.org/u?3759d74b
+http://www.nessus.org/u?cf7d5ce3","
+  Path              : C:\program files\dotnet\shared\Microsoft.NetCore.App\2.0.3.25816\
+  Installed version : 2.0.3.25816
+  Fixed version     : 2.0.5.26021
+
+  Path              : C:\program files (x86)\dotnet\shared\Microsoft.NetCore.App\2.0.3.25816\
+  Installed version : 2.0.3.25816
+  Fixed version     : 2.0.5.26021
+"
+"105730","CVE-2018-0764","7.8","High","172.21.2.5","tcp","445","Security Update for .NET Core (January 2018)","The remote Windows host is affected by a .NET Core runtime
+vulnerability.","The remote Windows host has an installation of .NET Core
+with a version less than 2.0.5. Therefore, the host is affected
+by multiple vulnerabilities :
+
+  - A security feature bypass in X509 Certificate Validation
+    allows an attacker to present a certificate that is
+    marked as invalid for a specific use, but a component
+    uses it for that purpose. (CVE-2018-0786)
+
+  - A denial of service vulnerability exists due to improper
+     processing of XML documents. An attacker who
+     successfully exploited this vulnerability could cause
+     a denial of service against a .NET application. A
+     remote unauthenticated attacker could exploit this
+     vulnerability by issuing specially crafted requests
+     to a .NET Core application. (CVE-2018-0764)","Update to .NET Core Runtime version 1.09 / 1.1.6 / 2.0.5 or later.","https://github.com/dotnet/announcements/issues/51
+https://github.com/dotnet/announcements/issues/52
+http://www.nessus.org/u?ebdb4bc7
+http://www.nessus.org/u?6ee5ffe3
+http://www.nessus.org/u?e1e826f0
+http://www.nessus.org/u?9a103486
+http://www.nessus.org/u?3759d74b
+http://www.nessus.org/u?cf7d5ce3","
+  Path              : C:\program files\dotnet\shared\Microsoft.NetCore.App\2.0.3.25816\
+  Installed version : 2.0.3.25816
+  Fixed version     : 2.0.5.26021
+
+  Path              : C:\program files (x86)\dotnet\shared\Microsoft.NetCore.App\2.0.3.25816\
+  Installed version : 2.0.3.25816
+  Fixed version     : 2.0.5.26021
+"
+"106190","CVE-2018-2579","9.3","High","172.21.2.5","tcp","445","Oracle Java SE Multiple Vulnerabilities (January 2018 CPU)","The remote Windows host contains a programming platform that is
+affected by multiple vulnerabilities.","The version of Oracle (formerly Sun) Java SE or Java for Business
+installed on the remote host is prior to 9 Update 4, 8 Update 161,
+7 Update 171, or 6 Update 181. It is, therefore, affected by
+multiple vulnerabilities related to the following components :
+
+  - AWT
+  - Deployment
+  - Hotspot
+  - I18n
+  - Installer
+  - JCE
+  - JGSS
+  - JMX
+  - JNDI
+  - JavaFX
+  - LDAP
+  - Libraries
+  - Serialization","Upgrade to Oracle JDK / JRE 9 Update 4, 8 Update 161 / 7 Update 171 /
+6 Update 181 or later. If necessary, remove any affected versions.
+
+Note that an Extended Support contract with Oracle is needed to obtain
+JDK / JRE 6 Update 95 or later.","http://www.nessus.org/u?b3fb6d01
+http://www.nessus.org/u?7986d2c2
+http://www.nessus.org/u?68d74646
+http://www.nessus.org/u?4f2226dc
+http://www.nessus.org/u?726f7054","
+The following vulnerable instance of Java is installed on the
+remote host :
+
+  Path              : C:\Program Files\Java\jdk1.8.0_91\jre
+  Installed version : 1.8.0_91
+  Fixed version     : 1.6.0_181 / 1.7.0_171 / 1.8.0_161 / 1.9.0_4
+"
+"106190","CVE-2018-2581","9.3","High","172.21.2.5","tcp","445","Oracle Java SE Multiple Vulnerabilities (January 2018 CPU)","The remote Windows host contains a programming platform that is
+affected by multiple vulnerabilities.","The version of Oracle (formerly Sun) Java SE or Java for Business
+installed on the remote host is prior to 9 Update 4, 8 Update 161,
+7 Update 171, or 6 Update 181. It is, therefore, affected by
+multiple vulnerabilities related to the following components :
+
+  - AWT
+  - Deployment
+  - Hotspot
+  - I18n
+  - Installer
+  - JCE
+  - JGSS
+  - JMX
+  - JNDI
+  - JavaFX
+  - LDAP
+  - Libraries
+  - Serialization","Upgrade to Oracle JDK / JRE 9 Update 4, 8 Update 161 / 7 Update 171 /
+6 Update 181 or later. If necessary, remove any affected versions.
+
+Note that an Extended Support contract with Oracle is needed to obtain
+JDK / JRE 6 Update 95 or later.","http://www.nessus.org/u?b3fb6d01
+http://www.nessus.org/u?7986d2c2
+http://www.nessus.org/u?68d74646
+http://www.nessus.org/u?4f2226dc
+http://www.nessus.org/u?726f7054","
+The following vulnerable instance of Java is installed on the
+remote host :
+
+  Path              : C:\Program Files\Java\jdk1.8.0_91\jre
+  Installed version : 1.8.0_91
+  Fixed version     : 1.6.0_181 / 1.7.0_171 / 1.8.0_161 / 1.9.0_4
+"
+"106190","CVE-2018-2582","9.3","High","172.21.2.5","tcp","445","Oracle Java SE Multiple Vulnerabilities (January 2018 CPU)","The remote Windows host contains a programming platform that is
+affected by multiple vulnerabilities.","The version of Oracle (formerly Sun) Java SE or Java for Business
+installed on the remote host is prior to 9 Update 4, 8 Update 161,
+7 Update 171, or 6 Update 181. It is, therefore, affected by
+multiple vulnerabilities related to the following components :
+
+  - AWT
+  - Deployment
+  - Hotspot
+  - I18n
+  - Installer
+  - JCE
+  - JGSS
+  - JMX
+  - JNDI
+  - JavaFX
+  - LDAP
+  - Libraries
+  - Serialization","Upgrade to Oracle JDK / JRE 9 Update 4, 8 Update 161 / 7 Update 171 /
+6 Update 181 or later. If necessary, remove any affected versions.
+
+Note that an Extended Support contract with Oracle is needed to obtain
+JDK / JRE 6 Update 95 or later.","http://www.nessus.org/u?b3fb6d01
+http://www.nessus.org/u?7986d2c2
+http://www.nessus.org/u?68d74646
+http://www.nessus.org/u?4f2226dc
+http://www.nessus.org/u?726f7054","
+The following vulnerable instance of Java is installed on the
+remote host :
+
+  Path              : C:\Program Files\Java\jdk1.8.0_91\jre
+  Installed version : 1.8.0_91
+  Fixed version     : 1.6.0_181 / 1.7.0_171 / 1.8.0_161 / 1.9.0_4
+"
+"106190","CVE-2018-2588","9.3","High","172.21.2.5","tcp","445","Oracle Java SE Multiple Vulnerabilities (January 2018 CPU)","The remote Windows host contains a programming platform that is
+affected by multiple vulnerabilities.","The version of Oracle (formerly Sun) Java SE or Java for Business
+installed on the remote host is prior to 9 Update 4, 8 Update 161,
+7 Update 171, or 6 Update 181. It is, therefore, affected by
+multiple vulnerabilities related to the following components :
+
+  - AWT
+  - Deployment
+  - Hotspot
+  - I18n
+  - Installer
+  - JCE
+  - JGSS
+  - JMX
+  - JNDI
+  - JavaFX
+  - LDAP
+  - Libraries
+  - Serialization","Upgrade to Oracle JDK / JRE 9 Update 4, 8 Update 161 / 7 Update 171 /
+6 Update 181 or later. If necessary, remove any affected versions.
+
+Note that an Extended Support contract with Oracle is needed to obtain
+JDK / JRE 6 Update 95 or later.","http://www.nessus.org/u?b3fb6d01
+http://www.nessus.org/u?7986d2c2
+http://www.nessus.org/u?68d74646
+http://www.nessus.org/u?4f2226dc
+http://www.nessus.org/u?726f7054","
+The following vulnerable instance of Java is installed on the
+remote host :
+
+  Path              : C:\Program Files\Java\jdk1.8.0_91\jre
+  Installed version : 1.8.0_91
+  Fixed version     : 1.6.0_181 / 1.7.0_171 / 1.8.0_161 / 1.9.0_4
+"
+"106190","CVE-2018-2599","9.3","High","172.21.2.5","tcp","445","Oracle Java SE Multiple Vulnerabilities (January 2018 CPU)","The remote Windows host contains a programming platform that is
+affected by multiple vulnerabilities.","The version of Oracle (formerly Sun) Java SE or Java for Business
+installed on the remote host is prior to 9 Update 4, 8 Update 161,
+7 Update 171, or 6 Update 181. It is, therefore, affected by
+multiple vulnerabilities related to the following components :
+
+  - AWT
+  - Deployment
+  - Hotspot
+  - I18n
+  - Installer
+  - JCE
+  - JGSS
+  - JMX
+  - JNDI
+  - JavaFX
+  - LDAP
+  - Libraries
+  - Serialization","Upgrade to Oracle JDK / JRE 9 Update 4, 8 Update 161 / 7 Update 171 /
+6 Update 181 or later. If necessary, remove any affected versions.
+
+Note that an Extended Support contract with Oracle is needed to obtain
+JDK / JRE 6 Update 95 or later.","http://www.nessus.org/u?b3fb6d01
+http://www.nessus.org/u?7986d2c2
+http://www.nessus.org/u?68d74646
+http://www.nessus.org/u?4f2226dc
+http://www.nessus.org/u?726f7054","
+The following vulnerable instance of Java is installed on the
+remote host :
+
+  Path              : C:\Program Files\Java\jdk1.8.0_91\jre
+  Installed version : 1.8.0_91
+  Fixed version     : 1.6.0_181 / 1.7.0_171 / 1.8.0_161 / 1.9.0_4
+"
+"106190","CVE-2018-2602","9.3","High","172.21.2.5","tcp","445","Oracle Java SE Multiple Vulnerabilities (January 2018 CPU)","The remote Windows host contains a programming platform that is
+affected by multiple vulnerabilities.","The version of Oracle (formerly Sun) Java SE or Java for Business
+installed on the remote host is prior to 9 Update 4, 8 Update 161,
+7 Update 171, or 6 Update 181. It is, therefore, affected by
+multiple vulnerabilities related to the following components :
+
+  - AWT
+  - Deployment
+  - Hotspot
+  - I18n
+  - Installer
+  - JCE
+  - JGSS
+  - JMX
+  - JNDI
+  - JavaFX
+  - LDAP
+  - Libraries
+  - Serialization","Upgrade to Oracle JDK / JRE 9 Update 4, 8 Update 161 / 7 Update 171 /
+6 Update 181 or later. If necessary, remove any affected versions.
+
+Note that an Extended Support contract with Oracle is needed to obtain
+JDK / JRE 6 Update 95 or later.","http://www.nessus.org/u?b3fb6d01
+http://www.nessus.org/u?7986d2c2
+http://www.nessus.org/u?68d74646
+http://www.nessus.org/u?4f2226dc
+http://www.nessus.org/u?726f7054","
+The following vulnerable instance of Java is installed on the
+remote host :
+
+  Path              : C:\Program Files\Java\jdk1.8.0_91\jre
+  Installed version : 1.8.0_91
+  Fixed version     : 1.6.0_181 / 1.7.0_171 / 1.8.0_161 / 1.9.0_4
+"
+"106190","CVE-2018-2603","9.3","High","172.21.2.5","tcp","445","Oracle Java SE Multiple Vulnerabilities (January 2018 CPU)","The remote Windows host contains a programming platform that is
+affected by multiple vulnerabilities.","The version of Oracle (formerly Sun) Java SE or Java for Business
+installed on the remote host is prior to 9 Update 4, 8 Update 161,
+7 Update 171, or 6 Update 181. It is, therefore, affected by
+multiple vulnerabilities related to the following components :
+
+  - AWT
+  - Deployment
+  - Hotspot
+  - I18n
+  - Installer
+  - JCE
+  - JGSS
+  - JMX
+  - JNDI
+  - JavaFX
+  - LDAP
+  - Libraries
+  - Serialization","Upgrade to Oracle JDK / JRE 9 Update 4, 8 Update 161 / 7 Update 171 /
+6 Update 181 or later. If necessary, remove any affected versions.
+
+Note that an Extended Support contract with Oracle is needed to obtain
+JDK / JRE 6 Update 95 or later.","http://www.nessus.org/u?b3fb6d01
+http://www.nessus.org/u?7986d2c2
+http://www.nessus.org/u?68d74646
+http://www.nessus.org/u?4f2226dc
+http://www.nessus.org/u?726f7054","
+The following vulnerable instance of Java is installed on the
+remote host :
+
+  Path              : C:\Program Files\Java\jdk1.8.0_91\jre
+  Installed version : 1.8.0_91
+  Fixed version     : 1.6.0_181 / 1.7.0_171 / 1.8.0_161 / 1.9.0_4
+"
+"106190","CVE-2018-2618","9.3","High","172.21.2.5","tcp","445","Oracle Java SE Multiple Vulnerabilities (January 2018 CPU)","The remote Windows host contains a programming platform that is
+affected by multiple vulnerabilities.","The version of Oracle (formerly Sun) Java SE or Java for Business
+installed on the remote host is prior to 9 Update 4, 8 Update 161,
+7 Update 171, or 6 Update 181. It is, therefore, affected by
+multiple vulnerabilities related to the following components :
+
+  - AWT
+  - Deployment
+  - Hotspot
+  - I18n
+  - Installer
+  - JCE
+  - JGSS
+  - JMX
+  - JNDI
+  - JavaFX
+  - LDAP
+  - Libraries
+  - Serialization","Upgrade to Oracle JDK / JRE 9 Update 4, 8 Update 161 / 7 Update 171 /
+6 Update 181 or later. If necessary, remove any affected versions.
+
+Note that an Extended Support contract with Oracle is needed to obtain
+JDK / JRE 6 Update 95 or later.","http://www.nessus.org/u?b3fb6d01
+http://www.nessus.org/u?7986d2c2
+http://www.nessus.org/u?68d74646
+http://www.nessus.org/u?4f2226dc
+http://www.nessus.org/u?726f7054","
+The following vulnerable instance of Java is installed on the
+remote host :
+
+  Path              : C:\Program Files\Java\jdk1.8.0_91\jre
+  Installed version : 1.8.0_91
+  Fixed version     : 1.6.0_181 / 1.7.0_171 / 1.8.0_161 / 1.9.0_4
+"
+"106190","CVE-2018-2627","9.3","High","172.21.2.5","tcp","445","Oracle Java SE Multiple Vulnerabilities (January 2018 CPU)","The remote Windows host contains a programming platform that is
+affected by multiple vulnerabilities.","The version of Oracle (formerly Sun) Java SE or Java for Business
+installed on the remote host is prior to 9 Update 4, 8 Update 161,
+7 Update 171, or 6 Update 181. It is, therefore, affected by
+multiple vulnerabilities related to the following components :
+
+  - AWT
+  - Deployment
+  - Hotspot
+  - I18n
+  - Installer
+  - JCE
+  - JGSS
+  - JMX
+  - JNDI
+  - JavaFX
+  - LDAP
+  - Libraries
+  - Serialization","Upgrade to Oracle JDK / JRE 9 Update 4, 8 Update 161 / 7 Update 171 /
+6 Update 181 or later. If necessary, remove any affected versions.
+
+Note that an Extended Support contract with Oracle is needed to obtain
+JDK / JRE 6 Update 95 or later.","http://www.nessus.org/u?b3fb6d01
+http://www.nessus.org/u?7986d2c2
+http://www.nessus.org/u?68d74646
+http://www.nessus.org/u?4f2226dc
+http://www.nessus.org/u?726f7054","
+The following vulnerable instance of Java is installed on the
+remote host :
+
+  Path              : C:\Program Files\Java\jdk1.8.0_91\jre
+  Installed version : 1.8.0_91
+  Fixed version     : 1.6.0_181 / 1.7.0_171 / 1.8.0_161 / 1.9.0_4
+"
+"106190","CVE-2018-2629","9.3","High","172.21.2.5","tcp","445","Oracle Java SE Multiple Vulnerabilities (January 2018 CPU)","The remote Windows host contains a programming platform that is
+affected by multiple vulnerabilities.","The version of Oracle (formerly Sun) Java SE or Java for Business
+installed on the remote host is prior to 9 Update 4, 8 Update 161,
+7 Update 171, or 6 Update 181. It is, therefore, affected by
+multiple vulnerabilities related to the following components :
+
+  - AWT
+  - Deployment
+  - Hotspot
+  - I18n
+  - Installer
+  - JCE
+  - JGSS
+  - JMX
+  - JNDI
+  - JavaFX
+  - LDAP
+  - Libraries
+  - Serialization","Upgrade to Oracle JDK / JRE 9 Update 4, 8 Update 161 / 7 Update 171 /
+6 Update 181 or later. If necessary, remove any affected versions.
+
+Note that an Extended Support contract with Oracle is needed to obtain
+JDK / JRE 6 Update 95 or later.","http://www.nessus.org/u?b3fb6d01
+http://www.nessus.org/u?7986d2c2
+http://www.nessus.org/u?68d74646
+http://www.nessus.org/u?4f2226dc
+http://www.nessus.org/u?726f7054","
+The following vulnerable instance of Java is installed on the
+remote host :
+
+  Path              : C:\Program Files\Java\jdk1.8.0_91\jre
+  Installed version : 1.8.0_91
+  Fixed version     : 1.6.0_181 / 1.7.0_171 / 1.8.0_161 / 1.9.0_4
+"
+"106190","CVE-2018-2633","9.3","High","172.21.2.5","tcp","445","Oracle Java SE Multiple Vulnerabilities (January 2018 CPU)","The remote Windows host contains a programming platform that is
+affected by multiple vulnerabilities.","The version of Oracle (formerly Sun) Java SE or Java for Business
+installed on the remote host is prior to 9 Update 4, 8 Update 161,
+7 Update 171, or 6 Update 181. It is, therefore, affected by
+multiple vulnerabilities related to the following components :
+
+  - AWT
+  - Deployment
+  - Hotspot
+  - I18n
+  - Installer
+  - JCE
+  - JGSS
+  - JMX
+  - JNDI
+  - JavaFX
+  - LDAP
+  - Libraries
+  - Serialization","Upgrade to Oracle JDK / JRE 9 Update 4, 8 Update 161 / 7 Update 171 /
+6 Update 181 or later. If necessary, remove any affected versions.
+
+Note that an Extended Support contract with Oracle is needed to obtain
+JDK / JRE 6 Update 95 or later.","http://www.nessus.org/u?b3fb6d01
+http://www.nessus.org/u?7986d2c2
+http://www.nessus.org/u?68d74646
+http://www.nessus.org/u?4f2226dc
+http://www.nessus.org/u?726f7054","
+The following vulnerable instance of Java is installed on the
+remote host :
+
+  Path              : C:\Program Files\Java\jdk1.8.0_91\jre
+  Installed version : 1.8.0_91
+  Fixed version     : 1.6.0_181 / 1.7.0_171 / 1.8.0_161 / 1.9.0_4
+"
+"106190","CVE-2018-2634","9.3","High","172.21.2.5","tcp","445","Oracle Java SE Multiple Vulnerabilities (January 2018 CPU)","The remote Windows host contains a programming platform that is
+affected by multiple vulnerabilities.","The version of Oracle (formerly Sun) Java SE or Java for Business
+installed on the remote host is prior to 9 Update 4, 8 Update 161,
+7 Update 171, or 6 Update 181. It is, therefore, affected by
+multiple vulnerabilities related to the following components :
+
+  - AWT
+  - Deployment
+  - Hotspot
+  - I18n
+  - Installer
+  - JCE
+  - JGSS
+  - JMX
+  - JNDI
+  - JavaFX
+  - LDAP
+  - Libraries
+  - Serialization","Upgrade to Oracle JDK / JRE 9 Update 4, 8 Update 161 / 7 Update 171 /
+6 Update 181 or later. If necessary, remove any affected versions.
+
+Note that an Extended Support contract with Oracle is needed to obtain
+JDK / JRE 6 Update 95 or later.","http://www.nessus.org/u?b3fb6d01
+http://www.nessus.org/u?7986d2c2
+http://www.nessus.org/u?68d74646
+http://www.nessus.org/u?4f2226dc
+http://www.nessus.org/u?726f7054","
+The following vulnerable instance of Java is installed on the
+remote host :
+
+  Path              : C:\Program Files\Java\jdk1.8.0_91\jre
+  Installed version : 1.8.0_91
+  Fixed version     : 1.6.0_181 / 1.7.0_171 / 1.8.0_161 / 1.9.0_4
+"
+"106190","CVE-2018-2637","9.3","High","172.21.2.5","tcp","445","Oracle Java SE Multiple Vulnerabilities (January 2018 CPU)","The remote Windows host contains a programming platform that is
+affected by multiple vulnerabilities.","The version of Oracle (formerly Sun) Java SE or Java for Business
+installed on the remote host is prior to 9 Update 4, 8 Update 161,
+7 Update 171, or 6 Update 181. It is, therefore, affected by
+multiple vulnerabilities related to the following components :
+
+  - AWT
+  - Deployment
+  - Hotspot
+  - I18n
+  - Installer
+  - JCE
+  - JGSS
+  - JMX
+  - JNDI
+  - JavaFX
+  - LDAP
+  - Libraries
+  - Serialization","Upgrade to Oracle JDK / JRE 9 Update 4, 8 Update 161 / 7 Update 171 /
+6 Update 181 or later. If necessary, remove any affected versions.
+
+Note that an Extended Support contract with Oracle is needed to obtain
+JDK / JRE 6 Update 95 or later.","http://www.nessus.org/u?b3fb6d01
+http://www.nessus.org/u?7986d2c2
+http://www.nessus.org/u?68d74646
+http://www.nessus.org/u?4f2226dc
+http://www.nessus.org/u?726f7054","
+The following vulnerable instance of Java is installed on the
+remote host :
+
+  Path              : C:\Program Files\Java\jdk1.8.0_91\jre
+  Installed version : 1.8.0_91
+  Fixed version     : 1.6.0_181 / 1.7.0_171 / 1.8.0_161 / 1.9.0_4
+"
+"106190","CVE-2018-2638","9.3","High","172.21.2.5","tcp","445","Oracle Java SE Multiple Vulnerabilities (January 2018 CPU)","The remote Windows host contains a programming platform that is
+affected by multiple vulnerabilities.","The version of Oracle (formerly Sun) Java SE or Java for Business
+installed on the remote host is prior to 9 Update 4, 8 Update 161,
+7 Update 171, or 6 Update 181. It is, therefore, affected by
+multiple vulnerabilities related to the following components :
+
+  - AWT
+  - Deployment
+  - Hotspot
+  - I18n
+  - Installer
+  - JCE
+  - JGSS
+  - JMX
+  - JNDI
+  - JavaFX
+  - LDAP
+  - Libraries
+  - Serialization","Upgrade to Oracle JDK / JRE 9 Update 4, 8 Update 161 / 7 Update 171 /
+6 Update 181 or later. If necessary, remove any affected versions.
+
+Note that an Extended Support contract with Oracle is needed to obtain
+JDK / JRE 6 Update 95 or later.","http://www.nessus.org/u?b3fb6d01
+http://www.nessus.org/u?7986d2c2
+http://www.nessus.org/u?68d74646
+http://www.nessus.org/u?4f2226dc
+http://www.nessus.org/u?726f7054","
+The following vulnerable instance of Java is installed on the
+remote host :
+
+  Path              : C:\Program Files\Java\jdk1.8.0_91\jre
+  Installed version : 1.8.0_91
+  Fixed version     : 1.6.0_181 / 1.7.0_171 / 1.8.0_161 / 1.9.0_4
+"
+"106190","CVE-2018-2639","9.3","High","172.21.2.5","tcp","445","Oracle Java SE Multiple Vulnerabilities (January 2018 CPU)","The remote Windows host contains a programming platform that is
+affected by multiple vulnerabilities.","The version of Oracle (formerly Sun) Java SE or Java for Business
+installed on the remote host is prior to 9 Update 4, 8 Update 161,
+7 Update 171, or 6 Update 181. It is, therefore, affected by
+multiple vulnerabilities related to the following components :
+
+  - AWT
+  - Deployment
+  - Hotspot
+  - I18n
+  - Installer
+  - JCE
+  - JGSS
+  - JMX
+  - JNDI
+  - JavaFX
+  - LDAP
+  - Libraries
+  - Serialization","Upgrade to Oracle JDK / JRE 9 Update 4, 8 Update 161 / 7 Update 171 /
+6 Update 181 or later. If necessary, remove any affected versions.
+
+Note that an Extended Support contract with Oracle is needed to obtain
+JDK / JRE 6 Update 95 or later.","http://www.nessus.org/u?b3fb6d01
+http://www.nessus.org/u?7986d2c2
+http://www.nessus.org/u?68d74646
+http://www.nessus.org/u?4f2226dc
+http://www.nessus.org/u?726f7054","
+The following vulnerable instance of Java is installed on the
+remote host :
+
+  Path              : C:\Program Files\Java\jdk1.8.0_91\jre
+  Installed version : 1.8.0_91
+  Fixed version     : 1.6.0_181 / 1.7.0_171 / 1.8.0_161 / 1.9.0_4
+"
+"106190","CVE-2018-2641","9.3","High","172.21.2.5","tcp","445","Oracle Java SE Multiple Vulnerabilities (January 2018 CPU)","The remote Windows host contains a programming platform that is
+affected by multiple vulnerabilities.","The version of Oracle (formerly Sun) Java SE or Java for Business
+installed on the remote host is prior to 9 Update 4, 8 Update 161,
+7 Update 171, or 6 Update 181. It is, therefore, affected by
+multiple vulnerabilities related to the following components :
+
+  - AWT
+  - Deployment
+  - Hotspot
+  - I18n
+  - Installer
+  - JCE
+  - JGSS
+  - JMX
+  - JNDI
+  - JavaFX
+  - LDAP
+  - Libraries
+  - Serialization","Upgrade to Oracle JDK / JRE 9 Update 4, 8 Update 161 / 7 Update 171 /
+6 Update 181 or later. If necessary, remove any affected versions.
+
+Note that an Extended Support contract with Oracle is needed to obtain
+JDK / JRE 6 Update 95 or later.","http://www.nessus.org/u?b3fb6d01
+http://www.nessus.org/u?7986d2c2
+http://www.nessus.org/u?68d74646
+http://www.nessus.org/u?4f2226dc
+http://www.nessus.org/u?726f7054","
+The following vulnerable instance of Java is installed on the
+remote host :
+
+  Path              : C:\Program Files\Java\jdk1.8.0_91\jre
+  Installed version : 1.8.0_91
+  Fixed version     : 1.6.0_181 / 1.7.0_171 / 1.8.0_161 / 1.9.0_4
+"
+"106190","CVE-2018-2657","9.3","High","172.21.2.5","tcp","445","Oracle Java SE Multiple Vulnerabilities (January 2018 CPU)","The remote Windows host contains a programming platform that is
+affected by multiple vulnerabilities.","The version of Oracle (formerly Sun) Java SE or Java for Business
+installed on the remote host is prior to 9 Update 4, 8 Update 161,
+7 Update 171, or 6 Update 181. It is, therefore, affected by
+multiple vulnerabilities related to the following components :
+
+  - AWT
+  - Deployment
+  - Hotspot
+  - I18n
+  - Installer
+  - JCE
+  - JGSS
+  - JMX
+  - JNDI
+  - JavaFX
+  - LDAP
+  - Libraries
+  - Serialization","Upgrade to Oracle JDK / JRE 9 Update 4, 8 Update 161 / 7 Update 171 /
+6 Update 181 or later. If necessary, remove any affected versions.
+
+Note that an Extended Support contract with Oracle is needed to obtain
+JDK / JRE 6 Update 95 or later.","http://www.nessus.org/u?b3fb6d01
+http://www.nessus.org/u?7986d2c2
+http://www.nessus.org/u?68d74646
+http://www.nessus.org/u?4f2226dc
+http://www.nessus.org/u?726f7054","
+The following vulnerable instance of Java is installed on the
+remote host :
+
+  Path              : C:\Program Files\Java\jdk1.8.0_91\jre
+  Installed version : 1.8.0_91
+  Fixed version     : 1.6.0_181 / 1.7.0_171 / 1.8.0_161 / 1.9.0_4
+"
+"106190","CVE-2018-2663","9.3","High","172.21.2.5","tcp","445","Oracle Java SE Multiple Vulnerabilities (January 2018 CPU)","The remote Windows host contains a programming platform that is
+affected by multiple vulnerabilities.","The version of Oracle (formerly Sun) Java SE or Java for Business
+installed on the remote host is prior to 9 Update 4, 8 Update 161,
+7 Update 171, or 6 Update 181. It is, therefore, affected by
+multiple vulnerabilities related to the following components :
+
+  - AWT
+  - Deployment
+  - Hotspot
+  - I18n
+  - Installer
+  - JCE
+  - JGSS
+  - JMX
+  - JNDI
+  - JavaFX
+  - LDAP
+  - Libraries
+  - Serialization","Upgrade to Oracle JDK / JRE 9 Update 4, 8 Update 161 / 7 Update 171 /
+6 Update 181 or later. If necessary, remove any affected versions.
+
+Note that an Extended Support contract with Oracle is needed to obtain
+JDK / JRE 6 Update 95 or later.","http://www.nessus.org/u?b3fb6d01
+http://www.nessus.org/u?7986d2c2
+http://www.nessus.org/u?68d74646
+http://www.nessus.org/u?4f2226dc
+http://www.nessus.org/u?726f7054","
+The following vulnerable instance of Java is installed on the
+remote host :
+
+  Path              : C:\Program Files\Java\jdk1.8.0_91\jre
+  Installed version : 1.8.0_91
+  Fixed version     : 1.6.0_181 / 1.7.0_171 / 1.8.0_161 / 1.9.0_4
+"
+"106190","CVE-2018-2677","9.3","High","172.21.2.5","tcp","445","Oracle Java SE Multiple Vulnerabilities (January 2018 CPU)","The remote Windows host contains a programming platform that is
+affected by multiple vulnerabilities.","The version of Oracle (formerly Sun) Java SE or Java for Business
+installed on the remote host is prior to 9 Update 4, 8 Update 161,
+7 Update 171, or 6 Update 181. It is, therefore, affected by
+multiple vulnerabilities related to the following components :
+
+  - AWT
+  - Deployment
+  - Hotspot
+  - I18n
+  - Installer
+  - JCE
+  - JGSS
+  - JMX
+  - JNDI
+  - JavaFX
+  - LDAP
+  - Libraries
+  - Serialization","Upgrade to Oracle JDK / JRE 9 Update 4, 8 Update 161 / 7 Update 171 /
+6 Update 181 or later. If necessary, remove any affected versions.
+
+Note that an Extended Support contract with Oracle is needed to obtain
+JDK / JRE 6 Update 95 or later.","http://www.nessus.org/u?b3fb6d01
+http://www.nessus.org/u?7986d2c2
+http://www.nessus.org/u?68d74646
+http://www.nessus.org/u?4f2226dc
+http://www.nessus.org/u?726f7054","
+The following vulnerable instance of Java is installed on the
+remote host :
+
+  Path              : C:\Program Files\Java\jdk1.8.0_91\jre
+  Installed version : 1.8.0_91
+  Fixed version     : 1.6.0_181 / 1.7.0_171 / 1.8.0_161 / 1.9.0_4
+"
+"106190","CVE-2018-2678","9.3","High","172.21.2.5","tcp","445","Oracle Java SE Multiple Vulnerabilities (January 2018 CPU)","The remote Windows host contains a programming platform that is
+affected by multiple vulnerabilities.","The version of Oracle (formerly Sun) Java SE or Java for Business
+installed on the remote host is prior to 9 Update 4, 8 Update 161,
+7 Update 171, or 6 Update 181. It is, therefore, affected by
+multiple vulnerabilities related to the following components :
+
+  - AWT
+  - Deployment
+  - Hotspot
+  - I18n
+  - Installer
+  - JCE
+  - JGSS
+  - JMX
+  - JNDI
+  - JavaFX
+  - LDAP
+  - Libraries
+  - Serialization","Upgrade to Oracle JDK / JRE 9 Update 4, 8 Update 161 / 7 Update 171 /
+6 Update 181 or later. If necessary, remove any affected versions.
+
+Note that an Extended Support contract with Oracle is needed to obtain
+JDK / JRE 6 Update 95 or later.","http://www.nessus.org/u?b3fb6d01
+http://www.nessus.org/u?7986d2c2
+http://www.nessus.org/u?68d74646
+http://www.nessus.org/u?4f2226dc
+http://www.nessus.org/u?726f7054","
+The following vulnerable instance of Java is installed on the
+remote host :
+
+  Path              : C:\Program Files\Java\jdk1.8.0_91\jre
+  Installed version : 1.8.0_91
+  Fixed version     : 1.6.0_181 / 1.7.0_171 / 1.8.0_161 / 1.9.0_4
+"

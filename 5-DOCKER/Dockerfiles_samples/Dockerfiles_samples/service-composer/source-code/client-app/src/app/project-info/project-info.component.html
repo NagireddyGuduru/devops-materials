@@ -1,0 +1,56 @@
+<div class="container row justify-content-md-center">
+  <div class="col-md-2"></div>
+  <div class="col-md-10">
+    <div class="card wizardcard">
+      <div class="card-header title">
+        <h5>Application General Information</h5>
+      </div>
+      <div class="card-block container content-block">
+        <p class="card-text text-muted">
+          <br/>&nbsp;Describe the general information of the business application to be built.</p>
+        <div class="container mainContent">
+          <div class="row">
+            <div class="col-md-12">ORGANIZATION</div>
+          </div>
+          <div class="form-group row">
+            <label for="txtOrganizationName" class="col-2 col-form-label text-right">Name:</label>
+            <div class="col-10">
+              <input class="form-control" type="text" id="txtOrganizationName" placeholder="Organization Name" [(ngModel)]="clientInfo.organizationName">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="txtOrganizationUrl" class="col-2 col-form-label text-right">Url:</label>
+            <div class="col-10">
+              <input class="form-control" type="url" id="txtOrganizationUrl" placeholder="Organization Url" [(ngModel)]="clientInfo.organizationUrl">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">PROJECT</div>
+          </div>
+          <div class="form-group row">
+            <label for="txtProjectName" class="col-2 col-form-label text-right">Name:</label>
+            <div class="col-10">
+              <input class="form-control" type="text" id="txtProjectName" placeholder="Project Name" [(ngModel)]="clientInfo.projectName">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="txtProjectUrl" class="col-2 col-form-label text-right">Url:</label>
+            <div class="col-10">
+              <input class="form-control" type="url" id="txtProjectUrl" placeholder="Project Url" [(ngModel)]="clientInfo.projectUrl">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="txtDescription" class="col-2 col-form-label text-right">Description:</label>
+            <div class="col-10">
+              <textarea class="form-control" id="txtDescription" rows="2" placeholder="Project Description" [(ngModel)]="clientInfo.projectDescription"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer title text-right">
+        <a class="btn btn-danger cursor-pointer" routerLink="/" >Cancel</a>
+        <a class="btn btn-danger cursor-pointer" (click)="compose()" [ngClass]="clientInfo.projectName == null || clientInfo.projectName.trim() == '' ? 'disabled' : ''">Compose</a>
+      </div>
+    </div>
+  </div>
+</div>

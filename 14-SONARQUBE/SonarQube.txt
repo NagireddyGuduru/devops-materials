@@ -123,6 +123,7 @@ chown -R ec2-user:ec2-user sonarqube-7.3/
 
 step 5:
 Create a file /etc/init.d/sonar and copy the following content on to the file.
+vi /etc/init.d/sonar
 #!/bin/sh
 /usr/bin/sonar $*
 
@@ -134,15 +135,26 @@ ls -ltr /usr/bin/sonar
 
 step 7:
 
-sudo chmod 755 /etc/init.d/sonar
-sudo chkconfig --add sonar
+chmod 755 /etc/init.d/sonar
+
 
 step 8:
 reboot
 
+step 9:
+sudo service sonar status
 sudo service sonar start
 sudo service sonar stop
 sudo service sonar restart 
+
+
+Task:
+
+quality gate static check
+
+  timeout(unit 'Hr') wait for 1hr for status check
+  
+  
 
 
 

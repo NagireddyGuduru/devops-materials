@@ -1,0 +1,37 @@
+server:
+  port: 8090
+  contextPath: /demo-service
+  
+spring:
+  application:
+    name: demo-service  
+    
+#<block-non-oauth2-authorization-service-start>
+security:
+  basic:
+    enabled: false
+#<block-non-oauth2-authorization-service-end>
+
+#<block-oauth2-authorization-service-start>        
+oauth2:
+  #<block-non-edge-service-zuul-start>
+  tokenInfoUri: http://localhost:8000/auth-service/oauth/check_token
+  #<block-non-edge-service-zuul-end>
+  #<block-edge-service-zuul-start>
+  tokenInfoUri: http://localhost/auth-service/oauth/check_token
+  #<block-edge-service-zuul-end>
+  clientId: demo-service
+  clientSecret: password
+
+demo-service:
+  resource-id: DEMO_SERVICE
+  
+dependentServices:
+  #<block-non-edge-service-zuul-start>
+  securityServiceUri: http://localhost:8000/auth-service
+  #<block-non-edge-service-zuul-end>
+  #<block-edge-service-zuul-start>
+  securityServiceUri: http://localhost/auth-service
+  #<block-edge-service-zuul-end>     
+#<block-oauth2-authorization-service-end>
+

@@ -1,0 +1,95 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: stepingress  
+  annotations:    
+    kubernetes.io/tls-acme: "true"
+    kubernetes.io/ingress.class: nginx
+    ingress.kubernetes.io/rewrite-target: /
+    
+spec:  
+  tls:
+  - hosts:
+    - nextstep.eastus.cloudapp.azure.com
+    secretName: tls-kubelego
+  rules:
+  - host: nextstep.eastus.cloudapp.azure.com
+    http:
+      paths:      
+      - path: /stp-cognitivemkplace
+        backend:
+          serviceName: stp-cognitivemkplace
+          servicePort: 80
+      - path: /stp-agile-assesment
+        backend:
+          serviceName: stp-agile-assesment
+          servicePort: 8080
+      - path: /stp-mstf
+        backend:
+          serviceName: stp-mstf
+          servicePort: 8080
+      - path: /x2cdemo
+        backend:
+          serviceName: x2cdemo
+          servicePort: 8080
+      - path: /stp-platform-service/stp
+        backend:
+          serviceName: stp-platform-service
+          servicePort: 8080
+      - path: /stp-mongodb
+        backend:
+          serviceName: stp-mongodb
+          servicePort: 80
+      - path: /stp-platform-ui
+        backend:
+          serviceName: stp-platform-ui
+          servicePort: 8080
+      - path: /stpmongodb
+        backend:
+          serviceName: stpmongodb
+          servicePort: 27017
+      - path: /stp-cogtwin-elasticsearch
+        backend:
+          serviceName: stp-cogtwin-elasticsearch
+          servicePort: 9200
+      - path: /stp-cogtwin
+        backend:
+          serviceName: stp-cogtwin
+          servicePort: 8080
+      - path: /stp-agile-assesment-tomcat
+        backend:
+          serviceName: stp-agile-assesment-tomcat
+          servicePort: 8080
+      - path: /stp-msaccelarator-mysql
+        backend:
+          serviceName: stp-msaccelarator-mysql
+          servicePort: 3306
+      - path: /stp-msaccelarator-oauth2-authorization-service
+        backend:
+          serviceName: stp-msaccelarator-oauth2-authorization-service
+          servicePort: 8000
+      - path: /stpservice
+        backend:
+          serviceName: stpservicetest
+          servicePort: 8080
+      - path: /accelerator
+        backend:
+          serviceName: stp-msaccelarator
+          servicePort: 8080
+      - path: /testaccelerator
+        backend:
+          serviceName: testmsaccelarator
+          servicePort: 8080     
+      - path: /mysql
+        backend:
+          serviceName: stpmysql
+          servicePort: 3306
+      - path: /digitalservice
+        backend:
+          serviceName: stpdigitalservice
+          servicePort: 8080
+      - path: /stp-logger-service
+        backend:
+          serviceName: stp-logger-service
+          servicePort: 8080
+          

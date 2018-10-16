@@ -1,0 +1,53 @@
+what is agile?
+
+Sprint Management?
+
+ALM tools?
+
+
+POCs?
+-- stands for Proof of concept.
+-- its kind of Research or can say R&D.
+-- before giving the solution have to do POC on that.
+-- Have to demonstrate and check the feasiblity.
+
+
+Product Backlog?
+-- Running list of Current User stories and feature User Stroies
+-- Suppose there request from delivery team or client so manager create
+   one user storie.
+-- This user stories not contain any tasks.
+-- It is like high level requirement.
+-- Product owner create the user stories here not assign to anyone.
+-- not in active these user stories.
+
+
+Sprint Product Backlog?
+
+-- list of Current sprint user stories
+-- Add the tasks for your user stories
+-- based on priority assign the user stories and bugs
+
+Backlog grooming?
+
+-- There will be Product Backlog grooming meeting.
+-- In this meeting make sure have sufficient work for the current sprint.
+-- ask if you need any extra work
+-- previous sprint user stories not completed pill over to next sprint.
+
+
+Retrosepective meetings?
+
+Feauter section?
+
+Brokedown into user stories
+
+eg: Toolevalution of devops this feature
+     here not mentioned what tools has evaluate
+
+so for this we create US and link to features.
+
+
+
+
+

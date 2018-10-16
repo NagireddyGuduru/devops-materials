@@ -1,0 +1,31 @@
+<project name="TestProject" default="main">
+
+
+	<target name="main">
+		<antcall target="compile"/>
+		<antcall target="package"/>
+		<antcall target="run"/>
+		
+	</target>
+	<target name="compile" >
+		<echo>Compiling source code </echo>
+		<mkdir dir="build/classes"/>
+		<javac srcdir="src" destdir="build/classes"/>
+	</target>
+
+	<target name="package" >
+		<echo>Packaging class files to jar</echo>
+		<mkdir dir="build/jar"/>
+		<jar basedir="build/classes" destfile="build/jar/HelloWorld.jar">
+			<manifest>
+				<attribute name="Main-Class" value="HelloWorld"/>
+			</manifest>
+		</jar>
+	</target>
+	
+	<target name="run" >
+		<echo>Executing jar file</echo>
+		<java jar="build/jar/HelloWorld.jar" fork='true'/>
+	</target>
+
+</project>

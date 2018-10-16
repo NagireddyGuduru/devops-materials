@@ -1,0 +1,65 @@
+{ 
+  "general":
+   {
+		"nextstep_log_file": "C:\\Ddata\\STP\\k8sautomation\\Logs\\nextstep_cluster.log",	
+		"components_log_file": "C:\\Ddata\\STP\\k8sautomation\\Logs\\nextstep_components.log",
+		"k8s_components_folder": "C:\\Ddata\\STP\\k8scomponents",
+		"k8s_setupcomponents_folder": "C:\\Ddata\\STP\\k8ssetupyamls",     
+		"k8s_utility_module": "C:\\Ddata\\STP\\k8sautomation\\nsutility.psm1",
+        "k8s_resource_module_folder": "C:\\Ddata\\STP\\k8sautomation\\en-us",
+		"k8s_resource_module_file": "en-usresources.psd1"	
+   },   
+  "azureresource":
+    {
+		"resource_group_name": "tstnextstepRG",
+		"location_name": "West US"		
+    },	
+	"azurecluster":
+    {
+		"cluster_name": "tstnxtstpaks",
+		"cluster_group_name": "tstnextstepRG",
+		"kuben8_version": "1.8.7",
+		"node_count": "1",
+		"node_disk_size": "50",
+        "service_principal": "C:\\Ddata\\STP\\k8sautomation\\ServicePrinicpal\\serviceprincipalIDs.json",
+		"cluster_loc": "West US",
+		"node_vm_size": "Standard_DS2_v2"
+    },	
+	"nextstep_Initialcomponents":
+	{
+		"nextstepconfigmap": "nextstepconfigmap.yaml"
+	},	
+	"nextstep_components":
+	{
+		"nextsteplogger": "nextsteplogger.yml",
+		"nextstepplatformmondb": "nextstepplatformmondb.yml",
+		"nextstepcognativemkplace": "nextstepcognativemkplace.yml",
+		"nextstepmstf": "nextstepmstf.yml",
+		"nextstepcogtwin": "nextstepcogtwin.yml",
+		"nextstepdigitalsvc": "nextstepdigitalsvc.yml",
+		"nextstepdigitalui": "nextstepdigitalui.yml",
+		"nextstepmsaccelerator": "nextstepmsaccelerator.yml",
+		"nextstepmsacceleratorui": "nextstepmsacceleratorui.yml",
+		"nextstepmsacceleratowebaccessiblities": "nextstepmsacceleratowebaccessiblities.yml",
+		"nextstepmsrefarchitecture": "nextstepmsrefarchitecture.yml",
+		"nextstepspringeureka": "nextstepspringeureka.yml",
+		"nextstepagileassessment": "nextstepagileassessment.yml"
+	},		
+	"nextstep_nsngnix_Initialcomponents":
+	{
+		"nginx-ingress-controller-conf": "nginx-ingress-controller-conf.yaml"	
+	},
+	"nextstep_nsngninx_components":
+	 {
+		"default-http-backend-deployment": "default-http-backend-deployment.yaml",
+		"default-http-backend-service": "default-http-backend-service.yaml",
+		"nginx-ingress-controller-deployment": "nginx-ingress-controller-deployment.yaml",
+		"nginx-ingress-controller-service": "nginx-ingress-controller-service.yaml"
+	 },
+	"nextstep_nginix_certiciate":
+	 {
+		"kube-lego-configmap": "kube-lego-configmap.yaml",
+		"Kube-lego-deploy": "Kube-lego-deploy.yaml"		
+	 }	
+}
+

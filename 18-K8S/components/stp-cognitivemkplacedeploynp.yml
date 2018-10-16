@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: stp-cognitivemkplace
+spec:
+  template:
+    metadata:
+      labels:
+        app: stp-cognitivemkplace
+        component: ui
+    spec:
+      containers:
+      - name: stp-cognitivemkplace
+        image: stpregistry.azurecr.io/stp-cognitivemkplace:3.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+          

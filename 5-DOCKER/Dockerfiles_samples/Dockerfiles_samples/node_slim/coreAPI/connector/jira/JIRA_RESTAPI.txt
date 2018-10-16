@@ -1,0 +1,1139 @@
+JIRA https://docs.atlassian.com/jira/REST/cloud/
+GET /rest/api/2/issue/DAS-37 HTTP/1.1
+Host: team-sparkle.atlassian.net
+Authorization: Basic <base64pwd>
+Cache-Control: no-cache
+Postman-Token: de9caaa8-f03b-23b7-4eb2-b564d71aed91
+
+
+1. List of projects 
+
+Mapping
+
+GET Project (JIRA REST API) -> connectors (devops nodejs)-> POST products (Devops REST API)
+project.key =  projectid
+project.name = projectname
+
+Jira REST URL : https://team-sparkle.atlassian.net/rest/api/2/project
+
+Response
+[
+    {
+        "expand": "description,lead,issueTypes,url,projectKeys",
+        "self": "https://team-sparkle.atlassian.net/rest/api/2/project/10000",
+        "id": "10000",
+        "key": "CPA",
+        "name": "Cloud Platform Acceleration",
+        "avatarUrls": {
+            "48x48": "https://team-sparkle.atlassian.net/secure/projectavatar?pid=10000&avatarId=10500",
+            "24x24": "https://team-sparkle.atlassian.net/secure/projectavatar?size=small&pid=10000&avatarId=10500",
+            "16x16": "https://team-sparkle.atlassian.net/secure/projectavatar?size=xsmall&pid=10000&avatarId=10500",
+            "32x32": "https://team-sparkle.atlassian.net/secure/projectavatar?size=medium&pid=10000&avatarId=10500"
+        },
+        "projectTypeKey": "software"
+    },
+    {
+        "expand": "description,lead,issueTypes,url,projectKeys",
+        "self": "https://team-sparkle.atlassian.net/rest/api/2/project/10001",
+        "id": "10001",
+        "key": "DAS",
+        "name": "DevOps Analyser - Sparkle",
+        "avatarUrls": {
+            "48x48": "https://team-sparkle.atlassian.net/secure/projectavatar?avatarId=10324",
+            "24x24": "https://team-sparkle.atlassian.net/secure/projectavatar?size=small&avatarId=10324",
+            "16x16": "https://team-sparkle.atlassian.net/secure/projectavatar?size=xsmall&avatarId=10324",
+            "32x32": "https://team-sparkle.atlassian.net/secure/projectavatar?size=medium&avatarId=10324"
+        },
+        "projectTypeKey": "software"
+    }
+]
+
+URL : https://team-sparkle.atlassian.net/rest/api/2/project/10001
+
+{
+    "expand": "description,lead,issueTypes,url,projectKeys",
+    "self": "https://team-sparkle.atlassian.net/rest/api/2/project/10001",
+    "id": "10001",
+    "key": "DAS",
+    "description": "",
+    "lead": {
+        "self": "https://team-sparkle.atlassian.net/rest/api/2/user?username=Iqbal.Khan",
+        "key": "iqbal.khan",
+        "accountId": "557058:d06c97cd-cee7-458f-8641-3cfe1cee4ef3",
+        "name": "Iqbal.Khan",
+        "avatarUrls": {
+            "16x16": "https://avatar-cdn.atlassian.com/91b19f3b789fb8d11b4eface5ad18258?s=16&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F91b19f3b789fb8d11b4eface5ad18258%3Fd%3Dmm%26s%3D16%26noRedirect%3Dtrue",
+            "24x24": "https://avatar-cdn.atlassian.com/91b19f3b789fb8d11b4eface5ad18258?s=24&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F91b19f3b789fb8d11b4eface5ad18258%3Fd%3Dmm%26s%3D24%26noRedirect%3Dtrue",
+            "32x32": "https://avatar-cdn.atlassian.com/91b19f3b789fb8d11b4eface5ad18258?s=32&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F91b19f3b789fb8d11b4eface5ad18258%3Fd%3Dmm%26s%3D32%26noRedirect%3Dtrue",
+            "48x48": "https://avatar-cdn.atlassian.com/91b19f3b789fb8d11b4eface5ad18258?s=48&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F91b19f3b789fb8d11b4eface5ad18258%3Fd%3Dmm%26s%3D48%26noRedirect%3Dtrue"
+        },
+        "displayName": "IQbal",
+        "active": true
+    },
+    "components": [],
+    "issueTypes": [
+        {
+            "self": "https://team-sparkle.atlassian.net/rest/api/2/issuetype/10101",
+            "id": "10101",
+            "description": "A task that needs to be done.",
+            "iconUrl": "https://team-sparkle.atlassian.net/secure/viewavatar?size=xsmall&avatarId=10318&avatarType=issuetype",
+            "name": "Task",
+            "subtask": false,
+            "avatarId": 10318
+        },
+        {
+            "self": "https://team-sparkle.atlassian.net/rest/api/2/issuetype/10102",
+            "id": "10102",
+            "description": "The sub-task of the issue",
+            "iconUrl": "https://team-sparkle.atlassian.net/secure/viewavatar?size=xsmall&avatarId=10316&avatarType=issuetype",
+            "name": "Sub-task",
+            "subtask": true,
+            "avatarId": 10316
+        },
+        {
+            "self": "https://team-sparkle.atlassian.net/rest/api/2/issuetype/10100",
+            "id": "10100",
+            "description": "A user story. Created by JIRA Software - do not edit or delete.",
+            "iconUrl": "https://team-sparkle.atlassian.net/secure/viewavatar?size=xsmall&avatarId=10315&avatarType=issuetype",
+            "name": "Story",
+            "subtask": false,
+            "avatarId": 10315
+        },
+        {
+            "self": "https://team-sparkle.atlassian.net/rest/api/2/issuetype/10103",
+            "id": "10103",
+            "description": "A problem which impairs or prevents the functions of the product.",
+            "iconUrl": "https://team-sparkle.atlassian.net/secure/viewavatar?size=xsmall&avatarId=10303&avatarType=issuetype",
+            "name": "Bug",
+            "subtask": false,
+            "avatarId": 10303
+        },
+        {
+            "self": "https://team-sparkle.atlassian.net/rest/api/2/issuetype/10000",
+            "id": "10000",
+            "description": "A big user story that needs to be broken down. Created by JIRA Software - do not edit or delete.",
+            "iconUrl": "https://team-sparkle.atlassian.net/images/icons/issuetypes/epic.svg",
+            "name": "Epic",
+            "subtask": false
+        }
+    ],
+    "assigneeType": "UNASSIGNED",
+    "versions": [],
+    "name": "DevOps Analyser - Sparkle",
+    "roles": {
+        "atlassian-addons-project-access": "https://team-sparkle.atlassian.net/rest/api/2/project/10001/role/10100",
+        "Administrators": "https://team-sparkle.atlassian.net/rest/api/2/project/10001/role/10002"
+    },
+    "avatarUrls": {
+        "48x48": "https://team-sparkle.atlassian.net/secure/projectavatar?avatarId=10324",
+        "24x24": "https://team-sparkle.atlassian.net/secure/projectavatar?size=small&avatarId=10324",
+        "16x16": "https://team-sparkle.atlassian.net/secure/projectavatar?size=xsmall&avatarId=10324",
+        "32x32": "https://team-sparkle.atlassian.net/secure/projectavatar?size=medium&avatarId=10324"
+    },
+    "projectTypeKey": "software"
+}
+
+URL https://team-sparkle.atlassian.net/rest/api/2/statuscategory
+
+[
+    {
+        "self": "https://team-sparkle.atlassian.net/rest/api/2/statuscategory/1",
+        "id": 1,
+        "key": "undefined",
+        "colorName": "medium-gray",
+        "name": "No Category"
+    },
+    {
+        "self": "https://team-sparkle.atlassian.net/rest/api/2/statuscategory/2",
+        "id": 2,
+        "key": "new",
+        "colorName": "blue-gray",
+        "name": "To Do"
+    },
+    {
+        "self": "https://team-sparkle.atlassian.net/rest/api/2/statuscategory/4",
+        "id": 4,
+        "key": "indeterminate",
+        "colorName": "yellow",
+        "name": "In Progress"
+    },
+    {
+        "self": "https://team-sparkle.atlassian.net/rest/api/2/statuscategory/3",
+        "id": 3,
+        "key": "done",
+        "colorName": "green",
+        "name": "Done"
+    }
+]
+
+URL : https://team-sparkle.atlassian.net/rest/api/2/project/10001/statuses
+
+[
+    {
+        "self": "https://team-sparkle.atlassian.net/rest/api/2/issuetype/10101",
+        "id": "10101",
+        "name": "Task",
+        "subtask": false,
+        "statuses": [
+            {
+                "self": "https://team-sparkle.atlassian.net/rest/api/2/status/10000",
+                "description": "",
+                "iconUrl": "https://team-sparkle.atlassian.net/",
+                "name": "To Do",
+                "id": "10000",
+                "statusCategory": {
+                    "self": "https://team-sparkle.atlassian.net/rest/api/2/statuscategory/2",
+                    "id": 2,
+                    "key": "new",
+                    "colorName": "blue-gray",
+                    "name": "To Do"
+                }
+            },
+            {
+                "self": "https://team-sparkle.atlassian.net/rest/api/2/status/3",
+                "description": "This issue is being actively worked on at the moment by the assignee.",
+                "iconUrl": "https://team-sparkle.atlassian.net/images/icons/statuses/inprogress.png",
+                "name": "In Progress",
+                "id": "3",
+                "statusCategory": {
+                    "self": "https://team-sparkle.atlassian.net/rest/api/2/statuscategory/4",
+                    "id": 4,
+                    "key": "indeterminate",
+                    "colorName": "yellow",
+                    "name": "In Progress"
+                }
+            },
+            {
+                "self": "https://team-sparkle.atlassian.net/rest/api/2/status/10001",
+                "description": "",
+                "iconUrl": "https://team-sparkle.atlassian.net/",
+                "name": "Done",
+                "id": "10001",
+                "statusCategory": {
+                    "self": "https://team-sparkle.atlassian.net/rest/api/2/statuscategory/3",
+                    "id": 3,
+                    "key": "done",
+                    "colorName": "green",
+                    "name": "Done"
+                }
+            }
+        ]
+    },
+    {
+        "self": "https://team-sparkle.atlassian.net/rest/api/2/issuetype/10102",
+        "id": "10102",
+        "name": "Sub-task",
+        "subtask": true,
+        "statuses": [
+            {
+                "self": "https://team-sparkle.atlassian.net/rest/api/2/status/10000",
+                "description": "",
+                "iconUrl": "https://team-sparkle.atlassian.net/",
+                "name": "To Do",
+                "id": "10000",
+                "statusCategory": {
+                    "self": "https://team-sparkle.atlassian.net/rest/api/2/statuscategory/2",
+                    "id": 2,
+                    "key": "new",
+                    "colorName": "blue-gray",
+                    "name": "To Do"
+                }
+            },
+            {
+                "self": "https://team-sparkle.atlassian.net/rest/api/2/status/3",
+                "description": "This issue is being actively worked on at the moment by the assignee.",
+                "iconUrl": "https://team-sparkle.atlassian.net/images/icons/statuses/inprogress.png",
+                "name": "In Progress",
+                "id": "3",
+                "statusCategory": {
+                    "self": "https://team-sparkle.atlassian.net/rest/api/2/statuscategory/4",
+                    "id": 4,
+                    "key": "indeterminate",
+                    "colorName": "yellow",
+                    "name": "In Progress"
+                }
+            },
+            {
+                "self": "https://team-sparkle.atlassian.net/rest/api/2/status/10001",
+                "description": "",
+                "iconUrl": "https://team-sparkle.atlassian.net/",
+                "name": "Done",
+                "id": "10001",
+                "statusCategory": {
+                    "self": "https://team-sparkle.atlassian.net/rest/api/2/statuscategory/3",
+                    "id": 3,
+                    "key": "done",
+                    "colorName": "green",
+                    "name": "Done"
+                }
+            }
+        ]
+    },
+    {
+        "self": "https://team-sparkle.atlassian.net/rest/api/2/issuetype/10100",
+        "id": "10100",
+        "name": "Story",
+        "subtask": false,
+        "statuses": [
+            {
+                "self": "https://team-sparkle.atlassian.net/rest/api/2/status/10000",
+                "description": "",
+                "iconUrl": "https://team-sparkle.atlassian.net/",
+                "name": "To Do",
+                "id": "10000",
+                "statusCategory": {
+                    "self": "https://team-sparkle.atlassian.net/rest/api/2/statuscategory/2",
+                    "id": 2,
+                    "key": "new",
+                    "colorName": "blue-gray",
+                    "name": "To Do"
+                }
+            },
+            {
+                "self": "https://team-sparkle.atlassian.net/rest/api/2/status/3",
+                "description": "This issue is being actively worked on at the moment by the assignee.",
+                "iconUrl": "https://team-sparkle.atlassian.net/images/icons/statuses/inprogress.png",
+                "name": "In Progress",
+                "id": "3",
+                "statusCategory": {
+                    "self": "https://team-sparkle.atlassian.net/rest/api/2/statuscategory/4",
+                    "id": 4,
+                    "key": "indeterminate",
+                    "colorName": "yellow",
+                    "name": "In Progress"
+                }
+            },
+            {
+                "self": "https://team-sparkle.atlassian.net/rest/api/2/status/10001",
+                "description": "",
+                "iconUrl": "https://team-sparkle.atlassian.net/",
+                "name": "Done",
+                "id": "10001",
+                "statusCategory": {
+                    "self": "https://team-sparkle.atlassian.net/rest/api/2/statuscategory/3",
+                    "id": 3,
+                    "key": "done",
+                    "colorName": "green",
+                    "name": "Done"
+                }
+            }
+        ]
+    },
+    {
+        "self": "https://team-sparkle.atlassian.net/rest/api/2/issuetype/10103",
+        "id": "10103",
+        "name": "Bug",
+        "subtask": false,
+        "statuses": [
+            {
+                "self": "https://team-sparkle.atlassian.net/rest/api/2/status/10000",
+                "description": "",
+                "iconUrl": "https://team-sparkle.atlassian.net/",
+                "name": "To Do",
+                "id": "10000",
+                "statusCategory": {
+                    "self": "https://team-sparkle.atlassian.net/rest/api/2/statuscategory/2",
+                    "id": 2,
+                    "key": "new",
+                    "colorName": "blue-gray",
+                    "name": "To Do"
+                }
+            },
+            {
+                "self": "https://team-sparkle.atlassian.net/rest/api/2/status/3",
+                "description": "This issue is being actively worked on at the moment by the assignee.",
+                "iconUrl": "https://team-sparkle.atlassian.net/images/icons/statuses/inprogress.png",
+                "name": "In Progress",
+                "id": "3",
+                "statusCategory": {
+                    "self": "https://team-sparkle.atlassian.net/rest/api/2/statuscategory/4",
+                    "id": 4,
+                    "key": "indeterminate",
+                    "colorName": "yellow",
+                    "name": "In Progress"
+                }
+            },
+            {
+                "self": "https://team-sparkle.atlassian.net/rest/api/2/status/10001",
+                "description": "",
+                "iconUrl": "https://team-sparkle.atlassian.net/",
+                "name": "Done",
+                "id": "10001",
+                "statusCategory": {
+                    "self": "https://team-sparkle.atlassian.net/rest/api/2/statuscategory/3",
+                    "id": 3,
+                    "key": "done",
+                    "colorName": "green",
+                    "name": "Done"
+                }
+            }
+        ]
+    },
+    {
+        "self": "https://team-sparkle.atlassian.net/rest/api/2/issuetype/10000",
+        "id": "10000",
+        "name": "Epic",
+        "subtask": false,
+        "statuses": [
+            {
+                "self": "https://team-sparkle.atlassian.net/rest/api/2/status/10000",
+                "description": "",
+                "iconUrl": "https://team-sparkle.atlassian.net/",
+                "name": "To Do",
+                "id": "10000",
+                "statusCategory": {
+                    "self": "https://team-sparkle.atlassian.net/rest/api/2/statuscategory/2",
+                    "id": 2,
+                    "key": "new",
+                    "colorName": "blue-gray",
+                    "name": "To Do"
+                }
+            },
+            {
+                "self": "https://team-sparkle.atlassian.net/rest/api/2/status/3",
+                "description": "This issue is being actively worked on at the moment by the assignee.",
+                "iconUrl": "https://team-sparkle.atlassian.net/images/icons/statuses/inprogress.png",
+                "name": "In Progress",
+                "id": "3",
+                "statusCategory": {
+                    "self": "https://team-sparkle.atlassian.net/rest/api/2/statuscategory/4",
+                    "id": 4,
+                    "key": "indeterminate",
+                    "colorName": "yellow",
+                    "name": "In Progress"
+                }
+            },
+            {
+                "self": "https://team-sparkle.atlassian.net/rest/api/2/status/10001",
+                "description": "",
+                "iconUrl": "https://team-sparkle.atlassian.net/",
+                "name": "Done",
+                "id": "10001",
+                "statusCategory": {
+                    "self": "https://team-sparkle.atlassian.net/rest/api/2/statuscategory/3",
+                    "id": 3,
+                    "key": "done",
+                    "colorName": "green",
+                    "name": "Done"
+                }
+            }
+        ]
+    }
+]
+
+URL : https://team-sparkle.atlassian.net/rest/api/2/issue/DAS-37
+{
+    "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+    "id": "10600",
+    "self": "https://team-sparkle.atlassian.net/rest/api/2/issue/10600",
+    "key": "DAS-37",
+    "fields": {
+        "issuetype": {
+            "self": "https://team-sparkle.atlassian.net/rest/api/2/issuetype/10101",
+            "id": "10101",
+            "description": "A task that needs to be done.",
+            "iconUrl": "https://team-sparkle.atlassian.net/secure/viewavatar?size=xsmall&avatarId=10318&avatarType=issuetype",
+            "name": "Task",
+            "subtask": false,
+            "avatarId": 10318
+        },
+        "timespent": null,
+        "project": {
+            "self": "https://team-sparkle.atlassian.net/rest/api/2/project/10001",
+            "id": "10001",
+            "key": "DAS",
+            "name": "DevOps Analyser - Sparkle",
+            "avatarUrls": {
+                "48x48": "https://team-sparkle.atlassian.net/secure/projectavatar?avatarId=10324",
+                "24x24": "https://team-sparkle.atlassian.net/secure/projectavatar?size=small&avatarId=10324",
+                "16x16": "https://team-sparkle.atlassian.net/secure/projectavatar?size=xsmall&avatarId=10324",
+                "32x32": "https://team-sparkle.atlassian.net/secure/projectavatar?size=medium&avatarId=10324"
+            }
+        },
+        "customfield_10110": null,
+        "fixVersions": [],
+        "customfield_10111": null,
+        "aggregatetimespent": null,
+        "customfield_10112": null,
+        "resolution": {
+            "self": "https://team-sparkle.atlassian.net/rest/api/2/resolution/10000",
+            "id": "10000",
+            "description": "Work has been completed on this issue.",
+            "name": "Done"
+        },
+        "customfield_10113": null,
+        "customfield_10114": "0|i00087:",
+        "customfield_10104": null,
+        "customfield_10105": null,
+        "customfield_10106": null,
+        "customfield_10107": null,
+        "customfield_10108": null,
+        "customfield_10109": null,
+        "resolutiondate": "2017-07-31T04:13:56.612-0400",
+        "workratio": -1,
+        "watches": {
+            "self": "https://team-sparkle.atlassian.net/rest/api/2/issue/DAS-37/watchers",
+            "watchCount": 1,
+            "isWatching": true
+        },
+        "lastViewed": "2017-08-22T07:02:42.527-0400",
+        "created": "2017-06-23T05:40:13.535-0400",
+        "priority": {
+            "self": "https://team-sparkle.atlassian.net/rest/api/2/priority/3",
+            "iconUrl": "https://team-sparkle.atlassian.net/images/icons/priorities/medium.svg",
+            "name": "Medium",
+            "id": "3"
+        },
+        "customfield_10100": null,
+        "customfield_10101": "3_*:*_1_*:*_3277980336_*|*_10000_*:*_1_*:*_42749_*|*_10001_*:*_1_*:*_0",
+        "customfield_10102": null,
+        "customfield_10103": null,
+        "labels": [],
+        "timeestimate": null,
+        "aggregatetimeoriginalestimate": null,
+        "versions": [],
+        "issuelinks": [],
+        "assignee": {
+            "self": "https://team-sparkle.atlassian.net/rest/api/2/user?username=Srikant.Gudi",
+            "name": "Srikant.Gudi",
+            "key": "srikant.gudi",
+            "accountId": "557058:7f8d763a-5d1d-4a8a-ad2d-1f9501a4c46d",
+            "emailAddress": "srikant.gudi@mphasis.com",
+            "avatarUrls": {
+                "48x48": "https://avatar-cdn.atlassian.com/d014a4cb4f4096b32204382684cfa611?s=48&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2Fd014a4cb4f4096b32204382684cfa611%3Fd%3Dmm%26s%3D48%26noRedirect%3Dtrue",
+                "24x24": "https://avatar-cdn.atlassian.com/d014a4cb4f4096b32204382684cfa611?s=24&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2Fd014a4cb4f4096b32204382684cfa611%3Fd%3Dmm%26s%3D24%26noRedirect%3Dtrue",
+                "16x16": "https://avatar-cdn.atlassian.com/d014a4cb4f4096b32204382684cfa611?s=16&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2Fd014a4cb4f4096b32204382684cfa611%3Fd%3Dmm%26s%3D16%26noRedirect%3Dtrue",
+                "32x32": "https://avatar-cdn.atlassian.com/d014a4cb4f4096b32204382684cfa611?s=32&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2Fd014a4cb4f4096b32204382684cfa611%3Fd%3Dmm%26s%3D32%26noRedirect%3Dtrue"
+            },
+            "displayName": "Srikant Gudi",
+            "active": true,
+            "timeZone": "Asia/Kolkata"
+        },
+        "updated": "2017-07-31T04:13:56.618-0400",
+        "status": {
+            "self": "https://team-sparkle.atlassian.net/rest/api/2/status/10001",
+            "description": "",
+            "iconUrl": "https://team-sparkle.atlassian.net/",
+            "name": "Done",
+            "id": "10001",
+            "statusCategory": {
+                "self": "https://team-sparkle.atlassian.net/rest/api/2/statuscategory/3",
+                "id": 3,
+                "key": "done",
+                "colorName": "green",
+                "name": "Done"
+            }
+        },
+        "components": [],
+        "timeoriginalestimate": null,
+        "description": null,
+        "timetracking": {},
+        "customfield_10006": null,
+        "customfield_10007": null,
+        "aggregatetimeestimate": null,
+        "attachment": [],
+        "summary": "Page refresh Issue",
+        "creator": {
+            "self": "https://team-sparkle.atlassian.net/rest/api/2/user?username=shailesh.keni01",
+            "name": "shailesh.keni01",
+            "key": "shailesh.keni01",
+            "accountId": "557058:f17e9568-0f82-40ff-a110-b32bcd25796b",
+            "emailAddress": "shailesh.keni01@mphasis.com",
+            "avatarUrls": {
+                "48x48": "https://avatar-cdn.atlassian.com/efe764841bed2e40cb0dab8acd95a9d9?s=48&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2Fefe764841bed2e40cb0dab8acd95a9d9%3Fd%3Dmm%26s%3D48%26noRedirect%3Dtrue",
+                "24x24": "https://avatar-cdn.atlassian.com/efe764841bed2e40cb0dab8acd95a9d9?s=24&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2Fefe764841bed2e40cb0dab8acd95a9d9%3Fd%3Dmm%26s%3D24%26noRedirect%3Dtrue",
+                "16x16": "https://avatar-cdn.atlassian.com/efe764841bed2e40cb0dab8acd95a9d9?s=16&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2Fefe764841bed2e40cb0dab8acd95a9d9%3Fd%3Dmm%26s%3D16%26noRedirect%3Dtrue",
+                "32x32": "https://avatar-cdn.atlassian.com/efe764841bed2e40cb0dab8acd95a9d9?s=32&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2Fefe764841bed2e40cb0dab8acd95a9d9%3Fd%3Dmm%26s%3D32%26noRedirect%3Dtrue"
+            },
+            "displayName": "Shailesh",
+            "active": true,
+            "timeZone": "America/New_York"
+        },
+        "subtasks": [],
+        "reporter": {
+            "self": "https://team-sparkle.atlassian.net/rest/api/2/user?username=shailesh.keni01",
+            "name": "shailesh.keni01",
+            "key": "shailesh.keni01",
+            "accountId": "557058:f17e9568-0f82-40ff-a110-b32bcd25796b",
+            "emailAddress": "shailesh.keni01@mphasis.com",
+            "avatarUrls": {
+                "48x48": "https://avatar-cdn.atlassian.com/efe764841bed2e40cb0dab8acd95a9d9?s=48&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2Fefe764841bed2e40cb0dab8acd95a9d9%3Fd%3Dmm%26s%3D48%26noRedirect%3Dtrue",
+                "24x24": "https://avatar-cdn.atlassian.com/efe764841bed2e40cb0dab8acd95a9d9?s=24&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2Fefe764841bed2e40cb0dab8acd95a9d9%3Fd%3Dmm%26s%3D24%26noRedirect%3Dtrue",
+                "16x16": "https://avatar-cdn.atlassian.com/efe764841bed2e40cb0dab8acd95a9d9?s=16&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2Fefe764841bed2e40cb0dab8acd95a9d9%3Fd%3Dmm%26s%3D16%26noRedirect%3Dtrue",
+                "32x32": "https://avatar-cdn.atlassian.com/efe764841bed2e40cb0dab8acd95a9d9?s=32&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2Fefe764841bed2e40cb0dab8acd95a9d9%3Fd%3Dmm%26s%3D32%26noRedirect%3Dtrue"
+            },
+            "displayName": "Shailesh",
+            "active": true,
+            "timeZone": "America/New_York"
+        },
+        "customfield_10000": "{}",
+        "aggregateprogress": {
+            "progress": 0,
+            "total": 0
+        },
+        "customfield_10001": null,
+        "customfield_10002": null,
+        "environment": null,
+        "duedate": null,
+        "progress": {
+            "progress": 0,
+            "total": 0
+        },
+        "comment": {
+            "comments": [],
+            "maxResults": 0,
+            "total": 0,
+            "startAt": 0
+        },
+        "votes": {
+            "self": "https://team-sparkle.atlassian.net/rest/api/2/issue/DAS-37/votes",
+            "votes": 0,
+            "hasVoted": false
+        },
+        "worklog": {
+            "startAt": 0,
+            "maxResults": 20,
+            "total": 0,
+            "worklogs": []
+        }
+    }
+}
+
+https://team-sparkle.atlassian.net/rest/api/2/workflowscheme/10101
+
+{
+    "id": 10101,
+    "name": "DAS: Software Simplified Workflow Scheme",
+    "description": "Generated by JIRA Software version 1000.442.0. This workflow scheme is managed internally by JIRA Software. Do not manually modify this workflow scheme.",
+    "defaultWorkflow": "Software Simplified Workflow for Project DAS",
+    "issueTypeMappings": {},
+    "draft": false,
+    "self": "https://team-sparkle.atlassian.net/rest/api/2/workflowscheme/10101",
+    "issueTypes": {
+        "10000": {
+            "self": "https://team-sparkle.atlassian.net/rest/api/2/issuetype/10000",
+            "id": "10000",
+            "description": "Created by JIRA Software - do not edit or delete. Issue type for a big user story that needs to be broken down.",
+            "iconUrl": "https://team-sparkle.atlassian.net/images/icons/issuetypes/epic.svg",
+            "name": "Epic",
+            "subtask": false
+        },
+        "10100": {
+            "self": "https://team-sparkle.atlassian.net/rest/api/2/issuetype/10100",
+            "id": "10100",
+            "description": "Created by JIRA Agile - do not edit or delete. Issue type for a user story.",
+            "iconUrl": "https://team-sparkle.atlassian.net/secure/viewavatar?size=xsmall&avatarId=10315&avatarType=issuetype",
+            "name": "Story",
+            "subtask": false,
+            "avatarId": 10315
+        },
+        "10101": {
+            "self": "https://team-sparkle.atlassian.net/rest/api/2/issuetype/10101",
+            "id": "10101",
+            "description": "A task that needs to be done.",
+            "iconUrl": "https://team-sparkle.atlassian.net/secure/viewavatar?size=xsmall&avatarId=10318&avatarType=issuetype",
+            "name": "Task",
+            "subtask": false,
+            "avatarId": 10318
+        },
+        "10102": {
+            "self": "https://team-sparkle.atlassian.net/rest/api/2/issuetype/10102",
+            "id": "10102",
+            "description": "The sub-task of the issue",
+            "iconUrl": "https://team-sparkle.atlassian.net/secure/viewavatar?size=xsmall&avatarId=10316&avatarType=issuetype",
+            "name": "Sub-task",
+            "subtask": true,
+            "avatarId": 10316
+        },
+        "10103": {
+            "self": "https://team-sparkle.atlassian.net/rest/api/2/issuetype/10103",
+            "id": "10103",
+            "description": "A problem which impairs or prevents the functions of the product.",
+            "iconUrl": "https://team-sparkle.atlassian.net/secure/viewavatar?size=xsmall&avatarId=10303&avatarType=issuetype",
+            "name": "Bug",
+            "subtask": false,
+            "avatarId": 10303
+        }
+    }
+}
+
+
+https://team-sparkle.atlassian.net/rest/api/2/search?jql=project = 10100 AND issuetype = Story AND status = Done
+
+{
+    "expand": "schema,names",
+    "startAt": 0,
+    "maxResults": 50,
+    "total": 3,
+    "issues": [
+        {
+            "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+            "id": "11134",
+            "self": "https://team-sparkle.atlassian.net/rest/api/2/issue/11134",
+            "key": "DCTP-3",
+            "fields": {
+                "issuetype": {
+                    "self": "https://team-sparkle.atlassian.net/rest/api/2/issuetype/10100",
+                    "id": "10100",
+                    "description": "Created by JIRA Agile - do not edit or delete. Issue type for a user story.",
+                    "iconUrl": "https://team-sparkle.atlassian.net/secure/viewavatar?size=xsmall&avatarId=10315&avatarType=issuetype",
+                    "name": "Story",
+                    "subtask": false,
+                    "avatarId": 10315
+                },
+                "timespent": null,
+                "project": {
+                    "self": "https://team-sparkle.atlassian.net/rest/api/2/project/10100",
+                    "id": "10100",
+                    "key": "DCTP",
+                    "name": "DevOps Conenctor Test Project",
+                    "avatarUrls": {
+                        "48x48": "https://team-sparkle.atlassian.net/secure/projectavatar?avatarId=10324",
+                        "24x24": "https://team-sparkle.atlassian.net/secure/projectavatar?size=small&avatarId=10324",
+                        "16x16": "https://team-sparkle.atlassian.net/secure/projectavatar?size=xsmall&avatarId=10324",
+                        "32x32": "https://team-sparkle.atlassian.net/secure/projectavatar?size=medium&avatarId=10324"
+                    }
+                },
+                "fixVersions": [],
+                "customfield_10110": null,
+                "aggregatetimespent": null,
+                "customfield_10111": null,
+                "customfield_10112": null,
+                "resolution": null,
+                "customfield_10113": [
+                    "com.atlassian.greenhopper.service.sprint.Sprint@40cc4e79[id=2,rapidViewId=4,state=CLOSED,name=Sprint 1 test,goal=,startDate=2017-08-24T12:56:21.304Z,endDate=2017-09-07T12:56:00.000Z,completeDate=2017-08-24T13:01:17.307Z,sequence=2]"
+                ],
+                "customfield_10114": "0|i000g7:",
+                "customfield_10104": null,
+                "customfield_10105": null,
+                "customfield_10106": null,
+                "customfield_10107": null,
+                "customfield_10108": null,
+                "customfield_10109": null,
+                "resolutiondate": null,
+                "workratio": -1,
+                "watches": {
+                    "self": "https://team-sparkle.atlassian.net/rest/api/2/issue/DCTP-3/watchers",
+                    "watchCount": 1,
+                    "isWatching": true
+                },
+                "lastViewed": "2017-08-24T09:00:56.104-0400",
+                "created": "2017-08-24T08:53:59.591-0400",
+                "customfield_10100": null,
+                "priority": {
+                    "self": "https://team-sparkle.atlassian.net/rest/api/2/priority/3",
+                    "iconUrl": "https://team-sparkle.atlassian.net/images/icons/priorities/medium.svg",
+                    "name": "Medium",
+                    "id": "3"
+                },
+                "customfield_10101": null,
+                "customfield_10102": null,
+                "labels": [],
+                "customfield_10103": null,
+                "aggregatetimeoriginalestimate": null,
+                "timeestimate": null,
+                "versions": [],
+                "issuelinks": [],
+                "assignee": null,
+                "updated": "2017-08-24T09:00:55.059-0400",
+                "status": {
+                    "self": "https://team-sparkle.atlassian.net/rest/api/2/status/10001",
+                    "description": "",
+                    "iconUrl": "https://team-sparkle.atlassian.net/",
+                    "name": "Done",
+                    "id": "10001",
+                    "statusCategory": {
+                        "self": "https://team-sparkle.atlassian.net/rest/api/2/statuscategory/3",
+                        "id": 3,
+                        "key": "done",
+                        "colorName": "green",
+                        "name": "Done"
+                    }
+                },
+                "components": [],
+                "timeoriginalestimate": null,
+                "description": null,
+                "customfield_10006": null,
+                "customfield_10007": null,
+                "aggregatetimeestimate": null,
+                "summary": "BL 2",
+                "creator": {
+                    "self": "https://team-sparkle.atlassian.net/rest/api/2/user?username=Iqbal.Khan",
+                    "name": "Iqbal.Khan",
+                    "key": "iqbal.khan",
+                    "accountId": "557058:d06c97cd-cee7-458f-8641-3cfe1cee4ef3",
+                    "emailAddress": "iqbal.khan@mphasis.com",
+                    "avatarUrls": {
+                        "48x48": "https://avatar-cdn.atlassian.com/91b19f3b789fb8d11b4eface5ad18258?s=48&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F91b19f3b789fb8d11b4eface5ad18258%3Fd%3Dmm%26s%3D48%26noRedirect%3Dtrue",
+                        "24x24": "https://avatar-cdn.atlassian.com/91b19f3b789fb8d11b4eface5ad18258?s=24&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F91b19f3b789fb8d11b4eface5ad18258%3Fd%3Dmm%26s%3D24%26noRedirect%3Dtrue",
+                        "16x16": "https://avatar-cdn.atlassian.com/91b19f3b789fb8d11b4eface5ad18258?s=16&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F91b19f3b789fb8d11b4eface5ad18258%3Fd%3Dmm%26s%3D16%26noRedirect%3Dtrue",
+                        "32x32": "https://avatar-cdn.atlassian.com/91b19f3b789fb8d11b4eface5ad18258?s=32&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F91b19f3b789fb8d11b4eface5ad18258%3Fd%3Dmm%26s%3D32%26noRedirect%3Dtrue"
+                    },
+                    "displayName": "IQbal",
+                    "active": true,
+                    "timeZone": "Asia/Kolkata"
+                },
+                "subtasks": [],
+                "reporter": {
+                    "self": "https://team-sparkle.atlassian.net/rest/api/2/user?username=Iqbal.Khan",
+                    "name": "Iqbal.Khan",
+                    "key": "iqbal.khan",
+                    "accountId": "557058:d06c97cd-cee7-458f-8641-3cfe1cee4ef3",
+                    "emailAddress": "iqbal.khan@mphasis.com",
+                    "avatarUrls": {
+                        "48x48": "https://avatar-cdn.atlassian.com/91b19f3b789fb8d11b4eface5ad18258?s=48&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F91b19f3b789fb8d11b4eface5ad18258%3Fd%3Dmm%26s%3D48%26noRedirect%3Dtrue",
+                        "24x24": "https://avatar-cdn.atlassian.com/91b19f3b789fb8d11b4eface5ad18258?s=24&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F91b19f3b789fb8d11b4eface5ad18258%3Fd%3Dmm%26s%3D24%26noRedirect%3Dtrue",
+                        "16x16": "https://avatar-cdn.atlassian.com/91b19f3b789fb8d11b4eface5ad18258?s=16&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F91b19f3b789fb8d11b4eface5ad18258%3Fd%3Dmm%26s%3D16%26noRedirect%3Dtrue",
+                        "32x32": "https://avatar-cdn.atlassian.com/91b19f3b789fb8d11b4eface5ad18258?s=32&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F91b19f3b789fb8d11b4eface5ad18258%3Fd%3Dmm%26s%3D32%26noRedirect%3Dtrue"
+                    },
+                    "displayName": "IQbal",
+                    "active": true,
+                    "timeZone": "Asia/Kolkata"
+                },
+                "aggregateprogress": {
+                    "progress": 0,
+                    "total": 0
+                },
+                "customfield_10000": "{}",
+                "customfield_10001": null,
+                "customfield_10002": null,
+                "customfield_10115": null,
+                "environment": null,
+                "duedate": null,
+                "progress": {
+                    "progress": 0,
+                    "total": 0
+                },
+                "votes": {
+                    "self": "https://team-sparkle.atlassian.net/rest/api/2/issue/DCTP-3/votes",
+                    "votes": 0,
+                    "hasVoted": false
+                }
+            }
+        },
+        {
+            "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+            "id": "11133",
+            "self": "https://team-sparkle.atlassian.net/rest/api/2/issue/11133",
+            "key": "DCTP-2",
+            "fields": {
+                "issuetype": {
+                    "self": "https://team-sparkle.atlassian.net/rest/api/2/issuetype/10100",
+                    "id": "10100",
+                    "description": "Created by JIRA Agile - do not edit or delete. Issue type for a user story.",
+                    "iconUrl": "https://team-sparkle.atlassian.net/secure/viewavatar?size=xsmall&avatarId=10315&avatarType=issuetype",
+                    "name": "Story",
+                    "subtask": false,
+                    "avatarId": 10315
+                },
+                "timespent": 600,
+                "project": {
+                    "self": "https://team-sparkle.atlassian.net/rest/api/2/project/10100",
+                    "id": "10100",
+                    "key": "DCTP",
+                    "name": "DevOps Conenctor Test Project",
+                    "avatarUrls": {
+                        "48x48": "https://team-sparkle.atlassian.net/secure/projectavatar?avatarId=10324",
+                        "24x24": "https://team-sparkle.atlassian.net/secure/projectavatar?size=small&avatarId=10324",
+                        "16x16": "https://team-sparkle.atlassian.net/secure/projectavatar?size=xsmall&avatarId=10324",
+                        "32x32": "https://team-sparkle.atlassian.net/secure/projectavatar?size=medium&avatarId=10324"
+                    }
+                },
+                "customfield_10110": null,
+                "fixVersions": [],
+                "customfield_10111": null,
+                "aggregatetimespent": 600,
+                "resolution": null,
+                "customfield_10112": null,
+                "customfield_10113": [
+                    "com.atlassian.greenhopper.service.sprint.Sprint@40cc4e79[id=2,rapidViewId=4,state=CLOSED,name=Sprint 1 test,goal=,startDate=2017-08-24T12:56:21.304Z,endDate=2017-09-07T12:56:00.000Z,completeDate=2017-08-24T13:01:17.307Z,sequence=2]"
+                ],
+                "customfield_10114": "0|i000fz:",
+                "customfield_10104": null,
+                "customfield_10105": null,
+                "customfield_10106": null,
+                "customfield_10107": null,
+                "customfield_10108": null,
+                "customfield_10109": null,
+                "resolutiondate": null,
+                "workratio": -1,
+                "watches": {
+                    "self": "https://team-sparkle.atlassian.net/rest/api/2/issue/DCTP-2/watchers",
+                    "watchCount": 1,
+                    "isWatching": true
+                },
+                "lastViewed": "2017-08-24T09:01:38.710-0400",
+                "created": "2017-08-24T08:53:54.631-0400",
+                "priority": {
+                    "self": "https://team-sparkle.atlassian.net/rest/api/2/priority/3",
+                    "iconUrl": "https://team-sparkle.atlassian.net/images/icons/priorities/medium.svg",
+                    "name": "Medium",
+                    "id": "3"
+                },
+                "customfield_10100": null,
+                "customfield_10101": null,
+                "customfield_10102": null,
+                "labels": [],
+                "customfield_10103": null,
+                "timeestimate": 0,
+                "aggregatetimeoriginalestimate": null,
+                "versions": [],
+                "issuelinks": [],
+                "assignee": {
+                    "self": "https://team-sparkle.atlassian.net/rest/api/2/user?username=Iqbal.Khan",
+                    "name": "Iqbal.Khan",
+                    "key": "iqbal.khan",
+                    "accountId": "557058:d06c97cd-cee7-458f-8641-3cfe1cee4ef3",
+                    "emailAddress": "iqbal.khan@mphasis.com",
+                    "avatarUrls": {
+                        "48x48": "https://avatar-cdn.atlassian.com/91b19f3b789fb8d11b4eface5ad18258?s=48&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F91b19f3b789fb8d11b4eface5ad18258%3Fd%3Dmm%26s%3D48%26noRedirect%3Dtrue",
+                        "24x24": "https://avatar-cdn.atlassian.com/91b19f3b789fb8d11b4eface5ad18258?s=24&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F91b19f3b789fb8d11b4eface5ad18258%3Fd%3Dmm%26s%3D24%26noRedirect%3Dtrue",
+                        "16x16": "https://avatar-cdn.atlassian.com/91b19f3b789fb8d11b4eface5ad18258?s=16&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F91b19f3b789fb8d11b4eface5ad18258%3Fd%3Dmm%26s%3D16%26noRedirect%3Dtrue",
+                        "32x32": "https://avatar-cdn.atlassian.com/91b19f3b789fb8d11b4eface5ad18258?s=32&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F91b19f3b789fb8d11b4eface5ad18258%3Fd%3Dmm%26s%3D32%26noRedirect%3Dtrue"
+                    },
+                    "displayName": "IQbal",
+                    "active": true,
+                    "timeZone": "Asia/Kolkata"
+                },
+                "updated": "2017-08-24T08:58:00.264-0400",
+                "status": {
+                    "self": "https://team-sparkle.atlassian.net/rest/api/2/status/10001",
+                    "description": "",
+                    "iconUrl": "https://team-sparkle.atlassian.net/",
+                    "name": "Done",
+                    "id": "10001",
+                    "statusCategory": {
+                        "self": "https://team-sparkle.atlassian.net/rest/api/2/statuscategory/3",
+                        "id": 3,
+                        "key": "done",
+                        "colorName": "green",
+                        "name": "Done"
+                    }
+                },
+                "components": [],
+                "timeoriginalestimate": null,
+                "description": null,
+                "customfield_10006": null,
+                "customfield_10007": null,
+                "aggregatetimeestimate": 0,
+                "summary": "BL 1",
+                "creator": {
+                    "self": "https://team-sparkle.atlassian.net/rest/api/2/user?username=Iqbal.Khan",
+                    "name": "Iqbal.Khan",
+                    "key": "iqbal.khan",
+                    "accountId": "557058:d06c97cd-cee7-458f-8641-3cfe1cee4ef3",
+                    "emailAddress": "iqbal.khan@mphasis.com",
+                    "avatarUrls": {
+                        "48x48": "https://avatar-cdn.atlassian.com/91b19f3b789fb8d11b4eface5ad18258?s=48&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F91b19f3b789fb8d11b4eface5ad18258%3Fd%3Dmm%26s%3D48%26noRedirect%3Dtrue",
+                        "24x24": "https://avatar-cdn.atlassian.com/91b19f3b789fb8d11b4eface5ad18258?s=24&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F91b19f3b789fb8d11b4eface5ad18258%3Fd%3Dmm%26s%3D24%26noRedirect%3Dtrue",
+                        "16x16": "https://avatar-cdn.atlassian.com/91b19f3b789fb8d11b4eface5ad18258?s=16&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F91b19f3b789fb8d11b4eface5ad18258%3Fd%3Dmm%26s%3D16%26noRedirect%3Dtrue",
+                        "32x32": "https://avatar-cdn.atlassian.com/91b19f3b789fb8d11b4eface5ad18258?s=32&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F91b19f3b789fb8d11b4eface5ad18258%3Fd%3Dmm%26s%3D32%26noRedirect%3Dtrue"
+                    },
+                    "displayName": "IQbal",
+                    "active": true,
+                    "timeZone": "Asia/Kolkata"
+                },
+                "subtasks": [],
+                "reporter": {
+                    "self": "https://team-sparkle.atlassian.net/rest/api/2/user?username=Iqbal.Khan",
+                    "name": "Iqbal.Khan",
+                    "key": "iqbal.khan",
+                    "accountId": "557058:d06c97cd-cee7-458f-8641-3cfe1cee4ef3",
+                    "emailAddress": "iqbal.khan@mphasis.com",
+                    "avatarUrls": {
+                        "48x48": "https://avatar-cdn.atlassian.com/91b19f3b789fb8d11b4eface5ad18258?s=48&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F91b19f3b789fb8d11b4eface5ad18258%3Fd%3Dmm%26s%3D48%26noRedirect%3Dtrue",
+                        "24x24": "https://avatar-cdn.atlassian.com/91b19f3b789fb8d11b4eface5ad18258?s=24&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F91b19f3b789fb8d11b4eface5ad18258%3Fd%3Dmm%26s%3D24%26noRedirect%3Dtrue",
+                        "16x16": "https://avatar-cdn.atlassian.com/91b19f3b789fb8d11b4eface5ad18258?s=16&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F91b19f3b789fb8d11b4eface5ad18258%3Fd%3Dmm%26s%3D16%26noRedirect%3Dtrue",
+                        "32x32": "https://avatar-cdn.atlassian.com/91b19f3b789fb8d11b4eface5ad18258?s=32&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F91b19f3b789fb8d11b4eface5ad18258%3Fd%3Dmm%26s%3D32%26noRedirect%3Dtrue"
+                    },
+                    "displayName": "IQbal",
+                    "active": true,
+                    "timeZone": "Asia/Kolkata"
+                },
+                "aggregateprogress": {
+                    "progress": 600,
+                    "total": 600,
+                    "percent": 100
+                },
+                "customfield_10000": "{}",
+                "customfield_10001": null,
+                "customfield_10002": null,
+                "customfield_10115": null,
+                "environment": null,
+                "duedate": null,
+                "progress": {
+                    "progress": 600,
+                    "total": 600,
+                    "percent": 100
+                },
+                "votes": {
+                    "self": "https://team-sparkle.atlassian.net/rest/api/2/issue/DCTP-2/votes",
+                    "votes": 0,
+                    "hasVoted": false
+                }
+            }
+        },
+        {
+            "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+            "id": "11132",
+            "self": "https://team-sparkle.atlassian.net/rest/api/2/issue/11132",
+            "key": "DCTP-1",
+            "fields": {
+                "issuetype": {
+                    "self": "https://team-sparkle.atlassian.net/rest/api/2/issuetype/10100",
+                    "id": "10100",
+                    "description": "Created by JIRA Agile - do not edit or delete. Issue type for a user story.",
+                    "iconUrl": "https://team-sparkle.atlassian.net/secure/viewavatar?size=xsmall&avatarId=10315&avatarType=issuetype",
+                    "name": "Story",
+                    "subtask": false,
+                    "avatarId": 10315
+                },
+                "timespent": null,
+                "project": {
+                    "self": "https://team-sparkle.atlassian.net/rest/api/2/project/10100",
+                    "id": "10100",
+                    "key": "DCTP",
+                    "name": "DevOps Conenctor Test Project",
+                    "avatarUrls": {
+                        "48x48": "https://team-sparkle.atlassian.net/secure/projectavatar?avatarId=10324",
+                        "24x24": "https://team-sparkle.atlassian.net/secure/projectavatar?size=small&avatarId=10324",
+                        "16x16": "https://team-sparkle.atlassian.net/secure/projectavatar?size=xsmall&avatarId=10324",
+                        "32x32": "https://team-sparkle.atlassian.net/secure/projectavatar?size=medium&avatarId=10324"
+                    }
+                },
+                "fixVersions": [],
+                "customfield_10110": null,
+                "aggregatetimespent": null,
+                "customfield_10111": null,
+                "customfield_10112": null,
+                "resolution": null,
+                "customfield_10113": null,
+                "customfield_10114": "0|i000fr:",
+                "customfield_10104": null,
+                "customfield_10105": null,
+                "customfield_10106": null,
+                "customfield_10107": null,
+                "customfield_10108": null,
+                "customfield_10109": null,
+                "resolutiondate": null,
+                "workratio": -1,
+                "lastViewed": "2017-08-24T08:52:53.902-0400",
+                "watches": {
+                    "self": "https://team-sparkle.atlassian.net/rest/api/2/issue/DCTP-1/watchers",
+                    "watchCount": 1,
+                    "isWatching": true
+                },
+                "created": "2017-08-24T08:35:58.518-0400",
+                "priority": {
+                    "self": "https://team-sparkle.atlassian.net/rest/api/2/priority/3",
+                    "iconUrl": "https://team-sparkle.atlassian.net/images/icons/priorities/medium.svg",
+                    "name": "Medium",
+                    "id": "3"
+                },
+                "customfield_10100": null,
+                "customfield_10101": null,
+                "customfield_10102": null,
+                "labels": [],
+                "customfield_10103": null,
+                "aggregatetimeoriginalestimate": null,
+                "timeestimate": null,
+                "versions": [],
+                "issuelinks": [],
+                "assignee": {
+                    "self": "https://team-sparkle.atlassian.net/rest/api/2/user?username=Iqbal.Khan",
+                    "name": "Iqbal.Khan",
+                    "key": "iqbal.khan",
+                    "accountId": "557058:d06c97cd-cee7-458f-8641-3cfe1cee4ef3",
+                    "emailAddress": "iqbal.khan@mphasis.com",
+                    "avatarUrls": {
+                        "48x48": "https://avatar-cdn.atlassian.com/91b19f3b789fb8d11b4eface5ad18258?s=48&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F91b19f3b789fb8d11b4eface5ad18258%3Fd%3Dmm%26s%3D48%26noRedirect%3Dtrue",
+                        "24x24": "https://avatar-cdn.atlassian.com/91b19f3b789fb8d11b4eface5ad18258?s=24&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F91b19f3b789fb8d11b4eface5ad18258%3Fd%3Dmm%26s%3D24%26noRedirect%3Dtrue",
+                        "16x16": "https://avatar-cdn.atlassian.com/91b19f3b789fb8d11b4eface5ad18258?s=16&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F91b19f3b789fb8d11b4eface5ad18258%3Fd%3Dmm%26s%3D16%26noRedirect%3Dtrue",
+                        "32x32": "https://avatar-cdn.atlassian.com/91b19f3b789fb8d11b4eface5ad18258?s=32&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F91b19f3b789fb8d11b4eface5ad18258%3Fd%3Dmm%26s%3D32%26noRedirect%3Dtrue"
+                    },
+                    "displayName": "IQbal",
+                    "active": true,
+                    "timeZone": "Asia/Kolkata"
+                },
+                "updated": "2017-08-24T08:52:29.826-0400",
+                "status": {
+                    "self": "https://team-sparkle.atlassian.net/rest/api/2/status/10001",
+                    "description": "",
+                    "iconUrl": "https://team-sparkle.atlassian.net/",
+                    "name": "Done",
+                    "id": "10001",
+                    "statusCategory": {
+                        "self": "https://team-sparkle.atlassian.net/rest/api/2/statuscategory/3",
+                        "id": 3,
+                        "key": "done",
+                        "colorName": "green",
+                        "name": "Done"
+                    }
+                },
+                "components": [],
+                "timeoriginalestimate": null,
+                "description": "this is test",
+                "customfield_10006": null,
+                "customfield_10007": null,
+                "aggregatetimeestimate": null,
+                "summary": "First Story",
+                "creator": {
+                    "self": "https://team-sparkle.atlassian.net/rest/api/2/user?username=Iqbal.Khan",
+                    "name": "Iqbal.Khan",
+                    "key": "iqbal.khan",
+                    "accountId": "557058:d06c97cd-cee7-458f-8641-3cfe1cee4ef3",
+                    "emailAddress": "iqbal.khan@mphasis.com",
+                    "avatarUrls": {
+                        "48x48": "https://avatar-cdn.atlassian.com/91b19f3b789fb8d11b4eface5ad18258?s=48&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F91b19f3b789fb8d11b4eface5ad18258%3Fd%3Dmm%26s%3D48%26noRedirect%3Dtrue",
+                        "24x24": "https://avatar-cdn.atlassian.com/91b19f3b789fb8d11b4eface5ad18258?s=24&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F91b19f3b789fb8d11b4eface5ad18258%3Fd%3Dmm%26s%3D24%26noRedirect%3Dtrue",
+                        "16x16": "https://avatar-cdn.atlassian.com/91b19f3b789fb8d11b4eface5ad18258?s=16&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F91b19f3b789fb8d11b4eface5ad18258%3Fd%3Dmm%26s%3D16%26noRedirect%3Dtrue",
+                        "32x32": "https://avatar-cdn.atlassian.com/91b19f3b789fb8d11b4eface5ad18258?s=32&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F91b19f3b789fb8d11b4eface5ad18258%3Fd%3Dmm%26s%3D32%26noRedirect%3Dtrue"
+                    },
+                    "displayName": "IQbal",
+                    "active": true,
+                    "timeZone": "Asia/Kolkata"
+                },
+                "subtasks": [],
+                "reporter": {
+                    "self": "https://team-sparkle.atlassian.net/rest/api/2/user?username=Iqbal.Khan",
+                    "name": "Iqbal.Khan",
+                    "key": "iqbal.khan",
+                    "accountId": "557058:d06c97cd-cee7-458f-8641-3cfe1cee4ef3",
+                    "emailAddress": "iqbal.khan@mphasis.com",
+                    "avatarUrls": {
+                        "48x48": "https://avatar-cdn.atlassian.com/91b19f3b789fb8d11b4eface5ad18258?s=48&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F91b19f3b789fb8d11b4eface5ad18258%3Fd%3Dmm%26s%3D48%26noRedirect%3Dtrue",
+                        "24x24": "https://avatar-cdn.atlassian.com/91b19f3b789fb8d11b4eface5ad18258?s=24&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F91b19f3b789fb8d11b4eface5ad18258%3Fd%3Dmm%26s%3D24%26noRedirect%3Dtrue",
+                        "16x16": "https://avatar-cdn.atlassian.com/91b19f3b789fb8d11b4eface5ad18258?s=16&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F91b19f3b789fb8d11b4eface5ad18258%3Fd%3Dmm%26s%3D16%26noRedirect%3Dtrue",
+                        "32x32": "https://avatar-cdn.atlassian.com/91b19f3b789fb8d11b4eface5ad18258?s=32&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2F91b19f3b789fb8d11b4eface5ad18258%3Fd%3Dmm%26s%3D32%26noRedirect%3Dtrue"
+                    },
+                    "displayName": "IQbal",
+                    "active": true,
+                    "timeZone": "Asia/Kolkata"
+                },
+                "aggregateprogress": {
+                    "progress": 0,
+                    "total": 0
+                },
+                "customfield_10000": "{}",
+                "customfield_10001": null,
+                "customfield_10002": null,
+                "customfield_10115": null,
+                "environment": null,
+                "duedate": null,
+                "progress": {
+                    "progress": 0,
+                    "total": 0
+                },
+                "votes": {
+                    "self": "https://team-sparkle.atlassian.net/rest/api/2/issue/DCTP-1/votes",
+                    "votes": 0,
+                    "hasVoted": false
+                }
+            }
+        }
+    ]
+}
+
+Sprint 1 ->  list of issues (Sprint 1) 
+
+Req -> Issue (Story)

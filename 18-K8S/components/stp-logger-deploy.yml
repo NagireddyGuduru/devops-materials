@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: stp-logger-service
+spec:
+  template:
+    metadata:
+      labels:
+        app: stp-logger-service
+        component: ui
+    spec:
+      containers:
+      - name: stp-logger-service
+        image: stpregistry.azurecr.io/stp-logger-service:1.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8888
+          

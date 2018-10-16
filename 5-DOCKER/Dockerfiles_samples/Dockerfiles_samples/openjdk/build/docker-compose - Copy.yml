@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+
+  service-composer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: service-composer
+    environment:
+      - SOLUTIONBUILDER_WORKINGDIRECTORY=/service-composer
+      - SOLUTIONBUILDER_LOADBALANCERADDRESS=10.0.75.1
+      - SOLUTIONBUILDER_NUMBEROFBUILDTORETAIN=10
+    ports:
+      - "7070:8080"  

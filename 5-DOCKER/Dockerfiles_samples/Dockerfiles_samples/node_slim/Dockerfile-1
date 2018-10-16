@@ -1,0 +1,10 @@
+FROM node:slim
+WORKDIR /app
+#COPY package.json /app
+ENV http_proxy 'http://jayashree.h:Odiyoorbaba890%216@btpproxy.mphasis.com:8080'
+ENV https_proxy 'http://jayashree.h:Odiyoorbaba890%216@btpproxy.mphasis.com:8080'
+COPY . /app
+WORKDIR /app/coreAPI
+RUN npm install
+CMD node devopserver.js
+#EXPOSE 88

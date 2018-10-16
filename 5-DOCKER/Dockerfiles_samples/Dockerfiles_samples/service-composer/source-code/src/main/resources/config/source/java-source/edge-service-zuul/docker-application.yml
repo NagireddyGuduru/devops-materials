@@ -1,0 +1,52 @@
+#<block-zuul-routes-start>
+zuul:
+  routes:
+    #<block-oauth2-authorization-service-start>
+    authService:
+      path: /auth-service/**
+      url: http://oauth2-authorization-service:8000/auth-service/
+      sensitiveHeaders:
+    #<block-oauth2-authorization-service-end>
+    #<block-resource-service-template-start>
+    demoService:
+      path: /demo-service/**
+      url: http://resource-service-template:8090/demo-service/
+      sensitiveHeaders:
+    #<block-resource-service-template-end>
+    #<block-client-application-java-start>
+    clientApplication:
+      path: /client-app-java/**
+      url: http://client-application-java:8080/client-app-java/
+      sensitiveHeaders:
+    #<block-client-application-java-end>
+    #<block-client-application-angular4-start>
+    clientApplicationSpa:
+      path: /client-app-angular4/**
+      url: http://client-application-angular4:80/
+      sensitiveHeaders:
+    #<block-client-application-angular4-end>
+    #<block-micro-frontends-start>
+    microFrontendApp:
+      path: /micro-frontends/**
+      url: http://micro-frontends:80/
+      sensitiveHeaders:
+    #<block-micro-frontends-end>
+    #<block-zipkin-server-start>
+    #<block-oauth2-authorization-service-start>
+    zipkinAuth:
+      path: /zipkin-auth/**
+      url: http://zipkin-server:9411/
+      sensitiveHeaders:
+    #<block-oauth2-authorization-service-end>
+    zipkinServer:
+      path: /zipkin/**
+      url: http://zipkin-server:9411/zipkin/
+      sensitiveHeaders:
+    #<block-zipkin-server-end>
+    #<block-eureka-server-start>
+    eurekaServer:
+      path: /eureka/**
+      url: http://eureka-server:8761/eureka/
+      sensitiveHeaders:
+    #<block-eureka-server-end>
+#<block-zuul-routes-end>      

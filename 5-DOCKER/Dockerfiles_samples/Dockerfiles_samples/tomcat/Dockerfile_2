@@ -1,0 +1,20 @@
+FROM tomcat
+ENV http_proxy 'http://guduru.reddy:sohith%402018@btpproxy.mphasis.com:8080'
+ENV https_proxy 'http://guduru.reddy:sohith%402018@btpproxy.mphasis.com:8080'
+RUN  apt-get update
+RUN  apt-get install vim -y
+
+#Copy the build into htdocs
+#COPY STP/  /usr/local/tomcat/webapps/ROOT/STP/
+COPY STP/  /usr/local/tomcat/webapps/ROOT/
+
+COPY setserviceurl_script.sh  /usr/local/setserviceurl_script.sh
+
+RUN chmod +x /usr/local/setserviceurl_script.sh
+
+RUN /usr/local/setserviceurl_script.sh
+
+
+
+
+

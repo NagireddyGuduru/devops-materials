@@ -1,0 +1,16 @@
+<project name="TestProject" default="A">
+
+	<target name="A" >
+		<echo>File system tasks</echo>
+		
+		<!-- <mkdir dir="XYZ"/>
+		<delete dir="XYZ"/> 
+		
+		<copy file="Hello.txt" tofile="Hi.txt"/>-->
+		<copy todir="build">
+			<fileset dir="src"/>
+		</copy>
+		
+		<move file="Hello.txt" tofile="YY.txt"/>
+	</target>
+</project>

@@ -1,0 +1,92 @@
+version: "3"
+
+services:
+  elasticsearch:
+    build:
+      context: ./tools/elasticsearch
+      dockerfile: Dockerfile
+      args:
+        ELK_VERSION: $ELK_VERSION
+    image: elasticsearch-log-store
+    environment:
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m" # adjust heap size, should be half of mem_limit (max 30g)
+      - node.name=es-monitoring-01
+    deploy:
+      resources: 
+        limits:
+          memory: 1g
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    cap_add:
+      - IPC_LOCK
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+    networks:
+      - loggingnet  
+    logging:
+      driver: json-file
+      options: # log rotation
+        max-size: "10m"
+        max-file: "20"
+
+  logstash:
+    build:
+      context: ./tools/logstash
+      dockerfile: Dockerfile
+      args:
+        ELK_VERSION: $ELK_VERSION
+    image: logstash-broker
+    environment:
+      - LS_JAVA_OPTS=-Xmx256m -Xms256m
+      - ELASTICSEARCH_HOST=elasticsearch:9200
+      - ELASTICSEARCH_USER=elastic
+      - ELASTICSEARCH_PASSWORD=changeme
+    ports:
+     - "12200:12200/udp"
+     - "12201:12201/udp"
+    networks:
+      - loggingnet
+    depends_on:
+      - elasticsearch
+  
+  kibana:
+    build:
+      context: ./tools/kibana
+      dockerfile: Dockerfile
+      args:
+        ELK_VERSION: $ELK_VERSION
+    image: kibana-dashboard
+    environment:
+     - XPACK_GRAPH_ENABLED=false
+     - XPACK_MONITORING_ENABLED=false
+     - XPACK_ML_ENABLED=false
+     - XPACK_REPORTING_ENABLED=false
+     - XPACK_SECURITY_ENABLED=true
+     - XPACK_WATCHER_ENABLED=false
+     - ELASTICSEARCH_URL=http://elastic:changeme@elasticsearch:9200
+    ports:
+     - "5601:5601"
+    networks:
+      - loggingnet
+    logging:
+      driver: json-file
+      options: # log rotation
+        max-size: "10m"
+        max-file: "20"     
+    depends_on:
+     - elasticsearch
+
+volumes:
+  esdata:
+    driver: local
+
+networks:
+  loggingnet:
+    driver: overlay

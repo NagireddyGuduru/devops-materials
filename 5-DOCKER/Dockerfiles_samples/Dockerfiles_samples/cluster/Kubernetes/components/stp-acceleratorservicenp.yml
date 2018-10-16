@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: testmsaccelarator
+    component: ui
+  name: testmsaccelarator
+spec:
+  type: NodePort
+  ports:
+  - port: 8080
+    targetPort: 8080  
+    nodePort: 32650
+  selector:
+    app: testmsaccelarator
+    component: ui
+    
+    

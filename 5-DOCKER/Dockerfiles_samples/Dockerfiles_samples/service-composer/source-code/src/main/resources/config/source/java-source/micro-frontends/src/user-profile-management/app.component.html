@@ -1,0 +1,9 @@
+<!-- Its important to keep the outer div declaration as is to work -->
+<div>
+    <h1>User Profile Management</h1>
+    <hr/>
+    <h3>Users List</h3>
+    <ul *ngFor="let user of users; let i = index">
+        <li>{{i+1}}. {{user.firstName}} {{user.lastName}} ({{user.email}})</li>
+    </ul>
+</div>

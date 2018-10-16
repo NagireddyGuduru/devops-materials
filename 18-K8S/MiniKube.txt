@@ -1,0 +1,218 @@
+Kubernetes or K8s....
+
+Containers- Docker 
+
+Orcherstration - Docker swarm, Kubernetes, MESOS
+
+
+download oracle virtual box.
+
+osboxes.org for download Ubuntu image of OS.
+
+Login and password & osboxes.org
+
+MobaXtrem for ssh (Just like putty)
+
+apt-get install -y openssh-server
+
+Architecture : Nodes(Minions)
+Cluster
+
+Master
+
+Setup Kubernetes: 
+
+Minikube -  Single Node kubernetes cluster
+
+minikube.exe/kubctl
+
+Kubernetes.io to download minikube.exe
+
+kubctl get nodes
+
+kubectl get pods
+
+minikube start
+
+kubectl run hello-minikube --image=k8s.gcr.io/echoserver:1.4 --port=8080
+kubectl expose deployment hello-minikube --type=NodePort
+kubectl delete deployment hello-minikube
+
+https://kubernetes.io/docs/
+
+https://kubernetes.io/docs/setup/pick-right-solution
+
+Kubeadm - Multi-node cluster
+
+Three VM with ubuntu OS - Demo installation
+
+
+hosted env- GCP/AWS 
+Play-with-k8s.com
+
+YAML - Represent Configration data
+
+Replication controller/Replica Set
+
+rc-definition.yml
+apiVersion: v1
+kind: ReplicationController
+metadata:
+ name: myapp-rc
+ labels:
+   app: myapp
+   type: front-end
+
+spec: 
+ template:
+
+   metadata:
+	name: myapp-pod
+	labels:
+	 app: myapp
+	 type: front-end
+   spec:
+       containers:
+	-name: nginx-container
+	 image: nginx
+
+ replicas: 3
+
+create the yml file
+
+kubectl create -f rc-defination.yml
+
+kubectl get replicationcontroller
+kubectl get nods
+
+Replica Set
+
+replication-defination.yml
+
+apiVersion:apps/v1
+kind: ReplicaSet
+metadata:
+  name: myapp-replicaset
+  labels:
+    app: myapp
+    type: front-end
+spec: 
+ template:
+
+   metadata:
+	name: myapp-pod
+	labels:
+	 app: myapp
+	 type: front-end
+   spec:
+       containers:
+	-name: nginx-container
+	 image: nginx
+
+ replicas: 3
+ selector:
+    matchLabels:
+      type: front-end
+
+kubectl create -f replication-defination.yml
+
+kubectl get ReplicaSet
+kubectl get nods
+
+kubectl scale --replicas=6 -f replicasetdefination.yml
+kubectl describe replicaset
+
+kubectl get pods
+
+kubectl detele pod myapp-replicaset-ztkqm
+
+
+kubectl get pods -o wide
+
+
+replices change 3 to 6
+
+kubectl replace -f replicaset-defination.yml
+
+kubectl get pods
+
+
+Deployments = Production envriment
+==================
+
+deployment-definition.yml
+
+apiVersion:apps/v1
+kind: Deployment
+metadata:
+  name: myapp-deployment
+  labels:
+    app: myapp
+    type: front-end
+spec: 
+ template:
+
+   metadata:
+	name: myapp-pod
+	labels:
+	 app: myapp
+	 
+   spec:
+       containers:
+	-name: nginx-container
+	 image: nginx
+
+ replicas: 3
+ selector:
+    matchLabels:
+      app: myapp
+
+kubectl create -f deployment.yml
+
+kubectl get deployments
+
+kubectl get replicaset
+kubectl get pods
+kubectl get all
+
+recreate : All replica set are down and the create update new replica
+
+At the time apache site is down
+
+/RollingUpdate : 
+
+In this case one down and one up. no downtime require 
+
+site is available
+
+
+Create =kubectl create -f deployment-definition.yml
+
+get = kubectl get deployments
+
+update= kubectl apply -f deployment-definition.yml
+
+status=kubectl set image deployment/myapp-deploymentt nginx=nginx:1.9.1  (update the site)
+
+Rollback= kubectl rollout status deployment/myapp-deployment
+
+
+Rollback= kubectl rollout history deployment/myapp-deployment
+
+
+Rollback= kubectl rollout undo deployment/myapp-deployment
+
+
+kubectl run nginx --image=nginx
+
+Networking in kubernetes
+========================
+
+
+
+
+
+
+
+
+ 

@@ -1,0 +1,110 @@
+Install azure cli 
+azure-cli-2.0.23.msi
+az --version
+az login
+
+az login -u guduru.reddy@mphasis.com -p sras@2018
+
+file://LTPBAN042060954/Softwares
+08040033011
+az aks
+az aks install-cli
+copy kubectl.exe in system32
+kubectl proxy
+
+http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/pod/default/digitaltest3-55d5dfc5b4-p8hrv?namespace=default
+
+WKSBAN04GFA032 
+
+Cluster Name:
+nextstepaks
+
+ResourceGroup:
+nextstepRG
+
+To Connect aks:
+az aks get-credentials --name nextstepaks --resource-group nextstepRG
+
+
+Commands:
+ kubectl get services
+ kubectl get pods --all-namespaces
+ 
+ 
+
+
+
+Issues:
+
+'ManagedCluster' object has no attribute 'properties'
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\knack\cli.py", line 193, in invoke
+    cmd_result = self.invocation.execute(args)
+  File "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\azure\cli\core\commands\__init__.py", line 319, in execute
+    six.reraise(*sys.exc_info())
+  File "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\six.py", line 693, in reraise
+    raise value
+  File "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\azure\cli\core\commands\__init__.py", line 292, in execute
+    result = cmd(params)
+  File "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\azure\cli\core\commands\__init__.py", line 169, in __call__
+    return super(AzCliCommand, self).__call__(*args, **kwargs)
+  File "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\knack\commands.py", line 109, in __call__
+    return self.handler(*args, **kwargs)
+  File "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\azure\cli\core\__init__.py", line 328, in default_command_handler
+    result = op(**command_args)
+  File "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\azure\cli\command_modules\acs\custom.py", line 1329, in aks_get_credentials
+    access_profiles = mc.properties.access_profiles
+AttributeError: 'ManagedCluster' object has no attribute 'properties'
+
+
+
+Kubernatess Setup:
+
+In order to pull the image and create a container, we will run the following command.
+kubectl create –f Tesing_for_Image_pull
+
+Once we fetch the log, we will get the output as successful.
+kubectl log Tesing_for_Image_pull
+
+
+kubectl get pods --all-namespaces -o=jsonpath='{range .items[*]}{"\n"}{.metadata.name}{":\t"}{range .spec.containers[*]}{.image}{", "}{end}{end}' |\sort
+
+kubectl get pods nextstep-mstf-services-57b7bc4498-v6pb5 -o jsonpath='{.spec.containers[*].name}'
+
+kubectl get pods --field-selector=status.phase=Running
+kubectl get pods --sort-by='.status.containerStatuses[0].restartCount'
+
+kubectl get pods nextstep-agile-assesment-7847df8849-lww2x -o jsonpath="{.items[*].spec.containers[*].image}"
+
+kubectl get pods nextstep-agile-assesment-7847df8849-lww2x -o jsonpath='{range .items[*]}{"\n"}{.metadata.name}{":\t"}{range .spec.containers[*]}{.image}{", "}{end}{end}' |\sort
+
+kubectl get pods nextstep-agile-assesment-7847df8849-lww2x -o=jsonpath="{..image}"
+kubectl get pods nextstep-agile-assesment-7847df8849-lww2x -o go-template --template="{{range .items}}{{range .spec.containers}}{{.image}} {{end}}{{end}}"
+
+kubectl get pods
+
+kubectl get pods nextstep-atdd-75475f858b-7s5hh -o jsonpath='{.spec.containers[*].name}'
+
+myshiny mysentiment myclaim myinfluencer mytopic
+
+kubectl logs -f nextstep-cognitive-55548b99bf-6lbkb -c myshiny
+kubectl logs -f nextstep-cognitive-55548b99bf-6lbkb -c mysentiment > C:\Logs\mysentiment.log
+kubectl logs -f nextstep-cognitive-55548b99bf-6lbkb -c myclaim > C:\Logs\myclaim.log
+kubectl logs -f nextstep-cognitive-55548b99bf-6lbkb -c myinfluencer > C:\Logs\myinfluencer.log
+
+kubectl logs -f nextstep-cognitive-55548b99bf-6lbkb -c mytopic > C:\Logs\mytopic.log
+
+
+kubectl top pod nextstep-agile-assesment-7847df8849-lww2x --containers
+kubectl logs -f nextstep-agile-assesment-7847df8849-lww2x -c agile-assesmentsrv
+
+
+nextstep-atdd-75475f858b-7s5hh
+kubectl logs -f nextstep-atdd-75475f858b-7s5hh -c nextstep-atddPS
+
+az container exec --name devopsui --resource-group aciRG --exec-command "/bin/bash"
+
+
+
+
+

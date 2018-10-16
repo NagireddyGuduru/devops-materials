@@ -1,0 +1,67 @@
+[
+  {
+    "pipelineid": "SYZBankPipelineid",
+    "stages": [
+      {
+        "stageid": "Requirement",
+        "stageseq": 1,
+        "stagename": "Requirement",
+        "stagetype": "REQ"
+      },
+      {
+        "stageid": "DCUT",
+        "stageseq": 2,
+        "stagename": "Design, Coding and Unit Testing",
+        "stagetype": "DEVELOP"
+      },
+      {
+        "stageid": "DeployDev",
+        "stageseq": 3,
+        "stagename": "Deploy to Dev Integration Env",
+        "stagetype": "DEPLOY"
+      },
+      {
+        "stageid": "InegrationTest",
+        "stageseq": 4,
+        "stagename": "SCA, Dev Integration Tests, Coverage, TD Assessment",
+        "stagetype": "SYS-TEST"
+      },
+      {
+        "stageid": "DeployQA",
+        "stageseq": 5,
+        "stagename": "Deploy to QA",
+        "stagetype": "DEPLOY"
+      },
+      {
+        "stageid": "FunctionTest",
+        "stageseq": 6,
+        "stagename": "Functional Testing",
+        "stagetype": "QA-TEST"
+      },
+      {
+        "stageid": "DeployNFR",
+        "stageseq": 7,
+        "stagename": "Deploy to NFR Testing Env",
+        "stagetype": "DEPLOY"
+      },
+      {
+        "stageid": "TestNFR",
+        "stageseq": 8,
+        "stagename": "Run NFR Tests",
+        "stagetype": "PERF-TEST"
+      },
+      {
+        "stageid": "TollGate",
+        "stageseq": 9,
+        "stagename": "Prod Toll Gate",
+        "stagetype": "RELEASE"
+      },
+      {
+        "stageid": "DeployProd",
+        "stageseq": 10,
+        "stagename": "Deploy to Production",
+        "stagetype": "DEPLOY"
+      }
+    ]
+  }
+]

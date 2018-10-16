@@ -1,0 +1,38 @@
+-----------------------Installation via MSI-----------------------------------------------------------------------
+-Download msi file from https://www.mongodb.com/download-center?jmp=nav
+-Double click msi file and complete installation under c:\Program Files\
+-Set up environment by running command in CMD - md \data\db (Default path)
+- Set up environment with alternate path "C:\Program Files\MongoDB\Server\3.4\bin\mongod.exe" --dbpath "d:\test\mongo db data"
+-Start Mongodb - "C:\Program Files\MongoDB\Server\3.4\bin\mongod.exe"
+-Connect to Mongo Db - "C:\Program Files\MongoDB\Server\3.4\bin\mongo.exe"
+
+-----------------------Installation via NPM -----------------------------------------------------------------------
+npm install mongodb --save
+mongod --dbpath=/data --port 27017
+
+DEmo of launching thge containirsed hard component from cart page
+
+----------------------------Import Excel data-----------------------------------------------------------
+-Save Excel as "Comma separated values.csv" under c:\Program Files\MongoDB\Server\3.4\bin
+-In CMD  got to c:\Program Files\MongoDB\Server\3.4\bin > 
+-Then Execute .\mongoimport.exe -d <DB name> --type csv -c <CollectionName> --headerline --file <Filename>
+-Eg,
+ .\mongoimport.exe -d stpdata --type csv -c mainarea --headerline --file MainAreaCollection.csv
+
+-Eg to replace document and upload
+ .\mongoimport.exe -d stpdata --type csv -c mainarea --headerline --upsert --upsertFields AreaID --file "D:/STP/DatabaseStructure/CSV format/MainAreaCollection.csv"
+
+-------------------------Learning URLS-------------------------------------------------------------------
+https://www.tutorialspoint.com/mongodb/ - Basic
+https://docs.mongodb.com/manual/tutorial/install-mongodb-enterprise-on-windows/?_ga=2.213159764.1142340544.1510815474-281193868.1510815474 - Installation
+https://docs.mongodb.com/manual/reference/program/mongoimport/ - Import
+https://www.npmjs.com/package/mongodb - Installation via NPM
+
+
+
+Connect to mongodb
+https://coursetro.com/posts/code/84/Setting-up-an-Angular-4-MEAN-Stack-(Tutorial)
+
+
+
+db.mainarea.find({Stage:"Early"},{ "SubArea.SubAreaID": { $not: 0 } })

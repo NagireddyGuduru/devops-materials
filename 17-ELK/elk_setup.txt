@@ -1,0 +1,28 @@
+- install elasticsearch - search engine and as a db
+  d/w from
+  https://www.elastic.co/downloads/elasticsearch
+
+  run 
+  bin\elasticsearch.bat
+
+  access:
+  http://localhost:9200
+
+- logstash 
+  - it filter the logs
+   eg: logs have timestamp,loglevel,message .. like if want only message info you can filter
+
+  - it have 3 layers 
+     input, filter, output
+   bin/logstash -f logstash.conf
+
+- kibana
+   - we can see the filter logs in kibana dashboard
+
+   
+
+      
+      
+
+
+

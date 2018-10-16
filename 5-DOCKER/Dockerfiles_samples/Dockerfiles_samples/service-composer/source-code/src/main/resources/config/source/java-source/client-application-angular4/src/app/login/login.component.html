@@ -1,0 +1,30 @@
+<section class="login-page">
+  <article class="row">
+    <article class="col-md-6 register">
+      <img src="assets/images/Login_icon.png" class="login-icon" />
+      <article class="register-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam nibh. Nunc varius facilisis eros. Sed erat.</article>
+      <button type="button" class="btn btn-secondary">Sign In</button>
+    </article>
+
+    <article class="col-md-6 login">
+      <article class="welcome-header">Welcome...</article>
+      <article class="sso-title">
+        <span class="fa fa-lock"></span> Login to SSO Sever</article>
+      <article class="username-pwd">
+        <article class="form-group">
+          <input type="text" class="form-control" placeholder="Username" [(ngModel)]="loginData.username" />
+        </article>
+        <article class="form-group">
+          <input type="password" autocomplete="off" class="form-control" placeholder="Password" [(ngModel)]="loginData.password" />
+        </article>
+      </article>
+      <article class="pull-right">
+        <a href="javascript:void(0)" class="forgot-pwd">Forgot Password?</a>
+      </article>
+      <article class="row col-md-12 login-btns">
+        <button type="submit" class="btn btn-secondary btn-login" (click)="login()">Login</button>
+        <button type="button" class="btn btn-secondary btn-clear" (click)="closeLogin()">Close</button>
+      </article>
+    </article>
+  </article>
+</section>

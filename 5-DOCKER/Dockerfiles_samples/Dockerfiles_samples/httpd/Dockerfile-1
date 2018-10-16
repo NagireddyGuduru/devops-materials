@@ -1,0 +1,8 @@
+FROM httpd
+
+#Copy the build into htdocs
+ADD moubuilder/ /usr/local/apache2/htdocs/mou-ui-launcher/
+
+#copy httpd.conf file 
+ADD httpd.conf /usr/local/apache2/conf/httpd.conf
+

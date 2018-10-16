@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>Micro Frontends</title>
+		<!-- <block-edge-service-zuul-start> -->
+		<base href="/micro-frontends/">
+		<!-- <block-edge-service-zuul-end> -->
+		<!-- <block-non-edge-service-zuul-start> -->
+		<base href="/">
+		<!-- <block-non-edge-service-zuul-end> -->
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" type="image/x-icon" href="favicon.ico">
+
+		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+		<link rel="stylesheet" href="styles.css">
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/popper.min.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<!-- Load the application -->
+		<script src="dist/common-dependencies.js"></script>
+		<script src="dist/root-application.js"></script>
+
+		<header>
+			<article class="row col-md-12">
+				<article class="col-md-3 no-left-padding">
+					<a href="/">
+						<img src="assets/images/Logo.png" class="logo">
+					</a>
+				</article>
+				<article class="col-md-5"></article>
+				<article class="col-md-4 text-right">
+					<img class="card-avatar" src="assets/images/Profile_Avatar.png">
+					<span class="proile-title" id="txtUsername"></span>
+					<a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"></a>
+				</article>
+			</article>
+		</header>
+		
+		<section class="bg-faded col-md-12">
+			<nav class="nav">
+				<article>
+					<a class="nav-link" href="#/dashboard" id="dashboardMenu">Dashboard</a>
+				</article>
+				<span class="nav-link ">|</span>
+				<article class="dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="adminMenu" data-toggle="dropdown">Administration</a>
+					<ul class="dropdown-menu" role="menu" aria-labelledby="adminMenu">
+						<!-- <block-oauth2-authorization-service-start> -->
+						<li role="presentation" class="dropdown-item">
+							<a role="menuitem" tabindex="-1" href="#/userProfileMgmt">Profile Management</a>
+						</li>
+						<!-- <block-oauth2-authorization-service-end> -->
+						<li role="presentation" class="dropdown-item">
+							<a role="menuitem" tabindex="-1" href="#/reactApp">Service Monitoring</a>
+						</li>
+					</ul>
+				</article>
+				<span class="nav-link">|</span>
+				<article>
+					<a class="nav-link" href="#/" id="contactUsMenu">Contact Us</a>
+				</article>
+			</nav>
+		</section>
+
+		<main id="mui-main-body">
+			
+		</main>
+
+		<div class="space-placeholder"></div>
+
+		<footer class="fixed-bottom">
+			<section class="footer-section">
+				<article class="row">
+					<article class="col-md-2"></article>
+					<article class="footer-social-icons col-md-5">
+						<a href="https://www.facebook.com/MphasisOfficial/" target="_blank">
+							<img src="assets/images/facebook.png" class="navbar-brand social-icon" />
+							<img src="assets/images/facebook-hover.png" class="navbar-brand social-icon-hover" />
+						</a>
+						<a href="https://twitter.com/Mphasis" target="_blank">
+							<img src="assets/images/twitter.png" class="navbar-brand social-icon" />
+							<img src="assets/images/twitter-hover.png" class="navbar-brand social-icon-hover" />
+						</a>
+						<a href="https://in.linkedin.com/company/mphasis" target="_blank">
+							<img src="assets/images/linkedin.png" class="navbar-brand social-icon" />
+							<img src="assets/images/linkedin-hover.png" class="navbar-brand social-icon-hover" />
+						</a>
+						<a href="https://www.youtube.com/user/MphasisOfficial" target="_blank">
+							<img src="assets/images/youtube.png" class="navbar-brand social-icon" />
+							<img src="assets/images/youtube-hover.png" class="navbar-brand social-icon-hover" />
+						</a>
+					</article>
+					<article class="col-md-5 copyRights">
+						&copy; 2017 Mphasis.All rights reserved.&nbsp;&nbsp;
+						<a href="javascript:void(0)" target="_self">Privacy</a>&nbsp; | &nbsp;
+						<a href="javascript:void(0)" target="_self">Terms of Use</a>
+					</article>
+				</article>
+			</section>
+		</footer>
+	</body>
+</html>

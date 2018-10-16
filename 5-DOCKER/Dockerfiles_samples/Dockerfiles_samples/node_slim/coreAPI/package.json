@@ -1,0 +1,40 @@
+{
+  "name": "devopserver",
+  "version": "1.0.0",
+  "description": "node apis",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+	"start": "node devopserver.js"
+  },
+  "author": "Srikant",
+  "license": "ISC",
+  "dependencies": {
+    "base-64": "^0.1.0",
+    "body-parser": "^1.18.2",
+    "cassandra-driver": "^3.2.1",
+    "config": "^1.25.1",
+    "express": "^4.15.3",
+    "jsonwebtoken": "^7.4.1",
+    "kairosdb": "0.0.3",
+    "lodash": "^4.17.4",
+    "morgan": "^1.8.2",
+    "node-cassandra-cql": "^0.4.4",
+    "sync": "^0.2.5",
+    "utf8": "^2.1.2",
+    "winston": "^2.3.1",
+    "winston-daily-rotate-file": "^1.4.6",
+    "xlsx2json": "^1.0.0"
+  },
+  "devDependencies": {
+    "crypto-js": "^3.1.9-1",
+    "express-http-proxy": "^1.0.6",
+    "js-big-decimal": "^1.1.8",
+    "jsonfile": "^2.4.0",
+    "moment": "^2.18.1",
+    "node-excel-to-json": "0.0.3",
+    "node-string-pad": "0.0.4",
+    "sha256": "^0.2.0",
+    "xlsx": "^0.11.4"
+  }
+}

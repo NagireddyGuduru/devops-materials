@@ -1,0 +1,139 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.mphasis.ewt</groupId>
+	<artifactId>microservices</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.6.RELEASE</version>
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<!-- <block-spring-cloud-services-start> -->
+		<spring-cloud-dependencies.version>Edgware.SR2</spring-cloud-dependencies.version>
+		<!-- <block-spring-cloud-services-end> -->
+		<!-- <block-stagemonitor-start> -->
+		<stagemonitor.version>0.87.2</stagemonitor.version>
+		<!-- <block-stagemonitor-end> -->
+	</properties>
+	
+	<dependencies>
+		<!-- <block-stagemonitor-start> -->
+		 <dependency>
+		      <groupId>org.stagemonitor</groupId>
+		      <artifactId>stagemonitor-web-servlet</artifactId>
+		      <version>${stagemonitor.version}</version>
+		</dependency>
+		<dependency>
+		      <groupId>org.stagemonitor</groupId>
+		      <artifactId>stagemonitor-tracing-elasticsearch</artifactId>
+		      <version>${stagemonitor.version}</version>
+		</dependency>
+		<dependency>
+		      <groupId>org.stagemonitor</groupId>
+		      <artifactId>stagemonitor-logging</artifactId>
+		      <version>${stagemonitor.version}</version>
+		    </dependency>
+		    <dependency>
+		      <groupId>org.stagemonitor</groupId>
+		      <artifactId>stagemonitor-os</artifactId>
+		      <version>${stagemonitor.version}</version>
+		    </dependency>
+		    <dependency>
+		      <groupId>org.stagemonitor</groupId>
+		      <artifactId>stagemonitor-alerting</artifactId>
+		      <version>${stagemonitor.version}</version>
+		</dependency>
+		<dependency>
+		      <groupId>net.sf.uadetector</groupId>
+		      <artifactId>uadetector-resources</artifactId>
+		      <version>2014.10</version>
+		</dependency>
+		<!-- <block-stagemonitor-end> -->
+	</dependencies>
+	
+	<!-- <block-spring-cloud-services-start> -->
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud-dependencies.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<!-- <block-spring-cloud-services-end> -->
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<!-- <block-stagemonitor-start> -->
+			<plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-antrun-plugin</artifactId>
+			    <executions>
+			        <execution>
+			            <phase>compile</phase>
+			            <goals>
+			                <goal>run</goal>
+			            </goals>
+			            <configuration>
+			                <tasks>
+			                    <delete file="${project.build.outputDirectory}/stagemonitor.properties" failonerror="false" />
+			                    <move file="${project.build.outputDirectory}/stagemonitor.prod.properties" 
+			                    		tofile="${project.build.outputDirectory}/stagemonitor.properties" failonerror="false" />
+			                </tasks>
+			            </configuration>
+			        </execution>
+			    </executions>
+			</plugin>
+			<!-- <block-stagemonitor-end> -->
+		</plugins>
+	</build>
+	
+	<modules>
+		<!-- <block-oauth2-authorization-service-start> -->
+		<module>oauth2-authorization-service</module>
+		<!-- <block-oauth2-authorization-service-end> -->
+		<!-- <block-resource-service-template-start> -->
+		<module>resource-service-template</module>
+		<!-- <block-resource-service-template-end> -->
+		<!-- <block-client-application-java-start> -->		
+		<module>client-application-java</module>
+		<!-- <block-client-application-java-end> -->
+		<!-- <block-edge-service-zuul-start> -->
+		<module>edge-service-zuul</module>
+		<!-- <block-edge-service-zuul-end> -->
+		<!-- <block-config-server-spring-start> -->
+		<module>configuration-service</module>
+		<!-- <block-config-server-spring-end> -->
+		<!-- <block-zipkin-server-start> -->
+		<module>zipkin-server</module>
+		<!-- <block-zipkin-server-end> -->
+		<!-- <block-eureka-server-start> -->
+		<module>eureka-server</module>
+		<!-- <block-eureka-server-end> -->
+	</modules>
+	
+	<!-- <block-org-info-start> -->
+	<name>Microservices Accelerator</name>
+	<url>http://www.mpahsis.com/ewt</url>
+	<description>Microservices Accelerator</description>
+	<organization>
+		<name>Mphasis</name>
+		<url>http://www.mpahsis.com</url>
+	</organization>
+	<!-- <block-org-info-end> -->
+</project>

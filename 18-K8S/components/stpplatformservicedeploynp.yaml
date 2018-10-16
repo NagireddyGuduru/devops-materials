@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: stp-platform-service
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: stp-platform-service
+        component: ui
+    spec:
+      containers:
+      - name: stp-platform-service
+        image: stpregistry.azurecr.io/stp-platform-service:17.0
+        imagePullPolicy: Always  
+        ports:
+        - containerPort: 8080
+        env:
+        - name: MONGO_CONFIG
+          valueFrom:
+            configMapKeyRef:
+              name: stpconfig
+              key: mongodb
+      

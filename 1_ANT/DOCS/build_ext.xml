@@ -1,0 +1,13 @@
+
+<project name="TestProject" default="main">
+
+
+	<target name="main">
+
+		<scp file="build.zip" todir="vagrant:vagrant@192.168.20.10:/home/vagrant/xyz"/>
+		 <sshexec host="192.168.20.10" 
+	username="vagrant"
+	password="vagrant"
+	command="df -h"/>
+	</target>
+</project>

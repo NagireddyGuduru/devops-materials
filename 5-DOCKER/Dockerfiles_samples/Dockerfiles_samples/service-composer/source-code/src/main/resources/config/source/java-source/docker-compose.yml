@@ -1,0 +1,344 @@
+version: "3"
+
+services:
+  #<block-mysql-start>
+  
+  datastore:
+    build:
+      context: ./tools/mysql
+      dockerfile: Dockerfile
+    image: mysql-datastore
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    #<block-log-aggregation-elk-start>        
+    logging:
+      driver: gelf
+      options:
+        gelf-address: udp://{{loadBalancerAddress}}:12201
+        tag: "myappcluster.datastore"
+    #<block-log-aggregation-elk-end>
+    networks:
+      - microservicesnet
+  #<block-mysql-end>
+  #<block-oauth2-authorization-service-start>
+                
+  oauth2-authorization-service:
+    build:
+      context: ./oauth2-authorization-service
+      dockerfile: Dockerfile
+    image: oauth2-authorization-service
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://datastore:3306/auth_db
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=password
+    #<block-non-stagemonitor-start>
+    entrypoint: ./wait-for datastore:3306 -t 300 -- java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar
+    #<block-non-stagemonitor-end>
+    #<block-stagemonitor-start>
+    entrypoint: ./wait-for datastore:3306 -t 300 -- java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -javaagent:/byte-buddy-agent-1.7.9.jar -jar /app.jar
+    #<block-stagemonitor-end>
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    #<block-non-edge-service-zuul-start>
+    ports:
+      - "8000:8000"
+    #<block-non-edge-service-zuul-end>
+    #<block-log-aggregation-elk-start>        
+    logging:
+      driver: gelf
+      options:
+        gelf-address: udp://{{loadBalancerAddress}}:12200
+        tag: "myappcluster.oauth2-authorization-service"
+    #<block-log-aggregation-elk-end>
+    networks:
+      - microservicesnet
+      #<block-apm-net-start>
+      - monitoringnet 
+      #<block-apm-net-end>
+    depends_on:
+      - datastore      
+  #<block-oauth2-authorization-service-end>
+  #<block-resource-service-template-start>
+  
+  resource-service-template:
+    build:
+      context: ./resource-service-template
+      dockerfile: Dockerfile
+    image: resource-service-template
+    environment:
+      - PRODUCTION=false
+      #<block-eureka-server-start>
+      #<block-non-edge-service-zuul-start>
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://user1:password1@{{loadBalancerAddress}}:8761/eureka/eureka
+      #<block-non-edge-service-zuul-end>
+      #<block-edge-service-zuul-start>
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://user1:password1@{{loadBalancerAddress}}/eureka/eureka
+      #<block-edge-service-zuul-end>
+      #<block-eureka-server-end>      
+      #<block-oauth2-authorization-service-start>
+      - OAUTH2_CLIENTID=demo-service
+      - OAUTH2_CLIENTSECRET=password
+      #<block-non-edge-service-zuul-start>
+      - OAUTH2_TOKENINFOURI=http://{{loadBalancerAddress}}:8000/auth-service/oauth/check_token
+      - DEPENDENTSERVICES_SECURITYSERVICEURI=http://{{loadBalancerAddress}}:8000/auth-service
+      #<block-non-edge-service-zuul-end>
+      #<block-edge-service-zuul-start>
+      - OAUTH2_TOKENINFOURI=http://{{loadBalancerAddress}}/auth-service/oauth/check_token
+      - DEPENDENTSERVICES_SECURITYSERVICEURI=http://{{loadBalancerAddress}}/auth-service
+      #<block-edge-service-zuul-end>
+      #<block-oauth2-authorization-service-end>
+      #<block-config-server-spring-start>
+      - SPRING_CLOUD_CONFIG_URI=http://configuration-service:8888
+      - SPRING_CLOUD_CONFIG_USERNAME=user1
+      - SPRING_CLOUD_CONFIG_PASSWORD=password1
+      #<block-config-server-spring-end>
+      #<block-spring-sleuth-start>
+      - SPRING_ZIPKIN_BASEURL=http://zipkin-server:9411/
+      #<block-spring-sleuth-end>
+    #<block-oauth2-authorization-service-start>
+    #<block-non-stagemonitor-start> 
+    entrypoint: ./wait-for oauth2-authorization-service:8000 -t 300 -- java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar
+    #<block-non-stagemonitor-end>
+    #<block-stagemonitor-start>
+    entrypoint: ./wait-for oauth2-authorization-service:8000 -t 300 -- java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -javaagent:/byte-buddy-agent-1.7.9.jar -jar /app.jar
+    #<block-stagemonitor-end>
+    #<block-oauth2-authorization-service-end>
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    #<block-non-edge-service-zuul-start>
+    ports:
+      - "8090:8090"
+    #<block-non-edge-service-zuul-end>
+    #<block-log-aggregation-elk-start>        
+    logging:
+      driver: gelf
+      options:
+        gelf-address: udp://{{loadBalancerAddress}}:12200
+        tag: "myappcluster.resource-service-template"
+    #<block-log-aggregation-elk-end>
+    networks:
+      - microservicesnet
+      #<block-apm-net-start>
+      - monitoringnet 
+      #<block-apm-net-end>
+    #<block-oauth2-authorization-service-start>
+    depends_on:
+      - oauth2-authorization-service
+      #<block-config-server-spring-start>
+      - configuration-service
+      #<block-config-server-spring-end>
+    #<block-oauth2-authorization-service-end>
+  #<block-resource-service-template-end>
+  #<block-client-application-java-start>
+  
+  client-application-java:
+    build:
+      context: ./client-application-java
+      dockerfile: Dockerfile
+    image: client-application-java
+    environment:
+      - PRODUCTION=false
+      #<block-oauth2-authorization-service-start>
+      - SECURITY_OAUTH2_CLIENT_CLIENTID=demo-client-app
+      - SECURITY_OAUTH2_CLIENT_CLIENTSECRET=secret
+      - SECURITY_OAUTH2_CLIENT_USE_CURRENT_URI=false
+      #<block-non-edge-service-zuul-start>
+      - SECURITY_OAUTH2_CLIENT_ACCESSTOKENURI=http://{{loadBalancerAddress}}:8000/auth-service/oauth/token
+      - SECURITY_OAUTH2_CLIENT_USERAUTHORIZATIONURI=http://{{loadBalancerAddress}}:8000/auth-service/oauth/authorize
+      - SECURITY_OAUTH2_CLIENT_TOKENVALIDATEURI=http://{{loadBalancerAddress}}:8000/auth-service/user/invalidateToken
+      - SECURITY_OAUTH2_RESOURCE_USERINFOURI=http://{{loadBalancerAddress}}:8000/auth-service/user/me
+      - SECURITY_OAUTH2_CLIENT_PRE_ESTABLISHED_REDIRECT_URI=http://{{loadBalancerAddress}}:8080/client-app-java/login
+      - SECURITY_OAUTH2_CLIENT_REGISTERED_REDIRECT_URI=http://{{loadBalancerAddress}}:8080/client-app-java/login
+      #<block-non-edge-service-zuul-end>
+      #<block-edge-service-zuul-start>
+      - SECURITY_OAUTH2_CLIENT_ACCESSTOKENURI=http://{{loadBalancerAddress}}/auth-service/oauth/token
+      - SECURITY_OAUTH2_CLIENT_USERAUTHORIZATIONURI=http://{{loadBalancerAddress}}/auth-service/oauth/authorize
+      - SECURITY_OAUTH2_CLIENT_TOKENVALIDATEURI=http://{{loadBalancerAddress}}/auth-service/user/invalidateToken
+      - SECURITY_OAUTH2_RESOURCE_USERINFOURI=http://{{loadBalancerAddress}}/auth-service/user/me
+      - SECURITY_OAUTH2_CLIENT_PRE_ESTABLISHED_REDIRECT_URI=http://{{loadBalancerAddress}}/client-app-java/login
+      - SECURITY_OAUTH2_CLIENT_REGISTERED_REDIRECT_URI=http://{{loadBalancerAddress}}/client-app-java/login
+      #<block-edge-service-zuul-end>
+      #<block-oauth2-authorization-service-end>
+      #<block-resource-service-template-start>
+      #<block-non-edge-service-zuul-start>
+      - DEPENDENTSERVICES_DEMOSERVICEURI=http://{{loadBalancerAddress}}:8090/demo-service
+      #<block-non-edge-service-zuul-end>
+      #<block-edge-service-zuul-start>
+      - DEPENDENTSERVICES_DEMOSERVICEURI=http://{{loadBalancerAddress}}/demo-service
+      #<block-edge-service-zuul-end>
+      #<block-resource-service-template-end>
+      #<block-micro-frontends-start>
+      #<block-non-edge-service-zuul-start>
+      - DEPENDENTSERVICES_MICROFRONTENDAPPURI=http://{{loadBalancerAddress}}:4201/#/dashboard
+      #<block-non-edge-service-zuul-end>
+      #<block-edge-service-zuul-start>
+      - DEPENDENTSERVICES_MICROFRONTENDAPPURI=http://{{loadBalancerAddress}}/micro-frontends/#/dashboard
+      #<block-edge-service-zuul-end>
+      #<block-micro-frontends-end>
+    #<block-oauth2-authorization-service-start>
+    #<block-non-stagemonitor-start>
+    entrypoint: ./wait-for oauth2-authorization-service:8000 -t 300 -- java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar
+    #<block-non-stagemonitor-end>
+    #<block-stagemonitor-start>
+    entrypoint: ./wait-for oauth2-authorization-service:8000 -t 300 -- java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -javaagent:/byte-buddy-agent-1.7.9.jar -jar /app.jar
+    #<block-stagemonitor-end>
+    #<block-oauth2-authorization-service-end>
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    #<block-non-edge-service-zuul-start>
+    ports:
+      - "8080:8080"
+    #<block-non-edge-service-zuul-end>
+    #<block-log-aggregation-elk-start>
+    logging:
+      driver: gelf
+      options:
+        gelf-address: udp://{{loadBalancerAddress}}:12200
+        tag: "myappcluster.client-application-java"
+    #<block-log-aggregation-elk-end>
+    networks:
+      - microservicesnet
+      #<block-apm-net-start>
+      - monitoringnet 
+      #<block-apm-net-end>
+    #<block-oauth2-authorization-service-start>
+    depends_on:
+      - oauth2-authorization-service
+    #<block-oauth2-authorization-service-end>
+  #<block-client-application-java-end>
+  #<block-client-application-angular4-start>
+  
+  client-application-angular4:
+    build:
+      context: ./client-application-angular4
+      dockerfile: Dockerfile
+    image: client-application-angular4
+    #<block-oauth2-authorization-service-start>
+    command: /bin/sh -c "/usr/share/wait-for oauth2-authorization-service:8000 -t 300 -- nginx -g 'daemon off;'"
+    #<block-oauth2-authorization-service-end>
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    #<block-non-edge-service-zuul-start>
+    ports:
+      - "4200:80"
+    #<block-non-edge-service-zuul-end>
+    networks:
+      - microservicesnet
+    #<block-oauth2-authorization-service-start>
+    depends_on:
+      - oauth2-authorization-service
+    #<block-oauth2-authorization-service-end>
+  #<block-client-application-angular4-end>      
+  #<block-micro-frontends-start>
+           
+  micro-frontends:
+    build:
+      context: ./micro-frontends
+      dockerfile: Dockerfile
+    image: micro-frontends
+    #<block-client-application-angular4-start>
+    command: /bin/sh -c "/usr/share/nginx/html/wait-for client-application-angular4:80 -t 300 -- nginx -g 'daemon off;'"
+    #<block-client-application-angular4-end>
+    #<block-client-application-java-start>
+    command: /bin/sh -c "/usr/share/nginx/html/wait-for client-application-java:8080 -t 300 -- nginx -g 'daemon off;'"
+    #<block-client-application-java-end>
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    #<block-non-edge-service-zuul-start>
+    ports:
+      - "4201:80"
+    #<block-non-edge-service-zuul-end>
+    networks:
+      - microservicesnet
+    #<block-micro-frontends-dependencies-start>
+    depends_on:
+      #<block-client-application-java-start>
+      - client-application-java
+      #<block-client-application-java-end>
+      #<block-client-application-angular4-start>
+      - client-application-angular4
+      #<block-client-application-angular4-end>
+    #<block-micro-frontends-dependencies-end>
+  #<block-micro-frontends-end>
+  #<block-edge-service-zuul-start>
+  
+  edge-service-zuul:
+    build:
+      context: ./edge-service-zuul
+      dockerfile: Dockerfile
+    image: edge-service-zuul
+    environment:
+      - PRODUCTION=false
+      #<block-client-application-java-start>
+      - HOMEPAGE=/client-app-java
+      #<block-client-application-java-end>
+      #<block-client-application-angular4-start>
+      - HOMEPAGE=/client-app-angular4
+      #<block-client-application-angular4-end>
+    #<block-client-application-java-start>
+    #<block-non-stagemonitor-start> 
+    entrypoint: ./wait-for client-application-java:8080 -t 300 -- java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar
+    #<block-non-stagemonitor-end>
+    #<block-stagemonitor-start> 
+    entrypoint: ./wait-for client-application-java:8080 -t 300 -- java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -javaagent:/byte-buddy-agent-1.7.9.jar -jar /app.jar
+    #<block-stagemonitor-end> 
+    #<block-client-application-java-end>
+    #<block-client-application-angular4-start>
+    #<block-non-stagemonitor-start>
+    entrypoint: ./wait-for client-application-angular4:80 -t 300 -- java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar
+    #<block-non-stagemonitor-end>
+    #<block-stagemonitor-start>
+    entrypoint: ./wait-for client-application-angular4:80 -t 300 -- java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -javaagent:/byte-buddy-agent-1.7.9.jar -jar /app.jar
+    #<block-stagemonitor-end>
+    #<block-client-application-angular4-end>
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "80:80"
+    #<block-log-aggregation-elk-start>
+    logging:
+      driver: gelf
+      options:
+        gelf-address: udp://{{loadBalancerAddress}}:12200
+        tag: "myappcluster.edge-service"
+    #<block-log-aggregation-elk-end>
+    networks:
+      - microservicesnet
+      #<block-apm-net-start>
+      - monitoringnet 
+      #<block-apm-net-end>
+    #<block-zuul-dependencies-start>
+    depends_on:
+      #<block-client-application-java-start>
+      - client-application-java
+      #<block-client-application-java-end>
+      #<block-client-application-angular4-start>
+      - client-application-angular4
+      #<block-client-application-angular4-end>
+    #<block-zuul-dependencies-end>
+  #<block-edge-service-zuul-end>
+                
+networks:
+  microservicesnet:
+    driver: overlay
+  #<block-apm-net-start>    
+  monitoringnet:
+    external:
+      name: apm_monitoringnet
+  #<block-apm-net-end>

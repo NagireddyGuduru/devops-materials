@@ -1,0 +1,28 @@
+server:
+  port: 8000
+  contextPath: /auth-service
+      
+spring:
+  application:
+    name: authorization-service
+    
+  thymeleaf:
+    prefix: classpath:/templates
+    
+  datasource:
+    url: jdbc:mysql://localhost:3306/auth_db
+    username: root
+    password: 
+    
+  jpa:
+    properties:
+      hibernate:
+        ddl-auto: none
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+        show_sql: true
+        id:
+          new_generator_mappings: false
+
+security-service:
+  resource-id: SECURITY_SERVICE

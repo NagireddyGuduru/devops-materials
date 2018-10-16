@@ -1,0 +1,16 @@
+step:
+
+Installed elastic search
+
+http://localhost:9200
+
+Step:
+
+added logstash.conf file
+added Nextstep.logs file
+
+cmd:
+logstash -f logstash.conf
+
+in logstash : place logs folder
+

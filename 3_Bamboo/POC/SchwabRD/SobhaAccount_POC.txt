@@ -1,0 +1,9 @@
+Shoba account:
+
+Road Map for client:
+
+1) Migrate from TFS to JIRA.
+2) Version Control TFS to BigBucket Move the code TFS to BigBucket
+3) Bamboo choosen to CI/CD currently using powser script,gulp,ruby for build and deploy i.e CI/CD without TFS.
+4) Brach Meachanisam
+5) In jira, tools what they have  - Ticketing tool,Ruby

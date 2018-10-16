@@ -1,0 +1,15 @@
+<project name="TestProject" default="test">
+
+	
+	<target name="test" >
+		<echo>Advanced tasks </echo>
+		<!-- <zip basedir="build" destfile="build.zip"/> 
+		<unzip src="build.zip" dest="build"/>
+		
+		<exec executable="cmd.exe">
+			<arg line="/c svn help"/>
+		</exec>-->
+		<ant antfile="build.xml"/>
+		<ant antfile="build_java.xml"/>
+	</target>
+</project>

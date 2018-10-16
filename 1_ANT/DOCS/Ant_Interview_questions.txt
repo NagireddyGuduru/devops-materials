@@ -1,0 +1,26 @@
+1)What is ant?
+2)How do I get started to use ant? Can you give me a “Hello World” ant script?
+3)How to delete files from a directory if it exists?
+5)How does ant read properties? How to set my property system?
+6)How to modify properties in ant?
+7)How to use ant-contrib tasks?
+9)Why do I get en exception when I use location=”D:\\Code\\include” as
+attribute of includepath?
+10)How can I use ant to run a Java application?
+		Here is a real world example.
+		<target name="run" depends="some.target,some.other.target">
+		<java classname="${run.class}" fork="yes">
+		<classpath>
+		<path refid="classpath" />
+		</classpath>
+		<jvmarg line="${debug.jvmargs}" />
+		<jvmarg line="${my.jvmargs}" />
+		<jvmarg value="-Dname=${name}" />
+		<jvmarg line="${run.jvmargs}" />
+		<arg line="${run.args}" />
+		</java>
+		</target>
+11)How to use ant to run commandline command? How to get perl script running result?
+12)How do I debug my ant script?
+13)How to exclude multi directories in copy or delete task?
+14)How to do conditional statement in ant?

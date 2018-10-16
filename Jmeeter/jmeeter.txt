@@ -1,0 +1,17 @@
+Step 1:
+cd D:\Jmeeter\apache-jmeter-3.1\bin
+
+Provide jmeeter input file and output file
+jmeter -n -t D:\Jmeeter\apache-jmeter-3.1\extras\Test.jmx -l D:\Jmeeter\Test-report.jtl
+
+Note:
+Test.jmx - input file
+Test-report - output file
+
+
+Step 2:
+
+select the drop down
+Publish Peformance test result report
+provide the Report file 
+D:\JmeterReports\Test-Report-out.jtl

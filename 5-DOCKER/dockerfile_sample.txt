@@ -1,0 +1,15 @@
+FROM centos:7
+MAINTAINER nagireddy <rajesh@scmgalaxy.com>
+RUN yum update && yum install -y git
+RUN yum install java-1.7.0-openjdk-devel
+RUN yum install tomcat
+RUN wget -P /usr/share/tomcat/webapps <nexus-url>
+CMD systemctl start tomcat
+
+
+
+FROM ubuntu
+MAINTAINER guduru@gmail.com
+RUN apt-get update
+RUN apt-get install –y tomcat7
+CMD [“echo”,”Image created”] 

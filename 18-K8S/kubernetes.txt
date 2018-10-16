@@ -1,0 +1,299 @@
+
+========================================================================
+
+Kubernetes
+
+Both Mater and node 
+
+Ubuntu Machine - Update your Repository,turnoff swap space, update hostname and hosts,set static IP,install Openssh and Docker, install kubeadm,kubelet and kubectl
+
+2GB Ram,2 core processer
+
+Master - kmaster
+
+	sudo apt-get update
+	swapoff -a
+	vim /etc/fstab 
+Comment# swap
+vim /ete/hostname
+kmaster
+ifconfig
+set the Static ip
+vim /etc/network/interfaces
+
+auto enp0s0
+iface enp0s0 inet static
+address 192.168.1.101
+
+vim /etc/hosts
+update ip & host
+restart PC
+
+sudo apt-get install openssh-server
+sudo apt-get update
+sudo apt-get docker.io -y
+apt-get update && apt-get install -y apt-transport-https curl
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg|apt-key -add -
+cat <<EOF >/etc/apt/source.list.d/kubernetes.list 
+deb http://apt.kubernetes.io/ kubernetes-xenial main
+EOF
+apt-get update
+
+apt-get install -y kubelet kubeadm kubectl
+vim /etc/systemd/system/kublet.servuce.d/10-kubeadm.conf
+list line
+Environment="cgroup-driver=systemd/cgroup-driver=cgroupfs"
+
+sudo kubeadm init --pod-network-cidr=<192.168.0.0/16> --apiserver-advertise-address=<192.168.1.101>
+
+mkdir -p $HOME/ .kube
+sudo cp -i /etc/kubernets/admin.conf $HOME/.kube/config
+sudo chown$(id -u):$(id -g) $HOME/.kube/config
+
+Copy the Join command to run at knode PC
+
+kubectl apply -f https://docs.projectcalico.org/v3.0/getting-started/kubernetes/installation/hosted/kubeadm/1.7/calico/yaml
+
+kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
+
+kubectl proxy
+
+kubectl create serviceaccount dashboard -n defaults
+
+kubectl get -I wide -all-namespaces
+
+kubectl create clusterrolebinding dashboard-admin -n default \
+--clusterrol=cluster-admin \
+--serviceaccount=default:dashboard
+
+Copy Token
+kubectl get secret $(kubectl get serviceaccount dashboard -o jsonpath="{.secrets[0].name}") -o jsonpath="{.data.token}" | base64 --decode
+
+goto dashboard to access - http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!
+
+
+
+
+
+
+
+ 
+
+
+
+Node - knode
+
+vim /etc/hosts
+knode
+vim /etchosts
+IP address of Master
+
+kubeadm join 192.168.1.101:6443 --token paste from the server
+
+
+In Master server
+vim /etc/hosts
+Ip address of knode
+=========================
+Kubernetes on AWS
+
+1 Master(EC2),2 Node1(EC2)
+
+Software-On PC: awscli,kops,terraform,kubctl
+
+Deployment: Nginx Web Server
+
+Hardware layer
+EC2 instances(t2.micro)
+storage,S3
+hosted zone(Route53)
+
+Software layer
+Docker
+kubectl
+kubelet
+kubernetes-cni
+ethtool
+ebtables
+
+Ceating a free account on AWS
+https://aws.amazon.com/free/
+
+install aws utility
+
+sudo apt-get install python-pip
+
+sudo apt-get install python3-pip
+
+sudo yum install python-pip
+
+pip install awscli
+pip3 install awscli
+
+Create Iam user
+create new group - Administrator
+Access key ID
+aws iam get-user
+Create a local home directory
+
+vim .aws/credentials
+
+[defauls]
+aws_access_key_id=
+aws_secret_access_key=
+
+vim .aws/config
+[defauls]
+region=ed-central-1
+output=json
+
+aws iam get-user
+
+Install kubectl
+==============
+
+goto site
+https://kubernetes.io/docs/tasks/tools/install-kubectl
+
+copy the url curl -Lo......etc latest download the binary follow the step
+
+After download check for kubectl binary
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+
+install kops binary
+===================
+Ability to generate Terraform
+
+https://github.com/kubernetes/kops
+
+curl -LO https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
+
+chmod +x kops-linux-amd64
+sudo mv kops-linux-amd64 /usr/local/bin/kops
+
+Install Terraform
+==================
+Infrastructure as a code
+Easily provides infra on aws
+EC2 instances,networking,firewall rules,Roles and Policies,DNS
+
+for configure master and node use
+
+https://www.terraform.io/downloads.html
+
+Select linux coply the link then
+wget https://releases.hashicorp.com/terraform/0.11.7/terraform_0.11.7_linux_amd64.zip
+
+unzip the file
+which kops
+sudo mv terraform /usr/local/bin/terraform
+
+vim terraform.tfvars
+AWS_Access_Key=
+AWS_Secret_Key=
+
+vim ~/.aws/credentials
+
+vim terraform.code.tf
+
+terraform init
+
+terraform apply
+
+terraform destroy
+
+How to use kops and create kubernetes cluster===================
+
+Phase 1: kops create cluster \ --name=kops.devopsinuse.com \
+--state=s3://kops.devopsinuse.com \
+--authorizTION RBAC \
+--zones=eu-cenrrals-1a
+--node-count=2
+--node-size=t2.micro \
+--master-size=t2.micro \
+--master-count=1 \
+--dns-zone=kops.devopsinuse.com \
+--cut=devopsinuse_terraform \
+--target=terraform \
+--ssh-public-key=~/.ssh/udemy.devopsinuse.pub
+
+ssh-keygen -f ~/.ssh/udemy.devopsinuse
+
+
+==============
+Route 53 - DNS required
+create hosted zone
+kops.devopsinuse.com
+
+Free DNS and ssh 
+
+vim kops_cluster.sh 
+
+tree devopsinuse_terraform
+
+vim devopsinuse_terraform/kubernetes.tf
+
+========
+Create S3 bucket kops.devopsinuse.com
+
+Phase 2 
+
+cd /kops_cluster/devopsinuse_terraform 
+
+Terraform init
+
+terraform apply
+=============
+
+
+Phase 3 kubectl get nodes
+=====================
+
+vim ~/.kube/config
+
+Nginx deployment in AWS
+======================
+
+vim commands.txt
+
+apt-get install nginx
+yum install nginx -y
+
+kubectl \
+	create deployment my-nginx-		deployment \
+	--image=ngnix
+
+kubectl \
+	expose deployment my-ngnix-		deployment \
+	--port=80 \ 
+	--type=Nodeport \
+	--name=my-nginx-service
+=======================
+kubectl get nodes
+kubectl get pods
+
+kubectl get pods,svc
+kubectl get nodes
+
+port 32703
+inbound rules set 80
+
+30773 inbound rule set at node at aws
+
+kubectl edit service my-nginx-service
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+

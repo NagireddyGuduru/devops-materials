@@ -1,0 +1,26 @@
+step 1:
+
+Requaired Sonar-runner-2.3
+
+step 2:
+create bat file
+sonar-runner add content with below
+D:\AIG\sonar-runner-2.3\bin\sonar-runner -X
+
+step 3:
+
+In Source Code,add 
+
+sonar-project.properties
+sonar-runner.bat
+
+
+step 4:
+
+modify the pom.xml
+
+step 5:
+
+add zapreport.html in target folder
+
+ 

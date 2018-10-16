@@ -1,0 +1,3 @@
+CREATE DATABASE IF NOT EXISTS myapp_db;
+
+USE myapp_db;

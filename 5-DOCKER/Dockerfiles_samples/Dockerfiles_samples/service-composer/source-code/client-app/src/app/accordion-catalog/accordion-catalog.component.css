@@ -1,0 +1,39 @@
+.content-block {
+    min-height: 350px;
+}
+
+.service-option {
+    margin-top: 7px;
+}
+
+.sub-service {
+    margin-left: 35px;
+}
+
+.checkoutImage {
+    width: 30px;
+}
+
+.categoryHeader {
+    padding: .25rem .5rem;
+}
+
+.categoryImage {
+        margin-bottom: .20rem;
+}
+
+.accordion {
+    margin-top: 20px;
+}
+
+.naviLink {
+    color: blue;
+}
+
+.expandImage {
+    width: 25px;
+}
+
+.collapseImage {
+    width: 25px;
+}

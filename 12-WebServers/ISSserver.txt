@@ -1,0 +1,166 @@
+Enable ISS server
+-----------------
+Control Panel --> All Control Panel Items --> Programs and Features --> Turn windows features on or off--> Internet information services.
+
+Enable ASP services
+-------------------
+Control Panel --> All Control Panel Items --> Programs and Features --> Turn windows features on or off--> Internet information services--> world wide web services -->ASP
+
+
+Pre-requisites:
+---------------
+
+mysql 
+
+created database with name IntellectualProperty
+
+created the user with nagi/nagi
+
+code changes:
+
+modified dbstring in conn.asp location: services\crud\conn.asp
+
+service.js
+
+In crudService function, change the service url http://localhost/IntellectualProperty/services/crud/
+
+controller.js
+
+In SaveData function, change the url: http://localhost/IntellectualProperty/services/crud
+
+
+IIS manager to deploy application:
+----------------------------------
+goto all programes 
+
+iis
+
+Internet Infromation Services Manager
+
+sites-->Default Web site
+
+To iss server enabled or not
+----------------------------
+localhost
+
+SQL SERVER Enable:
+
+SQL SERVER
+SQL SERVER AGENT
+
+To access the application
+-------------------------
+http://localhost/IntellectualProperty/
+
+
+Enable the ASP debugging:
+-------------------------
+
+select the application iss server 
+
+Under IIS-->ASP-->right side have option called Actions-->Open Feature
+
+-- compilation -- Debugging Properties
+
+send errors To Browser - True
+
+enable client-side debugging - false
+
+
+code changes:
+
+
+
+
+Application Info:
+-----------------
+
+Model - backend code IntellectualProperty\services\crud
+
+View  - home,viewip,ipanalysis,progress
+
+Control - Controler.js
+
+http://localhost/IntellectualProperty/services/crud/subgroup.asp?group=2
+
+
+main things:
+-----------
+
+ng-repeat
+ng-model
+
+qms shared folder
+-----------------
+\\199.228.243.17\qms\QMSNew
+
+IntellectualpropertyIP- test bed
+
+Intellectualproperty - production
+
+https://qms.corp.mphasis.com/qmsnew/Intellectualproperty/default.asp
+
+
+qms server - db
+--------------
+172.20.7.36
+
+qms/qms
+
+server team contanct:
+9845902586 
+
+Database backup
+---------------
+
+Table backup
+------------
+
+right click database
+
+click task
+Export data
+next
+Data source - nochages
+
+use sql server athunication
+qms/qms
+
+destination- Microsoft excel
+
+
+Checkout the code from TFS
+---------------------------
+
+Loading latest Msmart dump to the database
+Msmart dump 
+
+
+
+ng-class="{'color-blue': profile.Prior_Support_expproj === 0,'color-red': profile.Prior_Support_expproj === 10, 'color-yellow': profile.Prior_Support_expproj === 5, 'color-green': profile.Prior_Support_expproj === 1}" 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

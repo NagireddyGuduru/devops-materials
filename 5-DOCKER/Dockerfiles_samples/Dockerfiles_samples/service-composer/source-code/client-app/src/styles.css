@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+.cursor-pointer{
+    cursor: pointer;
+}
+
+.title {
+	background-color: rgb(3,136,199);
+	color: white;
+}
+
+.wizardcard {
+	margin-top: 10px;
+}
+
+.mainContent {
+	padding-bottom: 15px;
+}

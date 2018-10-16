@@ -1,0 +1,30 @@
+UDeploy:
+
+download location:
+https://www-01.ibm.com/marketing/iwm/tnd/preconfig.jsp?id=2014-06-12+01%3A50%3A45.321368R&S_TACT=&S_CMP=
+
+Udeploy tutorials:
+http://www.ibm.com/support/knowledgecenter/SS4GSP_6.2.0/com.ibm.udeploy.doc/topics/c_node_tutorials.html
+
+developerworkers:
+https://developer.ibm.com/urbancode/docs/ibm-connections-deployment-using-ibm-urban-code-deploy/
+
+
+steps:
+
+1)install the Urbandeploy
+2)start the urban delop
+3)to access the https://wksban04gfa051.corp.mphasis.com:8443
+4)install agent
+ take the from this location
+D:\Project\Tools\Udeploy\URBANCODE_DEPLOY_6.2.1.1_EN_EVAL\ibm-ucd-install\overlay\opt\tomcat\webapps\ROOT\tools\agent-relay
+extract the zip
+
+ run install-agent it will ask the location to install agent give other that c: location
+5) run the agents
+6) d/w the artifacts from ...?
+   http://download.boulder.ibm.com/ibmdl/pub/software/rationalsdp/documentation/product_doc/UrbanCode/uDeploy/version_6-1/artifacts.zip
+
+
+https://www.ibm.com/support/knowledgecenter/SS4GSP_6.1.2/com.ibm.udeploy.tutorial.doc/topics/webapp_components.html
+

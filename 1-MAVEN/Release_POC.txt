@@ -1,0 +1,105 @@
+--version change commands:
+mvn versions:set -DnewVersion=1.0.3-SNAPSHOT
+
+-- using below command
+mvn release:update-versions -DautoVersionSubmodules=true -DdevelopmentVersion=12.0.4-SNAPSHOT
+
+-- Release commands
+mvn -B release:clean release:prepare release:perform
+mvn --batch-mode release:prepare release:perform
+
+-- cron job to run every 1 hours
+H */1 * * *
+
+
+
+jenkins :
+-- get the brach by passing parameter
+refs/heads/${versionNum}
+
+-- get latest tag
++refs/tags/*:refs/remotes/origin/tags/*
+
+*/tags/*
+
+-- to get branch from git:
+refs/remotes/origin/Dev
+refs/heads/Dev
+
+
+--sonar publish with code coverage
+clean org.jacoco:jacoco-maven-plugin:prepare-agent install -Pcoverage-per-test sonar:sonar
+mvn sonar:sonar -Dsonar.login=**** -Dsonar.password=****
+
+add profile in setting .xml
+<profile>
+            <id>sonar</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <!-- Optional URL to server. Default value is http://localhost:9000 -->
+                <sonar.host.url>
+                  http://localhost:9000
+                </sonar.host.url>
+            </properties>
+        </profile>
+
+-- to publish artifact in Nexuse 
+-- mvn deploy
+
+1) Add entry in pom.xml
+<distributionManagement>
+        <repository>
+            <id>deployment</id>
+            <name>Internal Releases</name>
+            <url>http://localhost:8082/nexus/content/repositories/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>deployment</id>
+            <name>Internal Snapshot Releases</name>
+            <url>http://localhost:8082/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+</distributionManagement>
+
+2) add Nexus server details in setting.xml
+   <server>
+      <id>deployment</id>
+      <username>admin</username>
+      <password>admin123</password>
+    </server>
+
+
+-- SCM entry to create the tag in Repo
+
+SVN:
+       <scm>
+         <developerConnection>scm:svn:https://WKSBAN04ATZLB1.corp.mphasis.com/svn/nagi</developerConnection>
+       </scm>
+
+
+git checkout master
+git add .
+git commit -m "commiting project with latest version"
+git push --set-upstream origin master
+
+
+git config credential.helper store
+git config --global credential.helper 'cache --timeout 7200'
+
+
+echo $GIT_COMMITTER_NAME
+# prints the value of GIT_COMMITTER_NAME
+echo $GIT_AUTHOR_NAME
+# prints the value of GIT_AUTHOR_NAME
+
+set the names
+GIT_COMMITTER_NAME=Billy Everyteen
+GIT_AUTHOR_NAME=Billy Everyteen
+
+cache your GitHub password in Git.
+git config --global credential.helper wincred
+
+
+
+http://stackoverflow.com/questions/11848406/jenkins-how-to-check-out-artifact-from-nexus-and-deploy-on-tomcat

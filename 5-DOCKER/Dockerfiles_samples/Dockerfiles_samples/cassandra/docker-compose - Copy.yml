@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+
+  cassandra:
+    build:
+      context: ./cassandra
+      dockerfile: Dockerfile
+    ports:
+      - "9009:7000"
+    image: cassandra-datastore
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+   

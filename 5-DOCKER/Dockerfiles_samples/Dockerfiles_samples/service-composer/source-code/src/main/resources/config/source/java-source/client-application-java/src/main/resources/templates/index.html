@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Microservices Client Application</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/bootstrap.min.css}" />
+    
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/bootstrap-grid.min.css}" />
+	  <link rel="stylesheet" type="text/css" th:href="@{/assets/css/indigo-pink.css}" />
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" th:href="@{/assets/css/app.css}" />
+  	
+  </head>
+
+  <body>
+  	<div th:replace="/fragments/header :: header"/>
+  	
+  	<div th:replace="/fragments/body :: main"/>
+  	
+  	<div class="space-placeholder"></div>
+  	
+  	<div th:replace="/fragments/footer :: footer"/>
+  	
+  </body>
+</html>

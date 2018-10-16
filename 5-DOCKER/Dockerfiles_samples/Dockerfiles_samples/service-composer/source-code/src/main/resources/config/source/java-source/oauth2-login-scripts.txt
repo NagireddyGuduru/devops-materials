@@ -1,0 +1,21 @@
+#<block-edge-service-zuul-start>
+# Checking the demo service ping url, Unauthorized exception must be thrown
+curl http://192.168.99.100/auth-service/users
+
+# Get an Oauth2 access token
+CURL -X POST -u "demo-client-app:secret" -H 'Accept:application/json' -d "client_id=demo-client-app&client_secret=secret&grant_type=password&username=admin&password=admin" http://192.168.99.100/auth-service/oauth/token
+
+# Get the access token, looks something lile 6da5863b-9a45-49e2-9196-e904819725c3
+curl -H "Authorization: bearer 6da5863b-9a45-49e2-9196-e904819725c3" http://192.168.99.100/auth-service/users
+#<block-edge-service-zuul-end>
+
+#<block-non-edge-service-zuul-start>
+# Checking the demo service ping url, Unauthorized exception must be thrown
+curl http://192.168.99.100:8000/auth-service/users
+
+# Get an Oauth2 access token
+CURL -X POST -u "demo-client-app:secret" -H 'Accept:application/json' -d "client_id=demo-client-app&client_secret=secret&grant_type=password&username=admin&password=admin" http://192.168.99.100:8000/auth-service/oauth/token
+
+# Get the access token, looks something lile 6da5863b-9a45-49e2-9196-e904819725c3
+curl -H "Authorization: bearer 6da5863b-9a45-49e2-9196-e904819725c3" http://192.168.99.100:8000/auth-service/users
+#<block-non-edge-service-zuul-end>

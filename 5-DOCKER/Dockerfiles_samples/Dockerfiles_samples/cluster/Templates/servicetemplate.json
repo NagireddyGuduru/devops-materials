@@ -1,0 +1,28 @@
+{
+	"apiVersion": "v1",
+	"kind": "Service",
+	"metadata": 
+	{
+		"labels": 
+		{
+			"app": "$SERVICE_NAME",
+			"component": "ui"
+		},
+		"name": "$SERVICE_NAME"
+	},
+	"spec": 
+	{
+		"ports":
+		[
+			{
+				"port": 80,
+				"targetPort": 8080
+			}
+		],
+		"selector":
+		{
+			"app": "$SERVICE_NAME",
+			"component": "ui"
+		}
+	}
+}

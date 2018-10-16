@@ -1,0 +1,181 @@
+*********************************
+Docker Installation in windows
+********************************
+
+1) Install Jdk 1.8
+
+2) Install docker
+
+   downloaded docker from below link
+
+   https://docs.docker.com/docker-for-windows/install/#download-docker-for-windows
+   selected : Get docker for window(stable)
+
+   verify : docker version
+            docker info
+            docker-compose --version
+            docker-machine --version
+
+3) Enable swarm mode
+       docker swarm init
+
+4) Create docker maching for workers
+	install Virual box
+	docker-machine create --driver virtualbox dev
+
+***************
+Docker COMMANDS
+***************
+ docker-compose -f docker-compose.yml build  // To Build the images 
+
+ update docker-compose.yml file with IP address of host machine
+	java createdeployables <ip-address-of-ur-docker-hostmachines>
+
+ docker stack deploy -c docker-compose.yml mystack  // to do stack deployment
+ 
+ 
+
+**********
+DOCUMENTS:
+**********
+
+for windows dockerization:
+
+https://blog.docker.com/2016/09/build-your-first-docker-windows-server-container/
+
+******
+ISSUES
+******
+
+1) 
+1004cdeaed49: Waiting
+ERROR: error pulling image configuration: Get https://registry-1.docker.io/v2/dockersamples/visualizer/blobs/sha256:03aa6f3e43b48ec795233fc0da67e254c690c3b02f1684a1cdb96f4bfdc21abd: net/http: TLS handshake timeout
+
+Solution to fix client timeout issue
+- Go to docker icon - settings - network - channge DNS to fixed 8:8:8:8
+- Go to control panel - network seeting - docker adapter - channge DNS to fixed 8:8:8:8
+
+2)
+Error response from daemon: Get https://registry-1.docker.io/v2/: proxyconnect tcp: dial tcp: lookup btpproxy.mphasis.co
+m: no such host
+
+
+3)
+container e0f40612f79977c69646a0207103117b694d604f3762b72bf80a9f3ec98475a6 encountered an error during Start: failure in a Windows system call: The operation timed out because a response was n
+ot received from the Virtual Machine hosting the Container. (0xc0370109)
+
+
+
+
+{
+  "registry-mirrors": [],
+  "insecure-registries": [],
+  "debug": true,
+  "experimental": true,
+  "graph": "c:\\vm\\docker"
+}
+
+4)
+Unable to create: The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: Creating the virtual machine failed.
+at New-MobyLinuxVM, <No file>: line 202
+at <ScriptBlock>, <No file>: line 409
+   at Docker.Backend.HyperV.RunScript(String action, Dictionary`2 parameters) in C:\gopath\src\github.com\docker\pinata\win\src\Docker.Backend\HyperV.cs:line 181
+   at Docker.Backend.ContainerEngine.Linux.Start(Settings settings, String daemonOptions) in C:\gopath\src\github.com\docker\pinata\win\src\Docker.Backend\ContainerEngine\Linux.cs:line 131
+   at Docker.Core.Pipe.NamedPipeServer.<>c__DisplayClass9_0.<Register>b__0(Object[] parameters) in C:\gopath\src\github.com\docker\pinata\win\src\Docker.Core\pipe\NamedPipeServer.cs:line 47
+   at Docker.Core.Pipe.NamedPipeServer.RunAction(String action, Object[] parameters) in C:\gopath\src\github.com\docker\pinata\win\src\Docker.Core\pipe\NamedPipeServer.cs:line 145
+
+solution:
+•exit the application
+•Stop-Service com.docker.service
+•cd 'C:\Program Files\Docker\Docker\resources'
+•.\MobyLinux.ps1 -Destroy
+.\MobyLinux.ps1 Create
+
+net stop com.docker.service
+net start com.docker.service
+
+restart-service *docker*
+
+Error response from daemon: Get https://registry-1.docker.io/v2/: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers
+[Environment]::SetEnvironmentVariable("HTTP_PROXY", "http://btpproxy.mphasis.com:8080", [EnvironmentVariableTarget]::Machine)"
+
+
+docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer
+
+*************************
+DOCKER CLEAN UP COMMANDS
+*************************
+
+#Delete all stopped containers (including data-only containers)
+docker rm $(docker ps -a -q)
+
+#Kill all running containers
+docker kill $(docker ps -q)
+
+#Delete ALL images
+docker rmi $(docker images -q)
+
+#Make sure that exited containers are deleted.
+docker rm -v $(docker ps -a -q -f status=exited)
+
+#We can reclaim this space by deleting the unwanted volumes
+docker volume rm $(docker volume ls -qf dangling=true)
+
+#To delete dangling images
+docker image prune -a
+
+docker rmi $(docker images --filter "dangling=true" -q --no-trunc) --force
+
+docker images --no-trunc | grep '<none>' | awk '{ print $3 }' | xargs -r docker rmi
+
+docker ps --filter status=dead --filter status=exited -aq | xargs docker rm -v
+
+docker run -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker:/var/lib/docker --rm martin/docker-cleanup-volumes
+
+
+You can restart an existing container after it exited and your changes are still there.
+
+docker start  `docker ps -q -l` # restart it in the background
+docker attach `docker ps -q -l` # reattach the terminal & stdin
+
+docker run  -d  -e ENV_DOCKER_REGISTRY_HOST=172.20.15.101  -e ENV_DOCKER_REGISTRY_PORT=8445  -e ENV_DOCKER_REGISTRY_USE_SSL=1  -p 0.0.0.0:80:80  konradkleine/docker-registry-frontend:v2
+
+
+
+******************************
+Docker Private Registry setup
+******************************
+
+docker push konradkleine/docker-registry-frontend:mstf-ui
+docker tag stp-devops-assesment localhost:8444/stp-devops-assesment:1.0.0
+docker push localhost:8444/stp-devops-assesment:1.0.0
+docker pull WKSBAN14STP8197.corp.mphasis.com:8444/stp-devops-assesment:1.0.0
+
+http://wksban14stp8197.corp.mphasis.com:8444/v2/_catalog
+
+http://localhost:9080/STPlatform/STP/Cart?q=1
+
+
+
+
+****************************
+Push Docker images into Repo
+****************************
+
+docker login
+docker tag my_image $DOCKER_ID_USER/my_image
+docker push $DOCKER_ID_USER/my_image
+
+docker tag mstf-ui stpdockerhub/mstf-ui:1.0
+docker push stpdockerhub/mstf-ui:1.0
+docker pull stpregistry.azurecr.io/mstf-ui:1.0
+
+**************
+X2C component:
+**************
+
+docker run –d –p 8080:8080 –p 5432:5432 x2c_demo:1.0
+docker run –d –p 8080:8080 –p 5432:5432 stpregistry.azurecr.io/x2cdemo:1.0
+
+
+

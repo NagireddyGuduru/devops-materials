@@ -1,0 +1,33 @@
+version: "3"
+
+services:
+  digital-mysql:
+    build:
+      context: ./SQL Dump
+      dockerfile: Dockerfile
+    image: digital-mysql
+    environment:
+        - MYSQL_ROOT_PASSWORD=root
+        - MYSQL_PASSWORD=root
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure    
+    ports:
+        - "3306:3306"
+          
+  digital-war:
+    build:
+      context: ./WAR
+      dockerfile: Dockerfile
+    image: stp-digital-assessment-war
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure    
+    ports:
+        - "9990:8080"
+    links:
+     - digital-mysql
+    depends_on:
+     - digital-mysql

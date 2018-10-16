@@ -1,0 +1,12 @@
+Innovation Tracker:
+
+-- Need Plugin MSBuild
+
+Build:
+
+-- To build this application user .csproj
+   InnovationTracker.csproj
+
+Deploy:
+
+/p:Configuration=Release;DeployOnBuild=True;PublishProfile=PublishononlocalServer;ProfileTransformWebConfigEnabled=False;AllowUntrustedCertificate=true

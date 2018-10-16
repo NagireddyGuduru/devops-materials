@@ -1,0 +1,26 @@
+input {
+    file {
+  	 path => "//srvban04mppmvm1/itg/server/EMPMDEV/log/*.txt"
+   	 start_position => beginning
+         }
+  }
+filter {
+	grok {
+   	  match => {"message" => "%{COMBINEDAPACHELOG}"
+         }
+	geoip{
+ 	  source => "clientip"
+	}
+}
+output {
+
+if "ERROR" in [message] {
+file {
+   path => "D://MPPM log file/mppm log.txt"
+ }
+elasticsearch {
+	hosts => "localhost:9200"
+	index => "london"
+  }
+}
+}

@@ -1,0 +1,123 @@
+.login-page {
+    width: 55%;
+    margin: 60px 20%;
+}
+.login-page article.register {
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(207,207,207);
+    background-color: rgb(3,136,199);
+    height: 287px;
+}
+.login-page article.login {
+    background-color:rgb(255, 255, 255);
+    border-width: 1px;
+    border-color: rgb(207,207,207);
+    border-style: solid;
+    height: 287px;
+    padding: 10px 31px;
+}
+.login-page img.login-icon {
+    padding: 10px 103px;
+}
+.login-page .register .register-content{
+    font-size: 15px;
+    font-family: Roboto;
+    color: rgb(255,255,255);
+    padding: 5px 44px;
+}
+.login-page .card {
+    width: 50%;
+    margin: 25px auto;
+}
+.login-page .btn {
+    cursor: pointer;
+}
+.login-page .btn-secondary {
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(255,255,255);
+    background-color: rgb(3,136,199);
+    width: 130px;
+    height: 41px;
+    font-size: 16px;
+    color: rgb(255,255,255);
+    font-family: Roboto;
+    border-radius: 25px;
+    margin: 10px 83px;
+}
+.login-page .login article.welcome-header {
+    font-size: 22px;
+    font-family: Roboto;
+    color: rgb(3,136,199);
+}
+.login-page .login  article.sso-title {
+    font-size: 12px;
+    font-family: Roboto;
+    color: rgb(185,185,185);
+    padding: 5px 0 15px 0;
+}
+.login-page .login button.btn.btn-secondary {
+    width: 92px;
+    margin: 0;
+    background-color: rgb(99,156,253);
+}
+
+.login-page .login .btn-clear {
+    background-color: rgb(255,255,255) !important;
+    border-color: rgb(3,136,199) !important;
+    color: rgb(3,136,199) !important;
+}
+.login-page .login  a.forgot-pwd {
+    color: rgb(3,136,199);
+}
+.login-page .login  article.login-btns {
+    margin: 15px auto;
+    padding-top: 10px;
+    width: 75%;
+}
+.login-page .login .form-control {
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    border-radius: 0;
+    border-bottom: 2px solid rgb(3,126,199);
+    color: rgb(185,185,185);
+    font-size: 16px;
+    padding-left: 0;
+}
+.login-page .login .form-group {
+    position:relative;   
+  }
+  
+.login-page .login .form-label {
+    position: absolute;
+    left: 0;
+    top: 10px;
+    color: rgb(185,185,185);
+    font-size: 16px;
+    z-index: 10;
+    transition: transform 150ms ease-out, font-size 150ms ease-out;
+  }
+  
+.login-page .login .focused .form-label {
+    transform: translateY(-125%);
+    color: rgb(3,126,199);
+    font-size: 12px;
+  }
+.login-page .fa-circle-thin {
+    font-size: 12px;
+    padding-right: 10px;
+}
+.login-page .fa.fa-lock {
+    font-size: 14px;
+}
+
+
+.input-error {
+	border-color: #de615e !important;
+}
+
+.pull-right {
+    text-align: right;
+}

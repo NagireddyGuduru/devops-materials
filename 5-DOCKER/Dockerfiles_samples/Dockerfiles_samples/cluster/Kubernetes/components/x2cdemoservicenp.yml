@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: x2cdemo
+    component: ui
+  name: x2cdemo
+spec:
+  type: NodePort
+  ports:
+  - port: 8080
+    nodePort: 32350   
+    targetPort: 8080
+  selector:
+    app: x2cdemo
+    component: ui
+    
+    

@@ -1,0 +1,29 @@
+version: '2'
+services:
+  elasticsearch:
+    hostname: elastic
+    domainname: elk-local
+    image: elasticsearch:2.4
+    ports:
+      - "9200"
+      - "9300"
+    environment:
+      - ES_HEAP_SIZE=1G
+    
+  kibana:
+    hostname: kibana
+    domainname: elk-local
+    image: kibana
+    ports:
+      - "90:5601"
+      
+  logstash:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    hostname: logstash
+    domainname: elk-local
+    command: logstash -f /usr/share/logstash/config/logstash.conf
+    image: logstash
+    ports:
+      - "8888:8080"    

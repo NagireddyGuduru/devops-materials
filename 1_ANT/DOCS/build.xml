@@ -1,0 +1,52 @@
+<?xml version="1.0" ?> 
+<project name="AntExample1" default="compile">
+
+	<path id="mylibs">
+		<fileset dir="WebContent\WEB-INF\lib">
+			<include name="*.jar"/>
+		</fileset>
+	</path>
+	
+	
+	<target name="compile" >
+		<mkdir dir="build/classes"/>
+		<javac destdir="build/classes" srcdir="src">
+			<classpath refid="mylibs"/>
+		</javac>
+			
+			
+	</target>
+	
+	<target name="war" depends="compile">
+		<war destfile="webapp.war" webxml="WebContent/WEB-INF/web.xml">
+			<fileset dir="WebContent"/>
+			<classes dir="build/classes"/>
+			
+		</war>
+	</target>
+	
+	
+	<target name="deploy">
+	
+		<sshexec host="192.168.187.128" username="root" password="redhat" trust="true" command="ls -ltr"/>
+		<scp file="dist\AntExample.war" todir="root@192.168.187.128:/root/ant_files" password="redhat" trust="true"/>
+	
+	</target>
+	
+	
+	<!--
+  <target name="deploy" depends="war">
+		<sshexec host="192.168.80.128" username="root" password="redhat" command="/etc/init.d/httpd stop"/>
+		<sshexec host="192.168.80.128" username="root" password="redhat" command="mkdir -p /root/antexample"/>
+	    <scp file="dist\AntExample.war" todir="root@192.168.80.128:/root/antexample" password="redhat"/>
+		
+		<sshexec host="192.168.80.128" username="root" password="redhat" command="/etc/init.d/httpd start"/>
+  </target>
+
+-->	
+	<target name="clean">
+		<delete dir="dist" />
+		<delete dir="build" />
+	</target>
+	
+</project>

@@ -1,0 +1,113 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    background-color: rgb(243,246,249);
+}
+header{
+    background-color: #ffffff;
+    height: 75px;
+    padding: 17px 22px;
+}
+
+header img.card-avatar {
+    margin-top: -17px;
+}
+
+.no-left-padding {
+    padding-left: 0px;
+}
+
+footer {
+    background-color:#35a8df;
+    
+}
+footer img.navbar-brand {
+    max-width: 42px;
+    margin: 0 4px;
+}
+footer section {
+    background: #00314f;
+    color: #84a1af;
+    font: 14px "robotolight",sans-serif;
+    padding: 20px 0;
+}
+footer a:hover {
+    text-decoration: none;
+    color: #fff;
+}
+
+footer a {
+    color:#84a1af;
+}
+
+footer .footer-social-icons a {
+    margin: 0 3px;
+}
+footer .footer-social-icons a img.social-icon-hover {
+    display: none;
+}
+footer .footer-social-icons a img.social-icon {
+    display: inline;
+}
+footer .footer-social-icons a:hover img.social-icon-hover {
+    display: inline;
+}
+footer .footer-social-icons a:hover img.social-icon {
+    display: none;
+}
+footer .footer-social-icons img {
+    width: 45px;
+    height: 45px;
+}
+footer article.copyRights {
+    padding-top: 15px;
+}
+
+.fixed-bottom {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.bg-faded {
+    border-width: 1px;
+    border-color: rgb(243,243,244);
+    font-size: 24px;
+    font-family: Roboto;
+    color: rgb(0,1,1);
+    border-style: solid;
+    background-color: rgb(249,250,252);
+    height: 38px;
+}
+
+.bg-faded nav a {
+    font-size: 14px;
+    font-family: Roboto;
+    color: rgb(94,94,94);
+    font-weight: bold;
+    text-decoration: none;
+}
+.bg-faded span.nav-link {
+    padding: 4px 0;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.bg-faded a.nav-link:hover,.bg-faded a.nav-link:focus {
+    color: rgb(3,136,199);
+}
+
+.bg-faded ul.dropdown-menu {
+    width: 100%;
+}
+
+main {
+    position: relative;
+    overflow-y: auto;
+    padding-bottom: 60px;
+}
+
+.space-placeholder {
+    height: 50px;
+}

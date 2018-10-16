@@ -1,0 +1,4 @@
+.idea
+.travis.yml
+xlsx2json-*.tgz
+coverage

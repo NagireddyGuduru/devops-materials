@@ -1,0 +1,40 @@
+JIRA:
+  - It is project mgmt tool
+  - Which supports diff tech eg: agile
+  - We can manage our tasks,bugs,timesheets,workflows etc..
+  
+  
+Cloud Based account:
+  - https://www.atlassian.com/software/jira/try
+    nagireddy.devops2018@gmail.com
+	nagireddy
+  - Select scrum
+    Key: MYWEB
+
+  Scrum:
+  
+  - Manage stories, tasks, and workflows for a scrum team ? For teams that deliver work on a regular schedule 
+
+
+ Agile:
+  - SDLC lifecycle are short typically 2 weeks we call it as a sprint.
+  - We have to follow incremental development we break bigger task into smaller once
+  - In One Sprint, developer work on one task.
+  - In Agail, task is reffered as a story. story represent a new feature
+  
+  
+Standup meetings:
+
+  - There will be standup meeting every day for 15min.
+  - Every day team will have meeting for 10-15min there every will update about progress of theire stories
+  - The complete sprint is divide like this
+     1) Restrospectives
+        In this meating, we talk good and bad about previous sprint we also figure out in next sprint.
+	 2) Story grooming
+	    - some one explaining about the requirements we shoudl work in next sprint or current sprint.
+     3) Starting on Sprint.
+	    - Scrum master
+		    - create new sprint in jira
+			- add stories we going work in this sprint.
+		
+	   

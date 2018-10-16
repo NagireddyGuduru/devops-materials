@@ -47,7 +47,7 @@ cd linux-x86-64
 
 Install as service:
 
-ln -s /opt/sonarqube/linxu/sonar.sh /usr/bin/sonar - Note: give obsoulte path
+ln -s /opt/sonarqube-7.3/bin/linux-x86-64/sonar.sh /usr/bin/sonar - Note: give obsoulte path
 ls -ltr /usr/bin/sonar // if it is red broken link if it is green link working fine.
 
 
@@ -104,6 +104,45 @@ Security Rating new code
 
 
 Intraduce Bugs:
+
+
+step 1:
+sudo su
+cd /opt/
+
+step 2:
+
+wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-7.3.zip
+
+step 3:
+unzip sonarqube-7.3.zip
+
+step 4:
+
+chown -R ec2-user:ec2-user sonarqube-7.3/
+
+step 5:
+Create a file /etc/init.d/sonar and copy the following content on to the file.
+#!/bin/sh
+/usr/bin/sonar $*
+
+step 6:
+
+ln -s /opt/sonarqube-7.3/bin/linux-x86-64/sonar.sh /usr/bin/sonar
+verify link created or not
+ls -ltr /usr/bin/sonar
+
+step 7:
+
+sudo chmod 755 /etc/init.d/sonar
+sudo chkconfig --add sonar
+
+step 8:
+reboot
+
+sudo service sonar start
+sudo service sonar stop
+sudo service sonar restart 
 
 
 

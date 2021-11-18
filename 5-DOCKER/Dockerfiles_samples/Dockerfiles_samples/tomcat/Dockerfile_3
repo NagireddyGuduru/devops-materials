@@ -1,9 +1,0 @@
-# Pull base image
-FROM tomcat:8.0-jre8
-
-#Copy the build into htdocs
-COPY dist/  /usr/local/tomcat/webapps/mstf/
-
-# copy the war file
-ADD target/MSTFSTP.war /usr/local/tomcat/webapps/
-

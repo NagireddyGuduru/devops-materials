@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: nginx-ingress-controller-conf
-  namespace: kube-system
-data:
-  # enable-vts-status: 'true'

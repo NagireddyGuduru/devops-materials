@@ -1,5 +1,0 @@
-{"level":"info","message":"Server listening on port  3030 !","timestamp":"2017-12-04T11:31:41.898Z"}
-{"level":"info","message":"Kairos DB Connection Success! localhost : 8080","timestamp":"2017-12-04T11:31:41.945Z"}
-{"level":"info","message":"Cassandra DB Connection Success! 127.0.0.1 : 9042","timestamp":"2017-12-04T11:31:42.271Z"}
-{"level":"info","message":"POST Organization operation Started!","timestamp":"2017-12-04T11:40:42.472Z"}
-{"level":"info","message":"Post Organizations Record/s have been added successfully! ::  TotalRecord:1 InsertCount: 1 FailedCount:0","timestamp":"2017-12-04T11:40:42.546Z"}

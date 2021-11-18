@@ -1,5 +1,0 @@
-docker run -itd -p 5601:5601 -p 9200:9200 -p 5044:5044 -it --name elk sebp/elk
-
-docker run -itd -p 5601:5601 -p 9200:9200 -p 5044:5044 -it --name elk elk
-
-http://172.20.15.124:5601/app/kibana

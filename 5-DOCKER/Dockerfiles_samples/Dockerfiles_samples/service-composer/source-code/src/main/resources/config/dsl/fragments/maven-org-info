@@ -1,7 +1,0 @@
-	<name>{{projectName}}</name>
-	<url>{{projectUrl}}</url>
-	<description>{{projectDescription}}</description>
-	<organization>
-		<name>{{organizationName}}</name>
-		<url>{{organizationUrl}}</url>
-	</organization>

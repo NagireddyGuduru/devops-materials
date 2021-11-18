@@ -1,7 +1,0 @@
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteBase "/uiaccelarator/"
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-	RewriteRule ^uiaccelarator/ngxmaterial/([^/]+)$ /ngxmaterial/index.html [L]
-</IfModule>
